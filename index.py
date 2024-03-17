@@ -50,6 +50,9 @@ def human_size(size_bytes):
     s = round(size_bytes / p, 2)
     return f"{s} {size_name[i]}"
 
+seen_sizes = []
+dups = []
+
 def zip_dir(dir_name):
     dir_path = os.path.join(SRC_DIR, dir_name)
 
@@ -57,6 +60,11 @@ def zip_dir(dir_name):
         print(f"Zipping `{dir_name}`...")
 
         initial_size, has_noise = get_info(dir_path)
+        if initial_size in seen_sizes:
+            print(f"Found duplicate `{dir_name}`")
+            dups.append(dir_name)
+            return
+        seen_sizes.append(initial_size)
         if has_noise:
             print(f"Clickpack `{dir_name}` has a noise file")
         shutil.make_archive(os.path.join(DST_DIR, dir_name), 'zip', dir_path)
@@ -65,7 +73,7 @@ def zip_dir(dir_name):
             large_files.append(dir_name)
 
         print(f"{dir_name}: {human_size(initial_size)} => {human_size(final_size)}, -{human_size(initial_size - final_size)}")
-        db[dir_name] = {"size": final_size, "has_noise": has_noise, "url": BASE_URL + dir_name + '.zip'}
+        db[dir_name] = {"size": final_size, "uncompressed_size": initial_size, "has_noise": has_noise, "url": BASE_URL + dir_name + '.zip'}
 
 with concurrent.futures.ThreadPoolExecutor() as executor:
     executor.map(zip_dir, os.listdir(SRC_DIR))
@@ -74,7 +82,9 @@ print(f"\nFiles larger than {human_size(LARGE_FILESIZE)}:")
 for file in large_files:
     print(file)
 else:
-    print("None!")
+    print("None!\n")
+
+print(f"Removed {len(dups)} duplicates in total: {', '.join(dups)}")
 
 actual_filename = DB_FILENAME
 if DEBUG_DB:
@@ -84,4 +94,4 @@ with open(os.path.join(actual_filename), "w") as f:
         json.dump(db, f, indent=4)
     else:
         json.dump(db, f, separators=(',', ':'))
-print(f"\nFinal database consists of {len(db)} entries and is saved to `{actual_filename}`")
+print(f"Final database consists of {len(db)} entries and is saved to `{actual_filename}`")
