@@ -90,6 +90,9 @@ else:
 
 print(f"Removed {len(dups)} duplicates in total: {', '.join(dups)}")
 
+# sort database alphabetically (case-insensitive)
+db = {k: db[k] for k in sorted(db, key=str.lower)}
+
 actual_filename = DB_FILENAME
 if DEBUG_DB:
     actual_filename = "debug_" + DB_FILENAME
@@ -99,3 +102,5 @@ with open(os.path.join(actual_filename), "w") as f:
     else:
         json.dump(db, f, separators=(',', ':'))
 print(f"Final database consists of {len(db)} entries and is saved to `{actual_filename}`")
+total_size = sum(map(lambda x: x["size"], db.values()))
+print(f"Total database size (compressed): {human_size(total_size)}")
