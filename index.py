@@ -11,6 +11,7 @@ NOISE_FILES = ["noise", "whitenoise", "pcnoise", "background"]
 DB_FILENAME = "db.json"
 DEBUG_DB = False
 BASE_URL = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/"
+DELETE_DUPLICATES = True
 large_files = []
 
 # load db.json if it exists
@@ -63,6 +64,9 @@ def zip_dir(dir_name):
         if initial_size in seen_sizes:
             print(f"Found duplicate `{dir_name}`")
             dups.append(dir_name)
+            if DELETE_DUPLICATES:
+                print(f"Deleting duplicate `{dir_name}` from `{SRC_DIR}`...")
+                shutil.rmtree(dir_path)
             return
         seen_sizes.append(initial_size)
         if has_noise:
