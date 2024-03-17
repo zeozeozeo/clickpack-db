@@ -4,7 +4,7 @@ import math
 import concurrent.futures
 import json
 
-SRC_DIR = "db"
+SRC_DIR = "ogg"
 DST_DIR = "out"
 LARGE_FILESIZE = 25 * 1024 * 1024
 NOISE_FILES = ["noise", "whitenoise", "pcnoise", "background"]
