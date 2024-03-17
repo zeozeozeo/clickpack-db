@@ -1,0 +1,4 @@
+/db/*
+!/db/put_clickpacks_here
+debug_db.json
+# /out
