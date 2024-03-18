@@ -5,7 +5,7 @@ A database of clickpacks for Geometry Dash clickbots with an easy-to-use API.
 ## Usage
 
 1. Place your clickpacks in the `db` directory.
-2. Run the following command to convert the clickpacks to .ogg files. The converted files will be placed in the `ogg` directory.
+2. Run the following command to convert the clickpacks to .ogg files. The converted files will be placed in the `ogg` directory. Note: you need to have FFmpeg installed.
     ```bash
     python3 audio2ogg.py
     ```
