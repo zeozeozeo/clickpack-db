@@ -98,6 +98,6 @@ with open(os.path.join(actual_filename), "w", encoding="utf-8") as f:
         json.dump(db, f, indent=4)
     else:
         json.dump(db, f, separators=(',', ':'))
-print(f"Final database consists of {len(db)} entries and is saved to `{actual_filename}`")
+print(f"Final database consists of {len(db['clickpacks'])} entries and is saved to `{actual_filename}`")
 total_size = sum(map(lambda x: x["size"], db['clickpacks'].values()))
 print(f"Total database size (compressed): {human_size(total_size)}")
