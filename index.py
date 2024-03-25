@@ -15,9 +15,9 @@ DELETE_DUPLICATES = True
 
 # load db.json if it exists
 db = {'updated_at_iso': '', 'updated_at_unix': 0, 'clickpacks': {}}
-if os.path.exists(os.path.join(DST_DIR, DB_FILENAME)):
+if os.path.exists(DB_FILENAME):
     print(f"Loading `{DB_FILENAME}`...")
-    with open(os.path.join(DST_DIR, DB_FILENAME), 'r', encoding='utf-8') as f:
+    with open(DB_FILENAME, 'r', encoding='utf-8') as f:
         db = json.load(f)
 print(f"Initial database consists of {len(db)} entries")
 
