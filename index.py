@@ -12,13 +12,18 @@ DB_FILENAME = "db.json"
 DEBUG_DB = False
 BASE_URL = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/"
 DELETE_DUPLICATES = True
+DEFAULT_DB = db = {'updated_at_iso': '', 'updated_at_unix': 0, 'version': 0, 'clickpacks': {}}
 
 # load db.json if it exists
-db = {'updated_at_iso': '', 'updated_at_unix': 0, 'clickpacks': {}}
+db = {}
 if os.path.exists(DB_FILENAME):
     print(f"Loading `{DB_FILENAME}`...")
     with open(DB_FILENAME, 'r', encoding='utf-8') as f:
         db = json.load(f)
+for k, v in DEFAULT_DB.items():
+    if k not in db:
+        print(f'Adding default entry for key `{k}`: {v}')
+        db[k] = v
 print(f"Initial database consists of {len(db)} entries")
 
 try:
@@ -43,7 +48,7 @@ def get_info(path):
 
 def human_size(size_bytes):
     if size_bytes == 0:
-        return "0B"
+        return "0 B"
     size_name = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
     i = int(math.floor(math.log(size_bytes, 1024)))
     p = math.pow(1024, i)
@@ -88,6 +93,7 @@ db['clickpacks'] = {k: db['clickpacks'][k] for k in sorted(db['clickpacks'], key
 now = datetime.now(timezone.utc)
 db['updated_at_iso'] = now.isoformat()
 db['updated_at_unix'] = int(round(now.timestamp()))
+db['version'] += 1
 print('Updated at: ' + db['updated_at_iso'])
 
 actual_filename = DB_FILENAME
@@ -100,4 +106,6 @@ with open(os.path.join(actual_filename), "w", encoding="utf-8") as f:
         json.dump(db, f, separators=(',', ':'))
 print(f"Final database consists of {len(db['clickpacks'])} entries and is saved to `{actual_filename}`")
 total_size = sum(map(lambda x: x["size"], db['clickpacks'].values()))
+total_uncomp_size = sum(map(lambda x: x["uncompressed_size"], db['clickpacks'].values()))
 print(f"Total database size (compressed): {human_size(total_size)}")
+print(f"Total database size (uncompressed): {human_size(total_uncomp_size)}")
