@@ -12,7 +12,7 @@ AUDIO_EXTENSIONS = ['.mp3', '.wav', '.aiff', '.flac', '.aac', '.wma', '.m4a', '.
 
 def convert_to_ogg(src_path, out_path):
     """Convert an audio file to .ogg using ffmpeg."""
-    command = ['ffmpeg', '-i', src_path, '-y', '-bitexact', '-acodec', 'libvorbis', out_path]
+    command = ['ffmpeg', '-i', src_path, '-y', '-flags', 'bitexact', '-acodec', 'libvorbis', out_path]
     print(f'CONVERT {src_path} to {out_path}...')
     with open(os.devnull, 'wb') as devnull:
         subprocess.run(command, stdout=devnull, stderr=devnull, check=True)

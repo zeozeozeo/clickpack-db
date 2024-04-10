@@ -38,14 +38,15 @@ def get_info(path):
     total = 0
     has_noise = False
     for dirpath, _, filenames in os.walk(path):
-        for f in filenames:
-            for noise_name in NOISE_FILES:
-                if f.lower().startswith(noise_name):
-                    has_noise = True
-            fp = os.path.join(dirpath, f)
-            total += os.path.getsize(fp)
+        for ff in filenames:
+            fp = os.path.join(dirpath, ff)
+            # skip if it is symbolic link
+            if not os.path.islink(fp):
+                for n in NOISE_FILES:
+                    if n in ff.lower():
+                        has_noise = True
+                total += os.path.getsize(fp)
     return total, has_noise
-
 def human_size(size_bytes):
     if size_bytes == 0:
         return "0 B"
@@ -65,14 +66,15 @@ def zip_dir(dir_name):
         print(f"Zipping `{dir_name}`...")
 
         initial_size, has_noise = get_info(dir_path)
-        if initial_size in seen_sizes:
-            print(f"Found duplicate `{dir_name}`")
+        if initial_size in map(lambda v: v[0], seen_sizes):
+            orig_idx = list(map(lambda v: v[0], seen_sizes)).index(initial_size)
+            print(f"Found duplicate `{dir_name}` (size: {initial_size}), original path: {seen_sizes[orig_idx][1]}")
             dups.append(dir_name)
             if DELETE_DUPLICATES:
                 print(f"Deleting duplicate `{dir_name}` from `{SRC_DIR}`...")
                 shutil.rmtree(dir_path)
             return
-        seen_sizes.append(initial_size)
+        seen_sizes.append((initial_size, dir_path))
         if has_noise:
             print(f"Clickpack `{dir_name}` has a noise file")
         shutil.make_archive(os.path.join(DST_DIR, dir_name), 'zip', dir_path)
