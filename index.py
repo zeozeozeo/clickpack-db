@@ -47,6 +47,7 @@ def get_info(path):
                         has_noise = True
                 total += os.path.getsize(fp)
     return total, has_noise
+
 def human_size(size_bytes):
     if size_bytes == 0:
         return "0 B"
@@ -60,6 +61,13 @@ seen_sizes = []
 dups = []
 
 def zip_dir(dir_name):
+    i = 1
+    while dir_name in db['clickpacks']:
+        i += 1
+        print(f'Found existing clickpack with same name "{dir_name}", renaming')
+        dir_name = f"{dir_name} {i}"
+        print(f'Renamed to "{dir_name}"')
+    
     dir_path = os.path.join(SRC_DIR, dir_name)
 
     if os.path.isdir(dir_path):
