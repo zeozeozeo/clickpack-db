@@ -61,12 +61,12 @@ seen_sizes = []
 dups = []
 
 def zip_dir(dir_name):
-    i = 1
-    while dir_name in db['clickpacks']:
-        i += 1
-        print(f'Found existing clickpack with same name "{dir_name}", renaming')
-        dir_name = f"{dir_name} {i}"
-        print(f'Renamed to "{dir_name}"')
+    # i = 1
+    # while dir_name in db['clickpacks']:
+    #     i += 1
+    #     print(f'Found existing clickpack with same name "{dir_name}", renaming')
+    #     dir_name = f"{dir_name} {i}"
+    #     print(f'Renamed to "{dir_name}"')
     
     dir_path = os.path.join(SRC_DIR, dir_name)
 
