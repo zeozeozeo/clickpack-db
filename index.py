@@ -24,7 +24,7 @@ for k, v in DEFAULT_DB.items():
     if k not in db:
         print(f'Adding default entry for key `{k}`: {v}')
         db[k] = v
-print(f"Initial database consists of {len(db)} entries")
+print(f"Initial database consists of {len(db['clickpacks'])} entries")
 
 try:
     os.mkdir(DST_DIR)
