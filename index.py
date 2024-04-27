@@ -1,17 +1,25 @@
 import os
 import shutil
-import math
 import concurrent.futures
 import json
 from datetime import datetime, timezone
+import argparse
 
-SRC_DIR = "ogg"
-DST_DIR = "out"
+parser = argparse.ArgumentParser(description='ClickpackDB Indexer')
+parser.add_argument('--src', type=str, default='ogg', help='Source directory')
+parser.add_argument('--dst', type=str, default='out', help='Destination directory')
+parser.add_argument('--db', type=str, default='db.json', help='Database filename')
+parser.add_argument('--debug', action='store_true', help='Enable debug mode')
+parser.add_argument('--delete-duplicates', action='store_true', help='Delete duplicate clickpacks')
+args = parser.parse_args()
+
+SRC_DIR = args.src
+DST_DIR = args.dst
 NOISE_FILES = ["noise", "whitenoise", "pcnoise", "background"]
-DB_FILENAME = "db.json"
-DEBUG_DB = False
+DB_FILENAME = args.db
+DEBUG_DB = args.debug
 BASE_URL = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/"
-DELETE_DUPLICATES = True
+DELETE_DUPLICATES = args.delete_duplicates
 DEFAULT_DB = db = {'updated_at_iso': '', 'updated_at_unix': 0, 'version': 0, 'clickpacks': {}}
 
 # load db.json if it exists
@@ -48,41 +56,33 @@ def get_info(path):
                 total += os.path.getsize(fp)
     return total, has_noise
 
-def human_size(size_bytes):
-    if size_bytes == 0:
-        return "0 B"
-    size_name = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
-    i = int(math.floor(math.log(size_bytes, 1024)))
-    p = math.pow(1024, i)
-    s = round(size_bytes / p, 2)
-    return f"{s} {size_name[i]}"
+def human_size(num, suffix="B"):
+    """https://stackoverflow.com/a/1094933"""
+    for unit in ("", "Ki", "Mi", "Gi", "Ti", "Pi", "Ei", "Zi"):
+        if abs(num) < 1024.0:
+            return f"{num:3.1f}{unit}{suffix}"
+        num /= 1024.0
+    return f"{num:.1f}Yi{suffix}"
 
-seen_sizes = []
 dups = []
 
 def zip_dir(dir_name):
-    # i = 1
-    # while dir_name in db['clickpacks']:
-    #     i += 1
-    #     print(f'Found existing clickpack with same name "{dir_name}", renaming')
-    #     dir_name = f"{dir_name} {i}"
-    #     print(f'Renamed to "{dir_name}"')
-    
     dir_path = os.path.join(SRC_DIR, dir_name)
 
     if os.path.isdir(dir_path):
         print(f"Zipping `{dir_name}`...")
 
         initial_size, has_noise = get_info(dir_path)
-        if initial_size in map(lambda v: v[0], seen_sizes):
-            orig_idx = list(map(lambda v: v[0], seen_sizes)).index(initial_size)
-            print(f"Found duplicate `{dir_name}` (size: {initial_size}), original path: {seen_sizes[orig_idx][1]}")
+
+        # check if its a duplicate
+        if initial_size in map(lambda v: v['uncompressed_size'], db['clickpacks'].values()):
+            print(f"Found duplicate `{dir_name}` (size: {initial_size})")
             dups.append(dir_name)
             if DELETE_DUPLICATES:
                 print(f"Deleting duplicate `{dir_name}` from `{SRC_DIR}`...")
                 shutil.rmtree(dir_path)
             return
-        seen_sizes.append((initial_size, dir_path))
+
         if has_noise:
             print(f"Clickpack `{dir_name}` has a noise file")
         shutil.make_archive(os.path.join(DST_DIR, dir_name), 'zip', dir_path)
