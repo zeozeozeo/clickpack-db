@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClickpackDB</title>
     <link rel="stylesheet" href="scripts/index.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
     <script src="scripts/index.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" async></script>
 </head>
 <body>
-    <span id="loading-span">Loading ClickpackDB...</span>
-    <table id="clickpack-tbl">
+    <span id="loading-span">Loading...</span>
+    <div id="clickpack-tbl"></div>
 
-    </table>
+    <div id="overlay"></div>
+
+    <div id="popup">
+        <button id="closePopup">Close</button>
+        <ul id="fileList"></ul>
+        <audio id="audioPlayer" controls></audio>
+    </div>
 </body>
 </html>
