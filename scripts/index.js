@@ -65,6 +65,17 @@ function timeSince(date) {
 
 const DB_URL = "https://zeozeozeo.github.io/clickpack-db/db.json";
 
+// https://github.com/zeozeozeo/clickpack-db/raw/main/out/ABEST.zip -> https://zeozeozeo.github.io/clickpack-db/out/ABEST.zip
+function fixupOrigin(url) {
+  const BAD_PREFIX = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/";
+  const GOOD_PREFIX = "https://zeozeozeo.github.io/clickpack-db/out/";
+  if (url.startsWith(BAD_PREFIX)) {
+    return GOOD_PREFIX + url.substring(BAD_PREFIX.length);
+  } else {
+    return url; // shouldn't happen, but just in case
+  }
+}
+
 async function loadClickpacks() {
   try {
     const response = await fetch(DB_URL);
@@ -105,7 +116,7 @@ async function loadClickpacks() {
 
       const cell2 = document.createElement("td");
       const downloadButton = document.createElement("a");
-      downloadButton.href = clickpack.url;
+      downloadButton.href = fixupOrigin(clickpack.url);
       downloadButton.className = "button-3 tooltip";
       downloadButton.setAttribute("role", "button");
       downloadButton.textContent = "Download";
@@ -118,7 +129,9 @@ async function loadClickpacks() {
       tryButton.className = "button-4";
       tryButton.setAttribute("role", "button");
       tryButton.textContent = "Preview";
-      tryButton.addEventListener("click", () => tryPopup(clickpack.url));
+      tryButton.addEventListener("click", () =>
+        tryPopup(fixupOrigin(clickpack.url))
+      );
 
       cell2.appendChild(downloadButton);
       cell2.appendChild(tryButton);
