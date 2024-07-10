@@ -208,8 +208,18 @@ async function loadZipFile(zipUrl) {
 
 loadClickpacks();
 
-document.getElementById("closePopup").addEventListener("click", function () {
+function closePopup() {
   document.getElementById("popup").style.display = "none";
   document.getElementById("fileList").innerHTML = "";
   document.getElementById("overlay").style.display = "none";
+}
+
+// close popup button
+document.getElementById("closePopup").addEventListener("click", closePopup);
+
+// close popup by clicking outside of it
+window.addEventListener("click", ({ target }) => {
+  if (target === document.getElementById("overlay")) {
+    closePopup();
+  }
 });
