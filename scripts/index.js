@@ -210,5 +210,6 @@ loadClickpacks();
 
 document.getElementById("closePopup").addEventListener("click", function () {
   document.getElementById("popup").style.display = "none";
+  document.getElementById("fileList").innerHTML = "";
   document.getElementById("overlay").style.display = "none";
 });
