@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ClickpackDB</title>
-    <link rel="stylesheet" href="scripts/index.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
-    <script src="scripts/index.js" defer></script>
-</head>
-<body>
-    <span id="loading-span">Loading ClickpackDB...</span>
-    <table id="clickpack-tbl">
+    <link rel="stylesheet" href="scripts/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
+      integrity="sha512-42kB9yDlYiCEfx2xVwq0q7hT4uf26FUgSIZBK8uiaEnTdShXjwr8Ip1V4xGJMg3mHkUt9nNuTDxunHF0/EgxLQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-    </table>
-</body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+      integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      async
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"
+      integrity="sha512-bUg5gaqBVaXIJNuebamJ6uex//mjxPk8kljQTdM1SwkNrQD7pjS+PerntUSD+QRWPNJ0tq54/x4zRV8bLrLhZg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      async
+    ></script>
+
+    <script src="scripts/index.js" defer></script>
+  </head>
+  <body>
+    <span id="loading-span">Loading...</span>
+    <div id="clickpack-tbl"></div>
+
+    <div id="overlay"></div>
+
+    <div id="popup">
+      <span
+        >Currently previewing: <a id="currentlyPreviewing" href="#"></a
+      ></span>
+      <button id="closePopup">Close</button>
+      <ul id="fileList"></ul>
+      <audio id="audioPlayer" controls></audio>
+    </div>
+  </body>
 </html>
