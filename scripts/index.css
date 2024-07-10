@@ -1,5 +1,5 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f4f8;
   color: #333;
   line-height: 1.6;
@@ -26,13 +26,13 @@ body {
   background-color: #ffffff;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
 #clickpack-tbl td:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .clickpack {
@@ -75,41 +75,43 @@ body {
   opacity: 1;
 }
 
-.button-3, .button-4 {
-appearance: none;
-background-color: #2ea44f;
-border: 1px solid rgba(27, 31, 35, .15);
-border-radius: 6px;
-box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
-color: #fff;
-cursor: pointer;
-display: inline-block;
-font-size: 14px;
-font-weight: 600;
-line-height: 20px;
-padding: 6px 16px;
-position: relative;
-text-align: center;
-text-decoration: none;
-user-select: none;
--webkit-user-select: none;
-touch-action: manipulation;
-vertical-align: middle;
-white-space: nowrap;
-transition: all 0.2s ease;
-margin-right: 10px; /* Add spacing between buttons */
+.button-3,
+.button-4 {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  margin-right: 10px; /* Add spacing between buttons */
 }
 
-.button-3:hover, .button-4:hover {
-background-color: #2c974b;
+.button-3:hover,
+.button-4:hover {
+  background-color: #2c974b;
 }
 
 .button-4 {
-background-color: #0366d6;
+  background-color: #0366d6;
 }
 
 .button-4:hover {
-background-color: #0353b4;
+  background-color: #0353b4;
 }
 
 #popup {
@@ -152,7 +154,7 @@ background-color: #0353b4;
   margin-top: 40px;
 }
 
-.audio-list-item {
+.audioListItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -160,7 +162,7 @@ background-color: #0353b4;
   border-bottom: 1px solid #edf2f7;
 }
 
-.audio-list-item button {
+.audioListItem button {
   background-color: #4299e1;
   color: white;
   border: none;
@@ -170,13 +172,12 @@ background-color: #0353b4;
   transition: background-color 0.3s ease;
 }
 
-.audio-list-item button:hover {
+.audioListItem button:hover {
   background-color: #3182ce;
 }
 
 #audioPlayer {
-  width: 100%;
-  margin-top: 20px;
+  display: none;
 }
 
 #overlay {
@@ -190,17 +191,22 @@ background-color: #0353b4;
   z-index: 999;
 }
 
+.listItemButton {
+  margin-left: 6px;
+}
+
 @media (max-width: 768px) {
   body {
-      padding: 10px;
+    padding: 10px;
   }
 
   #clickpack-tbl td {
-      padding: 10px;
+    padding: 10px;
   }
 
-  .button-3, .button-4 {
-      padding: 5px 10px;
-      font-size: 12px;
+  .button-3,
+  .button-4 {
+    padding: 5px 10px;
+    font-size: 12px;
   }
 }

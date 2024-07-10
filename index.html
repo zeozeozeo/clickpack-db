@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ClickpackDB</title>
-    <link rel="stylesheet" href="scripts/index.css">
+    <link rel="stylesheet" href="scripts/index.css" />
     <script src="scripts/index.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" async></script>
-</head>
-<body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+      async
+    ></script>
+  </head>
+  <body>
     <span id="loading-span">Loading...</span>
     <div id="clickpack-tbl"></div>
 
     <div id="overlay"></div>
 
     <div id="popup">
-        <button id="closePopup">Close</button>
-        <ul id="fileList"></ul>
-        <audio id="audioPlayer" controls></audio>
+      <span
+        >Currently previewing: <a id="currentlyPreviewing" href="#"></a
+      ></span>
+      <button id="closePopup">Close</button>
+      <ul id="fileList"></ul>
+      <audio id="audioPlayer" controls></audio>
     </div>
-</body>
+  </body>
 </html>
