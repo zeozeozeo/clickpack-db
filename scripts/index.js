@@ -146,52 +146,55 @@ async function loadZipFile(zipUrl) {
     fileList.innerHTML = "";
 
     zip.forEach((_, zipEntry) => {
+      if (
+        !zipEntry.name.match(/\.(ogg|wav|mp3|aiff|flac|aac|wma|m4a|amr|3gp)$/)
+      )
+        return;
+
       NProgress.inc();
-      if (zipEntry.name.match(/\.(mp3|wav|ogg)$/)) {
-        const listItem = document.createElement("li");
-        listItem.textContent = zipEntry.name;
-        listItem.className = "audioListItem";
+      const listItem = document.createElement("li");
+      listItem.textContent = zipEntry.name;
+      listItem.className = "audioListItem";
 
-        const buttonsDiv = document.createElement("div");
+      const buttonsDiv = document.createElement("div");
 
-        const playButton = document.createElement("button");
-        playButton.textContent = "Play";
-        playButton.className = "listItemButton";
-        playButton.addEventListener("click", () => {
-          zipEntry.async("blob").then((audioBlob) => {
-            const audioUrl = URL.createObjectURL(audioBlob);
-            const audioPlayer = document.getElementById("audioPlayer");
-            audioPlayer.src = audioUrl;
-            audioPlayer.addEventListener("ended", () => {
-              URL.revokeObjectURL(audioUrl);
-            });
-            audioPlayer.play();
-          });
-        });
-
-        const downloadButton = document.createElement("button");
-        downloadButton.textContent = "Download";
-        downloadButton.className = "listItemButton";
-        downloadButton.addEventListener("click", () => {
-          NProgress.start();
-          zipEntry.async("blob").then((audioBlob) => {
-            NProgress.done();
-            const audioUrl = URL.createObjectURL(audioBlob);
-            const link = document.createElement("a");
-            link.href = audioUrl;
-            link.download = zipEntry.name.split("/").pop(); // get filename
-            link.click();
+      const playButton = document.createElement("button");
+      playButton.textContent = "Play";
+      playButton.className = "listItemButton";
+      playButton.addEventListener("click", () => {
+        zipEntry.async("blob").then((audioBlob) => {
+          const audioUrl = URL.createObjectURL(audioBlob);
+          const audioPlayer = document.getElementById("audioPlayer");
+          audioPlayer.src = audioUrl;
+          audioPlayer.addEventListener("ended", () => {
             URL.revokeObjectURL(audioUrl);
-            link.remove();
           });
+          audioPlayer.play();
         });
+      });
 
-        buttonsDiv.appendChild(playButton);
-        buttonsDiv.appendChild(downloadButton);
+      const downloadButton = document.createElement("button");
+      downloadButton.textContent = "Download";
+      downloadButton.classList.add("listItemButton", "tooltip");
+      downloadButton.addEventListener("click", () => {
+        NProgress.start();
+        zipEntry.async("blob").then((audioBlob) => {
+          NProgress.done();
+          const audioUrl = URL.createObjectURL(audioBlob);
+          const link = document.createElement("a");
+          link.href = audioUrl;
+          link.download = zipEntry.name.split("/").pop(); // get filename
+          link.click();
+          URL.revokeObjectURL(audioUrl);
+          link.remove();
+        });
+      });
 
-        listItem.appendChild(buttonsDiv);
-        fileList.appendChild(listItem);
-      }
+      buttonsDiv.appendChild(playButton);
+      buttonsDiv.appendChild(downloadButton);
+
+      listItem.appendChild(buttonsDiv);
+      fileList.appendChild(listItem);
     });
 
     NProgress.done();
