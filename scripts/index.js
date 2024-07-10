@@ -19,6 +19,7 @@ function tagHtml(text, help) {
 }
 
 function tryPopup(url) {
+  NProgress.start();
   const currentlyPreviewing = document.getElementById("currentlyPreviewing");
 
   // set clickpack name & href
@@ -133,16 +134,19 @@ async function loadClickpacks() {
 async function loadZipFile(zipUrl) {
   try {
     const response = await fetch(zipUrl);
+    NProgress.inc();
     if (!response.ok) {
       throw new Error("Failed to fetch ZIP file");
     }
     const data = await response.arrayBuffer();
     const jszip = new JSZip();
     const zip = await jszip.loadAsync(data);
+    NProgress.inc();
     const fileList = document.getElementById("fileList");
     fileList.innerHTML = "";
 
     zip.forEach((_, zipEntry) => {
+      NProgress.inc();
       if (zipEntry.name.match(/\.(mp3|wav|ogg)$/)) {
         const listItem = document.createElement("li");
         listItem.textContent = zipEntry.name;
@@ -169,7 +173,9 @@ async function loadZipFile(zipUrl) {
         downloadButton.textContent = "Download";
         downloadButton.className = "listItemButton";
         downloadButton.addEventListener("click", () => {
+          NProgress.start();
           zipEntry.async("blob").then((audioBlob) => {
+            NProgress.done();
             const audioUrl = URL.createObjectURL(audioBlob);
             const link = document.createElement("a");
             link.href = audioUrl;
@@ -187,6 +193,8 @@ async function loadZipFile(zipUrl) {
         fileList.appendChild(listItem);
       }
     });
+
+    NProgress.done();
 
     document.getElementById("popup").style.display = "block";
     document.getElementById("overlay").style.display = "block";
