@@ -31,3 +31,4 @@ A database of clickpacks for Geometry Dash clickbots with an easy-to-use API.
             - `uncompressed_size` (integer): The size of the uncompressed clickpack directory.
             - `has_noise` (boolean): A flag indicating whether the clickpack contains a noise file.
             - `url` (string): The URL to download the compressed clickpack file.
+        - `version` (integer): unique version of the `db.json` file
