@@ -70,6 +70,9 @@ def zip_dir(dir_name):
     dir_path = os.path.join(SRC_DIR, dir_name)
 
     if os.path.isdir(dir_path):
+        if dir_name in db['clickpacks']:
+            print(f"WARN: Skipping `{dir_name}`: key already in database")
+            return
         print(f"Zipping `{dir_name}`...")
 
         initial_size, has_noise = get_info(dir_path)
