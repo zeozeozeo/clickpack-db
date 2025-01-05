@@ -2,6 +2,7 @@ import os
 import subprocess
 import concurrent.futures
 import shutil
+import zipfile
 
 # constants for source and output directories
 SRC_DIR = 'db'
@@ -9,6 +10,7 @@ OUT_DIR = 'ogg'
 
 # audio extensions (no .ogg)
 AUDIO_EXTENSIONS = ['.mp3', '.wav', '.aiff', '.flac', '.aac', '.wma', '.m4a', '.amr', '.3gp']
+ARCHIVE_EXTENSIONS = ['.zip', '.rar']
 
 def convert_to_ogg(src_path, out_path):
     """Convert an audio file to .ogg using ffmpeg."""
@@ -43,4 +45,34 @@ def process_directory(src_dir, out_dir):
                     # copy the file as is
                     shutil.copy2(src_path, out_path)
 
-process_directory(SRC_DIR, OUT_DIR)
+def unzip_files(src_dir):
+    print(f'UNZIPPING files in {src_dir}...')
+    for file in os.listdir(src_dir):
+        file_path = os.path.join(src_dir, file)
+        if not os.path.isfile(file_path):
+            continue
+
+        print(f'UNZIPPING {file_path}...')
+
+        if zipfile.is_zipfile(file_path):
+            with zipfile.ZipFile(file_path) as zf:
+                # check if the archive has a root directory
+                root_dirs = [f for f in zf.namelist() if f.endswith('/')]
+                if len(root_dirs) == 1:
+                    # extract the root directory but rename it into the name of the archive
+                    root_dir = root_dirs[0]
+                    new_root_dir = os.path.splitext(file)[0]
+                    zf.extractall(src_dir, pwd=None)
+                    shutil.move(os.path.join(src_dir, root_dir), os.path.join(src_dir, new_root_dir))
+                    shutil.rmtree(os.path.join(src_dir, root_dir))
+                else:
+                    # create the directory with the name of the archive and unzip it into that directory
+                    new_root_dir = os.path.splitext(file)[0]
+                    os.makedirs(os.path.join(src_dir, new_root_dir), exist_ok=True)
+                    zf.extractall(os.path.join(src_dir, new_root_dir), pwd=None)
+
+        print(f'DONE {file}')
+
+if __name__ == '__main__':
+    #unzip_files(SRC_DIR)
+    process_directory(SRC_DIR, OUT_DIR)
