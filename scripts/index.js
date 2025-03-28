@@ -63,12 +63,12 @@ function timeSince(date) {
   return Math.floor(seconds) + " seconds";
 }
 
-const DB_URL = "https://zeozeozeo.github.io/clickpack-db/db.json";
+const DB_URL = document.location.origin.replace("http://", "https://") + "/db.json";
 
 // https://github.com/zeozeozeo/clickpack-db/raw/main/out/ABEST.zip -> https://zeozeozeo.github.io/clickpack-db/out/ABEST.zip
 function fixupOrigin(url) {
   const BAD_PREFIX = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/";
-  const GOOD_PREFIX = document.location.origin + "/out/";
+  const GOOD_PREFIX = document.location.origin.replace("http://", "https://") + "/out/";
   if (url.startsWith(BAD_PREFIX)) {
     return GOOD_PREFIX + url.substring(BAD_PREFIX.length);
   } else {
