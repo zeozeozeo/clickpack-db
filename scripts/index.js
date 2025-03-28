@@ -68,7 +68,7 @@ const DB_URL = "https://zeozeozeo.github.io/clickpack-db/db.json";
 // https://github.com/zeozeozeo/clickpack-db/raw/main/out/ABEST.zip -> https://zeozeozeo.github.io/clickpack-db/out/ABEST.zip
 function fixupOrigin(url) {
   const BAD_PREFIX = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/";
-  const GOOD_PREFIX = "https://zeozeozeo.github.io/clickpack-db/out/";
+  const GOOD_PREFIX = document.location.origin + "/out/";
   if (url.startsWith(BAD_PREFIX)) {
     return GOOD_PREFIX + url.substring(BAD_PREFIX.length);
   } else {
