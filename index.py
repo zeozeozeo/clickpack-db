@@ -4,6 +4,7 @@ import concurrent.futures
 import json
 from datetime import datetime, timezone
 import argparse
+import urllib.parse
 
 parser = argparse.ArgumentParser(description='ClickpackDB Indexer')
 parser.add_argument('--src', type=str, default='ogg', help='Source directory')
@@ -33,6 +34,11 @@ for k, v in DEFAULT_DB.items():
         print(f'Adding default entry for key `{k}`: {v}')
         db[k] = v
 print(f"Initial database consists of {len(db['clickpacks'])} entries")
+
+
+for k in db['clickpacks']:
+    # encode urls properly
+    db['clickpacks'][k]['url'] = BASE_URL + urllib.parse.quote(k) + '.zip'
 
 try:
     os.mkdir(DST_DIR)
@@ -92,7 +98,7 @@ def zip_dir(dir_name):
         final_size = os.path.getsize(os.path.join(DST_DIR, dir_name + '.zip'))
 
         print(f"{dir_name}: {human_size(initial_size)} => {human_size(final_size)}, -{human_size(initial_size - final_size)}")
-        db['clickpacks'][dir_name] = {"size": final_size, "uncompressed_size": initial_size, "has_noise": has_noise, "url": BASE_URL + dir_name + '.zip'}
+        db['clickpacks'][dir_name] = {"size": final_size, "uncompressed_size": initial_size, "has_noise": has_noise, "url": BASE_URL + urllib.parse.quote(dir_name) + '.zip'}
 
 with concurrent.futures.ThreadPoolExecutor() as executor:
     executor.map(zip_dir, os.listdir(SRC_DIR))
