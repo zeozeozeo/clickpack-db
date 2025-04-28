@@ -65,14 +65,12 @@ function timeSince(date) {
   return Math.floor(seconds) + " seconds";
 }
 
-const DB_URL =
-  document.location.origin.replace("http://", "https://") + "/db.json";
+const DB_URL = document.location.origin + "/db.json";
 
 // https://github.com/zeozeozeo/clickpack-db/raw/main/out/ABEST.zip -> https://zeozeozeo.github.io/clickpack-db/out/ABEST.zip
 function fixupOrigin(url) {
   const BAD_PREFIX = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/";
-  const GOOD_PREFIX =
-    document.location.origin.replace("http://", "https://") + "/out/";
+  const GOOD_PREFIX = document.location.origin + "/out/";
   if (url.startsWith(BAD_PREFIX)) {
     return GOOD_PREFIX + url.substring(BAD_PREFIX.length);
   } else {
@@ -81,6 +79,11 @@ function fixupOrigin(url) {
 }
 
 async function loadClickpacks() {
+  const table = document.getElementById("clickpack-tbl");
+  const searchInput = document.getElementById("search-input");
+  let fuse;
+  const clickpackList = [];
+
   try {
     const response = await fetch(DB_URL);
     const data = await response.json();
@@ -94,10 +97,9 @@ async function loadClickpacks() {
       updatedDate
     )} ago <span class="tooltiptext">${updatedDate.toString()}</span></span>`;
 
-    const table = document.getElementById("clickpack-tbl");
-
     for (const [key, clickpack] of Object.entries(data.clickpacks)) {
       const row = document.createElement("tr");
+      clickpackList.push({ name: key, row: row });
 
       const cell1 = document.createElement("td");
       const clickpackDiv = document.createElement("div");
@@ -146,6 +148,33 @@ async function loadClickpacks() {
   } catch (error) {
     console.error("Failed to load clickpacks:", error);
   }
+
+  const options = {
+    keys: ["name"],
+    includeScore: true,
+    threshold: 0.4,
+  };
+  fuse = new Fuse(clickpackList, options);
+
+  searchInput.addEventListener("input", (e) => {
+    const query = e.target.value.trim();
+
+    if (!query) {
+      clickpackList.forEach((item) => {
+        item.row.style.display = "";
+      });
+    } else {
+      const results = fuse.search(query);
+
+      clickpackList.forEach((item) => {
+        item.row.style.display = "none";
+      });
+
+      results.forEach((result) => {
+        result.item.row.style.display = "";
+      });
+    }
+  });
 }
 
 async function loadZipFile(zipUrl) {

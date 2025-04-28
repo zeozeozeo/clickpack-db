@@ -11,9 +11,21 @@ body {
   display: block;
   text-align: left;
   font-size: 1.2em;
-  margin-bottom: 20px;
   margin-left: 10px;
   color: #4a5568;
+}
+
+#search-input {
+  display: block; /* Will be overridden by inline style initially */
+  width: calc(100% - 22px); /* Account for padding */
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  max-width: 300px;
 }
 
 #clickpack-tbl {

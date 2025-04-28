@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta>
+  <head>
+    <meta />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ClickpackDB</title>
-    <meta content="ClickpackDB" property="og:title"></meta>
-    <meta content="Public Geometry Dash clickpack archive." property="og:description"></meta>
-    <meta content="https://zeozeozeo.github.io/clickpack-db/" property="og:url"></meta>
+    <meta content="ClickpackDB" property="og:title" />
+    <meta
+      content="Public Geometry Dash clickpack archive."
+      property="og:description"
+    />
+    <meta
+      content="https://zeozeozeo.github.io/clickpack-db/"
+      property="og:url"
+    />
     <meta content="#007BFF" data-react-helmet="true" name="theme-color" />
 
     <link rel="stylesheet" href="scripts/index.css" />
@@ -32,11 +39,25 @@
       referrerpolicy="no-referrer"
       async
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.1.0/fuse.min.js"
+      integrity="sha512-H1bWCnc4dDJwdioqpOCkU76ZxEdvBvOy9R9Dd9EqftlzQg92owjX5IVdiOw00llAyQFUZJNPrzDnWZ/lZtf25A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <script src="scripts/index.js" defer></script>
   </head>
+
   <body>
     <span id="loading-span">Loading...</span>
+    <input
+      type="text"
+      id="search-input"
+      placeholder="🔎 Search clickpacks..."
+      value=""
+      autocomplete="off"
+    />
     <div id="clickpack-tbl"></div>
 
     <div id="overlay"></div>
