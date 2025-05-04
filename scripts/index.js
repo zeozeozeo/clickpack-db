@@ -14,10 +14,6 @@ Object.defineProperty(Number.prototype, "fileSize", {
   enumerable: false,
 });
 
-function tagHtml(text, help) {
-  return `<span class="tooltip unselectable tag">${text}<span class="tooltiptext">${help}</span></span>`;
-}
-
 function tryPopup(url) {
   NProgress.start();
   const currentlyPreviewing = document.getElementById("currentlyPreviewing");
@@ -89,13 +85,11 @@ async function loadClickpacks() {
     const data = await response.json();
 
     const updatedDate = new Date(data.updated_at_iso);
-    document.getElementById(
-      "loading-span"
-    ).innerHTML = `Listing ${countProperties(
+    document.getElementById("loading-span").innerHTML = `Listing ${countProperties(
       data.clickpacks
-    )} entries. Last updated <span class="tooltip">${timeSince(
+    )} entries. Last updated <span data-tippy-content="${updatedDate.toString()}">${timeSince(
       updatedDate
-    )} ago <span class="tooltiptext">${updatedDate.toString()}</span></span>`;
+    )} ago</span>`;
 
     for (const [key, clickpack] of Object.entries(data.clickpacks)) {
       const row = document.createElement("tr");
@@ -109,12 +103,16 @@ async function loadClickpacks() {
       clickpackDiv.appendChild(clickpackLink);
       if (clickpack.has_noise) {
         const tag = document.createElement("span");
-        tag.className = "tooltip unselectable tag";
+        tag.className = "unselectable tag"; // Removed 'tooltip' class
         tag.textContent = "🔊";
-        const tooltip = document.createElement("span");
-        tooltip.className = "tooltiptext";
-        tooltip.textContent = "This clickpack has a noise file";
-        tag.appendChild(tooltip);
+        tag.setAttribute("data-tippy-content", "This clickpack has a noise file");
+        clickpackDiv.appendChild(tag);
+      }
+      if (clickpack.readme) {
+        const tag = document.createElement("span");
+        tag.className = "unselectable tag"; // Removed 'tooltip' class
+        tag.textContent = "readme";
+        tag.setAttribute("data-tippy-content", clickpack.readme);
         clickpackDiv.appendChild(tag);
       }
       cell1.appendChild(clickpackDiv);
@@ -123,13 +121,10 @@ async function loadClickpacks() {
       const cell2 = document.createElement("td");
       const downloadButton = document.createElement("a");
       downloadButton.href = fixupOrigin(clickpack.url);
-      downloadButton.className = "button-3 tooltip";
+      downloadButton.className = "button-3"; // Removed 'tooltip' class
       downloadButton.setAttribute("role", "button");
       downloadButton.textContent = "Download";
-      const sizeTooltip = document.createElement("span");
-      sizeTooltip.className = "tooltiptext";
-      sizeTooltip.textContent = clickpack.size.fileSize(1);
-      downloadButton.appendChild(sizeTooltip);
+      downloadButton.setAttribute("data-tippy-content", clickpack.size.fileSize(1));
 
       const tryButton = document.createElement("button");
       tryButton.className = "button-4";
@@ -148,6 +143,9 @@ async function loadClickpacks() {
   } catch (error) {
     console.error("Failed to load clickpacks:", error);
   }
+
+  // Initialize Tippy.js after elements are added
+  tippy("[data-tippy-content]");
 
   const options = {
     keys: ["name"],
@@ -221,7 +219,7 @@ async function loadZipFile(zipUrl) {
 
       const downloadButton = document.createElement("button");
       downloadButton.textContent = "Download";
-      downloadButton.classList.add("listItemButton", "tooltip");
+      downloadButton.classList.add("listItemButton"); // Removed 'tooltip' class
       downloadButton.addEventListener("click", () => {
         NProgress.start();
         zipEntry.async("blob").then((audioBlob) => {
