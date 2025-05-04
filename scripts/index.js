@@ -85,7 +85,9 @@ async function loadClickpacks() {
     const data = await response.json();
 
     const updatedDate = new Date(data.updated_at_iso);
-    document.getElementById("loading-span").innerHTML = `Listing ${countProperties(
+    document.getElementById(
+      "loading-span"
+    ).innerHTML = `Listing ${countProperties(
       data.clickpacks
     )} entries. Last updated <span data-tippy-content="${updatedDate.toString()}">${timeSince(
       updatedDate
@@ -103,14 +105,17 @@ async function loadClickpacks() {
       clickpackDiv.appendChild(clickpackLink);
       if (clickpack.has_noise) {
         const tag = document.createElement("span");
-        tag.className = "unselectable tag"; // Removed 'tooltip' class
+        tag.className = "unselectable tag";
         tag.textContent = "🔊";
-        tag.setAttribute("data-tippy-content", "This clickpack has a noise file");
+        tag.setAttribute(
+          "data-tippy-content",
+          "This clickpack has a noise file"
+        );
         clickpackDiv.appendChild(tag);
       }
       if (clickpack.readme) {
         const tag = document.createElement("span");
-        tag.className = "unselectable tag"; // Removed 'tooltip' class
+        tag.className = "unselectable tag";
         tag.textContent = "readme";
         tag.setAttribute("data-tippy-content", clickpack.readme);
         clickpackDiv.appendChild(tag);
@@ -121,10 +126,13 @@ async function loadClickpacks() {
       const cell2 = document.createElement("td");
       const downloadButton = document.createElement("a");
       downloadButton.href = fixupOrigin(clickpack.url);
-      downloadButton.className = "button-3"; // Removed 'tooltip' class
+      downloadButton.className = "button-3";
       downloadButton.setAttribute("role", "button");
       downloadButton.textContent = "Download";
-      downloadButton.setAttribute("data-tippy-content", clickpack.size.fileSize(1));
+      downloadButton.setAttribute(
+        "data-tippy-content",
+        clickpack.size.fileSize(1)
+      );
 
       const tryButton = document.createElement("button");
       tryButton.className = "button-4";
