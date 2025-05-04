@@ -32,6 +32,8 @@ import json
 from datetime import datetime, timezone
 import argparse
 import urllib.parse
+from repro_zipfile import ReproducibleZipFile
+import hashlib
 
 parser = argparse.ArgumentParser(description='ClickpackDB Indexer')
 parser.add_argument('--src', type=str, default='ogg', help='Source directory')
@@ -43,12 +45,13 @@ args = parser.parse_args()
 
 SRC_DIR = args.src
 DST_DIR = args.dst
-NOISE_FILES = ["noise", "whitenoise", "pcnoise", "background"]
+NOISE_FILES = ["noise", "whitenoise", "pcnoise", "background", "silence"]
 DB_FILENAME = args.db
 DEBUG_DB = args.debug
 BASE_URL = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/"
 DELETE_DUPLICATES = args.delete_duplicates
 DEFAULT_DB = db = {'updated_at_iso': '', 'updated_at_unix': 0, 'version': 0, 'clickpacks': {}}
+BUF_SIZE = 65536 # for checksums
 
 # load db.json if it exists
 db = {}
@@ -75,19 +78,28 @@ except:
 print(f"Source directory: {SRC_DIR}")
 print(f"Destination directory: {DST_DIR}")
 
-def get_info(path):
+def get_info(path) -> tuple[int, bool, str]:
     total = 0
     has_noise = False
+    readme = ""
     for dirpath, _, filenames in os.walk(path):
         for ff in filenames:
             fp = os.path.join(dirpath, ff)
             # skip if it is symbolic link
             if not os.path.islink(fp):
+                # is it a noise file?
                 for n in NOISE_FILES:
                     if n in ff.lower():
                         has_noise = True
+                
+                # is it a readme?
+                if readme == "" and ff.endswith(".txt"):
+                    print(f"Found readme {ff}")
+                    with open(fp, "r", encoding="utf-8") as file:
+                        readme = file.read()
+
                 total += os.path.getsize(fp)
-    return total, has_noise
+    return total, has_noise, readme
 
 def human_size(num, suffix="B"):
     """https://stackoverflow.com/a/1094933"""
@@ -98,6 +110,7 @@ def human_size(num, suffix="B"):
     return f"{num:.1f}Yi{suffix}"
 
 dups = []
+zips = [] # [(dir_name, zip_path)]
 
 def zip_dir(dir_name):
     dir_path = os.path.join(SRC_DIR, dir_name)
@@ -108,9 +121,8 @@ def zip_dir(dir_name):
             return
         print(f"Zipping `{dir_name}`...")
 
-        initial_size, has_noise = get_info(dir_path)
+        initial_size, has_noise, readme = get_info(dir_path)
 
-        # check if its a duplicate
         if initial_size in map(lambda v: v['uncompressed_size'], db['clickpacks'].values()):
             print(f"Found duplicate `{dir_name}` (size: {initial_size})")
             dups.append(dir_name)
@@ -121,16 +133,41 @@ def zip_dir(dir_name):
 
         if has_noise:
             print(f"Clickpack `{dir_name}` has a noise file")
-        shutil.make_archive(os.path.join(DST_DIR, dir_name), 'zip', dir_path)
-        final_size = os.path.getsize(os.path.join(DST_DIR, dir_name + '.zip'))
 
+        zip_path = os.path.join(DST_DIR, dir_name + '.zip')
+        with ReproducibleZipFile(zip_path, 'w') as zf:
+            for root, _, files in os.walk(dir_path):
+                for file in sorted(files):
+                    full_path = os.path.join(root, file)
+                    arcname = os.path.relpath(full_path, dir_path)
+                    zf.write(full_path, arcname=arcname)
+        zips.append((dir_name, zip_path))
+
+        final_size = os.path.getsize(zip_path)
         print(f"{dir_name}: {human_size(initial_size)} => {human_size(final_size)}, -{human_size(initial_size - final_size)}")
-        db['clickpacks'][dir_name] = {"size": final_size, "uncompressed_size": initial_size, "has_noise": has_noise, "url": BASE_URL + urllib.parse.quote(dir_name) + '.zip'}
+        entry = {"size": final_size, "uncompressed_size": initial_size, "has_noise": has_noise, "url": BASE_URL + urllib.parse.quote(dir_name) + '.zip'}
+        if readme != "":
+            print(f"Clickpack `{dir_name}` has a readme: {readme}")
+            entry["readme"] = readme
+        db['clickpacks'][dir_name] = entry
 
 with concurrent.futures.ThreadPoolExecutor() as executor:
     executor.map(zip_dir, os.listdir(SRC_DIR))
 
 print(f"\nRemoved {len(dups)} duplicates in total: {', '.join(dups)}")
+
+for i, (dir_name, zip_path) in enumerate(zips):
+    print(f'({i+1}/{len(zips)}) Calculating checksums...', end='\r')
+    md5 = hashlib.md5()
+    with open(zip_path, 'rb') as f:
+        while True:
+            data = f.read(BUF_SIZE)
+            if not data:
+                break
+            md5.update(data)
+    db['clickpacks'][dir_name]['checksum'] = md5.hexdigest()
+
+print()
 
 # sort database alphabetically (case-insensitive)
 db['clickpacks'] = {k: db['clickpacks'][k] for k in sorted(db['clickpacks'], key=str.lower)}
