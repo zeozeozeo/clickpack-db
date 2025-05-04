@@ -95,13 +95,14 @@ async function loadClickpacks() {
 
     for (const [key, clickpack] of Object.entries(data.clickpacks)) {
       const row = document.createElement("tr");
-      clickpackList.push({ name: key, row: row });
+      const name = key.replaceAll("_", " ");
+      clickpackList.push({ name: name, row: row });
 
       const cell1 = document.createElement("td");
       const clickpackDiv = document.createElement("div");
       clickpackDiv.className = "clickpack";
       const clickpackLink = document.createElement("a");
-      clickpackLink.textContent = key;
+      clickpackLink.textContent = name;
       clickpackDiv.appendChild(clickpackLink);
       if (clickpack.has_noise) {
         const tag = document.createElement("span");
