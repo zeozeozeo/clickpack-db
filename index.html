@@ -89,6 +89,7 @@
       </div>
     </noscript>
     <span id="loading-span">Loading...</span>
+
     <input
       type="text"
       id="search-input"
@@ -96,6 +97,25 @@
       value=""
       autocomplete="off"
     />
+    <div id="controls-container">
+      <div>
+        <label for="sort-by-size" style="margin-right: 5px">Sort by:</label>
+        <select id="sort-by-size">
+          <option value="default" selected>Default</option>
+          <option value="desc">Bigger size</option>
+          <option value="asc">Smaller size</option>
+        </select>
+      </div>
+      <div>
+        <input
+          type="checkbox"
+          id="filter-has-noise"
+          style="margin-right: 5px"
+        />
+        <label for="filter-has-noise">Has noise</label>
+      </div>
+    </div>
+
     <div id="clickpack-tbl"></div>
 
     <div id="overlay"></div>

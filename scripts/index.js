@@ -1,30 +1,37 @@
-Object.defineProperty(Number.prototype, "fileSize", {
-  value: function (a, b, c, d) {
-    return (
-      ((a = a ? [1e3, "k", "B"] : [1024, "K", "iB"]),
-      (b = Math),
-      (c = b.log),
-      (d = (c(this) / c(a[0])) | 0),
-      this / b.pow(a[0], d)).toFixed(2) +
-      " " +
-      (d ? (a[1] + "MGTPEZY")[--d] + a[2] : "Bytes")
-    );
+const table = document.getElementById("clickpack-tbl");
+const searchInput = document.getElementById("search-input");
+const sortBySizeSelect = document.getElementById("sort-by-size");
+const filterHasNoiseCheckbox = document.getElementById("filter-has-noise");
+let fuse;
+let allClickpacks = [];
+
+Object.defineProperty(Number.prototype, "humanSize", {
+  value: function (round = false) {
+    const units = ["B", "KB", "MB", "GB", "TB", "PB"];
+    let value = this;
+    let index = 0;
+
+    while (value >= 1000 && index < units.length - 1) {
+      value /= 1000;
+      index++;
+    }
+
+    return round
+      ? `${Math.round(value)} ${units[index]}`
+      : `${value.toFixed(2)} ${units[index]}`;
   },
   writable: false,
+  configurable: true,
   enumerable: false,
 });
 
 function tryPopup(url) {
   NProgress.start();
   const currentlyPreviewing = document.getElementById("currentlyPreviewing");
-
-  // set clickpack name & href
   currentlyPreviewing.textContent = decodeURIComponent(
     url.split("/").pop().split(".")[0]
   );
   currentlyPreviewing.href = url;
-
-  // open popup
   loadZipFile(url);
 }
 
@@ -63,27 +70,20 @@ function timeSince(date) {
 
 const DB_URL = document.location.origin + "/db.json";
 
-// https://github.com/zeozeozeo/clickpack-db/raw/main/out/ABEST.zip -> https://zeozeozeo.github.io/clickpack-db/out/ABEST.zip
 function fixupOrigin(url) {
   const BAD_PREFIX = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/";
   const GOOD_PREFIX = document.location.origin + "/out/";
   if (url.startsWith(BAD_PREFIX)) {
     return GOOD_PREFIX + url.substring(BAD_PREFIX.length);
   } else {
-    return url; // shouldn't happen, but just in case
+    return url;
   }
 }
 
 async function loadClickpacks() {
-  const table = document.getElementById("clickpack-tbl");
-  const searchInput = document.getElementById("search-input");
-  let fuse;
-  const clickpackList = [];
-
   try {
     const response = await fetch(DB_URL);
     const data = await response.json();
-
     const updatedDate = new Date(data.updated_at_iso);
     document.getElementById(
       "loading-span"
@@ -93,95 +93,130 @@ async function loadClickpacks() {
       updatedDate
     )} ago</span>`;
 
-    for (const [key, clickpack] of Object.entries(data.clickpacks)) {
-      const row = document.createElement("tr");
+    allClickpacks = [];
+    for (const [key, clickpackData] of Object.entries(data.clickpacks)) {
       const name = key.replaceAll("_", " ");
-      clickpackList.push({ name: name, row: row });
-
-      const cell1 = document.createElement("td");
-      const clickpackDiv = document.createElement("div");
-      clickpackDiv.className = "clickpack";
-      const clickpackLink = document.createElement("a");
-      clickpackLink.textContent = name;
-      clickpackDiv.appendChild(clickpackLink);
-      if (clickpack.has_noise) {
-        const tag = document.createElement("span");
-        tag.className = "unselectable tag";
-        tag.textContent = "🔊";
-        tag.setAttribute(
-          "data-tippy-content",
-          "This clickpack has a noise file"
-        );
-        clickpackDiv.appendChild(tag);
-      }
-      if (clickpack.readme) {
-        const tag = document.createElement("span");
-        tag.className = "unselectable tag";
-        tag.textContent = "readme";
-        tag.setAttribute("data-tippy-content", clickpack.readme);
-        clickpackDiv.appendChild(tag);
-      }
-      cell1.appendChild(clickpackDiv);
-      row.appendChild(cell1);
-
-      const cell2 = document.createElement("td");
-      const downloadButton = document.createElement("a");
-      downloadButton.href = fixupOrigin(clickpack.url);
-      downloadButton.className = "button-3";
-      downloadButton.setAttribute("role", "button");
-      downloadButton.textContent = "Download";
-      downloadButton.setAttribute(
-        "data-tippy-content",
-        clickpack.size.fileSize(1)
-      );
-
-      const tryButton = document.createElement("button");
-      tryButton.className = "button-4";
-      tryButton.setAttribute("role", "button");
-      tryButton.textContent = "Preview";
-      tryButton.addEventListener("click", () =>
-        tryPopup(fixupOrigin(clickpack.url))
-      );
-
-      cell2.appendChild(downloadButton);
-      cell2.appendChild(tryButton);
-      row.appendChild(cell2);
-
-      table.appendChild(row);
+      allClickpacks.push({
+        id: key,
+        name: name,
+        ...clickpackData,
+      });
     }
+
+    const options = {
+      keys: ["name"],
+      includeScore: true,
+      threshold: 0.4,
+    };
+    fuse = new Fuse(allClickpacks, options);
+    applyFiltersAndRender();
   } catch (error) {
     console.error("Failed to load clickpacks:", error);
+    document.getElementById("loading-span").textContent =
+      "Error loading clickpacks. See console for details.";
+  }
+}
+
+function renderTable(clickpacksToRender) {
+  table.innerHTML = "";
+
+  if (clickpacksToRender.length === 0) {
+    const row = table.insertRow();
+    const cell = row.insertCell();
+    cell.colSpan = 2;
+    cell.textContent = "No clickpacks match your criteria.";
+    cell.style.textAlign = "center";
+    cell.style.padding = "20px";
+    return;
   }
 
-  // Initialize Tippy.js after elements are added
-  tippy("[data-tippy-content]");
+  clickpacksToRender.forEach((clickpack) => {
+    const row = document.createElement("tr");
+    row.dataset.clickpackId = clickpack.id;
 
-  const options = {
-    keys: ["name"],
-    includeScore: true,
-    threshold: 0.4,
-  };
-  fuse = new Fuse(clickpackList, options);
+    const cell1 = document.createElement("td");
+    const clickpackDiv = document.createElement("div");
+    clickpackDiv.className = "clickpack";
+    const clickpackLink = document.createElement("a");
+    clickpackLink.textContent = clickpack.name;
+    clickpackDiv.appendChild(clickpackLink);
 
-  searchInput.addEventListener("input", (e) => {
-    const query = e.target.value.trim();
-
-    if (!query) {
-      clickpackList.forEach((item) => {
-        item.row.style.display = "";
-      });
-    } else {
-      const results = fuse.search(query);
-
-      clickpackList.forEach((item) => {
-        item.row.style.display = "none";
-      });
-
-      results.forEach((result) => {
-        result.item.row.style.display = "";
-      });
+    if (clickpack.has_noise) {
+      const tag = document.createElement("span");
+      tag.className = "unselectable tag";
+      tag.textContent = "🔊";
+      tag.setAttribute("data-tippy-content", "This clickpack has a noise file");
+      clickpackDiv.appendChild(tag);
     }
+    if (clickpack.readme) {
+      const tag = document.createElement("span");
+      tag.className = "unselectable tag";
+      tag.textContent = "readme";
+      tag.setAttribute("data-tippy-content", clickpack.readme);
+      clickpackDiv.appendChild(tag);
+    }
+
+    const size = document.createElement("span");
+    size.className = "unselectable tag";
+    size.innerText = clickpack.size.humanSize(true);
+    clickpackDiv.appendChild(size);
+
+    cell1.appendChild(clickpackDiv);
+    row.appendChild(cell1);
+
+    const cell2 = document.createElement("td");
+    const downloadButton = document.createElement("a");
+    downloadButton.href = fixupOrigin(clickpack.url);
+    downloadButton.className = "button-3";
+    downloadButton.setAttribute("role", "button");
+    downloadButton.textContent = "Download";
+    downloadButton.setAttribute(
+      "data-tippy-content",
+      clickpack.size.humanSize()
+    );
+
+    const tryButton = document.createElement("button");
+    tryButton.className = "button-4";
+    tryButton.setAttribute("role", "button");
+    tryButton.textContent = "Preview";
+    tryButton.addEventListener("click", () =>
+      tryPopup(fixupOrigin(clickpack.url))
+    );
+
+    cell2.appendChild(downloadButton);
+    cell2.appendChild(tryButton);
+    row.appendChild(cell2);
+
+    table.appendChild(row);
   });
+  tippy("[data-tippy-content]");
+}
+
+function applyFiltersAndRender() {
+  const searchQuery = searchInput.value.trim().toLowerCase();
+  const sortBy = sortBySizeSelect.value;
+  const filterNoise = filterHasNoiseCheckbox.checked;
+  let filteredClickpacks = [];
+
+  if (searchQuery) {
+    const results = fuse.search(searchQuery);
+    filteredClickpacks = results.map((result) => result.item);
+  } else {
+    filteredClickpacks = [...allClickpacks];
+  }
+
+  if (filterNoise) {
+    filteredClickpacks = filteredClickpacks.filter((cp) => cp.has_noise);
+  }
+
+  if (sortBy === "asc") {
+    filteredClickpacks.sort((a, b) => a.size - b.size);
+  } else if (sortBy === "desc") {
+    filteredClickpacks.sort((a, b) => b.size - a.size);
+  } else {
+    filteredClickpacks.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  renderTable(filteredClickpacks);
 }
 
 async function loadZipFile(zipUrl) {
@@ -228,7 +263,7 @@ async function loadZipFile(zipUrl) {
 
       const downloadButton = document.createElement("button");
       downloadButton.textContent = "Download";
-      downloadButton.classList.add("listItemButton"); // Removed 'tooltip' class
+      downloadButton.classList.add("listItemButton");
       downloadButton.addEventListener("click", () => {
         NProgress.start();
         zipEntry.async("blob").then((audioBlob) => {
@@ -236,7 +271,7 @@ async function loadZipFile(zipUrl) {
           const audioUrl = URL.createObjectURL(audioBlob);
           const link = document.createElement("a");
           link.href = audioUrl;
-          link.download = zipEntry.name.split("/").pop(); // get filename
+          link.download = zipEntry.name.split("/").pop();
           link.click();
           URL.revokeObjectURL(audioUrl);
           link.remove();
@@ -245,34 +280,36 @@ async function loadZipFile(zipUrl) {
 
       buttonsDiv.appendChild(playButton);
       buttonsDiv.appendChild(downloadButton);
-
       listItem.appendChild(buttonsDiv);
       fileList.appendChild(listItem);
     });
 
     NProgress.done();
-
     document.getElementById("popup").style.display = "block";
     document.getElementById("overlay").style.display = "block";
   } catch (error) {
     console.error("Error:", error);
+    NProgress.done();
   }
 }
-
-loadClickpacks();
 
 function closePopup() {
   document.getElementById("popup").style.display = "none";
   document.getElementById("fileList").innerHTML = "";
   document.getElementById("overlay").style.display = "none";
+  const audioPlayer = document.getElementById("audioPlayer");
+  audioPlayer.pause();
+  audioPlayer.src = "";
 }
 
-// close popup button
+searchInput.addEventListener("input", applyFiltersAndRender);
+sortBySizeSelect.addEventListener("change", applyFiltersAndRender);
+filterHasNoiseCheckbox.addEventListener("change", applyFiltersAndRender);
 document.getElementById("closePopup").addEventListener("click", closePopup);
-
-// close popup by clicking outside of it
 window.addEventListener("click", ({ target }) => {
   if (target === document.getElementById("overlay")) {
     closePopup();
   }
 });
+
+loadClickpacks();

@@ -35,6 +35,82 @@ body {
   border-radius: 6px;
   font-size: 1em;
   max-width: 300px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#controls-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+#controls-container > div {
+  display: flex;
+  align-items: center;
+}
+
+#sort-by-size {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 30px 8px 10px;
+  font-size: 0.95em;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-left: 5px;
+}
+
+#sort-by-size:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#filter-has-noise {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1.2em;
+  height: 1.2em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+#filter-has-noise:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+#filter-has-noise:checked::after {
+  content: "";
+  position: absolute;
+  left: 0.35em;
+  top: 0.15em;
+  width: 0.3em;
+  height: 0.6em;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+#controls-container label {
+  font-size: 0.95em;
+  color: #4a5568;
+  cursor: pointer;
+  vertical-align: middle;
 }
 
 #clickpack-tbl {
