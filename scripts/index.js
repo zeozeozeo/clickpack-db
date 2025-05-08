@@ -219,38 +219,44 @@ function applyFiltersAndRender() {
   renderTable(filteredClickpacks);
 }
 
-async function loadZipFile(zipUrl) {
-  try {
-    const response = await fetch(zipUrl);
-    NProgress.inc();
-    if (!response.ok) {
-      throw new Error("Failed to fetch ZIP file");
+function renderTree(node, containerElement) {
+  const keys = Object.keys(node).sort((a, b) => {
+    // sort folders before files
+    if (node[a]._isLeaf && !node[b]._isLeaf) return 1;
+    if (!node[a]._isLeaf && node[b]._isLeaf) return -1;
+
+    // sort files by numerical part of the filename
+    const aNum = a.match(/\d+/) ? +a.match(/\d+/)[0] : NaN;
+    const bNum = b.match(/\d+/) ? +b.match(/\d+/)[0] : NaN;
+    if (isNaN(aNum) && isNaN(bNum)) {
+      return a.localeCompare(b);
     }
-    const data = await response.arrayBuffer();
-    const jszip = new JSZip();
-    const zip = await jszip.loadAsync(data);
+    if (isNaN(aNum)) return 1;
+    if (isNaN(bNum)) return -1;
+    return aNum - bNum;
+  });
+
+  keys.forEach((key) => {
+    const item = node[key];
     NProgress.inc();
-    const fileList = document.getElementById("fileList");
-    fileList.innerHTML = "";
 
-    zip.forEach((_, zipEntry) => {
-      if (
-        !zipEntry.name.match(/\.(ogg|wav|mp3|aiff|flac|aac|wma|m4a|amr|3gp)$/)
-      )
-        return;
-
-      NProgress.inc();
+    if (item._isLeaf) {
+      // it's a file
       const listItem = document.createElement("li");
-      listItem.textContent = zipEntry.name;
-      listItem.className = "audioListItem";
+      listItem.className = "audioListItem file-item";
+
+      const fileNameSpan = document.createElement("span");
+      fileNameSpan.textContent = item.name;
+      listItem.appendChild(fileNameSpan);
 
       const buttonsDiv = document.createElement("div");
 
       const playButton = document.createElement("button");
       playButton.textContent = "Play";
       playButton.className = "listItemButton";
-      playButton.addEventListener("click", () => {
-        zipEntry.async("blob").then((audioBlob) => {
+      playButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        item.entry.async("blob").then((audioBlob) => {
           const audioUrl = URL.createObjectURL(audioBlob);
           const audioPlayer = document.getElementById("audioPlayer");
           audioPlayer.src = audioUrl;
@@ -264,14 +270,15 @@ async function loadZipFile(zipUrl) {
       const downloadButton = document.createElement("button");
       downloadButton.textContent = "Download";
       downloadButton.classList.add("listItemButton");
-      downloadButton.addEventListener("click", () => {
+      downloadButton.addEventListener("click", (e) => {
+        e.stopPropagation();
         NProgress.start();
-        zipEntry.async("blob").then((audioBlob) => {
+        item.entry.async("blob").then((audioBlob) => {
           NProgress.done();
           const audioUrl = URL.createObjectURL(audioBlob);
           const link = document.createElement("a");
           link.href = audioUrl;
-          link.download = zipEntry.name.split("/").pop();
+          link.download = item.name;
           link.click();
           URL.revokeObjectURL(audioUrl);
           link.remove();
@@ -281,8 +288,96 @@ async function loadZipFile(zipUrl) {
       buttonsDiv.appendChild(playButton);
       buttonsDiv.appendChild(downloadButton);
       listItem.appendChild(buttonsDiv);
-      fileList.appendChild(listItem);
+      containerElement.appendChild(listItem);
+    } else {
+      // it's a folder
+      const folderItem = document.createElement("li");
+      folderItem.className = "folder-item";
+
+      const folderNameSpan = document.createElement("span");
+      folderNameSpan.textContent = key;
+      folderNameSpan.className = "folder-name";
+      folderItem.appendChild(folderNameSpan);
+
+      const subList = document.createElement("ul");
+      subList.style.display = "none";
+      renderTree(item.children, subList);
+
+      if (subList.hasChildNodes()) {
+        folderItem.appendChild(subList);
+        folderItem.addEventListener("click", (e) => {
+          if (
+            e.target === folderNameSpan ||
+            (e.target === folderItem &&
+              !Array.from(folderItem.children).includes(e.target))
+          ) {
+            folderItem.classList.toggle("open");
+            subList.style.display =
+              subList.style.display === "none" ? "block" : "none";
+          }
+        });
+        folderNameSpan.addEventListener("click", (e) => {
+          e.stopPropagation();
+          folderItem.classList.toggle("open");
+          subList.style.display =
+            subList.style.display === "none" ? "block" : "none";
+        });
+        containerElement.appendChild(folderItem);
+      }
+    }
+  });
+}
+
+async function loadZipFile(zipUrl) {
+  try {
+    const response = await fetch(zipUrl);
+    NProgress.inc();
+    if (!response.ok) {
+      throw new Error("Failed to fetch ZIP file");
+    }
+    const data = await response.arrayBuffer();
+    const jszip = new JSZip();
+    const zip = await jszip.loadAsync(data);
+    NProgress.inc();
+    const fileListContainer = document.getElementById("fileList");
+    fileListContainer.innerHTML = "";
+
+    const root = {};
+
+    // build the file tree
+    zip.forEach((relativePath, zipEntry) => {
+      if (zipEntry.dir) return; // skip directories themselves, we'll create them from paths
+
+      const pathParts = relativePath.split("/").filter((p) => p);
+      let currentLevel = root;
+
+      pathParts.forEach((part, index) => {
+        if (index === pathParts.length - 1) {
+          // it's a file
+          if (
+            !zipEntry.name.match(
+              /\.(ogg|wav|mp3|aiff|flac|aac|wma|m4a|amr|3gp)$/
+            )
+          )
+            return;
+          currentLevel[part] = {
+            _isLeaf: true,
+            entry: zipEntry,
+            name: part,
+          };
+        } else {
+          // it's a folder
+          if (!currentLevel[part]) {
+            currentLevel[part] = { _isLeaf: false, children: {} };
+          }
+          currentLevel = currentLevel[part].children;
+        }
+      });
     });
+
+    const rootUl = document.createElement("ul");
+    renderTree(root, rootUl);
+    fileListContainer.appendChild(rootUl);
 
     NProgress.done();
     document.getElementById("popup").style.display = "block";
