@@ -44,28 +44,25 @@ function countProperties(obj) {
 }
 
 function timeSince(date) {
-  let seconds = Math.floor((new Date() - date) / 1000);
-  let interval = seconds / 31536000;
-  if (interval > 1) {
-    return Math.floor(interval) + " years";
+  const units = [
+    { label: "year", seconds: 31536000 },
+    { label: "month", seconds: 2592000 },
+    { label: "day", seconds: 86400 },
+    { label: "hour", seconds: 3600 },
+    { label: "minute", seconds: 60 },
+    { label: "second", seconds: 1 },
+  ];
+
+  const secondsElapsed = Math.floor((Date.now() - date.getTime()) / 1000);
+
+  for (const { label, seconds } of units) {
+    const interval = Math.floor(secondsElapsed / seconds);
+    if (interval >= 1) {
+      return `${interval} ${label}${interval !== 1 ? "s" : ""} ago`;
+    }
   }
-  interval = seconds / 2592000;
-  if (interval > 1) {
-    return Math.floor(interval) + " months";
-  }
-  interval = seconds / 86400;
-  if (interval > 1) {
-    return Math.floor(interval) + " days";
-  }
-  interval = seconds / 3600;
-  if (interval > 1) {
-    return Math.floor(interval) + " hours";
-  }
-  interval = seconds / 60;
-  if (interval > 1) {
-    return Math.floor(interval) + " minutes";
-  }
-  return Math.floor(seconds) + " seconds";
+
+  return "just now";
 }
 
 const DB_URL = document.location.origin + "/db.json";
@@ -91,7 +88,7 @@ async function loadClickpacks() {
       data.clickpacks
     )} entries. Last updated <span data-tippy-content="${updatedDate.toString()}">${timeSince(
       updatedDate
-    )} ago</span>`;
+    )}</span>`;
 
     allClickpacks = [];
     for (const [key, clickpackData] of Object.entries(data.clickpacks)) {
