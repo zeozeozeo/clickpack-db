@@ -4,7 +4,7 @@ FROM golang:1.24.3-alpine AS builder
 WORKDIR /app
 
 # Needed to build sqlite
-apk add --update gcc musl-dev
+RUN apk add --update gcc musl-dev
 
 # Copy go mod and sum files
 COPY go.mod go.sum ./
