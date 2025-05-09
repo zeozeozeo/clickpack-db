@@ -2,8 +2,12 @@ const table = document.getElementById("clickpack-tbl");
 const searchInput = document.getElementById("search-input");
 const sortBySizeSelect = document.getElementById("sort-by-size");
 const filterHasNoiseCheckbox = document.getElementById("filter-has-noise");
+const downloadAllButton = document.getElementById("download-all-btn");
+const downloadAllStatus = document.getElementById("download-all-status");
 let fuse;
 let allClickpacks = [];
+let databaseDate = new Date();
+let isDownloadingAll = false;
 
 Object.defineProperty(Number.prototype, "humanSize", {
   value: function (round = false) {
@@ -81,14 +85,14 @@ async function loadClickpacks() {
   try {
     const response = await fetch(DB_URL);
     const data = await response.json();
-    const updatedDate = new Date(data.updated_at_iso);
+    databaseDate = new Date(data.updated_at_iso);
     document.getElementById(
       "loading-span"
     ).innerHTML = `Listing ${countProperties(
       data.clickpacks
-    )} entries. Last updated <span data-tippy-content="${updatedDate.toString()}">${timeSince(
-      updatedDate
-    )}</span>`;
+    )} entries. Last updated <span data-tippy-content="${databaseDate.toString()}">${timeSince(
+      databaseDate
+    )}</span> (rev. ${data.version})`;
 
     allClickpacks = [];
     for (const [key, clickpackData] of Object.entries(data.clickpacks)) {
@@ -107,7 +111,19 @@ async function loadClickpacks() {
     };
     fuse = new Fuse(allClickpacks, options);
     applyFiltersAndRender();
+
+    let totalEstimatedSize = 0;
+    allClickpacks.forEach((cp) => (totalEstimatedSize += cp.size));
+    downloadAllButton.setAttribute(
+      "data-tippy-content",
+      `Download all clickpacks in the database as a ZIP. This will use approximately ${totalEstimatedSize.humanSize(
+        true
+      )} of traffic.`
+    );
+    downloadAllButton.disabled = false;
+    tippy("[data-tippy-content]");
   } catch (error) {
+    downloadAllButton.disabled = true;
     console.error("Failed to load clickpacks:", error);
     document.getElementById("loading-span").textContent =
       "Error loading clickpacks. See console for details.";
@@ -385,6 +401,224 @@ async function loadZipFile(zipUrl) {
   }
 }
 
+function formatDateToCustomString(date) {
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = date.toLocaleString("en-US", { month: "short" }).toLowerCase();
+  const hour = String(date.getHours()).padStart(2, "0");
+  const minute = String(date.getMinutes()).padStart(2, "0");
+  const second = String(date.getSeconds()).padStart(2, "0");
+  const year = date.getFullYear();
+
+  return `${day}-${month}-${hour}-${minute}-${second}-${year}`;
+}
+
+async function downloadAllClickpacks() {
+  if (isDownloadingAll) {
+    alert("A download all operation is already in progress.");
+    return;
+  }
+  if (!allClickpacks || allClickpacks.length === 0) {
+    alert("No clickpacks loaded to download.");
+    return;
+  }
+
+  let totalEstimatedSize = 0;
+  allClickpacks.forEach((cp) => (totalEstimatedSize += cp.size));
+
+  const userConfirmed = confirm(
+    `You are about to download and re-package ALL ${
+      allClickpacks.length
+    } clickpacks.
+This will unzip each pack and add its contents to a single new ZIP file.
+This will use ${totalEstimatedSize.humanSize(true)} of traffic.
+This process might put strain on your browser.
+Are you sure you want to proceed?`
+  );
+
+  if (!userConfirmed) {
+    return;
+  }
+
+  isDownloadingAll = true;
+  downloadAllButton.disabled = true;
+  downloadAllStatus.style.display = "block";
+  downloadAllStatus.textContent = "Initializing download process...";
+  NProgress.start();
+  NProgress.set(0);
+
+  const masterZip = new JSZip();
+  const failedDownloads = [];
+  const failedFileOperations = [];
+
+  const totalClickpacks = allClickpacks.length;
+  // +1 step for the final masterZip generation
+  const totalProgressSteps = totalClickpacks + 1;
+
+  for (let i = 0; i < totalClickpacks; i++) {
+    const clickpack = allClickpacks[i];
+    const clickpackFolderName = clickpack.name.trim();
+
+    NProgress.set(i / totalProgressSteps);
+    downloadAllStatus.textContent = `(${i + 1}/${totalClickpacks}) Fetching: ${
+      clickpack.name
+    }...`;
+
+    try {
+      const response = await fetch(fixupOrigin(clickpack.url));
+      if (!response.ok) {
+        throw new Error(`HTTP error ${response.status}`);
+      }
+      const clickpackZipBlob = await response.blob();
+
+      downloadAllStatus.textContent = `(${
+        i + 1
+      }/${totalClickpacks}) Processing: ${clickpack.name} (Unzipping...)`;
+      NProgress.set((i + 0.2) / totalProgressSteps);
+
+      const individualZip = new JSZip();
+      await individualZip.loadAsync(clickpackZipBlob);
+
+      downloadAllStatus.textContent = `(${
+        i + 1
+      }/${totalClickpacks}) Adding files from: ${clickpack.name}...`;
+      NProgress.set((i + 0.4) / totalProgressSteps);
+
+      const fileEntries = [];
+      individualZip.forEach((relativePath, zipEntry) => {
+        fileEntries.push({ relativePath, zipEntry });
+      });
+
+      for (let j = 0; j < fileEntries.length; j++) {
+        const { relativePath, zipEntry } = fileEntries[j];
+        if (j % 10 === 0 || j === fileEntries.length - 1) {
+          downloadAllStatus.textContent = `(${
+            i + 1
+          }/${totalClickpacks}) Adding files from ${clickpack.name}: ${j + 1}/${
+            fileEntries.length
+          }`;
+        }
+
+        if (!zipEntry.dir) {
+          // only process files
+          try {
+            const fileContent = await zipEntry.async("blob");
+            const decodedRelativePath = decodeURIComponent(relativePath);
+
+            const finalPathInMasterZip = `${clickpackFolderName}/${decodedRelativePath}`;
+
+            masterZip.file(finalPathInMasterZip, fileContent, {
+              date: zipEntry.date,
+            });
+          } catch (fileError) {
+            console.error(
+              `Error processing file '${relativePath}' in clickpack '${clickpack.name}':`,
+              fileError
+            );
+            failedFileOperations.push({
+              clickpack: clickpack.name,
+              file: relativePath,
+              reason: fileError.message,
+            });
+          }
+        }
+        NProgress.set(
+          (i + 0.4 + ((j + 1) / fileEntries.length) * 0.5) / totalProgressSteps
+        );
+      }
+    } catch (error) {
+      console.error(
+        `Failed to download or process clickpack '${clickpack.name}':`,
+        error
+      );
+      failedDownloads.push({ name: clickpack.name, reason: error.message });
+      downloadAllStatus.textContent = `Failed: ${clickpack.name}. Skipping...`;
+      await new Promise((resolve) => setTimeout(resolve, 500));
+    }
+  }
+
+  if (Object.keys(masterZip.files).length === 0) {
+    downloadAllStatus.textContent =
+      "No files were successfully processed. Aborting zip generation.";
+    NProgress.done();
+    isDownloadingAll = false;
+    downloadAllButton.disabled = false;
+    setTimeout(() => {
+      downloadAllStatus.style.display = "none";
+    }, 5000);
+    if (failedDownloads.length > 0 || failedFileOperations.length > 0) {
+      alert(`All processing failed. Check console for details.
+Failed Clickpacks: ${failedDownloads.length}
+Failed File Operations: ${failedFileOperations.length}`);
+    }
+    return;
+  }
+
+  NProgress.set(totalClickpacks / totalProgressSteps);
+  downloadAllStatus.textContent =
+    "All clickpacks processed. Now creating the final ZIP file (this may take a while)...";
+
+  try {
+    const content = await masterZip.generateAsync(
+      {
+        type: "blob",
+        compression: "STORE",
+      },
+      (metadata) => {
+        downloadAllStatus.textContent = `Creating final ZIP: ${metadata.percent.toFixed(
+          2
+        )}% processed. Current file: ${
+          metadata.currentFile ? metadata.currentFile : "..."
+        }`;
+        NProgress.set(
+          totalClickpacks / totalProgressSteps +
+            (metadata.percent / 100.0) * (1.0 / totalProgressSteps)
+        );
+      }
+    );
+
+    downloadAllStatus.textContent =
+      "Final ZIP file generated. Starting download...";
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(content);
+    link.download = `clickpack-db-${formatDateToCustomString(
+      databaseDate
+    )}.zip`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);
+
+    let finalMessage = "Download complete!";
+    if (failedDownloads.length > 0 || failedFileOperations.length > 0) {
+      finalMessage += ` However, there were some issues:
+- Clickpacks failed to fetch/process: ${failedDownloads.length}
+- Individual files failed during processing: ${failedFileOperations.length}
+Please check the console for detailed error messages.`;
+      downloadAllStatus.textContent = `Done, with errors. See console.`;
+    } else {
+      downloadAllStatus.textContent =
+        "All clickpacks downloaded and zipped successfully!";
+    }
+    alert(finalMessage);
+  } catch (error) {
+    console.error("Error generating the master ZIP file:", error);
+    downloadAllStatus.textContent =
+      "Error generating the final ZIP file. Check console.";
+    alert(
+      "An error occurred while creating the final ZIP file. See console for details."
+    );
+    NProgress.done();
+  } finally {
+    if (NProgress.status < 1) NProgress.done();
+    isDownloadingAll = false;
+    downloadAllButton.disabled = false;
+    setTimeout(() => {
+      downloadAllStatus.style.display = "none";
+      downloadAllStatus.textContent = "";
+    }, 15000);
+  }
+}
+
 function closePopup() {
   document.getElementById("popup").style.display = "none";
   document.getElementById("fileList").innerHTML = "";
@@ -403,5 +637,8 @@ window.addEventListener("click", ({ target }) => {
     closePopup();
   }
 });
+
+downloadAllButton.addEventListener("click", downloadAllClickpacks);
+downloadAllButton.disabled = true;
 
 loadClickpacks();
