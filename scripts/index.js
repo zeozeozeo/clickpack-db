@@ -70,7 +70,7 @@ function timeSince(date) {
 }
 
 const DB_URL = document.location.origin + "/db.json";
-const HIATUS_API = "http://localhost:8080";
+const HIATUS_API = "https://hiatus.zeo.lol";
 
 function fixupOrigin(url) {
   const BAD_PREFIX = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/";
