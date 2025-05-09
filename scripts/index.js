@@ -70,6 +70,7 @@ function timeSince(date) {
 }
 
 const DB_URL = document.location.origin + "/db.json";
+const HIATUS_API = "https://hiatus.zeo.lol";
 
 function fixupOrigin(url) {
   const BAD_PREFIX = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/";
@@ -85,6 +86,14 @@ async function loadClickpacks() {
   try {
     const response = await fetch(DB_URL);
     const data = await response.json();
+    let downloadsData = {};
+    try {
+      const hiatusResponse = await fetch(HIATUS_API + "/downloads/all");
+      downloadsData = await hiatusResponse.json();
+    } catch (e) {
+      console.error("failed to fetch downloads from hiatus", e);
+    }
+
     databaseDate = new Date(data.updated_at_iso);
     document.getElementById(
       "loading-span"
@@ -97,10 +106,12 @@ async function loadClickpacks() {
     allClickpacks = [];
     for (const [key, clickpackData] of Object.entries(data.clickpacks)) {
       const name = key.replaceAll("_", " ");
+      const downloads = downloadsData[key];
       allClickpacks.push({
         id: key,
         name: name,
         ...clickpackData,
+        downloads: downloads ? downloads : 0,
       });
     }
 
@@ -175,6 +186,16 @@ function renderTable(clickpacksToRender) {
     const fullHumanSize = clickpack.size.humanSize();
     size.setAttribute("data-tippy-content", fullHumanSize);
 
+    // download count tag
+    if (clickpack.downloads !== 0) {
+      const downloadCount = document.createElement("span");
+      downloadCount.className = "unselectable tag";
+      downloadCount.innerText = `${clickpack.downloads} download${
+        clickpack.downloads === 1 ? "" : "s"
+      }`;
+      clickpackDiv.appendChild(downloadCount);
+    }
+
     clickpackDiv.appendChild(size);
 
     cell1.appendChild(clickpackDiv);
@@ -187,6 +208,11 @@ function renderTable(clickpacksToRender) {
     downloadButton.setAttribute("role", "button");
     downloadButton.textContent = "Download";
     downloadButton.setAttribute("data-tippy-content", fullHumanSize);
+    downloadButton.addEventListener("click", async () => {
+      await fetch(HIATUS_API + `/inc/${clickpack.id}`, {
+        method: "POST",
+      });
+    });
 
     const tryButton = document.createElement("button");
     tryButton.className = "button-4";
@@ -226,6 +252,10 @@ function applyFiltersAndRender() {
     filteredClickpacks.sort((a, b) => a.size - b.size);
   } else if (sortBy === "desc") {
     filteredClickpacks.sort((a, b) => b.size - a.size);
+  } else if (sortBy == "downloads-desc") {
+    filteredClickpacks.sort((a, b) => b.downloads - a.downloads);
+  } else if (sortBy == "downloads-asc") {
+    filteredClickpacks.sort((a, b) => a.downloads - b.downloads);
   } else {
     filteredClickpacks.sort((a, b) => a.name.localeCompare(b.name));
   }

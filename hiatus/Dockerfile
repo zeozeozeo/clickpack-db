@@ -28,4 +28,4 @@ COPY --from=builder /app/hiatus .
 EXPOSE 8080
 
 # Run
-CMD ["./hiatus"]
+CMD ["./hiatus", "--db", "/data/hiatus.db"]

@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"flag"
 	"log/slog"
 	"net/http"
 	"time"
@@ -21,7 +22,9 @@ import (
 // @BasePath /
 
 func main() {
-	if err := db.InitDB("hiatus.db"); err != nil {
+	dbPath := flag.String("db", "hiatus.db", "path to database file")
+	flag.Parse()
+	if err := db.InitDB(*dbPath); err != nil {
 		slog.Error("failed to initialize database", "error", err)
 		panic(err)
 	}
