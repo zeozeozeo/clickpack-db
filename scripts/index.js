@@ -156,6 +156,9 @@ function renderTable(clickpacksToRender) {
     const size = document.createElement("span");
     size.className = "unselectable tag";
     size.innerText = clickpack.size.humanSize(true);
+    const fullHumanSize = clickpack.size.humanSize();
+    size.setAttribute("data-tippy-content", fullHumanSize);
+
     clickpackDiv.appendChild(size);
 
     cell1.appendChild(clickpackDiv);
@@ -167,10 +170,7 @@ function renderTable(clickpacksToRender) {
     downloadButton.className = "button-3";
     downloadButton.setAttribute("role", "button");
     downloadButton.textContent = "Download";
-    downloadButton.setAttribute(
-      "data-tippy-content",
-      clickpack.size.humanSize()
-    );
+    downloadButton.setAttribute("data-tippy-content", fullHumanSize);
 
     const tryButton = document.createElement("button");
     tryButton.className = "button-4";
