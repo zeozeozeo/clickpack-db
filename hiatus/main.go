@@ -21,6 +21,19 @@ import (
 // @host localhost:8080
 // @BasePath /
 
+func DynamicCORS(next echo.HandlerFunc) echo.HandlerFunc {
+	return func(ctx echo.Context) error {
+		req := ctx.Request()
+		dynamicCORSConfig := middleware.CORSConfig{
+			AllowOrigins: []string{req.Header.Get("Origin")},
+			AllowHeaders: []string{"Accept", "Cache-Control", "Content-Type", "X-Requested-With"},
+		}
+		CORSMiddleware := middleware.CORSWithConfig(dynamicCORSConfig)
+		CORSHandler := CORSMiddleware(next)
+		return CORSHandler(ctx)
+	}
+}
+
 func main() {
 	dbPath := flag.String("db", "hiatus.db", "path to database file")
 	flag.Parse()
@@ -35,7 +48,7 @@ func main() {
 	// Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
-	e.Use(middleware.CORS())
+	e.Use(DynamicCORS)
 
 	// Rate limiter (5 requests per second per IP)
 	rateLimiterConfig := middleware.RateLimiterConfig{

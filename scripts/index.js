@@ -70,7 +70,7 @@ function timeSince(date) {
 }
 
 const DB_URL = document.location.origin + "/db.json";
-const HIATUS_API = "https://hiatus.zeo.lol";
+const HIATUS_API = "http://localhost:8080";
 
 function fixupOrigin(url) {
   const BAD_PREFIX = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/";
@@ -187,12 +187,15 @@ function renderTable(clickpacksToRender) {
     size.setAttribute("data-tippy-content", fullHumanSize);
 
     // download count tag
+    let downloadCount = null;
     if (clickpack.downloads !== 0) {
-      const downloadCount = document.createElement("span");
+      downloadCount = document.createElement("span");
       downloadCount.className = "unselectable tag";
-      downloadCount.innerText = `${clickpack.downloads} download${
-        clickpack.downloads === 1 ? "" : "s"
-      }`;
+      downloadCount.innerText = clickpack.downloads;
+      downloadCount.setAttribute(
+        "data-tippy-content",
+        `${clickpack.downloads} download${clickpack.downloads === 1 ? "" : "s"}`
+      );
       clickpackDiv.appendChild(downloadCount);
     }
 
@@ -208,10 +211,30 @@ function renderTable(clickpacksToRender) {
     downloadButton.setAttribute("role", "button");
     downloadButton.textContent = "Download";
     downloadButton.setAttribute("data-tippy-content", fullHumanSize);
-    downloadButton.addEventListener("click", async () => {
-      await fetch(HIATUS_API + `/inc/${clickpack.id}`, {
-        method: "POST",
-      });
+    downloadButton.addEventListener("click", async (event) => {
+      event.preventDefault();
+
+      try {
+        await fetch(HIATUS_API + `/inc/${clickpack.id}`, {
+          method: "POST",
+        });
+        console.log("incremented download count for:", clickpack.id);
+        if (downloadCount) {
+          downloadCount.innerText = clickpack.downloads + 1;
+          downloadCount.setAttribute(
+            "data-tippy-content",
+            `${clickpack.downloads + 1} download${
+              clickpack.downloads + 1 === 1 ? "" : "s"
+            }`
+          );
+        }
+      } catch (error) {
+        console.error(
+          "failed to increment download count for " + clickpack.id + ":",
+          error
+        );
+      }
+      window.location.href = clickpack.url;
     });
 
     const tryButton = document.createElement("button");
