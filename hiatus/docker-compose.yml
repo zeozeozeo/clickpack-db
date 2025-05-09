@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  hiatus:
+    build: .
+    container_name: hiatus
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app
+    restart: unless-stopped
