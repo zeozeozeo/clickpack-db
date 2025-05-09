@@ -1,0 +1,194 @@
+basePath: /
+host: localhost:8080
+info:
+  contact: {}
+  description: API for tracking clickpack downloads
+  title: Hiatus Download Tracker API
+  version: "1.0"
+paths:
+  /:
+    get:
+      description: Get API status
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: hiatus is running
+          schema:
+            type: string
+      summary: Show API status
+      tags:
+      - general
+  /downloads/{name}:
+    get:
+      description: Get download count for a specific clickpack
+      parameters:
+      - description: Clickpack name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: integer
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get clickpack downloads
+      tags:
+      - downloads
+  /downloads/{name}/since/{date}:
+    get:
+      description: Get download count for specific clickpack since date (YYYY-MM-DD
+        format)
+      parameters:
+      - description: Clickpack name
+        in: path
+        name: name
+        required: true
+        type: string
+      - description: Date in YYYY-MM-DD format
+        in: path
+        name: date
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get clickpack downloads since date
+      tags:
+      - downloads
+  /downloads/all:
+    get:
+      description: Get download counts for all clickpacks
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: integer
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get all downloads
+      tags:
+      - downloads
+  /downloads/all/since/{date}:
+    get:
+      description: Get download counts for all clickpacks since date (YYYY-MM-DD format)
+      parameters:
+      - description: Date in YYYY-MM-DD format
+        in: path
+        name: date
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: integer
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get all downloads since date
+      tags:
+      - downloads
+  /inc/{name}:
+    post:
+      consumes:
+      - application/json
+      description: Increment download count for a clickpack
+      parameters:
+      - description: Clickpack name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "429":
+          description: Too Many Requests
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Increment download count
+      tags:
+      - downloads
+swagger: "2.0"
