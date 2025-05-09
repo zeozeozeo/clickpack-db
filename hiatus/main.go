@@ -35,6 +35,7 @@ func main() {
 	// Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	e.Use(middleware.CORS())
 
 	// Rate limiter (5 requests per second per IP)
 	rateLimiterConfig := middleware.RateLimiterConfig{
