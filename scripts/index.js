@@ -234,7 +234,7 @@ function renderTable(clickpacksToRender) {
           error
         );
       }
-      window.location.href = clickpack.url;
+      window.location.href = fixupOrigin(clickpack.url);
     });
 
     const tryButton = document.createElement("button");

@@ -5,6 +5,7 @@ import (
 	"flag"
 	"log/slog"
 	"net/http"
+	"net/url"
 	"time"
 
 	"github.com/labstack/echo/v4"
@@ -118,13 +119,13 @@ func rootHandler(c echo.Context) error {
 // @Failure 500 {object} map[string]string
 // @Router /inc/{name} [post]
 func incrementDownloadHandler(c echo.Context) error {
-	name := c.Param("name")
-	if name == "" {
+	name, err := url.QueryUnescape(c.Param("name"))
+	if name == "" || err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]string{"error": "clickpack name is required"})
 	}
 
 	ip := c.RealIP()
-	err := db.IncrementDownload(name, ip)
+	err = db.IncrementDownload(name, ip)
 	if err != nil {
 		if errors.Is(err, db.ErrClickpackNotInIndex) {
 			return c.JSON(http.StatusNotFound, map[string]string{"error": err.Error()})
@@ -164,8 +165,8 @@ func getAllDownloadsHandler(c echo.Context) error {
 // @Failure 500 {object} map[string]string
 // @Router /downloads/{name} [get]
 func getClickpackDownloadsHandler(c echo.Context) error {
-	name := c.Param("name")
-	if name == "" {
+	name, err := url.QueryUnescape(c.Param("name"))
+	if name == "" || err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]string{"error": "clickpack name is required"})
 	}
 
@@ -189,7 +190,10 @@ func getClickpackDownloadsHandler(c echo.Context) error {
 // @Failure 500 {object} map[string]string
 // @Router /downloads/{name}/since/{date} [get]
 func getClickpackDownloadsSinceHandler(c echo.Context) error {
-	name := c.Param("name")
+	name, err := url.QueryUnescape(c.Param("name"))
+	if name == "" || err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]string{"error": "clickpack name is required"})
+	}
 	dateStr := c.Param("date")
 
 	if _, err := time.Parse(time.DateOnly, dateStr); err != nil {
