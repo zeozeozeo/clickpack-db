@@ -41,6 +41,7 @@ parser.add_argument('--dst', type=str, default='out', help='Destination director
 parser.add_argument('--db', type=str, default='db.json', help='Database filename')
 parser.add_argument('--debug', action='store_true', help='Enable debug mode')
 parser.add_argument('--delete-duplicates', action='store_true', help='Delete duplicate clickpacks')
+parser.add_argument('--hiatus-endpoint', type=str, default='https://hiatus.zeo.lol', help='Hiatus API endpoint')
 args = parser.parse_args()
 
 SRC_DIR = args.src
@@ -50,7 +51,8 @@ DB_FILENAME = args.db
 DEBUG_DB = args.debug
 BASE_URL = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/"
 DELETE_DUPLICATES = args.delete_duplicates
-DEFAULT_DB = db = {'updated_at_iso': '', 'updated_at_unix': 0, 'version': 0, 'clickpacks': {}}
+HIATUS_ENDPOINT = args.hiatus_endpoint.strip('/')
+DEFAULT_DB = db = {'updated_at_iso': '', 'updated_at_unix': 0, 'version': 0, 'clickpacks': {}, 'hiatus': HIATUS_ENDPOINT}
 BUF_SIZE = 65536 # for checksums
 
 # load db.json if it exists
@@ -177,6 +179,7 @@ now = datetime.now(timezone.utc)
 db['updated_at_iso'] = now.isoformat()
 db['updated_at_unix'] = int(round(now.timestamp()))
 db['version'] += 1
+db['hiatus'] = HIATUS_ENDPOINT
 print('Updated at: ' + db['updated_at_iso'])
 
 actual_filename = DB_FILENAME

@@ -70,7 +70,6 @@ function timeSince(date) {
 }
 
 const DB_URL = document.location.origin + "/db.json";
-const HIATUS_API = "https://hiatus.zeo.lol";
 
 function fixupOrigin(url) {
   const BAD_PREFIX = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/";
@@ -86,13 +85,6 @@ async function loadClickpacks() {
   try {
     const response = await fetch(DB_URL);
     const data = await response.json();
-    let downloadsData = {};
-    try {
-      const hiatusResponse = await fetch(HIATUS_API + "/downloads/all");
-      downloadsData = await hiatusResponse.json();
-    } catch (e) {
-      console.error("failed to fetch downloads from hiatus", e);
-    }
 
     databaseDate = new Date(data.updated_at_iso);
     document.getElementById(
@@ -103,15 +95,15 @@ async function loadClickpacks() {
       databaseDate
     )}</span> (rev. ${data.version})`;
 
+    // initial load without downloads
     allClickpacks = [];
     for (const [key, clickpackData] of Object.entries(data.clickpacks)) {
       const name = key.replaceAll("_", " ");
-      const downloads = downloadsData[key];
       allClickpacks.push({
         id: key,
         name: name,
         ...clickpackData,
-        downloads: downloads ? downloads : 0,
+        downloads: null, // mark as not loaded yet
       });
     }
 
@@ -133,11 +125,33 @@ async function loadClickpacks() {
     );
     downloadAllButton.disabled = false;
     tippy("[data-tippy-content]");
+
+    // load downloads in background
+    loadDownloads(data["hiatus"]); // "hiatus" is usually "https://hiatus.zeo.lol"
   } catch (error) {
     downloadAllButton.disabled = true;
     console.error("Failed to load clickpacks:", error);
     document.getElementById("loading-span").textContent =
       "Error loading clickpacks. See console for details.";
+  }
+}
+
+async function loadDownloads(hiatusEndpoint) {
+  try {
+    const hiatusResponse = await fetch(hiatusEndpoint + "/downloads/all");
+    const downloadsData = await hiatusResponse.json();
+
+    // update clickpacks with download counts
+    allClickpacks.forEach((clickpack) => {
+      clickpack.downloads = downloadsData[clickpack.id] || 0;
+    });
+
+    // re-render table with updated download counts
+    applyFiltersAndRender();
+  } catch (e) {
+    console.error("failed to fetch downloads from hiatus", e);
+    sortBySizeSelect.value = "desc"; // sort by size instead
+    applyFiltersAndRender();
   }
 }
 
@@ -188,7 +202,7 @@ function renderTable(clickpacksToRender) {
 
     // download count tag
     let downloadCount = null;
-    if (clickpack.downloads !== 0) {
+    if (clickpack.downloads !== null && clickpack.downloads !== 0) {
       downloadCount = document.createElement("span");
       downloadCount.className = "unselectable tag";
       downloadCount.innerText = clickpack.downloads;
@@ -278,7 +292,13 @@ function applyFiltersAndRender() {
   } else if (sortBy == "downloads-desc") {
     filteredClickpacks.sort((a, b) => b.downloads - a.downloads);
   } else if (sortBy == "downloads-asc") {
-    filteredClickpacks.sort((a, b) => a.downloads - b.downloads);
+    filteredClickpacks.sort((a, b) => {
+      if (a.downloads === 1 && (b.downloads === 0 || b.downloads === null))
+        return -1;
+      if (b.downloads === 1 && (a.downloads === 0 || a.downloads === null))
+        return 1;
+      return a.downloads - b.downloads;
+    });
   } else {
     filteredClickpacks.sort((a, b) => a.name.localeCompare(b.name));
   }

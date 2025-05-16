@@ -1,0 +1,9 @@
+[project]
+name = "clickpack-db"
+version = "0.1.0"
+description = "Public Geometry Dash clickpack archive included in ZCB."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "repro-zipfile>=0.4.0",
+]

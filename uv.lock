@@ -1,0 +1,23 @@
+version = 1
+revision = 2
+requires-python = ">=3.12"
+
+[[package]]
+name = "clickpack-db"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "repro-zipfile" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "repro-zipfile", specifier = ">=0.4.0" }]
+
+[[package]]
+name = "repro-zipfile"
+version = "0.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ed/86/a680b85796b667a060bc673294e8adc3201a28381b23a61702ac0f51f732/repro_zipfile-0.4.0.tar.gz", hash = "sha256:fde4cf1300e740f2fd1745708ba8f1366a70853a39af6266e1e04ae81c1231c1", size = 21777, upload-time = "2025-03-21T03:53:45.9Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/48/6e/d956269ebfb35f11bd05ef67a29ee49fc361ca22eac303b0e84d0bd9990c/repro_zipfile-0.4.0-py3-none-any.whl", hash = "sha256:557ef51e17d583e2bdcaf152517843f176604f1fa9d43cf6d08b0ab152dcb719", size = 11670, upload-time = "2025-03-21T03:53:44.563Z" },
+]
