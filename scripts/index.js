@@ -8,6 +8,7 @@ let fuse;
 let allClickpacks = [];
 let databaseDate = new Date();
 let isDownloadingAll = false;
+let hiatusAPI = "https://hiatus.zeo.lol";
 
 Object.defineProperty(Number.prototype, "humanSize", {
   value: function (round = false) {
@@ -85,6 +86,7 @@ async function loadClickpacks() {
   try {
     const response = await fetch(DB_URL);
     const data = await response.json();
+    hiatusAPI = data["hiatus"];
 
     databaseDate = new Date(data.updated_at_iso);
     document.getElementById(
@@ -229,7 +231,7 @@ function renderTable(clickpacksToRender) {
       event.preventDefault();
 
       try {
-        await fetch(HIATUS_API + `/inc/${clickpack.id}`, {
+        await fetch(hiatusAPI + `/inc/${clickpack.id}`, {
           method: "POST",
         });
         console.log("incremented download count for:", clickpack.id);
