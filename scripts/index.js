@@ -30,12 +30,13 @@ Object.defineProperty(Number.prototype, "humanSize", {
   enumerable: false,
 });
 
-function tryPopup(url) {
+function tryPopup(url, external = false) {
+  console.log("previewing", url);
   NProgress.start();
   const currentlyPreviewing = document.getElementById("currentlyPreviewing");
-  currentlyPreviewing.textContent = decodeURIComponent(
-    url.split("/").pop().split(".")[0]
-  );
+  currentlyPreviewing.textContent =
+    decodeURIComponent(url.split("/").pop().split(".")[0]) +
+    (external ? " (external)" : "");
   currentlyPreviewing.href = url;
   loadZipFile(url);
 }
@@ -716,4 +717,10 @@ window.addEventListener("click", ({ target }) => {
 downloadAllButton.addEventListener("click", downloadAllClickpacks);
 downloadAllButton.disabled = true;
 
-loadClickpacks();
+window.addEventListener("load", () => {
+  loadClickpacks();
+
+  // check for ?preview=url
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has("preview")) tryPopup(urlParams.get("preview"), true);
+});
