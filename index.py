@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This is free and unencumbered software released into the public domain.
 
@@ -147,7 +149,16 @@ def zip_dir(dir_name):
 
         final_size = os.path.getsize(zip_path)
         print(f"{dir_name}: {human_size(initial_size)} => {human_size(final_size)}, -{human_size(initial_size - final_size)}")
-        entry = {"size": final_size, "uncompressed_size": initial_size, "has_noise": has_noise, "url": BASE_URL + urllib.parse.quote(dir_name) + '.zip'}
+        
+        now = datetime.now(timezone.utc)
+        entry = {
+            "size": final_size,
+            "uncompressed_size": initial_size,
+            "has_noise": has_noise,
+            "url": BASE_URL + urllib.parse.quote(dir_name) + '.zip',
+            "added_at": now.isoformat()
+        }
+
         if readme != "":
             print(f"Clickpack `{dir_name}` has a readme: {readme}")
             entry["readme"] = readme

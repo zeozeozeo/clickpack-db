@@ -71,6 +71,37 @@ function timeSince(date) {
   return "just now";
 }
 
+function timeSinceShort(date) {
+  const units = [
+    { label: "y", seconds: 31536000 },
+    { label: "mo", seconds: 2592000 },
+    { label: "d", seconds: 86400 },
+    { label: "h", seconds: 3600 },
+    { label: "m", seconds: 60 },
+    { label: "s", seconds: 1 },
+  ];
+
+  const secondsElapsed = Math.floor((Date.now() - date.getTime()) / 1000);
+
+  for (const { label, seconds } of units) {
+    const interval = Math.floor(secondsElapsed / seconds);
+    if (interval >= 1) {
+      return `${interval}${label}`;
+    }
+  }
+
+  return "now";
+}
+
+function formatDownloadCount(count) {
+  if (count >= 1000000) {
+    return `${(count / 1000000).toFixed(1).replace(".0", "")}M`;
+  } else if (count >= 1000) {
+    return `${(count / 1000).toFixed(1).replace(".0", "")}k`;
+  }
+  return count.toString();
+}
+
 const DB_URL = document.location.origin + "/db.json";
 
 function fixupOrigin(url) {
@@ -107,6 +138,9 @@ async function loadClickpacks() {
         name: name,
         ...clickpackData,
         downloads: null, // mark as not loaded yet
+        addedAt: clickpackData.added_at
+          ? new Date(clickpackData.added_at)
+          : null,
       });
     }
 
@@ -182,6 +216,33 @@ function renderTable(clickpacksToRender) {
     clickpackLink.textContent = clickpack.name;
     clickpackDiv.appendChild(clickpackLink);
 
+    // download count tag
+    let downloadCount = null;
+    if (clickpack.downloads !== null && clickpack.downloads !== 0) {
+      downloadCount = document.createElement("span");
+      downloadCount.className = "unselectable tag";
+      downloadCount.innerText = `⬇️ ${formatDownloadCount(
+        clickpack.downloads
+      )}`;
+      downloadCount.setAttribute(
+        "data-tippy-content",
+        `${clickpack.downloads} download${clickpack.downloads === 1 ? "" : "s"}`
+      );
+      clickpackDiv.appendChild(downloadCount);
+    }
+
+    // addition date tag
+    if (clickpack.addedAt) {
+      const dateTag = document.createElement("span");
+      dateTag.className = "unselectable tag";
+      dateTag.innerText = `📅 ${timeSinceShort(clickpack.addedAt)}`;
+      dateTag.setAttribute(
+        "data-tippy-content",
+        `Added on ${clickpack.addedAt.toLocaleDateString()}`
+      );
+      clickpackDiv.appendChild(dateTag);
+    }
+
     if (clickpack.has_noise) {
       const tag = document.createElement("span");
       tag.className = "unselectable tag";
@@ -192,29 +253,16 @@ function renderTable(clickpacksToRender) {
     if (clickpack.readme) {
       const tag = document.createElement("span");
       tag.className = "unselectable tag";
-      tag.textContent = "readme";
+      tag.textContent = "📖 readme";
       tag.setAttribute("data-tippy-content", clickpack.readme);
       clickpackDiv.appendChild(tag);
     }
 
     const size = document.createElement("span");
     size.className = "unselectable tag";
-    size.innerText = clickpack.size.humanSize(true);
+    size.innerText = `💾 ${clickpack.size.humanSize(true)}`;
     const fullHumanSize = clickpack.size.humanSize();
     size.setAttribute("data-tippy-content", fullHumanSize);
-
-    // download count tag
-    let downloadCount = null;
-    if (clickpack.downloads !== null && clickpack.downloads !== 0) {
-      downloadCount = document.createElement("span");
-      downloadCount.className = "unselectable tag";
-      downloadCount.innerText = clickpack.downloads;
-      downloadCount.setAttribute(
-        "data-tippy-content",
-        `${clickpack.downloads} download${clickpack.downloads === 1 ? "" : "s"}`
-      );
-      clickpackDiv.appendChild(downloadCount);
-    }
 
     clickpackDiv.appendChild(size);
 
@@ -301,6 +349,20 @@ function applyFiltersAndRender() {
       if (b.downloads === 1 && (a.downloads === 0 || a.downloads === null))
         return 1;
       return a.downloads - b.downloads;
+    });
+  } else if (sortBy === "date-desc") {
+    filteredClickpacks.sort((a, b) => {
+      if (!a.addedAt && !b.addedAt) return a.name.localeCompare(b.name);
+      if (!a.addedAt) return 1;
+      if (!b.addedAt) return -1;
+      return b.addedAt.getTime() - a.addedAt.getTime();
+    });
+  } else if (sortBy === "date-asc") {
+    filteredClickpacks.sort((a, b) => {
+      if (!a.addedAt && !b.addedAt) return a.name.localeCompare(b.name);
+      if (!a.addedAt) return 1;
+      if (!b.addedAt) return -1;
+      return a.addedAt.getTime() - b.addedAt.getTime();
     });
   } else {
     filteredClickpacks.sort((a, b) => a.name.localeCompare(b.name));
