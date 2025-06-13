@@ -12,7 +12,7 @@ import os
 import subprocess
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Optional, List
 import argparse
 
@@ -205,14 +205,18 @@ def main():
             first_date = get_first_commit_date(zip_path)
             
             if first_date:
+                # Convert the date to UTC
+                git_date = datetime.fromisoformat(first_date.replace('Z', '+00:00'))
+                utc_date = git_date.astimezone(timezone.utc)
+                utc_iso = utc_date.isoformat()
+                
                 # If we already have a date for this clickpack, keep the earliest one
                 if clickpack_name in addition_dates:
                     existing_date = datetime.fromisoformat(addition_dates[clickpack_name].replace('Z', '+00:00'))
-                    new_date = datetime.fromisoformat(first_date.replace('Z', '+00:00'))
-                    if new_date < existing_date:
-                        addition_dates[clickpack_name] = first_date
+                    if utc_date < existing_date:
+                        addition_dates[clickpack_name] = utc_iso
                 else:
-                    addition_dates[clickpack_name] = first_date
+                    addition_dates[clickpack_name] = utc_iso
                 
                 if args.verbose:
                     print(f"  -> Added on: {first_date}")
@@ -275,7 +279,7 @@ def main():
         dates = [datetime.fromisoformat(d.replace('Z', '+00:00')) for d in addition_dates.values()]
         earliest = min(dates).strftime('%Y-%m-%d')
         latest = max(dates).strftime('%Y-%m-%d')
-        print(f"Date range: {earliest} to {latest}")
+        print(f"Date range: {earliest} to {latest} (all times in UTC)")
     
     if not args.output and not args.update_db:
         print("\nUse --output to save results to a file")
