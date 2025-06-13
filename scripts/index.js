@@ -77,7 +77,7 @@ function timeSinceShort(date) {
     { label: "mo", seconds: 2592000 },
     { label: "d", seconds: 86400 },
     { label: "h", seconds: 3600 },
-    { label: "m", seconds: 60 },
+    { label: "min", seconds: 60 },
     { label: "s", seconds: 1 },
   ];
 
