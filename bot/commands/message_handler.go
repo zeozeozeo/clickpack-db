@@ -19,12 +19,12 @@ func OnMessageCreate(event *events.MessageCreate) {
 
 	slog.Info("good", "attachments", len(event.Message.Attachments), "content", event.Message.Content, "author", event.Message.Author.EffectiveName(), "id", event.Message.ID)
 
-	for _, attachment := range event.Message.Attachments {
+	for i, attachment := range event.Message.Attachments {
 		slog.Info("attachment", "filename", attachment.Filename, "url", attachment.URL)
 		if attachment.URL == "" {
 			continue
 		}
-		for i, ext := range archiveExtensions {
+		for _, ext := range archiveExtensions {
 			slog.Info("checking attachment", "filename", attachment.Filename, "ext", ext, "dbg", attachment.Filename[len(attachment.Filename)-len(ext):])
 			if len(attachment.Filename) > len(ext) && attachment.Filename[len(attachment.Filename)-len(ext):] == ext {
 				SendVerify(event.Client(), event.Message, attachment.Filename, i)
