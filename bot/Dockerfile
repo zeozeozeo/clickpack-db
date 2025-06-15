@@ -23,6 +23,10 @@ FROM alpine:latest
 
 # Install system dependencies
 RUN apk add --no-cache \
+    gcc \
+    p3-de \
+    musl-dev \
+    linux-headers \
     python3 \
     py3-pip \
     git \
