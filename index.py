@@ -185,13 +185,19 @@ print()
 # sort database alphabetically (case-insensitive)
 db['clickpacks'] = {k: db['clickpacks'][k] for k in sorted(db['clickpacks'], key=str.lower)}
 
-# set current time
-now = datetime.now(timezone.utc)
-db['updated_at_iso'] = now.isoformat()
-db['updated_at_unix'] = int(round(now.timestamp()))
-db['version'] += 1
+# only update timestamp and version if new clickpacks were added
+if len(zips) > 0:
+    # set current time
+    now = datetime.now(timezone.utc)
+    db['updated_at_iso'] = now.isoformat()
+    db['updated_at_unix'] = int(round(now.timestamp()))
+    db['version'] += 1
+    print('Updated at: ' + db['updated_at_iso'])
+    print(f"Added {len(zips)} new clickpack(s), incremented version to {db['version']}")
+else:
+    print("No new clickpacks were added, keeping existing timestamp and version")
+
 db['hiatus'] = HIATUS_ENDPOINT
-print('Updated at: ' + db['updated_at_iso'])
 
 actual_filename = DB_FILENAME
 if DEBUG_DB:
