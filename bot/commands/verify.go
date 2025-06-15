@@ -26,7 +26,7 @@ var archiveExtensions = []string{
 	".bz2",
 }
 
-const announceChannelID = 1383786787876372490
+const announceChannelID = 1383790392008249384
 
 func SendVerify(client bot.Client, msg discord.Message, filename string, attachmentIdx int) {
 	name := strings.TrimSuffix(filename, filepath.Ext(filename))
