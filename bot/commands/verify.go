@@ -283,6 +283,7 @@ func gitCommitAndPush(clickpackName string, triggerMessage discord.Message) erro
 	// configure git user (use environment variables)
 	gitUserName := os.Getenv("GIT_USER_NAME")
 	gitUserEmail := os.Getenv("GIT_USER_EMAIL")
+	githubToken := os.Getenv("GITHUB_TOKEN")
 
 	if gitUserName != "" {
 		cmd := exec.Command("git", "config", "user.name", gitUserName)
@@ -295,6 +296,40 @@ func gitCommitAndPush(clickpackName string, triggerMessage discord.Message) erro
 		cmd := exec.Command("git", "config", "user.email", gitUserEmail)
 		if err := cmd.Run(); err != nil {
 			slog.Warn("failed to set git user.email", "err", err)
+		}
+	}
+
+	// configure git to use token for authentication if available
+	if githubToken != "" {
+		// get current remote URL
+		cmd := exec.Command("git", "remote", "get-url", "origin")
+		output, err := cmd.Output()
+		if err != nil {
+			slog.Warn("failed to get remote URL", "err", err)
+		} else {
+			remoteURL := strings.TrimSpace(string(output))
+			
+			// if it's an HTTPS URL, configure it to use the token
+			if strings.HasPrefix(remoteURL, "https://github.com/") {
+				// extract the repo path (owner/repo.git)
+				repoPath := strings.TrimPrefix(remoteURL, "https://github.com/")
+				authenticatedURL := fmt.Sprintf("https://%s@github.com/%s", githubToken, repoPath)
+				
+				// temporarily set the remote URL with token
+				cmd = exec.Command("git", "remote", "set-url", "origin", authenticatedURL)
+				if err := cmd.Run(); err != nil {
+					slog.Warn("failed to set authenticated remote URL", "err", err)
+				} else {
+					slog.Debug("configured git remote with token authentication")
+					// restore original URL after push (defer)
+					defer func() {
+						cmd := exec.Command("git", "remote", "set-url", "origin", remoteURL)
+						if err := cmd.Run(); err != nil {
+							slog.Warn("failed to restore original remote URL", "err", err)
+						}
+					}()
+				}
+			}
 		}
 	}
 
