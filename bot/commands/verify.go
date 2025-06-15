@@ -195,7 +195,7 @@ func HandleApprove(data discord.ButtonInteractionData, event *handler.ComponentE
 	}
 
 	// show success
-	event.Client().Rest().UpdateMessage(
+	_, err = event.Client().Rest().UpdateMessage(
 		event.Channel().ID(),
 		event.Message.ID,
 		discord.NewMessageUpdateBuilder().
@@ -212,8 +212,11 @@ func HandleApprove(data discord.ButtonInteractionData, event *handler.ComponentE
 			ClearContainerComponents().
 			Build(),
 	)
+	if err != nil {
+		slog.Error("failed to update message", "err", err)
+	}
 
-	event.Client().Rest().CreateMessage(
+	_, err = event.Client().Rest().CreateMessage(
 		announceChannelID,
 		discord.NewMessageCreateBuilder().
 			AddEmbeds(
@@ -229,6 +232,9 @@ func HandleApprove(data discord.ButtonInteractionData, event *handler.ComponentE
 			).
 			Build(),
 	)
+	if err != nil {
+		slog.Error("failed to send announcement", "err", err)
+	}
 
 	return nil
 }
