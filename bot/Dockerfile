@@ -32,7 +32,7 @@ RUN apk add --no-cache \
     bash
 
 # Install Python dependencies
-RUN pip3 install rarfile py7zr
+RUN pip3 install rarfile py7zr repro-zipfile --break-system-packages
 
 # Create app user
 RUN adduser -D -s /bin/bash appuser
