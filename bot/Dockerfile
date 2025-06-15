@@ -27,7 +27,6 @@ RUN apk add --no-cache \
     py3-pip \
     git \
     ffmpeg \
-    unrar \
     p7zip \
     ca-certificates \
     bash

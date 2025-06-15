@@ -172,7 +172,9 @@ func HandleApprove(data discord.ButtonInteractionData, event *handler.ComponentE
 	if err != nil {
 		slog.Error("failed to process clickpack", "err", err, "name", name)
 		// show error
-		event.UpdateMessage(
+		event.Client().Rest().UpdateMessage(
+			event.Channel().ID(),
+			event.Message.ID,
 			discord.NewMessageUpdateBuilder().
 				SetEmbeds(
 					discord.NewEmbedBuilder().
@@ -191,7 +193,9 @@ func HandleApprove(data discord.ButtonInteractionData, event *handler.ComponentE
 	}
 
 	// show success
-	event.UpdateMessage(
+	event.Client().Rest().UpdateMessage(
+		event.Channel().ID(),
+		event.Message.ID,
 		discord.NewMessageUpdateBuilder().
 			SetEmbeds(
 				discord.NewEmbedBuilder().
