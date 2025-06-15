@@ -26,6 +26,8 @@ var archiveExtensions = []string{
 	".bz2",
 }
 
+const announceChannelID = 1383786787876372490
+
 func SendVerify(client bot.Client, msg discord.Message, filename string, attachmentIdx int) {
 	name := strings.TrimSuffix(filename, filepath.Ext(filename))
 	buttonID := fmt.Sprintf("%d|%d:%d*%s", msg.ID, msg.ChannelID, attachmentIdx, name)
@@ -201,13 +203,30 @@ func HandleApprove(data discord.ButtonInteractionData, event *handler.ComponentE
 				discord.NewEmbedBuilder().
 					SetTitlef("New clickpack `%s` (approved)", name).
 					SetDescriptionf(
-						"This clickpack has been approved and processed by %s. Jump to the original message: %s",
+						"This clickpack has been approved by %s. Jump to the original message: %s",
 						event.User().Mention(), triggerMessage.JumpURL(),
 					).
 					SetColor(0x00FF00).
 					Build(),
 			).
 			ClearContainerComponents().
+			Build(),
+	)
+
+	event.Client().Rest().CreateMessage(
+		announceChannelID,
+		discord.NewMessageCreateBuilder().
+			AddEmbeds(
+				discord.NewEmbedBuilder().
+					SetTitlef("New clickpack `%s`", name).
+					SetDescriptionf(
+						"This clickpack has been approved by %s. Jump to the original message: %s",
+						event.User().Mention(), triggerMessage.JumpURL(),
+					).
+					SetAuthor(event.User().EffectiveName(), "", event.User().EffectiveAvatarURL()).
+					SetColor(0x007BFF).
+					Build(),
+			).
 			Build(),
 	)
 
@@ -308,13 +327,13 @@ func gitCommitAndPush(clickpackName string, triggerMessage discord.Message) erro
 			slog.Warn("failed to get remote URL", "err", err)
 		} else {
 			remoteURL := strings.TrimSpace(string(output))
-			
+
 			// if it's an HTTPS URL, configure it to use the token
 			if strings.HasPrefix(remoteURL, "https://github.com/") {
 				// extract the repo path (owner/repo.git)
 				repoPath := strings.TrimPrefix(remoteURL, "https://github.com/")
 				authenticatedURL := fmt.Sprintf("https://%s@github.com/%s", githubToken, repoPath)
-				
+
 				// temporarily set the remote URL with token
 				cmd = exec.Command("git", "remote", "set-url", "origin", authenticatedURL)
 				if err := cmd.Run(); err != nil {
