@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  clickpack-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: clickpack-bot
+    restart: unless-stopped
+    volumes:
+      # mount the entire clickpack-db repository
+      - ../:/workspace
+    environment:
+      - CLICKPACKDB_DISCORD_TOKEN=${CLICKPACKDB_DISCORD_TOKEN}
+      - GIT_USER_NAME=${GIT_USER_NAME:-Clickpack Bot}
+      - GIT_USER_EMAIL=${GIT_USER_EMAIL:-bot@clickpack-db.com}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+    env_file:
+      - .env
+    working_dir: /workspace/bot
+    command: ["bot"]
+    # configure git credentials if GitHub token is provided
+    entrypoint: >
+      sh -c "
+        if [ ! -z \"$$GITHUB_TOKEN\" ]; then
+          git config --global credential.helper store &&
+          echo \"https://$$GITHUB_TOKEN:x-oauth-basic@github.com\" > ~/.git-credentials
+        fi &&
+        git config --global user.name \"$$GIT_USER_NAME\" &&
+        git config --global user.email \"$$GIT_USER_EMAIL\" &&
+        exec bot
+      "

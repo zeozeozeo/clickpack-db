@@ -1,35 +1,12 @@
-"""
-This is free and unencumbered software released into the public domain.
-
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
-
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
-For more information, please refer to <https://unlicense.org/>
-"""
+#!/usr/bin/env python3
 
 import os
 import subprocess
 import concurrent.futures
 import shutil
 import zipfile
+import rarfile
+import py7zr
 
 # constants for source and output directories
 SRC_DIR = 'db'
@@ -37,7 +14,7 @@ OUT_DIR = 'ogg'
 
 # audio extensions (no .ogg)
 AUDIO_EXTENSIONS = ['.mp3', '.wav', '.aiff', '.flac', '.aac', '.wma', '.m4a', '.amr', '.3gp']
-ARCHIVE_EXTENSIONS = ['.zip', '.rar']
+ARCHIVE_EXTENSIONS = ['.zip', '.rar', '.7z']
 
 def convert_to_ogg(src_path, out_path):
     """Convert an audio file to .ogg using ffmpeg."""
@@ -68,9 +45,59 @@ def process_directory(src_dir, out_dir):
                         continue
                     # convert the file
                     executor.submit(convert_to_ogg, src_path, out_path)
-                else:
+                elif not any(file.endswith(ext) for ext in ARCHIVE_EXTENSIONS):
                     # copy the file as is
                     shutil.copy2(src_path, out_path)
+
+def analyze_archive_structure(file_names):
+    """Analyze archive structure to determine if it has a single root directory."""
+    has_single_root = False
+    root_dir_name = None
+    
+    if file_names:
+        # get the top-level directories and files
+        top_level_entries = set()
+        for name in file_names:
+            # normalize path separators and get the first component
+            name = name.replace('\\', '/')
+            parts = name.split('/')
+            if parts[0]:  # ignore empty strings
+                top_level_entries.add(parts[0])
+        
+        # if there's only one top-level entry and it's a directory,
+        # then all files are contained within a single root directory
+        if len(top_level_entries) == 1:
+            potential_root = list(top_level_entries)[0]
+            # check if this entry represents a directory by looking for entries inside it
+            if any(name.replace('\\', '/').startswith(potential_root + '/') for name in file_names):
+                has_single_root = True
+                root_dir_name = potential_root
+    
+    return has_single_root, root_dir_name
+
+def extract_archive(file_path, src_dir, file_names, archive_obj):
+    """Extract archive with proper root directory handling."""
+    file = os.path.basename(file_path)
+    has_single_root, root_dir_name = analyze_archive_structure(file_names)
+    new_root_dir = os.path.splitext(file)[0]
+    
+    if has_single_root:
+        # extract everything and rename the root directory to match archive name
+        archive_obj.extractall(src_dir)
+        old_root_path = os.path.join(src_dir, root_dir_name)
+        new_root_path = os.path.join(src_dir, new_root_dir)
+        
+        # if the target directory already exists, remove it first
+        if os.path.exists(new_root_path):
+            shutil.rmtree(new_root_path)
+        
+        shutil.move(old_root_path, new_root_path)
+    else:
+        # archive has no single root directory or files at root level
+        # create a directory with the archive name and extract into it
+        extract_path = os.path.join(src_dir, new_root_dir)
+        os.makedirs(extract_path, exist_ok=True)
+        archive_obj.extractall(extract_path)
 
 def unzip_files(src_dir):
     print(f'UNZIPPING files in {src_dir}...')
@@ -79,27 +106,27 @@ def unzip_files(src_dir):
         if not os.path.isfile(file_path):
             continue
 
-        print(f'UNZIPPING {file_path}...')
-
-        if zipfile.is_zipfile(file_path):
+        file_ext = os.path.splitext(file)[1].lower()
+        
+        if file_ext == '.zip' and zipfile.is_zipfile(file_path):
+            print(f'UNZIPPING ZIP {file_path}...')
             with zipfile.ZipFile(file_path) as zf:
-                # check if the archive has a root directory
-                root_dirs = [f for f in zf.namelist() if f.endswith('/')]
-                if len(root_dirs) == 1:
-                    # extract the root directory but rename it into the name of the archive
-                    root_dir = root_dirs[0]
-                    new_root_dir = os.path.splitext(file)[0]
-                    zf.extractall(src_dir, pwd=None)
-                    shutil.move(os.path.join(src_dir, root_dir), os.path.join(src_dir, new_root_dir))
-                    shutil.rmtree(os.path.join(src_dir, root_dir))
-                else:
-                    # create the directory with the name of the archive and unzip it into that directory
-                    new_root_dir = os.path.splitext(file)[0]
-                    os.makedirs(os.path.join(src_dir, new_root_dir), exist_ok=True)
-                    zf.extractall(os.path.join(src_dir, new_root_dir), pwd=None)
+                extract_archive(file_path, src_dir, zf.namelist(), zf)
+                
+        elif file_ext == '.rar' and rarfile.is_rarfile(file_path):
+            print(f'UNZIPPING RAR {file_path}...')
+            with rarfile.RarFile(file_path) as rf:
+                extract_archive(file_path, src_dir, rf.namelist(), rf)
+                
+        elif file_ext == '.7z':
+            print(f'UNZIPPING 7Z {file_path}...')
+            with py7zr.SevenZipFile(file_path, mode='r') as szf:
+                # py7zr returns a list of ArchiveInfo objects, we need the filenames
+                file_names = [info.filename for info in szf.list()]
+                extract_archive(file_path, src_dir, file_names, szf)
 
         print(f'DONE {file}')
 
 if __name__ == '__main__':
-    #unzip_files(SRC_DIR)
+    unzip_files(SRC_DIR)
     process_directory(SRC_DIR, OUT_DIR)
