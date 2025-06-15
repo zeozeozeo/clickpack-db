@@ -6,11 +6,11 @@ import (
 	"github.com/disgoorg/disgo/events"
 )
 
-//const clickpackChannelID = 952187055092416582
-//const modChannelID = 1383734997181005885
+const clickpackChannelID = 952187055092416582
+const modChannelID = 1383734997181005885
 
-const clickpackChannelID = 783959799347019817
-const modChannelID = 908268938482286634
+//const clickpackChannelID = 783959799347019817
+//const modChannelID = 908268938482286634
 
 func OnMessageCreate(event *events.MessageCreate) {
 	if event.ChannelID != clickpackChannelID {
