@@ -126,7 +126,7 @@ func HandleReject(data discord.ButtonInteractionData, event *handler.ComponentEv
 						"This clickpack has been rejected by %s. Jump to the original message: %s",
 						event.User().Mention(), triggerMessage.JumpURL(),
 					).
-					SetColor(0x007BFF).
+					SetColor(0xFF0000).
 					Build(),
 			).
 			ClearContainerComponents().
