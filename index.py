@@ -44,6 +44,7 @@ parser.add_argument('--db', type=str, default='db.json', help='Database filename
 parser.add_argument('--debug', action='store_true', help='Enable debug mode')
 parser.add_argument('--delete-duplicates', action='store_true', help='Delete duplicate clickpacks')
 parser.add_argument('--hiatus-endpoint', type=str, default='https://hiatus.zeo.lol', help='Hiatus API endpoint')
+parser.add_argument('--delete-dirs', action='store_true', help='Remove indexed folders in db directory and clear ogg directory')
 args = parser.parse_args()
 
 SRC_DIR = args.src
@@ -212,3 +213,40 @@ total_size = sum(map(lambda x: x["size"], db['clickpacks'].values()))
 total_uncomp_size = sum(map(lambda x: x["uncompressed_size"], db['clickpacks'].values()))
 print(f"Total database size (compressed): {human_size(total_size)}")
 print(f"Total database size (uncompressed): {human_size(total_uncomp_size)}")
+
+if args.delete_dirs:
+    print("\n" + "="*50)
+    print("Delete directories mode enabled - cleaning up after indexing")
+    
+    # Clear ogg directory
+    if os.path.exists(SRC_DIR):
+        print(f"Clearing contents of {SRC_DIR} directory...")
+        for item in os.listdir(SRC_DIR):
+            item_path = os.path.join(SRC_DIR, item)
+            if os.path.isdir(item_path):
+                print(f"Removing directory: {item}")
+                shutil.rmtree(item_path)
+            elif os.path.isfile(item_path):
+                print(f"Removing file: {item}")
+                os.remove(item_path)
+        print(f"Cleared {SRC_DIR} directory")
+    else:
+        print(f"Source directory {SRC_DIR} does not exist")
+    
+    # Clear db directory
+    db_dir = "db"
+    if os.path.exists(db_dir):
+        print(f"Clearing contents of {db_dir} directory...")
+        for item in os.listdir(db_dir):
+            item_path = os.path.join(db_dir, item)
+            if os.path.isdir(item_path):
+                print(f"Removing directory: {item}")
+                shutil.rmtree(item_path)
+            elif os.path.isfile(item_path) and item != "put_clickpacks_here":
+                print(f"Removing file: {item}")
+                os.remove(item_path)
+        print(f"Cleared {db_dir} directory")
+    else:
+        print(f"DB directory {db_dir} does not exist")
+    
+    print("Directory cleanup complete after indexing")

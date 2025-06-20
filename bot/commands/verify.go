@@ -26,7 +26,10 @@ var archiveExtensions = []string{
 	".bz2",
 }
 
-const announceChannelID = 1383790392008249384
+const (
+	modChannelID      snowflake.ID = 1383734997181005885
+	announceChannelID snowflake.ID = 1383790392008249384
+)
 
 func SendVerify(client bot.Client, msg discord.Message, filename string, attachmentIdx int) {
 	name := strings.TrimSuffix(filename, filepath.Ext(filename))
@@ -291,7 +294,7 @@ func processApprovedClickpack(attachment discord.Attachment, name string, trigge
 
 	// run index.py
 	slog.Info("running index.py...")
-	cmd = exec.Command(pythonCmd, "index.py")
+	cmd = exec.Command(pythonCmd, "index.py", "--delete-dirs")
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("failed to run index.py: %w", err)
 	}

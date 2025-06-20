@@ -87,11 +87,13 @@ def extract_archive(file_path, src_dir, file_names, archive_obj):
         old_root_path = os.path.join(src_dir, root_dir_name)
         new_root_path = os.path.join(src_dir, new_root_dir)
         
-        # if the target directory already exists, remove it first
-        if os.path.exists(new_root_path):
-            shutil.rmtree(new_root_path)
-        
-        shutil.move(old_root_path, new_root_path)
+        # only move if the paths are different
+        if old_root_path != new_root_path:
+            # if the target directory already exists, remove it first
+            if os.path.exists(new_root_path):
+                shutil.rmtree(new_root_path)
+            
+            shutil.move(old_root_path, new_root_path)
     else:
         # archive has no single root directory or files at root level
         # create a directory with the archive name and extract into it
