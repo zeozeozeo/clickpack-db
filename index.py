@@ -44,7 +44,7 @@ parser.add_argument('--db', type=str, default='db.json', help='Database filename
 parser.add_argument('--debug', action='store_true', help='Enable debug mode')
 parser.add_argument('--delete-duplicates', action='store_true', help='Delete duplicate clickpacks')
 parser.add_argument('--hiatus-endpoint', type=str, default='https://hiatus.zeo.lol', help='Hiatus API endpoint')
-parser.add_argument('--delete-dirs', action='store_true', help='Remove indexed folders in db directory and clear ogg directory')
+parser.add_argument('--delete-dirs', action='store_false', help='Remove indexed folders in db directory and clear ogg directory')
 args = parser.parse_args()
 
 SRC_DIR = args.src
