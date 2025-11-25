@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="color-scheme" content="dark">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Packmak</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -167,7 +168,6 @@
                 </div>
             </div>
 
-            <!-- italic warn text -->
             <p class="text-xs text-gray-400 italic mb-5">
                 * Releases will be recorded after each click <br>
                 * The click sound will be detected automatically, no need to align it precisely with the tempo <br>
@@ -197,14 +197,13 @@
                 <p class="text-gray-400">Analyzing audio...</p>
             </div>
 
-            <div id="finished-state" class="hidden">
-                <div class="mx-auto w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center mb-6">
-                    <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
+            <div id="review-panel" class="hidden text-left">
+                <h2 class="text-3xl font-bold text-white mb-2 text-center">Review Sounds</h2>
+                <p class="text-gray-400 mb-6 text-center">Preview and remove unwanted sounds.</p>
+
+                <div id="review-list" class="space-y-2 mb-8 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                    <!-- injected in js -->
                 </div>
-                <h2 class="text-3xl font-bold text-white mb-2">Pack Ready</h2>
-                <p class="text-gray-400 mb-8">Audio processed successfully.</p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <button id="download-btn"
@@ -217,7 +216,7 @@
                     </button>
                     <button onclick="location.reload()"
                         class="bg-white/5 hover:bg-white/10 text-white font-medium py-3 px-6 rounded-xl transition-all">
-                        Back
+                        Discard & Restart
                     </button>
                 </div>
             </div>
@@ -225,8 +224,7 @@
     </div>
 
     <!-- recording overlay -->
-    <div id="recording-overlay"
-        class="fixed inset-0 bg-black z-50 hidden flex flex-col items-center justify-center cursor-none">
+    <div id="recording-overlay" class="fixed inset-0 bg-black z-50 hidden flex flex-col items-center justify-center cursor-none select-none">
 
         <!-- vignette -->
         <div class="absolute inset-0 pointer-events-none vignette-overlay transition-colors duration-200" id="vignette">

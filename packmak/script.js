@@ -27,7 +27,8 @@ const els = {
   progressText: document.getElementById("progress-text"),
   currentPhase: document.getElementById("current-phase"),
   processingState: document.getElementById("processing-state"),
-  finishedState: document.getElementById("finished-state"),
+  reviewPanel: document.getElementById("review-panel"),
+  reviewList: document.getElementById("review-list"),
   downloadBtn: document.getElementById("download-btn"),
 };
 
@@ -374,6 +375,7 @@ function finishRecording() {
     processAudio();
   };
 }
+
 async function processAudio() {
   const channelData = audioBuffer.getChannelData(0);
   const sampleRate = audioBuffer.sampleRate;
@@ -505,7 +507,64 @@ async function processAudio() {
   }
 
   els.processingState.classList.add("hidden");
-  els.finishedState.classList.remove("hidden");
+  els.reviewPanel.classList.remove("hidden");
+  renderReviewList();
+}
+
+function renderReviewList() {
+  els.reviewList.innerHTML = "";
+
+  if (window.generatedFiles.length === 0) {
+    els.reviewList.innerHTML =
+      '<p class="text-gray-500 text-center py-4">No sounds were recorded :(</p>';
+    return;
+  }
+
+  window.generatedFiles.forEach((file, index) => {
+    const div = document.createElement("div");
+    div.className =
+      "flex items-center justify-between bg-white/5 p-3 rounded-lg border border-white/5 hover:bg-white/10 transition-colors group";
+
+    const name = document.createElement("span");
+    name.className = "text-sm text-gray-300 font-mono truncate mr-4 flex-1";
+    name.innerText = file.path;
+
+    const actions = document.createElement("div");
+    actions.className = "flex items-center gap-2";
+
+    // play button
+    const playBtn = document.createElement("button");
+    playBtn.className =
+      "p-2 rounded-lg bg-white/5 hover:bg-brand-500 text-gray-400 hover:text-white transition-all";
+    playBtn.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+    playBtn.onclick = () => playPreview(file.data);
+
+    // delete button
+    const delBtn = document.createElement("button");
+    delBtn.className =
+      "p-2 rounded-lg bg-white/5 hover:bg-red-500 text-gray-400 hover:text-white transition-all";
+    delBtn.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>`;
+    delBtn.onclick = () => deleteSound(index);
+
+    actions.appendChild(playBtn);
+    actions.appendChild(delBtn);
+
+    div.appendChild(name);
+    div.appendChild(actions);
+    els.reviewList.appendChild(div);
+  });
+}
+
+function playPreview(buffer) {
+  const blob = new Blob([buffer], { type: "audio/wav" });
+  const url = URL.createObjectURL(blob);
+  const audio = new Audio(url);
+  audio.play();
+}
+
+function deleteSound(index) {
+  window.generatedFiles.splice(index, 1);
+  renderReviewList();
 }
 
 async function downloadZip() {
