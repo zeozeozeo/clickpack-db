@@ -49,7 +49,7 @@ const CLICK_TYPES = [
     id: "soft",
     name: "Soft Click",
     folder: "softclicks",
-    relFolder: "softrelease",
+    relFolder: "softreleases",
   },
   {
     id: "micro",
