@@ -88,6 +88,7 @@ async function startSession() {
     recordNoise: document.getElementById("record-noise").checked,
     normalize: document.getElementById("normalize-audio").checked,
     denoise: document.getElementById("denoise-samples").checked,
+    muteMetronome: document.getElementById("mute-metronome").checked,
     counts: {
       hard: parseInt(document.getElementById("count-hard").value),
       normal: parseInt(document.getElementById("count-normal").value),
@@ -344,6 +345,8 @@ function scheduleStep(step, time) {
 }
 
 function playMetronomeClick(freq) {
+  if (config.muteMetronome) return;
+
   const osc = audioContext.createOscillator();
   const gain = audioContext.createGain();
   osc.connect(gain);
