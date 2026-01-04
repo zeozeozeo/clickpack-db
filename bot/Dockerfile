@@ -32,6 +32,7 @@ RUN apk add --no-cache \
     git \
     ffmpeg \
     p7zip \
+    unrar \
     ca-certificates \
     bash
 
