@@ -1,5 +1,5 @@
 # Use Go Alpine base image
-FROM golang:1.24-alpine AS builder
+FROM golang:1.25-alpine AS builder
 
 RUN apk add --no-cache git
 
@@ -32,9 +32,20 @@ RUN apk add --no-cache \
     git \
     ffmpeg \
     p7zip \
-    unrar \
     ca-certificates \
+    curl \
+    jq \
+    libstdc++ \
+    libgcc \
     bash
+
+# Install unrar
+RUN curl -LsSf https://api.github.com/repos/EDM115/unrar-alpine/releases/latest \
+    | jq -r '.assets[] | select(.name == "unrar") | .id' \
+    | xargs -I {} curl -LsSf https://api.github.com/repos/EDM115/unrar-alpine/releases/assets/{} \
+    | jq -r '.browser_download_url' \
+    | xargs -I {} curl -Lsf {} -o /tmp/unrar && \
+    install -v -m755 /tmp/unrar /usr/local/bin
 
 # Install Python dependencies
 RUN pip3 install rarfile py7zr repro-zipfile --break-system-packages
