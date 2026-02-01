@@ -35,8 +35,6 @@ RUN apk add --no-cache \
     ca-certificates \
     curl \
     jq \
-    libstdc++ \
-    libgcc \
     bash
 
 # Install unrar

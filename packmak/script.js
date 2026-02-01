@@ -109,8 +109,8 @@ async function startSession() {
     mediaStream = await navigator.mediaDevices.getUserMedia({
       audio: {
         echoCancellation: false,
-        noiseSuppression: false,
-        autoGainControl: false,
+        noiseSuppression: config.denoise,
+        autoGainControl: true,
       },
     });
   } catch (e) {
@@ -458,9 +458,9 @@ async function processAudio() {
     let slice = channelData.slice(start, end);
 
     // run spectral denoiser
-    if (config.denoise && noiseBuffer && noiseBuffer.length > 2048) {
-      slice = DSP.denoise(slice, noiseBuffer, 1.0);
-    }
+    //if (config.denoise && noiseBuffer && noiseBuffer.length > 2048) {
+    //  slice = DSP.denoise(slice, noiseBuffer, 1.0);
+    //}
 
     if (config.normalize) {
       let maxVal = 0;
