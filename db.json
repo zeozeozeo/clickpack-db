@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-01T11:45:37.966634+00:00",
-    "updated_at_unix": 1769946338,
+    "updated_at_iso": "2026-02-01T22:41:02.651132+00:00",
+    "updated_at_unix": 1769985663,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5946,6 +5946,14 @@
             "checksum": "d349e1567fc77e42e95c7bfefaef0b58",
             "added_at": "2025-04-28T12:20:01+00:00"
         },
+        "Zoink Clicks Newest": {
+            "size": 99601,
+            "uncompressed_size": 98155,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zoink%20Clicks%20Newest.zip",
+            "added_at": "2026-02-01T22:41:02.650299+00:00",
+            "checksum": "37d005e43cca54fbebacb71bbbf4af12"
+        },
         "Zoink's Wooting 80HE": {
             "size": 106034,
             "uncompressed_size": 104020,
@@ -5987,6 +5995,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 265,
+    "version": 266,
     "hiatus": "https://hiatus.zeo.lol"
 }
