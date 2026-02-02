@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-01T22:41:02.651132+00:00",
-    "updated_at_unix": 1769985663,
+    "updated_at_iso": "2026-02-02T15:18:22.894108+00:00",
+    "updated_at_unix": 1770045503,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2915,6 +2915,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/lake%20clickpack.zip",
             "checksum": "c4ac9c1edb25d1378bc19b9236075b6e",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "LANGTU L3 103 SPACEBAR": {
+            "size": 74300,
+            "uncompressed_size": 73614,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/LANGTU%20L3%20103%20SPACEBAR.zip",
+            "added_at": "2026-02-02T15:18:22.893336+00:00",
+            "checksum": "3717603d3a9b6d94a35b5d99326e5329"
         },
         "Laps A60": {
             "size": 360442,
@@ -5995,6 +6003,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 266,
+    "version": 267,
     "hiatus": "https://hiatus.zeo.lol"
 }
