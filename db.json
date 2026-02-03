@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-03T13:43:12.761688+00:00",
-    "updated_at_unix": 1770126193,
+    "updated_at_iso": "2026-02-03T15:58:15.691439+00:00",
+    "updated_at_unix": 1770134296,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4396,6 +4396,14 @@
             "added_at": "2025-09-27T15:38:55.639557+00:00",
             "checksum": "d63fc8b1643686940c9fbb5fab1e9aea"
         },
+        "Raknels Geigermeter Radiation counter beeps": {
+            "size": 29282,
+            "uncompressed_size": 28596,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Raknels%20Geigermeter%20Radiation%20counter%20beeps.zip",
+            "added_at": "2026-02-03T15:58:15.690739+00:00",
+            "checksum": "2bf11bd442529fbb4b2ff8b84d41eb0d"
+        },
         "Random clickas": {
             "size": 289845,
             "uncompressed_size": 288505,
@@ -6011,6 +6019,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 268,
+    "version": 269,
     "hiatus": "https://hiatus.zeo.lol"
 }
