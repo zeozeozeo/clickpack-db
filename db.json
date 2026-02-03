@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-02T15:18:22.894108+00:00",
-    "updated_at_unix": 1770045503,
+    "updated_at_iso": "2026-02-03T13:43:12.761688+00:00",
+    "updated_at_unix": 1770126193,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -537,6 +537,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/aughhhhhhh.zip",
             "checksum": "a82d6209e28ddde6fcae589d5dddcfdb",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "aula f75 v2": {
+            "size": 423037,
+            "uncompressed_size": 416419,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/aula%20f75%20v2.zip",
+            "added_at": "2026-02-03T13:43:12.760121+00:00",
+            "checksum": "3a586c144d8aaff8eb9ee406e2c67f70"
         },
         "Aula Hero 68HE PageDown": {
             "size": 1025951,
@@ -6003,6 +6011,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 267,
+    "version": 268,
     "hiatus": "https://hiatus.zeo.lol"
 }
