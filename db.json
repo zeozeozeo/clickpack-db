@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-03T15:58:15.691439+00:00",
-    "updated_at_unix": 1770134296,
+    "updated_at_iso": "2026-02-03T15:58:32.333899+00:00",
+    "updated_at_unix": 1770134312,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4805,6 +4805,14 @@
             "checksum": "e3cde37e95fe5389cb54d9e4fdb1e0b3",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "sayodevice o3c": {
+            "size": 444679,
+            "uncompressed_size": 437593,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/sayodevice%20o3c.zip",
+            "added_at": "2026-02-03T15:58:32.332290+00:00",
+            "checksum": "cecfdc08945ed6cea1fca74bfd1b70ec"
+        },
         "sayodevice o3c gateron jade remake": {
             "size": 2808718,
             "uncompressed_size": 2781510,
@@ -6019,6 +6027,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 269,
+    "version": 270,
     "hiatus": "https://hiatus.zeo.lol"
 }
