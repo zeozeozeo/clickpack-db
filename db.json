@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-03T15:58:32.333899+00:00",
-    "updated_at_unix": 1770134312,
+    "updated_at_iso": "2026-02-09T20:10:53.875578+00:00",
+    "updated_at_unix": 1770667854,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -185,6 +185,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/akko%20cream%20yellow%20spacebar.zip",
             "checksum": "6b3187fd6bef85730e4217c5cf98827b",
             "added_at": "2025-01-05T15:06:33+00:00"
+        },
+        "akko key": {
+            "size": 233991,
+            "uncompressed_size": 229933,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/akko%20key.zip",
+            "added_at": "2026-02-09T20:10:53.874489+00:00",
+            "checksum": "b8ebcf537f8cc0cb53ea75a38eed9a2e"
         },
         "Akko_Lavender_Purple_Switches": {
             "size": 44074,
@@ -6027,6 +6035,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 270,
+    "version": 271,
     "hiatus": "https://hiatus.zeo.lol"
 }
