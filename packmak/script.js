@@ -110,7 +110,7 @@ async function startSession() {
       audio: {
         echoCancellation: false,
         noiseSuppression: config.denoise,
-        autoGainControl: true,
+        autoGainControl: false,
       },
     });
   } catch (e) {
