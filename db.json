@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-09T20:10:53.875578+00:00",
-    "updated_at_unix": 1770667854,
+    "updated_at_iso": "2026-02-15T10:51:11.240141+00:00",
+    "updated_at_unix": 1771152671,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5729,6 +5729,14 @@
             "added_at": "2025-06-13T19:34:41.694188+00:00",
             "checksum": "c9ce6d0e49d0344d7c237c6eaf25838c"
         },
+        "wii remote clicks": {
+            "size": 331286,
+            "uncompressed_size": 325436,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/wii%20remote%20clicks.zip",
+            "added_at": "2026-02-15T10:51:11.238809+00:00",
+            "checksum": "2a7db9f4bd24f08c161d85d175793a3f"
+        },
         "Wooting 60HE": {
             "size": 219578,
             "uncompressed_size": 215870,
@@ -6035,6 +6043,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 271,
+    "version": 272,
     "hiatus": "https://hiatus.zeo.lol"
 }
