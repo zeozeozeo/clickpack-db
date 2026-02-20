@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-15T10:51:11.240141+00:00",
-    "updated_at_unix": 1771152671,
+    "updated_at_iso": "2026-02-20T09:52:26.144513+00:00",
+    "updated_at_unix": 1771581146,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1059,6 +1059,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bozo%27s%20keyboard.zip",
             "checksum": "58d41228049ae99704eccb45a907dfc8",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "brainie clicks": {
+            "size": 83380,
+            "uncompressed_size": 81250,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/brainie%20clicks.zip",
+            "added_at": "2026-02-20T09:52:26.143699+00:00",
+            "checksum": "8d2cddd3ccb415c2efe734200b7d87e5"
         },
         "brodclicks": {
             "size": 431448,
@@ -6043,6 +6051,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 272,
+    "version": 273,
     "hiatus": "https://hiatus.zeo.lol"
 }
