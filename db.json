@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-20T09:52:39.536118+00:00",
-    "updated_at_unix": 1771581160,
+    "updated_at_iso": "2026-02-20T09:52:53.680399+00:00",
+    "updated_at_unix": 1771581174,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1943,6 +1943,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/fanosdclicks.zip",
             "checksum": "a65f847e8d094f0d6d45f0ee4922ca30",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "Fate": {
+            "size": 641875,
+            "uncompressed_size": 637879,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Fate.zip",
+            "added_at": "2026-02-20T09:52:53.678396+00:00",
+            "checksum": "f76284d1dd25e572d387adc538883b8c"
         },
         "Fate bad keyboard": {
             "size": 292082,
@@ -6059,6 +6067,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 274,
+    "version": 275,
     "hiatus": "https://hiatus.zeo.lol"
 }
