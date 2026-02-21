@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-21T16:14:22.147774+00:00",
-    "updated_at_unix": 1771690462,
+    "updated_at_iso": "2026-02-21T18:20:36.125537+00:00",
+    "updated_at_unix": 1771698036,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4998,6 +4998,14 @@
             "added_at": "2026-02-20T09:52:39.534914+00:00",
             "checksum": "43c39f35f53aeb9d5c5515ba405f56fb"
         },
+        "silvers keychrone k10 he": {
+            "size": 243405,
+            "uncompressed_size": 239161,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/silvers%20keychrone%20k10%20he.zip",
+            "added_at": "2026-02-21T18:20:36.124315+00:00",
+            "checksum": "eb8ab19d7aa623bcd03969729c482971"
+        },
         "simontrg's keyboard": {
             "size": 129156,
             "uncompressed_size": 127014,
@@ -6075,6 +6083,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 276,
+    "version": 277,
     "hiatus": "https://hiatus.zeo.lol"
 }
