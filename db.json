@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-26T23:46:28.772889+00:00",
-    "updated_at_unix": 1772149589,
+    "updated_at_iso": "2026-02-27T15:24:45.446963+00:00",
+    "updated_at_unix": 1772205885,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1349,6 +1349,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/CbotClicks.zip",
             "checksum": "4fa5e3de870359cb41b3058da4a70511",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "Charades Barcode Number 21853 03010 Box Taps": {
+            "size": 48615,
+            "uncompressed_size": 47779,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Charades%20Barcode%20Number%2021853%2003010%20Box%20Taps.zip",
+            "added_at": "2026-02-27T15:24:45.446306+00:00",
+            "checksum": "19626c9eac81dbfa550d0111417f41ca"
         },
         "cheap gateron mouse": {
             "size": 399273,
@@ -6091,6 +6099,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 278,
+    "version": 279,
     "hiatus": "https://hiatus.zeo.lol"
 }
