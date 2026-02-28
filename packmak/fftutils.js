@@ -127,8 +127,8 @@ const DSP = {
     const fft = new this.FFT(fftSize);
     const window = this.createHanningWindow(fftSize);
 
-    // analyze noise profile
-    const noiseMags = new Float32Array(fftSize);
+    // compute power spectrum
+    const noisePower = new Float32Array(fftSize);
     const real = new Float32Array(fftSize);
     const imag = new Float32Array(fftSize);
     let noiseFrames = 0;
@@ -140,42 +140,59 @@ const DSP = {
       }
       fft.calculate(real, imag, 1);
 
-      // accum magnitude
+      // accumulate power
       for (let j = 0; j < fftSize; j++) {
-        noiseMags[j] += Math.sqrt(real[j] * real[j] + imag[j] * imag[j]);
+        noisePower[j] += (real[j] * real[j] + imag[j] * imag[j]);
       }
       noiseFrames++;
     }
-    // avg
-    for (let j = 0; j < fftSize; j++) noiseMags[j] /= noiseFrames;
 
-    // overlap-add
+    // average power
+    for (let j = 0; j < fftSize; j++) noisePower[j] /= noiseFrames;
+
     const output = new Float32Array(source.length);
     const inputReal = new Float32Array(fftSize);
     const inputImag = new Float32Array(fftSize);
 
+    // for Ephraim-Malah smoothing
+    const alpha = 0.98;
+    const prevOutputPower = new Float32Array(fftSize);
+
     for (let i = 0; i < source.length - fftSize; i += hopSize) {
-      // window
+      // apply window
       for (let j = 0; j < fftSize; j++) {
         inputReal[j] = source[i + j] * window[j];
         inputImag[j] = 0;
       }
 
-      // fft
+      // forward fft
       fft.calculate(inputReal, inputImag, 1);
 
-      // spectral subtraction
+      // Wiener filter
       for (let j = 0; j < fftSize; j++) {
-        const mag = Math.sqrt(
-          inputReal[j] * inputReal[j] + inputImag[j] * inputImag[j],
-        );
+        const currentPower = inputReal[j] * inputReal[j] + inputImag[j] * inputImag[j];
+        const nPower = noisePower[j] + 1e-10; // dividebyzero
+
+        // a posteriori SNR
+        const snrPost = currentPower / nPower;
+
+        // a priori SNR (decision-directed estimation)
+        const snrPrio = alpha * (prevOutputPower[j] / nPower) + (1 - alpha) * Math.max(0, snrPost - 1);
+
+        // calculate Wiener gain based on a priori SNR
+        let gain = snrPrio / (snrPrio + amount);
+
+        // soft floor
+        gain = Math.max(0.02, gain);
+
+        const mag = Math.sqrt(currentPower);
+        const newMag = mag * gain;
+
+        // store for next frame's smoothing
+        prevOutputPower[j] = newMag * newMag;
+
+        // reconstruct with original phase
         const phase = Math.atan2(inputImag[j], inputReal[j]);
-
-        // subtract and floor
-        let newMag = mag - noiseMags[j] * amount * 1.5;
-        if (newMag < noiseMags[j] * 0.05) newMag = noiseMags[j] * 0.05;
-
-        // reconstruct
         inputReal[j] = newMag * Math.cos(phase);
         inputImag[j] = newMag * Math.sin(phase);
       }
@@ -183,7 +200,7 @@ const DSP = {
       // inverse fft
       fft.calculate(inputReal, inputImag, -1);
 
-      // overlap-add
+      // overlap-add WOLA
       for (let j = 0; j < fftSize; j++) {
         if (i + j < output.length) {
           output[i + j] += inputReal[j] * window[j] * (2 / 3);

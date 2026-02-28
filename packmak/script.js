@@ -65,16 +65,18 @@ els.downloadBtn.addEventListener("click", downloadZip);
 
 // denoise toggle
 document.getElementById("record-noise").addEventListener("change", (e) => {
-  const denoiseContainer = document.getElementById("denoise-container");
-  const denoiseCheckbox = document.getElementById("denoise-samples");
+  const spectralContainer = document.getElementById("spectral-radio-container");
+  const spectralRadio = document.getElementById("spectral-radio");
 
   if (e.target.checked) {
-    denoiseContainer.classList.remove("opacity-50", "pointer-events-none");
-    denoiseCheckbox.disabled = false;
+    spectralContainer.classList.remove("opacity-50", "pointer-events-none");
+    spectralRadio.disabled = false;
   } else {
-    denoiseContainer.classList.add("opacity-50", "pointer-events-none");
-    denoiseCheckbox.disabled = true;
-    denoiseCheckbox.checked = false;
+    spectralContainer.classList.add("opacity-50", "pointer-events-none");
+    spectralRadio.disabled = true;
+    if (spectralRadio.checked) {
+      document.querySelector('input[name="denoise-mode"][value="none"]').checked = true;
+    }
   }
 });
 
@@ -87,7 +89,7 @@ async function startSession() {
     prePeak: parseInt(document.getElementById("pre-peak").value) || 10,
     recordNoise: document.getElementById("record-noise").checked,
     normalize: document.getElementById("normalize-audio").checked,
-    denoise: document.getElementById("denoise-samples").checked,
+    denoiseMode: document.querySelector('input[name="denoise-mode"]:checked').value,
     muteMetronome: document.getElementById("mute-metronome").checked,
     counts: {
       hard: parseInt(document.getElementById("count-hard").value),
@@ -109,7 +111,7 @@ async function startSession() {
     mediaStream = await navigator.mediaDevices.getUserMedia({
       audio: {
         echoCancellation: false,
-        noiseSuppression: config.denoise,
+        noiseSuppression: config.denoiseMode === 'browser',
         autoGainControl: false,
       },
     });
@@ -218,7 +220,7 @@ function buildSequence() {
     sequence.push({
       type: "prep",
       text: "Noise",
-      sub: "Stay silent for 5 seconds...",
+      sub: "Prepare to stay silent for 5 seconds...",
       duration: 2, // 2 beats prep
     });
 
@@ -400,8 +402,8 @@ async function processAudio() {
       const endSample = Math.floor((currentTime + duration) * sampleRate);
       noiseBuffer = channelData.slice(startSample, endSample);
     } else if (step.type === "click" || step.type === "release") {
-      const windowStart = currentTime - 0.15; // 150ms before
-      const windowEnd = currentTime + 0.4; // 400ms after
+      const windowStart = config.muteMetronome ? currentTime - 0.15 : currentTime + 0.11;
+      const windowEnd = currentTime + 0.5;
 
       // convert to samples
       const startSample = Math.max(0, Math.floor(windowStart * sampleRate));
@@ -423,11 +425,12 @@ async function processAudio() {
       }
 
       // missed click threshold
-      if (maxVal > 0.01) {
+      if (maxVal > 0.001) {
         processedEvents.push({
           step: step,
           peakIndex: maxIdx,
           maxVal: maxVal,
+          minStartSample: config.muteMetronome ? 0 : startSample
         });
       }
     }
@@ -449,7 +452,9 @@ async function processAudio() {
     const prePeakSeconds = config.prePeak / 1000;
 
     // xms before peak, 300ms after
-    const start = Math.max(0, peak - Math.floor(prePeakSeconds * sampleRate));
+    const safeStart = config.muteMetronome ? 0 : event.minStartSample;
+    const start = Math.max(safeStart, peak - Math.floor(prePeakSeconds * sampleRate));
+
     const end = Math.min(
       channelData.length,
       peak + Math.floor(0.3 * sampleRate),
@@ -458,9 +463,9 @@ async function processAudio() {
     let slice = channelData.slice(start, end);
 
     // run spectral denoiser
-    //if (config.denoise && noiseBuffer && noiseBuffer.length > 2048) {
-    //  slice = DSP.denoise(slice, noiseBuffer, 1.0);
-    //}
+    if (config.denoiseMode === 'spectral' && noiseBuffer && noiseBuffer.length > 2048) {
+      slice = DSP.denoise(slice, noiseBuffer, 1.2);
+    }
 
     if (config.normalize) {
       let maxVal = 0;
