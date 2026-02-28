@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-20T09:52:53.680399+00:00",
-    "updated_at_unix": 1771581174,
+    "updated_at_iso": "2026-02-27T20:58:46.625138+00:00",
+    "updated_at_unix": 1772225927,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -682,6 +682,22 @@
             "checksum": "f296a1895b1ab4e6f3e3f9ea5569dbf2",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Ayso massive clickpack": {
+            "size": 864768,
+            "uncompressed_size": 849448,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Ayso%20massive%20clickpack.zip",
+            "added_at": "2026-02-27T20:58:46.622645+00:00",
+            "checksum": "4362977fe401cbafc9fa2a178b9eac45"
+        },
+        "AysoSayo": {
+            "size": 275587,
+            "uncompressed_size": 270743,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoSayo.zip",
+            "added_at": "2026-02-21T16:14:22.146578+00:00",
+            "checksum": "76689002280044da0662fb3f55c0caa3"
+        },
         "Azor clickpack": {
             "size": 83929,
             "uncompressed_size": 82215,
@@ -1342,6 +1358,14 @@
             "checksum": "4fa5e3de870359cb41b3058da4a70511",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Charades Barcode Number 21853 03010 Box Taps": {
+            "size": 48615,
+            "uncompressed_size": 47779,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Charades%20Barcode%20Number%2021853%2003010%20Box%20Taps.zip",
+            "added_at": "2026-02-27T15:24:45.446306+00:00",
+            "checksum": "19626c9eac81dbfa550d0111417f41ca"
+        },
         "cheap gateron mouse": {
             "size": 399273,
             "uncompressed_size": 393883,
@@ -1445,6 +1469,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/clicka.zip",
             "checksum": "a4705be8768c96f92dd630125539f9f7",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "clickpackmid": {
+            "size": 1849043,
+            "uncompressed_size": 1816693,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/clickpackmid.zip",
+            "added_at": "2026-02-26T23:46:28.768133+00:00",
+            "checksum": "74bceff60a5c50214835eb5958bfbbde"
         },
         "clicks g102 kentrealss": {
             "size": 46410,
@@ -4990,6 +5022,14 @@
             "added_at": "2026-02-20T09:52:39.534914+00:00",
             "checksum": "43c39f35f53aeb9d5c5515ba405f56fb"
         },
+        "silvers keychrone k10 he": {
+            "size": 243405,
+            "uncompressed_size": 239161,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/silvers%20keychrone%20k10%20he.zip",
+            "added_at": "2026-02-21T18:20:36.124315+00:00",
+            "checksum": "eb8ab19d7aa623bcd03969729c482971"
+        },
         "simontrg's keyboard": {
             "size": 129156,
             "uncompressed_size": 127014,
@@ -6067,6 +6107,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 275,
+    "version": 280,
     "hiatus": "https://hiatus.zeo.lol"
 }
