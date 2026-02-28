@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-28T15:13:22.884078+00:00",
-    "updated_at_unix": 1772291603,
+    "updated_at_iso": "2026-02-28T15:14:05.048887+00:00",
+    "updated_at_unix": 1772291645,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -681,6 +681,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/ayrelia%20click1.zip",
             "checksum": "f296a1895b1ab4e6f3e3f9ea5569dbf2",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "Ayso Biggest clickpack": {
+            "size": 3680580,
+            "uncompressed_size": 3615154,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Ayso%20Biggest%20clickpack.zip",
+            "added_at": "2026-02-28T15:14:05.040159+00:00",
+            "checksum": "f21853f7af267fd84037ba5e77019ce3"
         },
         "Ayso massive clickpack": {
             "size": 864768,
@@ -6123,6 +6131,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 282,
+    "version": 283,
     "hiatus": "https://hiatus.zeo.lol"
 }
