@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-02-28T15:14:05.048887+00:00",
-    "updated_at_unix": 1772291645,
+    "updated_at_iso": "2026-03-01T19:01:05.044148+00:00",
+    "updated_at_unix": 1772391665,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1026,6 +1026,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/blue_keyboard_switches_cbot_fix.zip",
             "checksum": "95bf5e9d0f0cc04529cf3930669498d0",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "BlueFinger Mouse": {
+            "size": 141977,
+            "uncompressed_size": 140125,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/BlueFinger%20Mouse.zip",
+            "added_at": "2026-03-01T19:01:05.043242+00:00",
+            "checksum": "fa705c8d69095ff372d6a8642a138b25"
         },
         "blueswitch": {
             "size": 2275087,
@@ -6131,6 +6139,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 283,
+    "version": 284,
     "hiatus": "https://hiatus.zeo.lol"
 }
