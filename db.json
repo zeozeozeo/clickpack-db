@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-01T19:01:05.044148+00:00",
-    "updated_at_unix": 1772391665,
+    "updated_at_iso": "2026-03-02T01:07:01.614498+00:00",
+    "updated_at_unix": 1772413622,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -73,6 +73,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Accounts_Mamba_Elite_Remastered.zip",
             "checksum": "0e9dd0ab5bab63f5263e93433e02fc15",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "Acer Spare Mouse": {
+            "size": 113651,
+            "uncompressed_size": 111689,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Acer%20Spare%20Mouse.zip",
+            "added_at": "2026-03-02T01:07:01.613698+00:00",
+            "checksum": "760f10ea5f550caf59098674c18458f7"
         },
         "ad3us uskc": {
             "size": 115137,
@@ -6139,6 +6147,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 284,
+    "version": 285,
     "hiatus": "https://hiatus.zeo.lol"
 }
