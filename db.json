@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-03T14:37:50.594558+00:00",
-    "updated_at_unix": 1772548671,
+    "updated_at_iso": "2026-03-03T15:17:06.416907+00:00",
+    "updated_at_unix": 1772551026,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1558,6 +1558,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Codyjb10%20SayoDevice.zip",
             "added_at": "2025-07-22T05:09:51.302828+00:00",
             "checksum": "23464cbb1089fa30f2f61ed5ccfd7ea4"
+        },
+        "Conni Shift Key": {
+            "size": 107396,
+            "uncompressed_size": 105538,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Conni%20Shift%20Key.zip",
+            "added_at": "2026-03-03T15:17:06.416071+00:00",
+            "checksum": "7ceca0b7ec39dfa6f538b48a5a130d36"
         },
         "cool": {
             "size": 550360,
@@ -6155,6 +6163,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 286,
+    "version": 287,
     "hiatus": "https://hiatus.zeo.lol"
 }
