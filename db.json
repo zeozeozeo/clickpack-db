@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-03T15:17:06.416907+00:00",
-    "updated_at_unix": 1772551026,
+    "updated_at_iso": "2026-03-04T16:51:46.307047+00:00",
+    "updated_at_unix": 1772643106,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -737,6 +737,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/B0rys_clicks.zip",
             "checksum": "f22b1b2673c4ab24326112dd8c5d6dda",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "Backbone D-Pad": {
+            "size": 148259,
+            "uncompressed_size": 146407,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Backbone%20D-Pad.zip",
+            "added_at": "2026-03-04T16:51:46.306165+00:00",
+            "checksum": "74ffd8563a2a14f68b8e73e79134f924"
         },
         "bad": {
             "size": 176701,
@@ -6163,6 +6171,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 287,
+    "version": 288,
     "hiatus": "https://hiatus.zeo.lol"
 }
