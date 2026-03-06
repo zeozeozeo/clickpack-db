@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-04T16:51:46.307047+00:00",
-    "updated_at_unix": 1772643106,
+    "updated_at_iso": "2026-03-06T15:03:12.962407+00:00",
+    "updated_at_unix": 1772809393,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5511,6 +5511,14 @@
             "added_at": "2025-11-29T22:21:25.451037+00:00",
             "checksum": "63ef4fa98b1870374a973aff1bb18f18"
         },
+        "ubotie spacebar the fuck is ubotie": {
+            "size": 59099,
+            "uncompressed_size": 58057,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/ubotie%20spacebar%20the%20fuck%20is%20ubotie.zip",
+            "added_at": "2026-03-06T15:03:12.961702+00:00",
+            "checksum": "4af11dae637c1ff60557b3cc70ed42de"
+        },
         "uh": {
             "size": 149850,
             "uncompressed_size": 147284,
@@ -6171,6 +6179,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 288,
+    "version": 289,
     "hiatus": "https://hiatus.zeo.lol"
 }
