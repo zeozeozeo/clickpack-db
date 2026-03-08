@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-08T11:45:29.630016+00:00",
-    "updated_at_unix": 1772970330,
+    "updated_at_iso": "2026-03-08T15:18:44.629340+00:00",
+    "updated_at_unix": 1772983125,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5527,6 +5527,14 @@
             "added_at": "2025-11-29T22:21:25.451037+00:00",
             "checksum": "63ef4fa98b1870374a973aff1bb18f18"
         },
+        "Ubotie Keyboard Up Arrow": {
+            "size": 340119,
+            "uncompressed_size": 334767,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Ubotie%20Keyboard%20Up%20Arrow.zip",
+            "added_at": "2026-03-08T15:18:44.628019+00:00",
+            "checksum": "0e806c4a84cc513bf2325c79424213e0"
+        },
         "ubotie spacebar the fuck is ubotie": {
             "size": 59099,
             "uncompressed_size": 58057,
@@ -6195,6 +6203,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 291,
+    "version": 292,
     "hiatus": "https://hiatus.zeo.lol"
 }
