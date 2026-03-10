@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-10T20:32:49.680219+00:00",
-    "updated_at_unix": 1773174770,
+    "updated_at_iso": "2026-03-10T21:45:57.620198+00:00",
+    "updated_at_unix": 1773179158,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5945,6 +5945,14 @@
             "checksum": "a995133d3030770474225b30e20a4a62",
             "added_at": "2025-05-25T09:24:40+00:00"
         },
+        "wooting alt": {
+            "size": 898733,
+            "uncompressed_size": 883419,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/wooting%20alt.zip",
+            "added_at": "2026-03-10T21:45:57.617602+00:00",
+            "checksum": "c71b511f1169c2af75b5621d1860fef5"
+        },
         "wooting test 3": {
             "size": 236650,
             "uncompressed_size": 232368,
@@ -6235,6 +6243,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 296,
+    "version": 297,
     "hiatus": "https://hiatus.zeo.lol"
 }
