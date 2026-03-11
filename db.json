@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-10T21:45:57.620198+00:00",
-    "updated_at_unix": 1773179158,
+    "updated_at_iso": "2026-03-11T14:42:15.267657+00:00",
+    "updated_at_unix": 1773240135,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5118,6 +5118,14 @@
             "checksum": "0c1780e85e01dc0cfaf95a1618302489",
             "added_at": "2024-03-17T12:19:23+00:00"
         },
+        "sixty yunzii b75": {
+            "size": 323462,
+            "uncompressed_size": 318434,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/sixty%20yunzii%20b75.zip",
+            "added_at": "2026-03-11T14:42:15.266378+00:00",
+            "checksum": "f72f27be9a43307c3a00c9c9acf4e435"
+        },
         "Sjunlee's Mouse": {
             "size": 12705,
             "uncompressed_size": 12479,
@@ -6243,6 +6251,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 297,
+    "version": 298,
     "hiatus": "https://hiatus.zeo.lol"
 }
