@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-14T01:11:24.298408+00:00",
-    "updated_at_unix": 1773450684,
+    "updated_at_iso": "2026-03-14T16:27:11.486330+00:00",
+    "updated_at_unix": 1773505631,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4283,6 +4283,14 @@
             "checksum": "cd84ed28e17908e0b9e1c918948d0704",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "oq3s grip": {
+            "size": 113301,
+            "uncompressed_size": 111339,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/oq3s%20grip.zip",
+            "added_at": "2026-03-14T16:27:11.485512+00:00",
+            "checksum": "4e1f3004fff255655ee5b2668f96d328"
+        },
         "osu clicks": {
             "size": 197012,
             "uncompressed_size": 195158,
@@ -6259,6 +6267,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 299,
+    "version": 300,
     "hiatus": "https://hiatus.zeo.lol"
 }
