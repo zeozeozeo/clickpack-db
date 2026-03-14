@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-11T14:42:15.267657+00:00",
-    "updated_at_unix": 1773240135,
+    "updated_at_iso": "2026-03-14T01:11:24.298408+00:00",
+    "updated_at_unix": 1773450684,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5832,6 +5832,14 @@
             "checksum": "876e499e63a978f769d465dda4aa21ac",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Vlucas14s spacebar": {
+            "size": 74030,
+            "uncompressed_size": 73160,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Vlucas14s%20spacebar.zip",
+            "added_at": "2026-03-14T01:11:24.297707+00:00",
+            "checksum": "96dc993edb72289b35861241c47df006"
+        },
         "Vortrox sayo": {
             "size": 138754,
             "uncompressed_size": 136474,
@@ -6251,6 +6259,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 298,
+    "version": 299,
     "hiatus": "https://hiatus.zeo.lol"
 }
