@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-14T16:27:11.486330+00:00",
-    "updated_at_unix": 1773505631,
+    "updated_at_iso": "2026-03-15T08:16:01.928592+00:00",
+    "updated_at_unix": 1773562562,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5310,6 +5310,14 @@
             "checksum": "fc12e49d6c5969329f64ba96e3c26309",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Spaceuk uk clicks it sucks lol": {
+            "size": 94560,
+            "uncompressed_size": 93050,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Spaceuk%20uk%20clicks%20it%20sucks%20lol.zip",
+            "added_at": "2026-03-15T08:16:01.927783+00:00",
+            "checksum": "dc356ce7451f8977e3524161dcc994a4"
+        },
         "SpamClicks": {
             "size": 237909,
             "uncompressed_size": 236347,
@@ -6267,6 +6275,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 300,
+    "version": 301,
     "hiatus": "https://hiatus.zeo.lol"
 }
