@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-15T08:16:01.928592+00:00",
-    "updated_at_unix": 1773562562,
+    "updated_at_iso": "2026-03-15T08:16:48.500221+00:00",
+    "updated_at_unix": 1773562609,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -537,6 +537,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/asus%20laptop.zip",
             "checksum": "a9584587ddfcc6c915ff65f78447d8b1",
             "added_at": "2025-03-24T18:34:00+00:00"
+        },
+        "Attack Shark x65 HE": {
+            "size": 178435,
+            "uncompressed_size": 175305,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Attack%20Shark%20x65%20HE.zip",
+            "added_at": "2026-03-15T08:16:48.499216+00:00",
+            "checksum": "136a15c2d7b2cfa0aa31dc41feb62d20"
         },
         "attackshark-x3": {
             "size": 144663,
@@ -6275,6 +6283,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 301,
+    "version": 302,
     "hiatus": "https://hiatus.zeo.lol"
 }
