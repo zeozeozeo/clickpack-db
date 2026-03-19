@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-18T19:52:42.392148+00:00",
-    "updated_at_unix": 1773863562,
+    "updated_at_iso": "2026-03-19T22:08:22.966996+00:00",
+    "updated_at_unix": 1773958103,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5727,6 +5727,14 @@
             "added_at": "2026-03-09T06:17:16.366770+00:00",
             "checksum": "1adc3ddd0c01d12fd37ee437c42615cf"
         },
+        "uyla spammy": {
+            "size": 490259,
+            "uncompressed_size": 482163,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/uyla%20spammy.zip",
+            "added_at": "2026-03-19T22:08:22.965328+00:00",
+            "checksum": "1cb2891a7601a02504ccea5e542f7c84"
+        },
         "uylas wooting 80he": {
             "size": 665198,
             "uncompressed_size": 653864,
@@ -6291,6 +6299,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 303,
+    "version": 304,
     "hiatus": "https://hiatus.zeo.lol"
 }
