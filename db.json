@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-20T22:17:14.910980+00:00",
-    "updated_at_unix": 1774045035,
+    "updated_at_iso": "2026-03-21T17:21:15.382073+00:00",
+    "updated_at_unix": 1774113675,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1622,6 +1622,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Codyjb10%20SayoDevice.zip",
             "added_at": "2025-07-22T05:09:51.302828+00:00",
             "checksum": "23464cbb1089fa30f2f61ed5ccfd7ea4"
+        },
+        "conni controller pack": {
+            "size": 316288,
+            "uncompressed_size": 310572,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/conni%20controller%20pack.zip",
+            "added_at": "2026-03-21T17:21:15.377734+00:00",
+            "checksum": "06b9585b428a3c7871ac1bd45e07faeb"
         },
         "Conni Shift Key": {
             "size": 107396,
@@ -5382,6 +5390,14 @@
             "checksum": "77c54b20f7ea52ff4b9e6418a215f63e",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "st1ngers spammy mouse": {
+            "size": 411214,
+            "uncompressed_size": 404760,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/st1ngers%20spammy%20mouse.zip",
+            "added_at": "2026-03-21T17:21:15.379758+00:00",
+            "checksum": "7dd5ddf1fd618e6febb34d9bf78bb249"
+        },
         "steelseries rival 3": {
             "size": 26816,
             "uncompressed_size": 26358,
@@ -6307,6 +6323,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 305,
+    "version": 306,
     "hiatus": "https://hiatus.zeo.lol"
 }
