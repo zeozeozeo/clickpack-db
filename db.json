@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-21T17:21:15.382073+00:00",
-    "updated_at_unix": 1774113675,
+    "updated_at_iso": "2026-03-22T21:09:56.515709+00:00",
+    "updated_at_unix": 1774213797,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -769,6 +769,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoSpacebar.zip",
             "added_at": "2026-03-10T20:32:49.678832+00:00",
             "checksum": "ed40b3ca2002048e0eaa3b6bfc1d1a2a"
+        },
+        "AysoYellowSwitches": {
+            "size": 164557,
+            "uncompressed_size": 161535,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoYellowSwitches.zip",
+            "added_at": "2026-03-22T21:09:56.514673+00:00",
+            "checksum": "055565a50377c09cbd870560d4f17da6"
         },
         "Azor clickpack": {
             "size": 83929,
@@ -6323,6 +6331,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 306,
+    "version": 307,
     "hiatus": "https://hiatus.zeo.lol"
 }
