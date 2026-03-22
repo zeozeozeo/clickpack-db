@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-22T21:23:59.267025+00:00",
-    "updated_at_unix": 1774214639,
+    "updated_at_iso": "2026-03-22T21:24:25.520654+00:00",
+    "updated_at_unix": 1774214666,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -778,6 +778,14 @@
             "added_at": "2026-03-22T21:23:59.266010+00:00",
             "checksum": "2048f22ef3c17686aa3b1fe76622cc61"
         },
+        "AysoYellowNoDeskmat": {
+            "size": 176487,
+            "uncompressed_size": 173245,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoYellowNoDeskmat.zip",
+            "added_at": "2026-03-22T21:24:25.518738+00:00",
+            "checksum": "a423dc5d89096d87c605b0f4e75664ed"
+        },
         "AysoYellowSwitches": {
             "size": 164557,
             "uncompressed_size": 161535,
@@ -785,6 +793,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoYellowSwitches.zip",
             "added_at": "2026-03-22T21:09:56.514673+00:00",
             "checksum": "055565a50377c09cbd870560d4f17da6"
+        },
+        "AysoYellowWithoutKeyCapNoDeskmat": {
+            "size": 176152,
+            "uncompressed_size": 172910,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoYellowWithoutKeyCapNoDeskmat.zip",
+            "added_at": "2026-03-22T21:24:25.519183+00:00",
+            "checksum": "df70f9ce05d22e3e32eb57c7d06be0b0"
         },
         "Azor clickpack": {
             "size": 83929,
@@ -6339,6 +6355,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 308,
+    "version": 309,
     "hiatus": "https://hiatus.zeo.lol"
 }
