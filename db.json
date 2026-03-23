@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-22T21:24:25.520654+00:00",
-    "updated_at_unix": 1774214666,
+    "updated_at_iso": "2026-03-23T15:03:54.903935+00:00",
+    "updated_at_unix": 1774278235,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2602,6 +2602,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/gpro%20test.zip",
             "added_at": "2026-01-15T20:52:05.319545+00:00",
             "checksum": "2db97772ba2af2ef41ca673a67b8147a"
+        },
+        "GriefedByGriefs Up arrow key": {
+            "size": 288310,
+            "uncompressed_size": 282162,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/GriefedByGriefs%20Up%20arrow%20key.zip",
+            "added_at": "2026-03-23T15:03:54.902727+00:00",
+            "checksum": "4954ed6c643a2c2729bb1d520661a0ec"
         },
         "guest10074s SPC Gear LIX": {
             "size": 299807,
@@ -6355,6 +6363,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 309,
+    "version": 310,
     "hiatus": "https://hiatus.zeo.lol"
 }
