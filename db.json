@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-23T15:03:54.903935+00:00",
-    "updated_at_unix": 1774278235,
+    "updated_at_iso": "2026-03-30T15:22:38.478884+00:00",
+    "updated_at_unix": 1774884158,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4788,6 +4788,14 @@
             "checksum": "81659bd09e619c5e49335d25ef7d4560",
             "added_at": "2024-06-22T19:03:29+00:00"
         },
+        "RemzuUpdated": {
+            "size": 632547,
+            "uncompressed_size": 624625,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/RemzuUpdated.zip",
+            "added_at": "2026-03-30T15:22:38.476824+00:00",
+            "checksum": "843002a9389b3126deab56a1bfe411f3"
+        },
         "Rewarny": {
             "size": 1260098,
             "uncompressed_size": 1254572,
@@ -6363,6 +6371,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 310,
+    "version": 311,
     "hiatus": "https://hiatus.zeo.lol"
 }
