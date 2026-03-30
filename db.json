@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-03-30T15:22:38.478884+00:00",
-    "updated_at_unix": 1774884158,
+    "updated_at_iso": "2026-03-30T16:48:02.973716+00:00",
+    "updated_at_unix": 1774889283,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4243,6 +4243,14 @@
             "checksum": "df503020f232a197db9043d0fe9dab06",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "NTUpArrowNew": {
+            "size": 340666,
+            "uncompressed_size": 334412,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/NTUpArrowNew.zip",
+            "added_at": "2026-03-30T16:48:02.972395+00:00",
+            "checksum": "cf1a7386544d3c2fbe556e6fe775eed3"
+        },
         "nuphy halo65 spacebar": {
             "size": 477189,
             "uncompressed_size": 472825,
@@ -6371,6 +6379,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 311,
+    "version": 312,
     "hiatus": "https://hiatus.zeo.lol"
 }
