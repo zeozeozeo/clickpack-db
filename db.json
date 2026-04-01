@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-01T22:25:50.798211+00:00",
-    "updated_at_unix": 1775082351,
+    "updated_at_iso": "2026-04-01T22:26:03.102504+00:00",
+    "updated_at_unix": 1775082363,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5486,6 +5486,14 @@
             "checksum": "8cd2317555e19eb7b1acb34c485d8c40",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "supmouse": {
+            "size": 388948,
+            "uncompressed_size": 382596,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/supmouse.zip",
+            "added_at": "2026-04-01T22:26:03.101124+00:00",
+            "checksum": "fd386d3fa36b85432feeee683f3445d7"
+        },
         "Sven keyboard": {
             "size": 131909,
             "uncompressed_size": 129767,
@@ -6395,6 +6403,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 314,
+    "version": 315,
     "hiatus": "https://hiatus.zeo.lol"
 }
