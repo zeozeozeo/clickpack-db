@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-01T22:25:40.290136+00:00",
-    "updated_at_unix": 1775082340,
+    "updated_at_iso": "2026-04-01T22:25:50.798211+00:00",
+    "updated_at_unix": 1775082351,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1670,6 +1670,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Conni%20Shift%20Key.zip",
             "added_at": "2026-03-03T15:17:06.416071+00:00",
             "checksum": "7ceca0b7ec39dfa6f538b48a5a130d36"
+        },
+        "conniClickyPack": {
+            "size": 311670,
+            "uncompressed_size": 306072,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/conniClickyPack.zip",
+            "added_at": "2026-04-01T22:25:50.796879+00:00",
+            "checksum": "359d61b047ab2e1f5b2b4c2e8f2d2dfe"
         },
         "CONNMOBILETAPS": {
             "size": 145785,
@@ -6387,6 +6395,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 313,
+    "version": 314,
     "hiatus": "https://hiatus.zeo.lol"
 }
