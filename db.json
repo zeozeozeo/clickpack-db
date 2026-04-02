@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-02T11:31:45.118056+00:00",
-    "updated_at_unix": 1775129505,
+    "updated_at_iso": "2026-04-02T11:36:52.241403+00:00",
+    "updated_at_unix": 1775129812,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2914,6 +2914,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/ivav.zip",
             "checksum": "7ae33a2f67c87645aa259a5fd960cd0e",
             "added_at": "2025-05-15T12:41:37+00:00"
+        },
+        "jade pro up arrow": {
+            "size": 236676,
+            "uncompressed_size": 232406,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/jade%20pro%20up%20arrow.zip",
+            "added_at": "2026-04-02T11:36:52.240292+00:00",
+            "checksum": "cb47787af08bf1ea39737d03799c0edb"
         },
         "Javid's arrow key": {
             "size": 338242,
@@ -6411,6 +6419,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 316,
+    "version": 317,
     "hiatus": "https://hiatus.zeo.lol"
 }
