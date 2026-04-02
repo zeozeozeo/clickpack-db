@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-02T11:36:52.241403+00:00",
-    "updated_at_unix": 1775129812,
+    "updated_at_iso": "2026-04-02T11:37:14.545482+00:00",
+    "updated_at_unix": 1775129835,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2521,6 +2521,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/GATERON%20YELLOW%20REMAKE.zip",
             "checksum": "073e32832cef89e8b55e697a7b3dee98",
             "added_at": "2025-03-24T18:34:00+00:00"
+        },
+        "gatronJadePro no deskmat": {
+            "size": 237085,
+            "uncompressed_size": 232815,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/gatronJadePro%20no%20deskmat.zip",
+            "added_at": "2026-04-02T11:37:14.544207+00:00",
+            "checksum": "20e18f343657d87c065c9657af982522"
         },
         "GembirdUpArrow": {
             "size": 471812,
@@ -6419,6 +6427,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 317,
+    "version": 318,
     "hiatus": "https://hiatus.zeo.lol"
 }
