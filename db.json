@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-01T22:26:03.102504+00:00",
-    "updated_at_unix": 1775082363,
+    "updated_at_iso": "2026-04-02T11:31:45.118056+00:00",
+    "updated_at_unix": 1775129505,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1292,6 +1292,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bwv3.zip",
             "added_at": "2025-10-15T11:49:23.680581+00:00",
             "checksum": "10c75b771797079220e0a340794bd53f"
+        },
+        "calc short for calculator btw": {
+            "size": 483568,
+            "uncompressed_size": 472026,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/calc%20short%20for%20calculator%20btw.zip",
+            "added_at": "2026-04-02T11:31:45.116351+00:00",
+            "checksum": "e4f74ab0681218d2978d1b033a513eb5"
         },
         "calculator clickpac": {
             "size": 255726,
@@ -6403,6 +6411,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 315,
+    "version": 316,
     "hiatus": "https://hiatus.zeo.lol"
 }
