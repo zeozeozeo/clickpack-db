@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-02T11:37:14.545482+00:00",
-    "updated_at_unix": 1775129835,
+    "updated_at_iso": "2026-04-03T08:53:55.681500+00:00",
+    "updated_at_unix": 1775206436,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4499,6 +4499,14 @@
             "checksum": "74981d450ca5501b28ba639aab5fef0b",
             "added_at": "2024-03-17T12:19:23+00:00"
         },
+        "plus key by andarianwx": {
+            "size": 420235,
+            "uncompressed_size": 412631,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/plus%20key%20by%20andarianwx.zip",
+            "added_at": "2026-04-03T08:53:55.679961+00:00",
+            "checksum": "7a7934127e798d590ed467e305545e18"
+        },
         "polar65 spacebar": {
             "size": 238519,
             "uncompressed_size": 234737,
@@ -6427,6 +6435,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 318,
+    "version": 319,
     "hiatus": "https://hiatus.zeo.lol"
 }
