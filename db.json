@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-03T08:54:10.937244+00:00",
-    "updated_at_unix": 1775206451,
+    "updated_at_iso": "2026-04-03T09:15:12.112104+00:00",
+    "updated_at_unix": 1775207712,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -465,6 +465,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Andarians_Aula_F75_Up_Arrow.zip",
             "added_at": "2025-06-16T15:22:51.266561+00:00",
             "checksum": "47a5fb13472384bdb8aded8d86e9b0f5"
+        },
+        "andarianwx sayo deskmat ALPHA": {
+            "size": 406331,
+            "uncompressed_size": 398929,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/andarianwx%20sayo%20deskmat%20ALPHA.zip",
+            "added_at": "2026-04-03T09:15:12.110584+00:00",
+            "checksum": "99dfc6afb5d0ccf56128ba850bb5847d"
         },
         "angelpack": {
             "size": 265344,
@@ -6443,6 +6451,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 320,
+    "version": 321,
     "hiatus": "https://hiatus.zeo.lol"
 }
