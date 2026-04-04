@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-03T16:25:28.213504+00:00",
-    "updated_at_unix": 1775233528,
+    "updated_at_iso": "2026-04-04T06:34:56.820781+00:00",
+    "updated_at_unix": 1775284497,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -473,6 +473,15 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/andarianwx%20sayo%20deskmat%20ALPHA.zip",
             "added_at": "2026-04-03T09:15:12.110584+00:00",
             "checksum": "99dfc6afb5d0ccf56128ba850bb5847d"
+        },
+        "andarianwx sayo deskmat v2026.4.4.1": {
+            "size": 737596,
+            "uncompressed_size": 729448,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/andarianwx%20sayo%20deskmat%20v2026.4.4.1.zip",
+            "added_at": "2026-04-04T06:34:56.818437+00:00",
+            "readme": "ANDARIAN'S SAYO DESKMAT V2026.4.4.1\n\npros:\n-realistic\n-good at spam\n-has noise\ncons:\n-its another sayo clickpack\n-im forced to use denoiser so it sounds a bit weird\n-worthy for best: its a sayo lmao i can post it if u want\nCHANGELOG:\n-v2026.4.4.1: added readme, including specs and changelog\n\nUSING NOISE IS RECOMMENDED!\n\nKEYBOARD: SayoDevice O3C\nSWITCHES: GATERON MAGNETIC JADE PRO\n-Switch Type: Linear Hall Effect (Magnetic)\n-Initial Force: 36\u00b15gf (some sources list 36\u00b17gf)\n-Bottom-out Force: 50\u00b110gf\n-Total Travel: 3.5\u00b10.1mm\n-Actuation Range: Customizable (0.1mm - 3.3mm)\n-Lifespan: Over 100 million keystrokes\n-Lubrication: Factory Pre-lubed\n-Lighting: Upgraded 3.0 LED diffuser (brighter/softer diffusion)\n-Material: POM Stem, PA66 Bottom, PC Top ",
+            "checksum": "2ce675310a6d05d2adc62260ffb529ad"
         },
         "angelpack": {
             "size": 265344,
@@ -6459,6 +6468,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 322,
+    "version": 323,
     "hiatus": "https://hiatus.zeo.lol"
 }
