@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-04T06:35:21.406426+00:00",
-    "updated_at_unix": 1775284521,
+    "updated_at_iso": "2026-04-04T16:54:22.876179+00:00",
+    "updated_at_unix": 1775321663,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1719,6 +1719,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/conniClickyPack.zip",
             "added_at": "2026-04-01T22:25:50.796879+00:00",
             "checksum": "359d61b047ab2e1f5b2b4c2e8f2d2dfe"
+        },
+        "ConniClickyPackv2": {
+            "size": 159830,
+            "uncompressed_size": 157770,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/ConniClickyPackv2.zip",
+            "added_at": "2026-04-04T16:54:22.875214+00:00",
+            "checksum": "ba171439a965e38016247afa8c9d597a"
         },
         "CONNMOBILETAPS": {
             "size": 145785,
@@ -6476,6 +6484,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 324,
+    "version": 325,
     "hiatus": "https://hiatus.zeo.lol"
 }
