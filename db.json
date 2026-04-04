@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-04T06:34:56.820781+00:00",
-    "updated_at_unix": 1775284497,
+    "updated_at_iso": "2026-04-04T06:35:21.406426+00:00",
+    "updated_at_unix": 1775284521,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -762,6 +762,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoG102.zip",
             "added_at": "2026-03-10T00:01:27.430169+00:00",
             "checksum": "c4abbe070076c7e592480bb27f96be13"
+        },
+        "AysoGo123": {
+            "size": 351760,
+            "uncompressed_size": 345286,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoGo123.zip",
+            "added_at": "2026-04-04T06:35:21.404951+00:00",
+            "checksum": "e51f55d76e5be31b471491dd1c1d74ba"
         },
         "AysoGoodClickpack": {
             "size": 403719,
@@ -6468,6 +6476,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 323,
+    "version": 324,
     "hiatus": "https://hiatus.zeo.lol"
 }
