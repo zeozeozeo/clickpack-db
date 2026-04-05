@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-05T00:15:08.872718+00:00",
-    "updated_at_unix": 1775348109,
+    "updated_at_iso": "2026-04-05T03:07:03.175572+00:00",
+    "updated_at_unix": 1775358423,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -465,6 +465,15 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Andarians_Aula_F75_Up_Arrow.zip",
             "added_at": "2025-06-16T15:22:51.266561+00:00",
             "checksum": "47a5fb13472384bdb8aded8d86e9b0f5"
+        },
+        "andarianwx f75 backslash key": {
+            "size": 861185,
+            "uncompressed_size": 850875,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/andarianwx%20f75%20backslash%20key.zip",
+            "added_at": "2026-04-05T03:07:03.173004+00:00",
+            "readme": "ANDARIAN'S F75 BACKSLASH KEY\n\npros:\n- realistic\n- good at spam\n- \"realistic\" releasing sounds\n- expanded from private version to ~100 sounds\n- has noise (RECOMMENDED)\ncons:\n- a bunch of static noise\n- can be noticeably \"unstable\" with lower game volume\nworthy for best: no, the cuts are terrible\n\nUSING NOISE IS RECOMMENDED! AND ALWAYS ENABLE MUSIC VOLUME\n\nKEYBOARD: Aula F75 (south facing PCB):\n-Layout: 75% layout with 80 or 81 keys.\n-Mounting: Gasket-mounted for a cushioned feel.\n-Hot-Swappable: Supports 3-pin and 5-pin switches.\n-Connectivity: Tri-mode (Wireless 2.4G, Bluetooth, Wired Type-C).\n-Battery: 4000mAh Lithium battery.\n-Keycaps: PBT material, often with side-printed legends.\n-Lighting: South-facing RGB (16.8 million colors).\n-Structure: 5-layer internal foam for sound dampening.\n-Weight: Approximately 1023g.\n-Dimensions: Approximately \n\nSWITCHES: Pre-lubed Leobog Reaper (linear) or Graywood V3.\n-Switch Type: Linear\n-Actuation Force: 45\u00b13gf\n-Bottom-out Force: 55\u00b13gf\n-Actuation Travel: 1.8\u00b10.3mm\n-Total Travel: 3.6\u00b10.3mm\n-Factory Lubed: Yes\n-Material: POM Stem, PC Top & Nylon Bottom Housing\n-Pin: 5-pin\n-Lifespan: 60 million strokes\n-Compatibility: MX structure",
+            "checksum": "6f9241533d588d7b17cc5ecae99a7323"
         },
         "andarianwx sayo deskmat ALPHA": {
             "size": 406331,
@@ -6492,6 +6501,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 326,
+    "version": 327,
     "hiatus": "https://hiatus.zeo.lol"
 }
