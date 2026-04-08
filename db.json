@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-05T03:07:03.175572+00:00",
-    "updated_at_unix": 1775358423,
+    "updated_at_iso": "2026-04-08T06:40:23.446767+00:00",
+    "updated_at_unix": 1775630423,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3431,6 +3431,14 @@
             "checksum": "930c8d69ecc79da63f5238112bbc5612",
             "added_at": "2024-03-17T12:19:23+00:00"
         },
+        "Logitech mouse": {
+            "size": 147132,
+            "uncompressed_size": 144552,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Logitech%20mouse.zip",
+            "added_at": "2026-04-08T06:40:23.445794+00:00",
+            "checksum": "7bbe299c601407ec7bc078e6ebb4fc32"
+        },
         "Logitech MX Anywhere 2S": {
             "size": 322843,
             "uncompressed_size": 318573,
@@ -6501,6 +6509,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 327,
+    "version": 328,
     "hiatus": "https://hiatus.zeo.lol"
 }
