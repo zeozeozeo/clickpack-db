@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-08T06:40:23.446767+00:00",
-    "updated_at_unix": 1775630423,
+    "updated_at_iso": "2026-04-08T06:40:56.686209+00:00",
+    "updated_at_unix": 1775630457,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4028,6 +4028,14 @@
             "added_at": "2026-04-05T00:15:08.871368+00:00",
             "checksum": "6a3a89b3f6dfc53e3f0b0bdabdc7342d"
         },
+        "MyClickpack 2": {
+            "size": 219190,
+            "uncompressed_size": 215456,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/MyClickpack%202.zip",
+            "added_at": "2026-04-08T06:40:56.685164+00:00",
+            "checksum": "07ef2c2a53745cbd9e95732d23ae9fd2"
+        },
         "MYCLICKSMICHI": {
             "size": 11451,
             "uncompressed_size": 11225,
@@ -6509,6 +6517,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 328,
+    "version": 329,
     "hiatus": "https://hiatus.zeo.lol"
 }
