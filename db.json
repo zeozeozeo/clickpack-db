@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-08T06:40:56.686209+00:00",
-    "updated_at_unix": 1775630457,
+    "updated_at_iso": "2026-04-11T20:04:43.125299+00:00",
+    "updated_at_unix": 1775937883,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -893,6 +893,14 @@
             "checksum": "b9202644cdec4726b1e70a45fc458eea",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Bad Clicks": {
+            "size": 11992,
+            "uncompressed_size": 11750,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Bad%20Clicks.zip",
+            "added_at": "2026-04-11T20:04:43.107247+00:00",
+            "checksum": "a4b98a5e06a1d55176cb8f726ab3dca3"
+        },
         "badcp": {
             "size": 548011,
             "uncompressed_size": 543223,
@@ -1647,6 +1655,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/clickpackmid.zip",
             "added_at": "2026-02-26T23:46:28.768133+00:00",
             "checksum": "74bceff60a5c50214835eb5958bfbbde"
+        },
+        "Clicks": {
+            "size": 12578,
+            "uncompressed_size": 12336,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Clicks.zip",
+            "added_at": "2026-04-11T20:04:43.108068+00:00",
+            "checksum": "fcc1a52ed03021f343c2f4b7e08b115a"
         },
         "clicks g102 kentrealss": {
             "size": 46410,
@@ -2853,6 +2869,14 @@
             "added_at": "2025-10-22T23:40:16.421746+00:00",
             "checksum": "0f00fe32ce3f0d49b44e26f5a83b053a"
         },
+        "HyperX Pulsefire Mouse": {
+            "size": 241420,
+            "uncompressed_size": 237150,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/HyperX%20Pulsefire%20Mouse.zip",
+            "added_at": "2026-04-11T20:04:43.123211+00:00",
+            "checksum": "83be9f53495c300c2a2e58fd58605ae8"
+        },
         "hyperx red switches up arrow": {
             "size": 336807,
             "uncompressed_size": 332839,
@@ -3422,6 +3446,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/LOGITECH%20G502%20HERO.zip",
             "checksum": "a68350483eaafc3d3a11d28558f542ae",
             "added_at": "2024-03-17T12:19:23+00:00"
+        },
+        "Logitech g502 hero": {
+            "size": 237980,
+            "uncompressed_size": 233930,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Logitech%20g502%20hero.zip",
+            "added_at": "2026-04-11T20:04:43.122360+00:00",
+            "checksum": "e1d6d7e5d26df98e2fde663d8bce4a6c"
         },
         "Logitech M105": {
             "size": 793290,
@@ -6517,6 +6549,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 329,
+    "version": 330,
     "hiatus": "https://hiatus.zeo.lol"
 }
