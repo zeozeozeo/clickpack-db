@@ -102,11 +102,14 @@ function formatDownloadCount(count) {
   return count.toString();
 }
 
-const DB_URL = document.location.origin + "/db.json";
+const SITE_ORIGIN = (
+  document.location.origin + document.location.pathname
+).replace(/\/+$/, "");
+const DB_URL = SITE_ORIGIN + "/db.json";
 
 function fixupOrigin(url) {
   const BAD_PREFIX = "https://github.com/zeozeozeo/clickpack-db/raw/main/out/";
-  const GOOD_PREFIX = document.location.origin + "/out/";
+  const GOOD_PREFIX = SITE_ORIGIN + "/out/";
   if (url.startsWith(BAD_PREFIX)) {
     return GOOD_PREFIX + url.substring(BAD_PREFIX.length);
   } else {
@@ -121,13 +124,12 @@ async function loadClickpacks() {
     hiatusAPI = data["hiatus"];
 
     databaseDate = new Date(data.updated_at_iso);
-    document.getElementById(
-      "loading-span"
-    ).innerHTML = `Listing ${countProperties(
-      data.clickpacks
-    )} entries. Last updated <span data-tippy-content="${databaseDate.toString()}">${timeSince(
-      databaseDate
-    )}</span> (rev. ${data.version})`;
+    document.getElementById("loading-span").innerHTML =
+      `Listing ${countProperties(
+        data.clickpacks,
+      )} entries. Last updated <span data-tippy-content="${databaseDate.toString()}">${timeSince(
+        databaseDate,
+      )}</span> (rev. ${data.version})`;
 
     // initial load without downloads
     allClickpacks = [];
@@ -157,8 +159,8 @@ async function loadClickpacks() {
     downloadAllButton.setAttribute(
       "data-tippy-content",
       `Download all clickpacks in the database as a ZIP. This will use approximately ${totalEstimatedSize.humanSize(
-        true
-      )} of traffic.`
+        true,
+      )} of traffic.`,
     );
     downloadAllButton.disabled = false;
     tippy("[data-tippy-content]");
@@ -222,11 +224,11 @@ function renderTable(clickpacksToRender) {
       downloadCount = document.createElement("span");
       downloadCount.className = "unselectable tag";
       downloadCount.innerText = `⬇️ ${formatDownloadCount(
-        clickpack.downloads
+        clickpack.downloads,
       )}`;
       downloadCount.setAttribute(
         "data-tippy-content",
-        `${clickpack.downloads} download${clickpack.downloads === 1 ? "" : "s"}`
+        `${clickpack.downloads} download${clickpack.downloads === 1 ? "" : "s"}`,
       );
       clickpackDiv.appendChild(downloadCount);
     }
@@ -238,7 +240,7 @@ function renderTable(clickpacksToRender) {
       dateTag.innerText = `📅 ${timeSinceShort(clickpack.addedAt)}`;
       dateTag.setAttribute(
         "data-tippy-content",
-        `Added on ${clickpack.addedAt.toLocaleDateString()}`
+        `Added on ${clickpack.addedAt.toLocaleDateString()}`,
       );
       clickpackDiv.appendChild(dateTag);
     }
@@ -290,13 +292,13 @@ function renderTable(clickpacksToRender) {
             "data-tippy-content",
             `${clickpack.downloads + 1} download${
               clickpack.downloads + 1 === 1 ? "" : "s"
-            }`
+            }`,
           );
         }
       } catch (error) {
         console.error(
           "failed to increment download count for " + clickpack.id + ":",
-          error
+          error,
         );
       }
       window.location.href = fixupOrigin(clickpack.url);
@@ -307,7 +309,7 @@ function renderTable(clickpacksToRender) {
     tryButton.setAttribute("role", "button");
     tryButton.textContent = "Preview";
     tryButton.addEventListener("click", () =>
-      tryPopup(fixupOrigin(clickpack.url))
+      tryPopup(fixupOrigin(clickpack.url)),
     );
 
     cell2.appendChild(downloadButton);
@@ -507,7 +509,7 @@ async function loadZipFile(zipUrl) {
           // it's a file
           if (
             !zipEntry.name.match(
-              /\.(ogg|wav|mp3|aiff|flac|aac|wma|m4a|amr|3gp)$/
+              /\.(ogg|wav|mp3|aiff|flac|aac|wma|m4a|amr|3gp)$/,
             )
           )
             return;
@@ -570,7 +572,7 @@ async function downloadAllClickpacks() {
 This will unzip each pack and add its contents to a single new ZIP file.
 This will use ${totalEstimatedSize.humanSize(true)} of traffic.
 This process might put strain on your browser.
-Are you sure you want to proceed?`
+Are you sure you want to proceed?`,
   );
 
   if (!userConfirmed) {
@@ -650,7 +652,7 @@ Are you sure you want to proceed?`
           } catch (fileError) {
             console.error(
               `Error processing file '${relativePath}' in clickpack '${clickpack.name}':`,
-              fileError
+              fileError,
             );
             failedFileOperations.push({
               clickpack: clickpack.name,
@@ -660,13 +662,13 @@ Are you sure you want to proceed?`
           }
         }
         NProgress.set(
-          (i + 0.4 + ((j + 1) / fileEntries.length) * 0.5) / totalProgressSteps
+          (i + 0.4 + ((j + 1) / fileEntries.length) * 0.5) / totalProgressSteps,
         );
       }
     } catch (error) {
       console.error(
         `Failed to download or process clickpack '${clickpack.name}':`,
-        error
+        error,
       );
       failedDownloads.push({ name: clickpack.name, reason: error.message });
       downloadAllStatus.textContent = `Failed: ${clickpack.name}. Skipping...`;
@@ -703,15 +705,15 @@ Failed File Operations: ${failedFileOperations.length}`);
       },
       (metadata) => {
         downloadAllStatus.textContent = `Creating final ZIP: ${metadata.percent.toFixed(
-          2
+          2,
         )}% processed. Current file: ${
           metadata.currentFile ? metadata.currentFile : "..."
         }`;
         NProgress.set(
           totalClickpacks / totalProgressSteps +
-            (metadata.percent / 100.0) * (1.0 / totalProgressSteps)
+            (metadata.percent / 100.0) * (1.0 / totalProgressSteps),
         );
-      }
+      },
     );
 
     downloadAllStatus.textContent =
@@ -719,7 +721,7 @@ Failed File Operations: ${failedFileOperations.length}`);
     const link = document.createElement("a");
     link.href = URL.createObjectURL(content);
     link.download = `clickpack-db-${formatDateToCustomString(
-      databaseDate
+      databaseDate,
     )}.zip`;
     document.body.appendChild(link);
     link.click();
@@ -743,7 +745,7 @@ Please check the console for detailed error messages.`;
     downloadAllStatus.textContent =
       "Error generating the final ZIP file. Check console.";
     alert(
-      "An error occurred while creating the final ZIP file. See console for details."
+      "An error occurred while creating the final ZIP file. See console for details.",
     );
     NProgress.done();
   } finally {
