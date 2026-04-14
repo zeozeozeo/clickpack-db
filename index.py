@@ -49,7 +49,7 @@ parser.add_argument(
 parser.add_argument(
     "--hiatus-endpoint",
     type=str,
-    default="https://hiatus.zeo.lol",
+    default="https://hiatus.ruikasa.lol",
     help="Hiatus API endpoint",
 )
 parser.add_argument(

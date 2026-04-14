@@ -8,7 +8,7 @@ let fuse;
 let allClickpacks = [];
 let databaseDate = new Date();
 let isDownloadingAll = false;
-let hiatusAPI = "https://hiatus.zeo.lol";
+let hiatusAPI = "https://hiatus.ruikasa.lol";
 
 Object.defineProperty(Number.prototype, "humanSize", {
   value: function (round = false) {
@@ -166,7 +166,7 @@ async function loadClickpacks() {
     tippy("[data-tippy-content]");
 
     // load downloads in background
-    loadDownloads(data["hiatus"]); // "hiatus" is usually "https://hiatus.zeo.lol"
+    loadDownloads(data["hiatus"]); // "hiatus" is usually "https://hiatus.ruikasa.lol"
   } catch (error) {
     downloadAllButton.disabled = true;
     console.error("Failed to load clickpacks:", error);
