@@ -2343,7 +2343,6 @@ function getClickSoundsExportConfig() {
   const packSlug = slugifyClickSoundsPart(packName, "pack");
   const authorSlug = slugifyClickSoundsPart(authorName, "author");
   const id = `${authorSlug}.${packSlug}`;
-  const rootFolder = `${id}.packgen`;
 
   return {
     description,
@@ -2353,8 +2352,7 @@ function getClickSoundsExportConfig() {
     packSlug,
     authorSlug,
     id,
-    rootFolder,
-    archiveName: `${rootFolder}.zip`,
+    archiveName: `${id}.packgen.zip`,
     type: getSelectedClickSoundsType(),
   };
 }
@@ -2467,7 +2465,7 @@ async function buildClickSoundsZip() {
 
     counts[targetFolder] += 1;
     zip.file(
-      `${clickSoundsConfig.rootFolder}/${targetFolder}/${counts[targetFolder]}.wav`,
+      `${targetFolder}/${counts[targetFolder]}.wav`,
       encodeWAV(clip, reviewState.sampleRate),
     );
   });
@@ -2478,7 +2476,7 @@ async function buildClickSoundsZip() {
   }
 
   zip.file(
-    `${clickSoundsConfig.rootFolder}/pack.json`,
+    "pack.json",
     createClickSoundsPackJson(clickSoundsConfig),
   );
 
