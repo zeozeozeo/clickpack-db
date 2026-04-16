@@ -2363,11 +2363,6 @@ function validateClickSoundsExport(clickSoundsConfig) {
     return false;
   }
 
-  if (!clickSoundsConfig.description) {
-    alert("Click Sounds export requires a pack description.");
-    return false;
-  }
-
   if (!clickSoundsConfig.authorName) {
     alert("Click Sounds export requires an author name.");
     return false;
