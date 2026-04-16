@@ -8,30 +8,20 @@
     <title>Packmak</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/regions.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <meta content="Packmak" property="og:title" />
-    <meta
-        content="ZCB clickpack maker"
-        property="og:description"
-    />
+    <meta content="ZCB clickpack maker" property="og:description" />
     <meta content="https://db.zeo.lol/packmak/" property="og:url" />
     <meta content="#007BFF" data-react-helmet="true" name="theme-color" />
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="/media/favicon-96x96.png"
-        sizes="96x96"
-    />
+    <link rel="icon" type="image/png" href="/media/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/media/favicon.svg" />
     <link rel="shortcut icon" href="/media/favicon.ico" />
-    <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/media/apple-touch-icon.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png" />
 
     <link rel="stylesheet" href="style.css">
 
@@ -50,9 +40,13 @@
                             950: '#030712',
                         },
                         brand: {
+                            300: '#67e8f9',
                             400: '#38bdf8',
                             500: '#0ea5e9',
                             600: '#0284c7',
+                        },
+                        amber: {
+                            350: '#fcd34d',
                         }
                     }
                 }
@@ -66,11 +60,10 @@
     <div class="landing-vignette"></div>
 
     <div id="main-container"
-        class="relative z-10 flex-grow flex flex-col items-center justify-center p-6 transition-opacity duration-500">
+        class="relative z-10 flex-grow flex flex-col items-center justify-center p-5 md:p-8 transition-opacity duration-500">
 
-        <!-- config -->
         <div id="config-panel"
-            class="glass-panel p-8 md:p-10 rounded-3xl w-full max-w-2xl shadow-2xl border border-white/5 relative overflow-hidden">
+            class="glass-panel p-7 md:p-10 rounded-[2rem] w-full max-w-6xl shadow-2xl border border-white/5 relative overflow-hidden">
 
             <div class="absolute top-0 left-0 right-0 h-32 bg-brand-500/10 blur-3xl -z-10 pointer-events-none"></div>
 
@@ -79,188 +72,288 @@
                 <p class="text-gray-400">Clickpack maker for ZCB</p>
             </div>
 
-            <div class="mb-6 space-y-2">
-                <label class="block text-sm font-medium text-gray-400">Clickpack Name</label>
-                <input type="text" id="pack-name" value="MyClickpack" placeholder="Enter clickpack name..."
-                    class="w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-brand-500 focus:bg-white/10 focus:ring-0 focus:outline-none transition-all placeholder-gray-600">
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
-                <!-- players -->
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-400">Players</label>
-                    <div class="relative group">
-                        <select id="num-players"
-                            class="w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-brand-500 focus:bg-white/10 focus:ring-0 focus:outline-none transition-all appearance-none cursor-pointer">
-                            <option value="1" class="bg-gray-900">1 Player</option>
-                            <option value="2" class="bg-gray-900">2 Players</option>
-                        </select>
-                        <div
-                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500 group-hover:text-white transition-colors">
-                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
+            <div class="space-y-6">
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-400">Clickpack Name</label>
+                        <input type="text" id="pack-name" value="MyClickpack" placeholder="Enter clickpack name..."
+                            class="w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-brand-500 focus:bg-white/10 focus:ring-0 focus:outline-none transition-all placeholder-gray-600">
+                    </div>
+
+                    <div class="space-y-3">
+                        <label class="block text-sm font-medium text-gray-400">Audio Source</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <label class="mode-card cursor-pointer">
+                                <input type="radio" name="source-mode" value="record" checked class="peer sr-only">
+                                <div
+                                    class="rounded-2xl border border-white/10 bg-white/5 p-4 transition-all peer-checked:border-brand-500 peer-checked:bg-brand-500/10 hover:bg-white/10">
+                                    <div class="flex items-center gap-3.5 mb-1">
+                                        <svg class="w-[18px] h-[18px] text-white/90 shrink-0" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                                        </svg>
+                                        <div class="text-white font-medium">Record In Browser</div>
+                                    </div>
+                                    <p class="text-sm text-gray-400">Guided click / release prompts.</p>
+                                </div>
+                            </label>
+                            <label class="mode-card cursor-pointer">
+                                <input type="radio" name="source-mode" value="import" class="peer sr-only">
+                                <div
+                                    class="rounded-2xl border border-white/10 bg-white/5 p-4 transition-all peer-checked:border-brand-500 peer-checked:bg-brand-500/10 hover:bg-white/10">
+                                    <div class="flex items-center gap-3.5 mb-1">
+                                        <svg class="w-[18px] h-[18px] text-white/90 shrink-0" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                        </svg>
+                                        <div class="text-white font-medium">Import Existing Audio</div>
+                                    </div>
+                                    <p class="text-sm text-gray-400">Bring in a recording to let Packmak auto-cut it.</p>
+                                </div>
+                            </label>
                         </div>
                     </div>
-                </div>
 
-                <!-- bpm -->
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-400">Recording BPM</label>
-                    <input type="number" id="bpm" value="50" min="5" max="240"
-                        class="w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-brand-500 focus:bg-white/10 focus:ring-0 focus:outline-none transition-all placeholder-gray-600">
-                </div>
-
-                <!-- pre-peak delay -->
-                <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-400">Pre-Peak Delay (ms)</label>
-                    <input type="number" id="pre-peak" value="3" min="0" max="100"
-                        class="w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-brand-500 focus:bg-white/10 focus:ring-0 focus:outline-none transition-all placeholder-gray-600">
-                </div>
-            </div>
-
-            <!-- toggles -->
-            <div class="mb-5 flex flex-col sm:flex-row gap-6">
-                <label class="flex items-center space-x-3 cursor-pointer group select-none">
-                    <div class="relative">
-                        <input type="checkbox" id="record-noise" class="peer sr-only">
-                        <div
-                            class="w-12 h-7 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-gray-300 after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-brand-600">
+                    <div id="import-panel" class="hidden space-y-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+                        <div class="flex items-center justify-between gap-4 flex-wrap">
+                            <div>
+                                <h2 class="text-white font-medium">Import Audio</h2>
+                                <p class="text-sm text-gray-400">Packmak will detect clicks and releases from the recording.</p>
+                            </div>
+                            <label
+                                class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white cursor-pointer transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                </svg>
+                                Choose File
+                                <input type="file" id="import-file" accept="audio/*" class="hidden">
+                            </label>
+                        </div>
+                        <div id="import-file-display"
+                            class="rounded-xl border border-dashed border-white/10 px-4 py-3 text-sm text-gray-500 font-mono">
+                            No audio selected
                         </div>
                     </div>
-                    <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Record Noise (5s)</span>
-                </label>
 
-                <label class="flex items-center space-x-3 cursor-pointer group select-none">
-                    <div class="relative">
-                        <input type="checkbox" id="mute-metronome" class="peer sr-only">
-                        <div
-                            class="w-12 h-7 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-gray-300 after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-brand-600">
-                        </div>
-                    </div>
-                    <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Mute Metronome</span>
-                </label>
-
-                <label class="flex items-center space-x-3 cursor-pointer group select-none">
-                    <div class="relative">
-                        <input type="checkbox" id="normalize-audio" class="peer sr-only">
-                        <div
-                            class="w-12 h-7 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-gray-300 after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-brand-600">
-                        </div>
-                    </div>
-                    <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Normalize</span>
-                </label>
-            </div>
-
-            <!-- denoising -->
-            <div class="mb-5 space-y-3 w-full basis-full">
-                <label class="block text-sm font-medium text-gray-400">Denoising Mode</label>
-                <div class="flex flex-col sm:flex-row gap-6">
-
-                    <!-- none -->
-                    <label class="flex items-center space-x-3 cursor-pointer group select-none">
-                        <div class="relative flex items-center justify-center">
-                            <input type="radio" name="denoise-mode" value="none" checked class="peer sr-only">
-                            <div class="w-5 h-5 border-2 border-gray-600 rounded-full bg-transparent peer-checked:border-brand-500 transition-all flex items-center justify-center">
-                                <div class="w-2.5 h-2.5 bg-brand-500 rounded-full scale-0 peer-checked:scale-100 transition-transform duration-200"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-gray-400">Players</label>
+                            <div class="relative group">
+                                <select id="num-players"
+                                    class="w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-brand-500 focus:bg-white/10 focus:ring-0 focus:outline-none transition-all appearance-none cursor-pointer">
+                                    <option value="1" class="bg-gray-900">1 Player</option>
+                                    <option value="2" class="bg-gray-900">2 Players</option>
+                                </select>
+                                <div
+                                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500 group-hover:text-white transition-colors">
+                                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
-                        <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">None</span>
-                    </label>
 
-                    <!-- browser -->
-                    <label class="flex items-center space-x-3 cursor-pointer group select-none">
-                        <div class="relative flex items-center justify-center">
-                            <input type="radio" name="denoise-mode" value="browser" class="peer sr-only">
-                            <div class="w-5 h-5 border-2 border-gray-600 rounded-full bg-transparent peer-checked:border-brand-500 transition-all flex items-center justify-center">
-                                <div class="w-2.5 h-2.5 bg-brand-500 rounded-full scale-0 peer-checked:scale-100 transition-transform duration-200"></div>
+                        <div id="bpm-group" class="space-y-2">
+                            <label class="block text-sm font-medium text-gray-400">Recording BPM</label>
+                            <input type="number" id="bpm" value="50" min="5" max="240"
+                                class="w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-brand-500 focus:bg-white/10 focus:ring-0 focus:outline-none transition-all placeholder-gray-600">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-gray-400">Click Pad (ms)</label>
+                            <input type="number" id="transient-pad" value="1.5" min="0" max="25" step="0.5"
+                                class="w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-brand-500 focus:bg-white/10 focus:ring-0 focus:outline-none transition-all placeholder-gray-600">
+                        </div>
+                    </div>
+
+                    <div id="recording-options" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <label class="option-tile">
+                            <div class="flex items-start gap-3">
+                                <div class="relative mt-1">
+                                    <input type="checkbox" id="record-noise" class="peer sr-only">
+                                    <div
+                                        class="w-12 h-7 bg-white/10 rounded-full peer-checked:bg-brand-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:h-6 after:w-6 after:rounded-full after:bg-gray-300 after:border after:border-gray-300 after:transition-all peer-checked:after:translate-x-full">
+                                    </div>
+                                </div>
+                                    <div>
+                                        <div class="text-white font-medium">Record Noise Profile</div>
+                                        <p class="text-sm text-gray-400">Adds a 5 second noise.wav file and optionally uses it for denoising.</p>
+                                    </div>
+                                </div>
+                        </label>
+
+                        <label class="option-tile">
+                            <div class="flex items-start gap-3">
+                                <div class="relative mt-1">
+                                    <input type="checkbox" id="mute-metronome" class="peer sr-only">
+                                    <div
+                                        class="w-12 h-7 bg-white/10 rounded-full peer-checked:bg-brand-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:h-6 after:w-6 after:rounded-full after:bg-gray-300 after:border after:border-gray-300 after:transition-all peer-checked:after:translate-x-full">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-white font-medium">Mute Metronome</div>
+                                    <p class="text-sm text-gray-400">Use this if you are on speaker / mobile.</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <label class="option-tile">
+                            <div class="flex items-start gap-3">
+                                <div class="relative mt-1">
+                                    <input type="checkbox" id="normalize-audio" checked class="peer sr-only">
+                                    <div
+                                        class="w-12 h-7 bg-white/10 rounded-full peer-checked:bg-brand-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:h-6 after:w-6 after:rounded-full after:bg-gray-300 after:border after:border-gray-300 after:transition-all peer-checked:after:translate-x-full">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-white font-medium">Normalize</div>
+                                    <p class="text-sm text-gray-400">Constant audio volume</p>
+                                </div>
+                            </div>
+                        </label>
+
+                        <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                            <label class="block text-sm font-medium text-gray-400 mb-3">Denoising Mode</label>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input type="radio" name="denoise-mode" value="none" checked class="accent-sky-500">
+                                    <span class="text-sm text-gray-300">None</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer" id="browser-denoise-row">
+                                    <input type="radio" name="denoise-mode" value="browser" class="accent-sky-500">
+                                    <span class="text-sm text-gray-300">Browser Noise Suppression (live)</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer opacity-50 pointer-events-none"
+                                    id="adaptive-denoise-row">
+                                    <input type="radio" name="denoise-mode" value="adaptive" id="adaptive-denoise" disabled
+                                        class="accent-sky-500">
+                                    <span class="text-sm text-gray-300">Denoiser (post, uses the recorded noise profile)</span>
+                                </label>
                             </div>
                         </div>
-                        <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Browser (Live)</span>
-                    </label>
+                    </div>
+                </div>
 
-                    <!-- spectral -->
-                    <label class="flex items-center space-x-3 cursor-pointer group select-none opacity-50 pointer-events-none transition-opacity" id="spectral-radio-container">
-                        <div class="relative flex items-center justify-center">
-                            <input type="radio" name="denoise-mode" value="spectral" id="spectral-radio" disabled class="peer sr-only">
-                            <div class="w-5 h-5 border-2 border-gray-600 rounded-full bg-transparent peer-checked:border-brand-500 transition-all flex items-center justify-center">
-                                <div class="w-2.5 h-2.5 bg-brand-500 rounded-full scale-0 peer-checked:scale-100 transition-transform duration-200"></div>
+                <div class="space-y-6">
+                    <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <div>
+                                <h2 class="text-lg font-semibold text-white">README</h2>
+                                <p class="text-sm text-gray-400">Included in the ZIP as <span class="font-mono text-gray-300">readme.txt</span>.</p>
                             </div>
                         </div>
-                        <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Spectral (Post)</span>
-                    </label>
+                        <textarea id="pack-readme" rows="8" spellcheck="false"
+                            placeholder="made for zcb&#10;credits:&#10;- ...&#10;&#10;notes:&#10;- ..."
+                            class="pack-readme-input w-full min-h-[220px] rounded-[1.35rem] border border-white/10 bg-[#0b1219] px-4 py-4 text-sm text-gray-200 placeholder:text-gray-600 focus:border-brand-500 focus:bg-[#0d1620] focus:outline-none resize-none font-mono leading-6"></textarea>
+                    </div>
+
+                    <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <div>
+                                <h2 class="text-lg font-semibold text-white">Pack Layout</h2>
+                                <p class="text-sm text-gray-400">Amount of actions for every click / release pair.</p>
+                            </div>
+                            <div class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-300 text-xs font-mono">
+                                click + release pairs
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                                <label class="block text-xs font-medium text-gray-400 mb-2">Hard Clicks</label>
+                                <input type="number" id="count-hard" value="10" min="0"
+                                    class="w-full bg-transparent border-none text-2xl font-light text-white p-0 focus:ring-0">
+                            </div>
+                            <div class="bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                                <label class="block text-xs font-medium text-gray-400 mb-2">Normal Clicks</label>
+                                <input type="number" id="count-normal" value="10" min="1"
+                                    class="w-full bg-transparent border-none text-2xl font-light text-white p-0 focus:ring-0">
+                            </div>
+                            <div class="bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                                <label class="block text-xs font-medium text-gray-400 mb-2">Soft Clicks</label>
+                                <input type="number" id="count-soft" value="10" min="0"
+                                    class="w-full bg-transparent border-none text-2xl font-light text-white p-0 focus:ring-0">
+                            </div>
+                            <div class="bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                                <label class="block text-xs font-medium text-gray-400 mb-2">Micro Clicks</label>
+                                <input type="number" id="count-micro" value="0" min="0"
+                                    class="w-full bg-transparent border-none text-2xl font-light text-white p-0 focus:ring-0">
+                            </div>
+                        </div>
+                        <div class="pt-5 mt-5 border-t border-white/10">
+                            <button id="start-btn"
+                                class="w-full bg-gradient-to-r from-brand-500 to-cyan-400 hover:from-brand-400 hover:to-cyan-300 text-slate-950 font-semibold px-6 py-4 rounded-2xl transition-all duration-200 flex items-center justify-center gap-2 shadow-[0_12px_50px_rgba(14,165,233,0.25)]">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z">
+                                    </path>
+                                </svg>
+                                Start Recording
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- counts -->
-            <div class="space-y-4 mb-5">
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    <div
-                        class="bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                        <label class="block text-xs font-medium text-gray-400 mb-2">Hard Clicks</label>
-                        <input type="number" id="count-hard" value="10" min="0"
-                            class="w-full bg-transparent border-none text-2xl font-light text-white p-0 focus:ring-0">
-                    </div>
-                    <div
-                        class="bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                        <label class="block text-xs font-medium text-gray-400 mb-2">Normal Clicks</label>
-                        <input type="number" id="count-normal" value="10" min="1"
-                            class="w-full bg-transparent border-none text-2xl font-light text-white p-0 focus:ring-0">
-                    </div>
-                    <div
-                        class="bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                        <label class="block text-xs font-medium text-gray-400 mb-2">Soft Clicks</label>
-                        <input type="number" id="count-soft" value="10" min="0"
-                            class="w-full bg-transparent border-none text-2xl font-light text-white p-0 focus:ring-0">
-                    </div>
-                    <div
-                        class="bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                        <label class="block text-xs font-medium text-gray-400 mb-2">Micro Clicks</label>
-                        <input type="number" id="count-micro" value="0" min="0"
-                            class="w-full bg-transparent border-none text-2xl font-light text-white p-0 focus:ring-0">
-                    </div>
-                </div>
-            </div>
-
-            <p class="text-xs text-gray-400 italic mb-5">
-                * Releases will be recorded after each click <br>
-                * The click sound will be detected automatically, no need to align it precisely with the tempo <br>
-                * The spectral denoiser is usually overkill, don't use it <br>
-                * Everything is 100% local, data never leaves your device
-            </p>
-
-            <button id="start-btn"
-                class="w-full bg-white/5 hover:bg-white/10 text-white font-medium py-3 px-6 rounded-xl py-4 transition-all duration-200 transform flex items-center justify-center gap-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z">
-                    </path>
-                </svg>
-                Start Recording
-            </button>
         </div>
 
-        <!-- results -->
         <div id="result-panel"
-            class="hidden glass-panel p-10 rounded-3xl w-full max-w-2xl border border-white/5 text-center shadow-2xl relative z-20">
+            class="hidden glass-panel p-6 md:p-8 rounded-[2rem] w-full max-w-7xl border border-white/5 text-center shadow-2xl relative z-20">
             <div id="processing-state">
                 <div class="relative w-16 h-16 mx-auto mb-6">
                     <div class="absolute inset-0 border-t-2 border-brand-500 rounded-full animate-spin"></div>
                     <div class="absolute inset-2 border-b-2 border-gray-700 rounded-full animate-spin-reverse"></div>
                 </div>
-                <h2 class="text-2xl font-bold text-white mb-2">Processing</h2>
-                <p class="text-gray-400">Analyzing audio...</p>
+                <h2 id="processing-title" class="text-2xl font-bold text-white mb-2">Processing</h2>
+                <p id="processing-copy" class="text-gray-400">Analyzing audio...</p>
             </div>
 
             <div id="review-panel" class="hidden text-left">
-                <h2 class="text-3xl font-bold text-white mb-2 text-center">Review Sounds</h2>
-                <p class="text-gray-400 mb-6 text-center">Preview and remove unwanted sounds.</p>
-
-                <div id="review-list" class="space-y-2 mb-8 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
-                    <!-- injected in js -->
+                <div class="mb-6 text-center">
+                    <h2 class="text-3xl font-bold text-white mb-2">Review Sounds</h2>
                 </div>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <div class="space-y-6">
+                    <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-4 md:p-5">
+                        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-4">
+                            <div id="review-summary" class="flex flex-wrap gap-2">
+                                <span id="summary-detected" class="summary-chip">0 detected</span>
+                                <span id="summary-expected" class="summary-chip">0 expected</span>
+                                <span id="summary-missing" class="summary-chip summary-chip-muted">0 missing</span>
+                                <span id="summary-extra" class="summary-chip summary-chip-muted">0 extra</span>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <button id="play-pause-btn" class="review-btn">Play Audio</button>
+                                <button id="add-marker-btn" class="review-btn">Add Marker At Cursor</button>
+                                <button id="delete-marker-btn" class="review-btn review-btn-danger">Remove Selected</button>
+                            </div>
+                        </div>
+
+                        <div id="waveform-viewport"
+                            class="mt-4 rounded-[1.5rem] border border-white/10 bg-[#07111b] overflow-hidden">
+                            <div id="waveform" class="w-full"></div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-4 md:p-5">
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Detected Regions</h3>
+                            </div>
+                            <div id="selection-status" class="text-xs font-mono text-gray-500"></div>
+                        </div>
+
+                        <div id="review-list" class="review-list-grid max-h-[540px] overflow-y-auto pr-2 custom-scrollbar">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <button id="download-btn"
                         class="bg-brand-500 hover:bg-brand-400 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -278,28 +371,32 @@
         </div>
     </div>
 
-    <!-- recording overlay -->
-    <div id="recording-overlay" class="fixed inset-0 bg-black z-50 hidden flex flex-col items-center justify-center cursor-none select-none">
+    <div id="import-drop-overlay"
+        class="hidden fixed inset-0 z-[60] bg-black/75 backdrop-blur-sm items-center justify-center p-6">
+        <div class="drop-overlay-card">
+            <div class="drop-overlay-title">Drop Audio To Import</div>
+            <div class="drop-overlay-copy">Release to switch Packmak into import mode and attach the file.</div>
+        </div>
+    </div>
 
-        <!-- vignette -->
+    <div id="recording-overlay"
+        class="fixed inset-0 bg-black z-50 hidden flex flex-col items-center justify-center cursor-none select-none">
+
         <div class="absolute inset-0 pointer-events-none vignette-overlay transition-colors duration-200" id="vignette">
         </div>
 
-        <!-- visual cue -->
         <div id="visual-cue"
             class="relative z-10 w-64 h-64 rounded-full border-4 border-gray-800 flex items-center justify-center transition-all duration-100 transform">
             <div id="inner-cue" class="w-4 h-4 rounded-full bg-brand-500 shadow-[0_0_20px_rgba(14,165,233,0.5)]"></div>
         </div>
 
-        <!-- instructions -->
         <div class="relative z-10 mt-12 text-center">
             <h2 id="instruction-main" class="text-4xl font-bold text-white mb-4 tracking-wider">GET READY</h2>
             <p id="instruction-sub" class="text-xl text-gray-400">Recording starts in 3...</p>
         </div>
 
-        <!-- progress -->
-        <div class="absolute bottom-10 left-0 right-0 px-20 z-20">
-            <div id="progress-container" class="w-full bg-gray-800 h-2 relative">
+        <div class="absolute bottom-10 left-0 right-0 px-8 md:px-20 z-20">
+            <div id="progress-container" class="w-full bg-gray-800 h-2 relative rounded-full overflow-hidden">
                 <div id="progress-bar" class="bg-brand-500 h-full transition-all duration-300 relative z-10"
                     style="width: 0%"></div>
             </div>
