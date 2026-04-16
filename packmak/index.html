@@ -221,19 +221,28 @@
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
                             <label class="block text-sm font-medium text-gray-400 mb-3">Denoising Mode</label>
                             <div class="space-y-3">
-                                <label class="flex items-center gap-3 cursor-pointer">
-                                    <input type="radio" name="denoise-mode" value="none" checked class="accent-sky-500">
-                                    <span class="text-sm text-gray-300">None</span>
+                                <label class="choice-card cursor-pointer">
+                                    <input type="radio" name="denoise-mode" value="none" checked class="peer sr-only">
+                                    <div
+                                        class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-300 transition-all peer-checked:border-brand-500 peer-checked:bg-brand-500/10 peer-checked:text-white hover:bg-white/10">
+                                        None
+                                    </div>
                                 </label>
-                                <label class="flex items-center gap-3 cursor-pointer" id="browser-denoise-row">
-                                    <input type="radio" name="denoise-mode" value="browser" class="accent-sky-500">
-                                    <span class="text-sm text-gray-300">Browser Noise Suppression (live)</span>
+                                <label class="choice-card cursor-pointer" id="browser-denoise-row">
+                                    <input type="radio" name="denoise-mode" value="browser" class="peer sr-only">
+                                    <div
+                                        class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-300 transition-all peer-checked:border-brand-500 peer-checked:bg-brand-500/10 peer-checked:text-white hover:bg-white/10">
+                                        Browser Noise Suppression (live)
+                                    </div>
                                 </label>
-                                <label class="flex items-center gap-3 cursor-pointer opacity-50 pointer-events-none"
+                                <label class="choice-card cursor-pointer opacity-50 pointer-events-none"
                                     id="adaptive-denoise-row">
                                     <input type="radio" name="denoise-mode" value="adaptive" id="adaptive-denoise" disabled
-                                        class="accent-sky-500">
-                                    <span class="text-sm text-gray-300">Denoiser (post, uses the recorded noise profile)</span>
+                                        class="peer sr-only">
+                                    <div
+                                        class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-300 transition-all peer-checked:border-brand-500 peer-checked:bg-brand-500/10 peer-checked:text-white hover:bg-white/10">
+                                        Denoiser (post, uses the recorded noise profile)
+                                    </div>
                                 </label>
                             </div>
                         </div>
@@ -349,6 +358,118 @@
                         </div>
 
                         <div id="review-list" class="review-list-grid max-h-[540px] overflow-y-auto pr-2 custom-scrollbar">
+                        </div>
+                    </div>
+
+                    <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-4 md:p-5">
+                        <div class="flex flex-col gap-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Export Format</h3>
+                                <p class="text-sm text-gray-400">Choose the ZIP layout you want Packmak to generate.</p>
+                            </div>
+
+                            <div class="grid gap-3 md:grid-cols-2">
+                                <label class="choice-card cursor-pointer">
+                                    <input type="radio" name="export-format" value="zcb" checked class="peer sr-only">
+                                    <div
+                                        class="rounded-2xl border border-white/10 bg-white/5 p-4 transition-all peer-checked:border-brand-500 peer-checked:bg-brand-500/10 hover:bg-white/10">
+                                        <div class="text-white font-medium">ZCB Format</div>
+                                        <p class="mt-1 text-sm text-gray-400">Exports the current folder structure used by Packmak.</p>
+                                    </div>
+                                </label>
+                                <label class="choice-card cursor-pointer">
+                                    <input type="radio" name="export-format" value="clicksounds" class="peer sr-only">
+                                    <div
+                                        class="rounded-2xl border border-white/10 bg-white/5 p-4 transition-all peer-checked:border-brand-500 peer-checked:bg-brand-500/10 hover:bg-white/10">
+                                        <div class="text-white font-medium">Click Sounds Format</div>
+                                        <p class="mt-1 text-sm text-gray-400">Creates a Packgen ZIP with a matching folder name and <span class="font-mono">pack.json</span>.</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="clicksounds-export-panel"
+                        class="hidden rounded-[1.75rem] border border-white/10 bg-white/5 p-4 md:p-5 space-y-5">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">Click Sounds Metadata</h3>
+                            <p class="text-sm text-gray-400">These fields are written into <span class="font-mono">pack.json</span>.</p>
+                        </div>
+
+                        <div class="grid gap-4 md:grid-cols-2">
+                            <div class="space-y-2 md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-400">Clickpack Name</label>
+                                <input type="text" id="clicksounds-pack-name" placeholder="Required"
+                                    class="w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-brand-500 focus:bg-white/10 focus:ring-0 focus:outline-none transition-all placeholder-gray-600">
+                            </div>
+
+                            <div class="space-y-2 md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-400">Pack Description</label>
+                                <textarea id="clicksounds-description" rows="4" spellcheck="false"
+                                    class="pack-readme-input w-full min-h-[120px] rounded-[1.35rem] border border-white/10 bg-[#0b1219] px-4 py-4 text-sm text-gray-200 placeholder:text-gray-600 focus:border-brand-500 focus:bg-[#0d1620] focus:outline-none resize-y font-mono leading-6"
+                                    placeholder="Required for Click Sounds export, without a good description this pack may not be accepted to the Click Sounds index."></textarea>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="block text-sm font-medium text-gray-400">Author Name</label>
+                                <input type="text" id="clicksounds-author" placeholder="Required"
+                                    class="w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-brand-500 focus:bg-white/10 focus:ring-0 focus:outline-none transition-all placeholder-gray-600">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="block text-sm font-medium text-gray-400">GD Account ID</label>
+                                <input type="number" id="clicksounds-gd-account-id" min="0" step="1" placeholder="Optional"
+                                    class="w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:border-brand-500 focus:bg-white/10 focus:ring-0 focus:outline-none transition-all placeholder-gray-600">
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <label class="block text-sm font-medium text-gray-400">Type</label>
+                            <div class="grid gap-3 md:grid-cols-2">
+                                <label class="choice-card cursor-pointer">
+                                    <input type="radio" name="clicksounds-type" value="Useful" checked class="peer sr-only">
+                                    <div
+                                        class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-300 transition-all peer-checked:border-brand-500 peer-checked:bg-brand-500/10 peer-checked:text-white hover:bg-white/10">
+                                        Useful
+                                    </div>
+                                </label>
+                                <label class="choice-card cursor-pointer">
+                                    <input type="radio" name="clicksounds-type" value="Meme" class="peer sr-only">
+                                    <div
+                                        class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-300 transition-all peer-checked:border-brand-500 peer-checked:bg-brand-500/10 peer-checked:text-white hover:bg-white/10">
+                                        Meme
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-base font-semibold text-white">Packgen Category Mapping</h4>
+                                <p class="text-sm text-gray-400">Drag ZCB folders into <span class="font-mono">Clicks</span> or <span class="font-mono">Releases</span> to decide where each detected sound should export.</p>
+                            </div>
+
+                            <div class="grid gap-4 md:grid-cols-2">
+                                <div>
+                                    <div class="text-sm font-medium text-gray-300 mb-2">Clicks</div>
+                                    <div id="clicksounds-zone-clicks" data-zone="clicks"
+                                        class="mapping-dropzone min-h-[112px] rounded-2xl border border-white/10 bg-[#07111b] p-3">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-gray-300 mb-2">Releases</div>
+                                    <div id="clicksounds-zone-releases" data-zone="releases"
+                                        class="mapping-dropzone min-h-[112px] rounded-2xl border border-white/10 bg-[#07111b] p-3">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="text-sm font-medium text-gray-300 mb-2">Available ZCB Folders</div>
+                                <div id="clicksounds-zone-pool" data-zone="pool"
+                                    class="mapping-dropzone rounded-2xl border border-dashed border-white/10 bg-white/[0.03] p-3">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

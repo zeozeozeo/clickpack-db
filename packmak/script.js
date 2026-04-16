@@ -53,6 +53,15 @@ const reviewState = {
   waveUiCleanup: null,
   suppressWaveClick: false,
   importDefaultsApplied: false,
+  clickSoundsPackNameDirty: false,
+  clickSoundsDescriptionDirty: false,
+  clickSoundsRoutingInitialized: false,
+  selectedClickSoundsFolder: null,
+  clickSoundsRouting: {
+    clicks: [],
+    releases: [],
+    pool: [],
+  },
 };
 
 const els = {
@@ -98,6 +107,16 @@ const els = {
   browserDenoiseRow: document.getElementById("browser-denoise-row"),
   adaptiveDenoiseRow: document.getElementById("adaptive-denoise-row"),
   adaptiveDenoise: document.getElementById("adaptive-denoise"),
+  exportFormatInputs: Array.from(document.querySelectorAll('input[name="export-format"]')),
+  clickSoundsPanel: document.getElementById("clicksounds-export-panel"),
+  clickSoundsPackName: document.getElementById("clicksounds-pack-name"),
+  clickSoundsDescription: document.getElementById("clicksounds-description"),
+  clickSoundsAuthor: document.getElementById("clicksounds-author"),
+  clickSoundsGdAccountId: document.getElementById("clicksounds-gd-account-id"),
+  clickSoundsTypeInputs: Array.from(document.querySelectorAll('input[name="clicksounds-type"]')),
+  clickSoundsZoneClicks: document.getElementById("clicksounds-zone-clicks"),
+  clickSoundsZoneReleases: document.getElementById("clicksounds-zone-releases"),
+  clickSoundsZonePool: document.getElementById("clicksounds-zone-pool"),
 };
 
 const CLICK_TYPES = [
@@ -106,6 +125,17 @@ const CLICK_TYPES = [
   { id: "soft", name: "Soft Click", folder: "softclicks", relFolder: "softreleases" },
   { id: "micro", name: "Micro Click", folder: "microclicks", relFolder: "microreleases" },
 ];
+
+const CLICK_SOUNDS_ROUTING_LABELS = {
+  hardclicks: "hardclicks",
+  clicks: "clicks",
+  softclicks: "softclicks",
+  microclicks: "microclicks",
+  hardreleases: "hardreleases",
+  releases: "releases",
+  softreleases: "softreleases",
+  microreleases: "microreleases",
+};
 
 const CATEGORY_THEMES = {
   hard: {
@@ -177,12 +207,26 @@ els.addMarkerBtn.addEventListener("click", addMarkerAtCursor);
 els.deleteMarkerBtn.addEventListener("click", deleteSelectedMarker);
 els.importFile.addEventListener("change", handleImportFileChange);
 els.recordNoise.addEventListener("change", syncSourceModeUI);
+document.getElementById("pack-name")?.addEventListener("input", syncClickSoundsPackNameFromMain);
+els.clickSoundsPackName?.addEventListener("input", () => {
+  reviewState.clickSoundsPackNameDirty = true;
+});
+els.readmeInput?.addEventListener("input", syncClickSoundsDescriptionFromMain);
+els.clickSoundsDescription?.addEventListener("input", () => {
+  reviewState.clickSoundsDescriptionDirty = true;
+});
 document.addEventListener("keydown", handleGlobalReviewKeydown);
 els.sourceModeInputs.forEach((input) =>
   input.addEventListener("change", syncSourceModeUI),
 );
+els.exportFormatInputs.forEach((input) =>
+  input.addEventListener("change", syncReviewExportUI),
+);
 
 syncSourceModeUI();
+initializeClickSoundsRouting();
+bindClickSoundsRoutingDnD();
+syncReviewExportUI();
 bindWaveformViewportInteractions();
 bindImportDragOverlay();
 
@@ -296,6 +340,195 @@ function handleImportFileChangeLegacy(event) {
   els.importFileDisplay.textContent = file
     ? `${file.name} • ${(file.size / (1024 * 1024)).toFixed(2)} MB`
     : "No audio selected";
+}
+
+function getSelectedExportFormat() {
+  return document.querySelector('input[name="export-format"]:checked')?.value || "zcb";
+}
+
+function getSelectedClickSoundsType() {
+  return document.querySelector('input[name="clicksounds-type"]:checked')?.value || "Useful";
+}
+
+function syncClickSoundsPackNameFromMain() {
+  if (!els.clickSoundsPackName || reviewState.clickSoundsPackNameDirty) return;
+  els.clickSoundsPackName.value = document.getElementById("pack-name")?.value || "";
+}
+
+function syncClickSoundsDescriptionFromMain() {
+  if (!els.clickSoundsDescription || reviewState.clickSoundsDescriptionDirty) return;
+  els.clickSoundsDescription.value = els.readmeInput?.value || "";
+}
+
+function syncReviewExportUI() {
+  const isClickSounds = getSelectedExportFormat() === "clicksounds";
+  els.clickSoundsPanel?.classList.toggle("hidden", !isClickSounds);
+  syncClickSoundsPackNameFromMain();
+  syncClickSoundsDescriptionFromMain();
+  syncClickSoundsRoutingAvailableFolders();
+  renderClickSoundsRouting();
+}
+
+function initializeClickSoundsRouting() {
+  reviewState.clickSoundsRouting = {
+    clicks: [],
+    releases: [],
+    pool: [],
+  };
+  reviewState.clickSoundsRoutingInitialized = false;
+}
+
+function getPresentClickSoundsFolders() {
+  const presentFolders = new Set();
+  const markers = getSortedMarkers();
+
+  markers.forEach((marker, index) => {
+    const assignment = getMarkerAssignment(index, marker);
+    const folder = getClickSoundsSourceFolder(assignment);
+    if (folder) {
+      presentFolders.add(folder);
+    }
+  });
+
+  return Array.from(presentFolders);
+}
+
+function syncClickSoundsRoutingAvailableFolders() {
+  const presentFolders = getPresentClickSoundsFolders();
+  const presentSet = new Set(presentFolders);
+  const currentZones = reviewState.clickSoundsRouting;
+
+  ["clicks", "releases", "pool"].forEach((zone) => {
+    currentZones[zone] = currentZones[zone].filter((folder) => presentSet.has(folder));
+  });
+
+  presentFolders.forEach((folder) => {
+    const alreadyAssigned =
+      currentZones.clicks.includes(folder) ||
+      currentZones.releases.includes(folder) ||
+      currentZones.pool.includes(folder);
+
+    if (alreadyAssigned) return;
+
+    if (folder === "clicks") {
+      currentZones.clicks.push(folder);
+      return;
+    }
+
+    if (folder === "releases") {
+      currentZones.releases.push(folder);
+      return;
+    }
+
+    currentZones.pool.push(folder);
+  });
+
+  reviewState.clickSoundsRoutingInitialized = true;
+}
+
+function getAllClickSoundsFolders() {
+  return [
+    ...reviewState.clickSoundsRouting.clicks,
+    ...reviewState.clickSoundsRouting.releases,
+    ...reviewState.clickSoundsRouting.pool,
+  ];
+}
+
+function moveClickSoundsFolderToZone(folder, targetZone) {
+  ["clicks", "releases", "pool"].forEach((zone) => {
+    reviewState.clickSoundsRouting[zone] = reviewState.clickSoundsRouting[zone]
+      .filter((value) => value !== folder);
+  });
+  reviewState.clickSoundsRouting[targetZone].push(folder);
+  reviewState.selectedClickSoundsFolder = null;
+  renderClickSoundsRouting();
+}
+
+function renderClickSoundsRouting() {
+  syncClickSoundsRoutingAvailableFolders();
+
+  const zoneMeta = [
+    { key: "clicks", el: els.clickSoundsZoneClicks, emptyLabel: "Drop ZCB click folders here" },
+    { key: "releases", el: els.clickSoundsZoneReleases, emptyLabel: "Drop ZCB release folders here" },
+    { key: "pool", el: els.clickSoundsZonePool, emptyLabel: "Drag folders here to skip them from Click Sounds export" },
+  ];
+
+  zoneMeta.forEach(({ key, el, emptyLabel }) => {
+    if (!el) return;
+
+    el.innerHTML = "";
+    el.dataset.emptyLabel = emptyLabel;
+
+    const folders = reviewState.clickSoundsRouting[key];
+    el.classList.toggle("is-empty", folders.length === 0);
+    el.classList.toggle(
+      "is-targeted",
+      Boolean(reviewState.selectedClickSoundsFolder),
+    );
+
+    folders.forEach((folder) => {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "mapping-chip";
+      chip.draggable = true;
+      chip.dataset.folder = folder;
+      chip.dataset.zone = key;
+      chip.textContent = CLICK_SOUNDS_ROUTING_LABELS[folder] || folder;
+      chip.classList.toggle(
+        "is-selected",
+        reviewState.selectedClickSoundsFolder === folder,
+      );
+      chip.addEventListener("dragstart", (event) => {
+        event.dataTransfer?.setData("text/plain", folder);
+        event.dataTransfer.effectAllowed = "move";
+      });
+      chip.addEventListener("click", () => {
+        if (reviewState.selectedClickSoundsFolder === folder) {
+          reviewState.selectedClickSoundsFolder = null;
+        } else {
+          reviewState.selectedClickSoundsFolder = folder;
+        }
+        renderClickSoundsRouting();
+      });
+      el.appendChild(chip);
+    });
+  });
+}
+
+function bindClickSoundsRoutingDnD() {
+  [
+    els.clickSoundsZoneClicks,
+    els.clickSoundsZoneReleases,
+    els.clickSoundsZonePool,
+  ].forEach((zoneEl) => {
+    if (!zoneEl) return;
+
+    zoneEl.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      zoneEl.classList.add("is-active");
+      if (event.dataTransfer) {
+        event.dataTransfer.dropEffect = "move";
+      }
+    });
+
+    zoneEl.addEventListener("dragleave", () => {
+      zoneEl.classList.remove("is-active");
+    });
+
+    zoneEl.addEventListener("click", (event) => {
+      if (!reviewState.selectedClickSoundsFolder) return;
+      if (event.target instanceof Element && event.target.closest(".mapping-chip")) return;
+      moveClickSoundsFolderToZone(reviewState.selectedClickSoundsFolder, zoneEl.dataset.zone);
+    });
+
+    zoneEl.addEventListener("drop", (event) => {
+      event.preventDefault();
+      zoneEl.classList.remove("is-active");
+      const folder = event.dataTransfer?.getData("text/plain");
+      if (!folder || !getAllClickSoundsFolders().includes(folder)) return;
+      moveClickSoundsFolderToZone(folder, zoneEl.dataset.zone);
+    });
+  });
 }
 
 function readConfig() {
@@ -448,6 +681,11 @@ function setImportedFile(file) {
 
 async function startSession() {
   config = readConfig();
+  initializeClickSoundsRouting();
+  reviewState.clickSoundsPackNameDirty = false;
+  reviewState.clickSoundsDescriptionDirty = false;
+  syncClickSoundsPackNameFromMain();
+  syncClickSoundsDescriptionFromMain();
   buildSequence();
   reviewState.expectedExports = buildExpectedExports();
 
@@ -827,6 +1065,7 @@ async function processAudioBuffer(buffer, sourceKind) {
   await createWaveformPreview(monoData, sampleRate);
   els.processingState.classList.add("hidden");
   els.reviewPanel.classList.remove("hidden");
+  syncReviewExportUI();
 
   renderReviewList();
   syncWaveformRegions();
@@ -1449,6 +1688,8 @@ function getMarkerAssignment(index, marker) {
 }
 
 function renderReviewList() {
+  syncClickSoundsRoutingAvailableFolders();
+  renderClickSoundsRouting();
   const markers = getSortedMarkers();
   const stats = getReviewStats(markers.length);
   const selectedIndex = markers.findIndex((marker) => marker.id === reviewState.selectedMarkerId);
@@ -1743,6 +1984,7 @@ function bindWaveformUi() {
   let moved = false;
   let startX = 0;
   let startScroll = 0;
+  let pinchSession = null;
 
   const swallowClick = (event) => {
     if (!reviewState.suppressWaveClick) return;
@@ -1789,6 +2031,74 @@ function bindWaveformUi() {
     window.addEventListener("mouseup", onMouseUp);
   };
 
+  const getTouchDistance = (touchA, touchB) => {
+    const deltaX = touchA.clientX - touchB.clientX;
+    const deltaY = touchA.clientY - touchB.clientY;
+    return Math.hypot(deltaX, deltaY);
+  };
+
+  const getTouchMidpoint = (touchA, touchB) => ({
+    clientX: (touchA.clientX + touchB.clientX) / 2,
+    clientY: (touchA.clientY + touchB.clientY) / 2,
+  });
+
+  const startPinchSession = (event) => {
+    if (event.touches.length !== 2 || isRegionInteraction(event)) return;
+
+    const [touchA, touchB] = event.touches;
+    const midpoint = getTouchMidpoint(touchA, touchB);
+    const anchorPoint = getWaveformPointerPosition(midpoint);
+
+    pinchSession = {
+      startDistance: Math.max(1, getTouchDistance(touchA, touchB)),
+      startZoom: reviewState.zoomPxPerSec,
+      anchorTime: anchorPoint.time,
+      focusRatio: anchorPoint.ratio,
+    };
+
+    reviewState.suppressWaveClick = true;
+    viewport.classList.add("is-panning");
+  };
+
+  const onTouchStart = (event) => {
+    if (event.touches.length === 2) {
+      event.preventDefault();
+      startPinchSession(event);
+    }
+  };
+
+  const onTouchMove = (event) => {
+    if (!pinchSession || event.touches.length !== 2) return;
+
+    event.preventDefault();
+    const [touchA, touchB] = event.touches;
+    const midpoint = getTouchMidpoint(touchA, touchB);
+    const currentDistance = Math.max(1, getTouchDistance(touchA, touchB));
+    const scale = currentDistance / pinchSession.startDistance;
+    const anchorPoint = getWaveformPointerPosition(midpoint);
+
+    setWaveformZoom(
+      pinchSession.startZoom * scale,
+      anchorPoint.time ?? pinchSession.anchorTime,
+      anchorPoint.ratio ?? pinchSession.focusRatio,
+    );
+  };
+
+  const finishPinchSession = () => {
+    if (!pinchSession) return;
+    pinchSession = null;
+    viewport.classList.remove("is-panning");
+    reviewState.suppressWaveClick = true;
+    wrapper.addEventListener("click", swallowClick, true);
+    setTimeout(() => wrapper.removeEventListener("click", swallowClick, true), 0);
+  };
+
+  const onTouchEnd = (event) => {
+    if (pinchSession && event.touches.length < 2) {
+      finishPinchSession();
+    }
+  };
+
   const onWaveformClick = (event) => {
     if (reviewState.suppressWaveClick) {
       reviewState.suppressWaveClick = false;
@@ -1808,13 +2118,22 @@ function bindWaveformUi() {
 
   wrapper.addEventListener("mousedown", onMouseDown, true);
   wrapper.addEventListener("click", onWaveformClick);
+  wrapper.addEventListener("touchstart", onTouchStart, { passive: false });
+  wrapper.addEventListener("touchmove", onTouchMove, { passive: false });
+  wrapper.addEventListener("touchend", onTouchEnd, { passive: false });
+  wrapper.addEventListener("touchcancel", onTouchEnd, { passive: false });
 
   reviewState.waveUiCleanup = () => {
     isPanning = false;
     moved = false;
+    pinchSession = null;
     viewport.classList.remove("is-panning");
     wrapper.removeEventListener("mousedown", onMouseDown, true);
     wrapper.removeEventListener("click", onWaveformClick);
+    wrapper.removeEventListener("touchstart", onTouchStart);
+    wrapper.removeEventListener("touchmove", onTouchMove);
+    wrapper.removeEventListener("touchend", onTouchEnd);
+    wrapper.removeEventListener("touchcancel", onTouchEnd);
     wrapper.removeEventListener("click", swallowClick, true);
     window.removeEventListener("mousemove", onMouseMove);
     window.removeEventListener("mouseup", onMouseUp);
@@ -1985,11 +2304,119 @@ function applyEdgeFades(samples, sampleRate) {
   }
 }
 
-async function downloadZip() {
-  if (!reviewState.sourceData || !reviewState.markers.length) {
-    return;
+function slugifyClickSoundsPart(value, fallback) {
+  const asciiValue = String(value || "")
+    .normalize("NFKD")
+    .replace(/[^\x00-\x7F]/g, "");
+  const slug = asciiValue
+    .replace(/[^A-Za-z0-9._-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^[.-]+|[.-]+$/g, "");
+  return slug || fallback;
+}
+
+function getClickSoundsSourceFolder(assignment) {
+  if (assignment.extra) {
+    return getClickType(assignment.category).folder;
   }
 
+  const typeInfo = getClickType(assignment.category);
+  return assignment.action === "up" ? typeInfo.relFolder : typeInfo.folder;
+}
+
+function getClickSoundsTargetFolder(sourceFolder) {
+  if (reviewState.clickSoundsRouting.clicks.includes(sourceFolder)) {
+    return "Clicks";
+  }
+  if (reviewState.clickSoundsRouting.releases.includes(sourceFolder)) {
+    return "Releases";
+  }
+  return null;
+}
+
+function getClickSoundsExportConfig() {
+  const exportPackName = els.clickSoundsPackName?.value.trim() || "";
+  const description = els.clickSoundsDescription?.value.trim() || "";
+  const authorName = els.clickSoundsAuthor?.value.trim() || "";
+  const gdAccountIdRaw = els.clickSoundsGdAccountId?.value.trim() || "";
+  const packName = exportPackName || config.packName.trim() || "Clickpack";
+  const packSlug = slugifyClickSoundsPart(packName, "pack");
+  const authorSlug = slugifyClickSoundsPart(authorName, "author");
+  const id = `${authorSlug}.${packSlug}`;
+  const rootFolder = `${id}.packgen`;
+
+  return {
+    description,
+    authorName,
+    gdAccountId: gdAccountIdRaw ? Number.parseInt(gdAccountIdRaw, 10) : null,
+    packName,
+    packSlug,
+    authorSlug,
+    id,
+    rootFolder,
+    archiveName: `${rootFolder}.zip`,
+    type: getSelectedClickSoundsType(),
+  };
+}
+
+function validateClickSoundsExport(clickSoundsConfig) {
+  if (!clickSoundsConfig.packName) {
+    alert("Click Sounds export requires a clickpack name.");
+    return false;
+  }
+
+  if (!clickSoundsConfig.description) {
+    alert("Click Sounds export requires a pack description.");
+    return false;
+  }
+
+  if (!clickSoundsConfig.authorName) {
+    alert("Click Sounds export requires an author name.");
+    return false;
+  }
+
+  const assignedFolders =
+    reviewState.clickSoundsRouting.clicks.length + reviewState.clickSoundsRouting.releases.length;
+  if (assignedFolders === 0) {
+    alert("Assign at least one ZCB folder to Clicks or Releases for Click Sounds export.");
+    return false;
+  }
+
+  if (
+    els.clickSoundsGdAccountId?.value.trim() &&
+    !Number.isFinite(clickSoundsConfig.gdAccountId)
+  ) {
+    alert("GD Account ID must be a valid whole number.");
+    return false;
+  }
+
+  return true;
+}
+
+function createClickSoundsPackJson(clickSoundsConfig) {
+  const packJson = {
+    $schema: "https://clicksounds.github.io/clicks/pack.schema.json",
+    id: clickSoundsConfig.id,
+    version: 1,
+    packgen: true,
+    type: clickSoundsConfig.type,
+    name: clickSoundsConfig.packName,
+    description: clickSoundsConfig.description,
+    authors: [
+      {
+        name: clickSoundsConfig.authorName,
+      },
+    ],
+  };
+
+  if (Number.isFinite(clickSoundsConfig.gdAccountId)) {
+    packJson.authors[0].gdAccountID = clickSoundsConfig.gdAccountId;
+  }
+
+  return `${JSON.stringify(packJson, null, 4)}\n`;
+}
+
+async function buildZcbZip() {
   const zip = new JSZip();
   const markers = getSortedMarkers();
 
@@ -2010,10 +2437,76 @@ async function downloadZip() {
   }
 
   const content = await zip.generateAsync({ type: "blob" });
+  return {
+    content,
+    filename: `${config.packName}.zip`,
+  };
+}
+
+async function buildClickSoundsZip() {
+  const clickSoundsConfig = getClickSoundsExportConfig();
+  if (!validateClickSoundsExport(clickSoundsConfig)) {
+    return null;
+  }
+
+  const zip = new JSZip();
+  const markers = getSortedMarkers();
+  const counts = {
+    Clicks: 0,
+    Releases: 0,
+  };
+
+  markers.forEach((marker, index) => {
+    const assignment = getMarkerAssignment(index, marker);
+    const sourceFolder = getClickSoundsSourceFolder(assignment);
+    const targetFolder = getClickSoundsTargetFolder(sourceFolder);
+    if (!targetFolder) return;
+
+    const clip = extractProcessedClip(marker);
+    if (!clip.length) return;
+
+    counts[targetFolder] += 1;
+    zip.file(
+      `${clickSoundsConfig.rootFolder}/${targetFolder}/${counts[targetFolder]}.wav`,
+      encodeWAV(clip, reviewState.sampleRate),
+    );
+  });
+
+  if (counts.Clicks + counts.Releases === 0) {
+    alert("No sounds matched the Click Sounds folder mapping.");
+    return null;
+  }
+
+  zip.file(
+    `${clickSoundsConfig.rootFolder}/pack.json`,
+    createClickSoundsPackJson(clickSoundsConfig),
+  );
+
+  const content = await zip.generateAsync({ type: "blob" });
+  return {
+    content,
+    filename: clickSoundsConfig.archiveName,
+  };
+}
+
+async function downloadZip() {
+  if (!reviewState.sourceData || !reviewState.markers.length) {
+    return;
+  }
+  config = readConfig();
+  const result = getSelectedExportFormat() === "clicksounds"
+    ? await buildClickSoundsZip()
+    : await buildZcbZip();
+
+  if (!result) {
+    return;
+  }
+
+  const { content, filename } = result;
   const url = URL.createObjectURL(content);
   const anchor = document.createElement("a");
   anchor.href = url;
-  anchor.download = `${config.packName}.zip`;
+  anchor.download = filename;
   anchor.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
