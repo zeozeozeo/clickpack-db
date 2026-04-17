@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-14T18:06:18.187255+00:00",
-    "updated_at_unix": 1776189978,
+    "updated_at_iso": "2026-04-17T05:33:19.862149+00:00",
+    "updated_at_unix": 1776404000,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -491,6 +491,15 @@
             "added_at": "2026-04-04T06:34:56.818437+00:00",
             "readme": "ANDARIAN'S SAYO DESKMAT V2026.4.4.1\n\npros:\n-realistic\n-good at spam\n-has noise\ncons:\n-its another sayo clickpack\n-im forced to use denoiser so it sounds a bit weird\n-worthy for best: its a sayo lmao i can post it if u want\nCHANGELOG:\n-v2026.4.4.1: added readme, including specs and changelog\n\nUSING NOISE IS RECOMMENDED!\n\nKEYBOARD: SayoDevice O3C\nSWITCHES: GATERON MAGNETIC JADE PRO\n-Switch Type: Linear Hall Effect (Magnetic)\n-Initial Force: 36\u00b15gf (some sources list 36\u00b17gf)\n-Bottom-out Force: 50\u00b110gf\n-Total Travel: 3.5\u00b10.1mm\n-Actuation Range: Customizable (0.1mm - 3.3mm)\n-Lifespan: Over 100 million keystrokes\n-Lubrication: Factory Pre-lubed\n-Lighting: Upgraded 3.0 LED diffuser (brighter/softer diffusion)\n-Material: POM Stem, PA66 Bottom, PC Top ",
             "checksum": "2ce675310a6d05d2adc62260ffb529ad"
+        },
+        "andarianwx updated sayo clicks v6": {
+            "size": 562967,
+            "uncompressed_size": 557993,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/andarianwx%20updated%20sayo%20clicks%20v6.zip",
+            "added_at": "2026-04-17T05:33:19.860310+00:00",
+            "readme": "ANDARIAN'S UPDATED SAYO CLICKPACK (V6 - APRIL 2026 VERSION)\npros:\n- realistic probably\n- its manually cut, i carefully cut each sounds\n- sounds very good\n- i recorded sound for 2p but i dont have time to cut it\n- has noise\ncons:\n- it's another sayo clickpack\nchanges i made from my last clickpacks:\n- buffed noise volume at 1.0 volume settings\n- cut manually using audacity\n- audacity denoiser is now more carefully used\n- hopefully changed how it sounds by adjusting the room enviroment\nworthy for best: i will tell in discord\n\nUSING NOISE IS RECOMMENDED!\n\nfor more specs, check \"andarianwx sayo deskmat v2026.4.4.1\" on clickpackdb (the readme)",
+            "checksum": "019f47c7975c96c531a4b030132d1edf"
         },
         "angelpack": {
             "size": 265344,
@@ -6557,6 +6566,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 331,
+    "version": 332,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
