@@ -51,6 +51,7 @@ const reviewState = {
   zoomPxPerSec: 0,
   panSession: null,
   waveUiCleanup: null,
+  waveScrollRaf: null,
   suppressWaveClick: false,
   importDefaultsApplied: false,
   clickSoundsPackNameDirty: false,
@@ -383,7 +384,7 @@ function getPresentClickSoundsFolders() {
   const markers = getSortedMarkers();
 
   markers.forEach((marker, index) => {
-    const assignment = getMarkerAssignment(index, marker);
+    const assignment = getMarkerAssignment(index, marker, markers);
     const folder = getClickSoundsSourceFolder(assignment);
     if (folder) {
       presentFolders.add(folder);
@@ -1134,6 +1135,7 @@ function detectGuidedMarkers(samples, sampleRate) {
             sampleRate,
             "auto",
             step.cat,
+            step.action,
           ),
         );
       }
@@ -1143,7 +1145,7 @@ function detectGuidedMarkers(samples, sampleRate) {
   });
 
   return {
-    markers: finalizeMarkers(markers),
+    markers: finalizeMarkers(markers, true),
     noiseRange,
   };
 }
@@ -1176,12 +1178,20 @@ function detectImportedMarkers(samples, envelope, sampleRate, expectedCount) {
 
   peaks = collapseImportedDecayPeaks(peaks, envelope, sampleRate);
 
-  const markers = peaks.map((peakIndex) =>
-    createPeakMarker(samples, peakIndex, 0, sampleRate, "auto"),
+  const markers = peaks.map((peakIndex, index) =>
+    createPeakMarker(
+      samples,
+      peakIndex,
+      0,
+      sampleRate,
+      "auto",
+      null,
+      reviewState.expectedExports[index]?.action || null,
+    ),
   );
 
   return {
-    markers: finalizeMarkers(markers),
+    markers: finalizeMarkers(markers, true),
     noiseRange: null,
   };
 }
@@ -1291,7 +1301,15 @@ function findPeakInRange(samples, startSample, endSample, threshold) {
   return maxValue > threshold ? maxIndex : null;
 }
 
-function createPeakMarker(samples, peakIndex, minStartSample, sampleRate, source, category = null) {
+function createPeakMarker(
+  samples,
+  peakIndex,
+  minStartSample,
+  sampleRate,
+  source,
+  category = null,
+  action = null,
+) {
   const prePeakSamples = Math.floor((config.transientPadMs / 1000) * sampleRate);
   const start = Math.max(minStartSample, peakIndex - prePeakSamples);
   const end = Math.min(samples.length, peakIndex + Math.floor(0.3 * sampleRate));
@@ -1303,6 +1321,7 @@ function createPeakMarker(samples, peakIndex, minStartSample, sampleRate, source
     peak: peakIndex / sampleRate,
     peakStrength: Math.abs(samples[peakIndex]) || 0,
     category,
+    action,
     source,
   };
 }
@@ -1337,7 +1356,17 @@ function detectWindowTransient(samples, envelope, startSample, endSample) {
   return { peakIndex, peakValue };
 }
 
-function createMarkerFromPeak(samples, envelope, sampleRate, peakIndex, minIndex, maxIndex, source) {
+function createMarkerFromPeak(
+  samples,
+  envelope,
+  sampleRate,
+  peakIndex,
+  minIndex,
+  maxIndex,
+  source,
+  category = null,
+  action = null,
+) {
   const startIndex = Math.max(
     minIndex,
     findTransientStart(samples, envelope, peakIndex, minIndex, sampleRate) -
@@ -1358,6 +1387,8 @@ function createMarkerFromPeak(samples, envelope, sampleRate, peakIndex, minIndex
     end: safeEnd / sampleRate,
     peak: peakIndex / sampleRate,
     peakStrength: envelope[peakIndex] || 0,
+    category,
+    action,
     source,
   };
 }
@@ -1437,7 +1468,7 @@ function snapToZeroCrossing(samples, startIndex, direction, limit) {
   return bestIndex;
 }
 
-function finalizeMarkers(markers) {
+function finalizeMarkers(markers, trimOverlaps = false) {
   const sorted = [...markers].sort((a, b) => a.start - b.start);
   const minDuration = 0.012;
 
@@ -1446,14 +1477,20 @@ function finalizeMarkers(markers) {
     current.start = clamp(current.start, 0, reviewState.duration);
     current.end = clamp(current.end, current.start + minDuration, reviewState.duration);
 
-    if (i === 0) continue;
+    if (!trimOverlaps || i === 0) continue;
 
     const prev = sorted[i - 1];
     if (current.start < prev.end) {
-      const midpoint = (current.start + prev.end) / 2;
-      prev.end = clamp(midpoint - 0.001, prev.start + minDuration, reviewState.duration);
-      current.start = clamp(midpoint + 0.001, 0, current.end - minDuration);
-      current.end = clamp(current.end, current.start + minDuration, reviewState.duration);
+      const targetPrevEnd = current.start - 0.001;
+      const prevMinEnd = prev.start + minDuration;
+
+      if (targetPrevEnd >= prevMinEnd) {
+        prev.end = clamp(targetPrevEnd, prevMinEnd, reviewState.duration);
+      } else {
+        prev.end = clamp(prevMinEnd, prevMinEnd, reviewState.duration);
+        current.start = clamp(prev.end + 0.001, 0, current.end - minDuration);
+        current.end = clamp(current.end, current.start + minDuration, reviewState.duration);
+      }
     }
   }
 
@@ -1531,6 +1568,11 @@ async function createWaveformPreview(monoData, sampleRate) {
 }
 
 function destroyWaveform() {
+  if (reviewState.waveScrollRaf !== null) {
+    cancelAnimationFrame(reviewState.waveScrollRaf);
+    reviewState.waveScrollRaf = null;
+  }
+
   if (typeof reviewState.waveUiCleanup === "function") {
     reviewState.waveUiCleanup();
     reviewState.waveUiCleanup = null;
@@ -1559,8 +1601,9 @@ function syncWaveformRegions() {
   reviewState.regionMap.forEach((region) => region.remove());
   reviewState.regionMap.clear();
 
-  getSortedMarkers().forEach((marker, index) => {
-    const assignment = getMarkerAssignment(index, marker);
+  const markers = getSortedMarkers();
+  markers.forEach((marker, index) => {
+    const assignment = getMarkerAssignment(index, marker, markers);
     const theme = getCategoryTheme(getMarkerCategory(index, marker));
     const isRelease = assignment.action === "up";
     const isSelected = marker.id === reviewState.selectedMarkerId;
@@ -1662,28 +1705,57 @@ function getMarkerCategory(index, marker) {
   return marker?.category || expected?.category || "normal";
 }
 
+function getMarkerAction(index, marker) {
+  const expected = reviewState.expectedExports[index];
+  if (marker?.action) return marker.action;
+  if (expected?.action) return expected.action;
+  return index % 2 === 0 ? "down" : "up";
+}
+
 function getCategoryTheme(category) {
   return CATEGORY_THEMES[category] || CATEGORY_THEMES.normal;
 }
 
-function getMarkerAssignment(index, marker) {
+function getExpectedActionCount(action) {
+  return reviewState.expectedExports.filter((expected) => expected.action === action).length;
+}
+
+function getExtraMarkerPath(index, action, markers) {
+  const extraStartIndex = reviewState.expectedExports.length;
+  const baseCount = getExpectedActionCount(action);
+  let extraOrdinal = 0;
+
+  for (let i = extraStartIndex; i <= index; i++) {
+    if (getMarkerAction(i, markers[i]) === action) {
+      extraOrdinal += 1;
+    }
+  }
+
+  const folder = action === "up" ? "releases" : "clicks";
+  return `${folder}/${baseCount + extraOrdinal}.wav`;
+}
+
+function getMarkerAssignment(index, marker, markers = null) {
+  const sortedMarkers = markers || getSortedMarkers();
   const category = getMarkerCategory(index, marker);
+  const action = getMarkerAction(index, marker);
   const expected = reviewState.expectedExports[index];
   if (expected) {
     return {
-      path: buildPackPath(category, expected.action, expected.player, expected.index),
+      path: buildPackPath(category, action, expected.player, expected.index),
       extra: false,
       category,
-      action: expected.action,
+      action,
       player: expected.player,
       index: expected.index,
     };
   }
 
   return {
-    path: `extras/${category}-${String(index - reviewState.expectedExports.length + 1).padStart(3, "0")}.wav`,
+    path: getExtraMarkerPath(index, action, sortedMarkers),
     extra: true,
     category,
+    action,
   };
 }
 
@@ -1693,7 +1765,9 @@ function renderReviewList() {
   const markers = getSortedMarkers();
   const stats = getReviewStats(markers.length);
   const selectedIndex = markers.findIndex((marker) => marker.id === reviewState.selectedMarkerId);
-  const selectedAssignment = selectedIndex >= 0 ? getMarkerAssignment(selectedIndex, markers[selectedIndex]) : null;
+  const selectedAssignment = selectedIndex >= 0
+    ? getMarkerAssignment(selectedIndex, markers[selectedIndex], markers)
+    : null;
 
   els.summaryDetected.textContent = `${stats.detected} detected`;
   els.summaryExpected.textContent = `${stats.expected} expected`;
@@ -1710,16 +1784,18 @@ function renderReviewList() {
     els.reviewList.innerHTML = "";
 
     markers.forEach((marker, index) => {
-      const assignment = getMarkerAssignment(index, marker);
+      const assignment = getMarkerAssignment(index, marker, markers);
       const category = getMarkerCategory(index, marker);
+      const action = getMarkerAction(index, marker);
       const categoryTheme = getCategoryTheme(category);
       const categoryLabel = CLICK_TYPES.find((type) => type.id === category)?.name.replace(" Click", "") || category;
-      const isRelease = assignment.action === "up";
+      const isRelease = action === "up";
       const actionLabel = assignment.extra
         ? "extra"
         : (isRelease ? "release" : "click");
       const row = document.createElement("div");
       row.className = `review-row ${marker.id === reviewState.selectedMarkerId ? "is-selected" : ""}`;
+      row.dataset.markerId = marker.id;
       row.addEventListener("click", () => selectMarker(marker.id, true));
 
       const layout = document.createElement("div");
@@ -1773,19 +1849,39 @@ function renderReviewList() {
       meta.appendChild(durationTag);
       meta.appendChild(startTag);
 
-      if (assignment.extra) {
-        const extraTag = document.createElement("span");
-        extraTag.className = "review-tag review-tag-warn";
-        extraTag.textContent = "extra";
-        meta.appendChild(extraTag);
-      }
-
       pathLine.appendChild(title);
       main.appendChild(pathLine);
       main.appendChild(meta);
 
       const actions = document.createElement("div");
       actions.className = "review-row-controls";
+
+      const actionSelect = document.createElement("select");
+      actionSelect.className = "review-select review-select-compact";
+      actionSelect.style.color = isRelease ? RELEASE_REVIEW_STYLE.text : categoryTheme.text;
+      actionSelect.style.borderColor = isRelease
+        ? RELEASE_REVIEW_STYLE.border
+        : categoryTheme.regionSelected;
+      actionSelect.style.background = isRelease
+        ? RELEASE_REVIEW_STYLE.bgStrong
+        : categoryTheme.region;
+      [
+        { value: "down", label: "Click" },
+        { value: "up", label: "Release" },
+      ].forEach((optionInfo) => {
+        const option = document.createElement("option");
+        option.value = optionInfo.value;
+        option.textContent = optionInfo.label;
+        option.selected = optionInfo.value === action;
+        actionSelect.appendChild(option);
+      });
+      actionSelect.addEventListener("click", (event) => event.stopPropagation());
+      actionSelect.addEventListener("change", (event) => {
+        event.stopPropagation();
+        marker.action = actionSelect.value;
+        renderReviewList();
+        syncWaveformRegions();
+      });
 
       const categorySelect = document.createElement("select");
       categorySelect.className = "review-select review-select-compact";
@@ -1827,6 +1923,7 @@ function renderReviewList() {
         removeMarker(marker.id);
       });
 
+      actions.appendChild(actionSelect);
       actions.appendChild(categorySelect);
       actions.appendChild(previewBtn);
       actions.appendChild(removeBtn);
@@ -1835,6 +1932,10 @@ function renderReviewList() {
       row.appendChild(layout);
       els.reviewList.appendChild(row);
     });
+  }
+
+  if (reviewState.selectedMarkerId) {
+    requestAnimationFrame(scrollSelectedReviewRowIntoView);
   }
 }
 
@@ -1858,6 +1959,23 @@ function selectMarker(markerId, centerWaveform) {
   if (marker) {
     reviewState.wavesurfer.setTime(Math.max(0, marker.start));
     scrollWaveformToTime(marker.start, "smooth");
+  }
+}
+
+function scrollSelectedReviewRowIntoView() {
+  const container = els.reviewList;
+  if (!container || !reviewState.selectedMarkerId) return;
+
+  const selectedRow = container.querySelector(`[data-marker-id="${reviewState.selectedMarkerId}"]`);
+  if (!selectedRow) return;
+
+  const containerRect = container.getBoundingClientRect();
+  const rowRect = selectedRow.getBoundingClientRect();
+  const isAbove = rowRect.top < containerRect.top;
+  const isBelow = rowRect.bottom > containerRect.bottom;
+
+  if (isAbove || isBelow) {
+    selectedRow.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }
 }
 
@@ -1886,6 +2004,12 @@ function addMarkerAtCursor() {
 function createManualMarkerNearTime(time) {
   const center = Math.floor(time * reviewState.sampleRate);
   const searchRadius = Math.floor(reviewState.sampleRate * 0.04);
+  const selectedMarker = reviewState.selectedMarkerId
+    ? reviewState.markers.find((marker) => marker.id === reviewState.selectedMarkerId)
+    : null;
+  const selectedIndex = selectedMarker
+    ? reviewState.markers.findIndex((marker) => marker.id === selectedMarker.id)
+    : -1;
   const peakIndex = findPeakInRange(
     reviewState.sourceData,
     center - searchRadius,
@@ -1900,12 +2024,8 @@ function createManualMarkerNearTime(time) {
       Math.max(0, peakIndex - searchRadius),
       reviewState.sampleRate,
       "manual",
-      reviewState.selectedMarkerId
-        ? getMarkerCategory(
-            reviewState.markers.findIndex((marker) => marker.id === reviewState.selectedMarkerId),
-            reviewState.markers.find((marker) => marker.id === reviewState.selectedMarkerId),
-          )
-        : null,
+      selectedMarker ? getMarkerCategory(selectedIndex, selectedMarker) : null,
+      selectedMarker ? getMarkerAction(selectedIndex, selectedMarker) : null,
     );
   }
 
@@ -1914,6 +2034,8 @@ function createManualMarkerNearTime(time) {
     start: clamp(time - 0.012, 0, reviewState.duration),
     end: clamp(time + 0.04, 0.012, reviewState.duration),
     peak: time,
+    category: selectedMarker ? getMarkerCategory(selectedIndex, selectedMarker) : null,
+    action: selectedMarker ? getMarkerAction(selectedIndex, selectedMarker) : null,
     source: "manual",
   };
 }
@@ -2189,7 +2311,45 @@ function scrollWaveformToTime(time, behavior = "auto", focusRatio = 0.35) {
     Math.max(0, reviewState.duration - visibleDuration),
   );
 
-  reviewState.wavesurfer.setScrollTime(targetStartTime);
+  if (behavior !== "smooth") {
+    if (reviewState.waveScrollRaf !== null) {
+      cancelAnimationFrame(reviewState.waveScrollRaf);
+      reviewState.waveScrollRaf = null;
+    }
+    reviewState.wavesurfer.setScrollTime(targetStartTime);
+    return;
+  }
+
+  const currentScrollPx = reviewState.wavesurfer.getScroll ? reviewState.wavesurfer.getScroll() : 0;
+  const startTime = reviewState.zoomPxPerSec > 0 ? currentScrollPx / reviewState.zoomPxPerSec : targetStartTime;
+  const durationMs = 220;
+  const startAt = performance.now();
+
+  if (reviewState.waveScrollRaf !== null) {
+    cancelAnimationFrame(reviewState.waveScrollRaf);
+    reviewState.waveScrollRaf = null;
+  }
+
+  const step = (now) => {
+    if (!reviewState.wavesurfer) {
+      reviewState.waveScrollRaf = null;
+      return;
+    }
+
+    const progress = clamp((now - startAt) / durationMs, 0, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const nextStartTime = startTime + (targetStartTime - startTime) * eased;
+    reviewState.wavesurfer.setScrollTime(nextStartTime);
+
+    if (progress < 1) {
+      reviewState.waveScrollRaf = requestAnimationFrame(step);
+      return;
+    }
+
+    reviewState.waveScrollRaf = null;
+  };
+
+  reviewState.waveScrollRaf = requestAnimationFrame(step);
 }
 
 function playMarkerPreview(marker) {
@@ -2316,10 +2476,6 @@ function slugifyClickSoundsPart(value, fallback) {
 }
 
 function getClickSoundsSourceFolder(assignment) {
-  if (assignment.extra) {
-    return getClickType(assignment.category).folder;
-  }
-
   const typeInfo = getClickType(assignment.category);
   return assignment.action === "up" ? typeInfo.relFolder : typeInfo.folder;
 }
@@ -2414,7 +2570,7 @@ async function buildZcbZip() {
   const markers = getSortedMarkers();
 
   markers.forEach((marker, index) => {
-    const assignment = getMarkerAssignment(index, marker);
+    const assignment = getMarkerAssignment(index, marker, markers);
     const clip = extractProcessedClip(marker);
     if (clip.length > 0) {
       zip.file(assignment.path, encodeWAV(clip, reviewState.sampleRate));
@@ -2450,7 +2606,7 @@ async function buildClickSoundsZip() {
   };
 
   markers.forEach((marker, index) => {
-    const assignment = getMarkerAssignment(index, marker);
+    const assignment = getMarkerAssignment(index, marker, markers);
     const sourceFolder = getClickSoundsSourceFolder(assignment);
     const targetFolder = getClickSoundsTargetFolder(sourceFolder);
     if (!targetFolder) return;
