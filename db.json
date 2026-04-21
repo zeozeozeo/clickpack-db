@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-18T13:15:52.465852+00:00",
-    "updated_at_unix": 1776518152,
+    "updated_at_iso": "2026-04-21T17:13:32.251348+00:00",
+    "updated_at_unix": 1776791612,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3980,6 +3980,15 @@
             "checksum": "dd333504c856b37a1c1dc87fe920a4de",
             "added_at": "2024-04-30T17:16:00+00:00"
         },
+        "my aula woohoo": {
+            "size": 250117,
+            "uncompressed_size": 245751,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/my%20aula%20woohoo.zip",
+            "added_at": "2026-04-21T17:13:32.250130+00:00",
+            "readme": "my first clickpoack\n",
+            "checksum": "1d81cb72c769115db82db5bd0c823369"
+        },
         "My click": {
             "size": 39046,
             "uncompressed_size": 38212,
@@ -6574,6 +6583,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 333,
+    "version": 334,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
