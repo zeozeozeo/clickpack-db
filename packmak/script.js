@@ -2547,7 +2547,7 @@ function createClickSoundsPackJson(clickSoundsConfig) {
     $schema: "https://clicksounds.github.io/clicks/pack.schema.json",
     id: clickSoundsConfig.id,
     version: 1,
-    packgen: true,
+    packmak: true,
     type: clickSoundsConfig.type,
     name: clickSoundsConfig.packName,
     description: clickSoundsConfig.description,
