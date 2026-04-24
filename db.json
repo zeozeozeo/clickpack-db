@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-21T17:13:32.251348+00:00",
-    "updated_at_unix": 1776791612,
+    "updated_at_iso": "2026-04-24T03:36:21.214061+00:00",
+    "updated_at_unix": 1777001781,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3640,6 +3640,14 @@
             "added_at": "2025-07-01T18:49:04.432789+00:00",
             "checksum": "a20a018b6c521e5e9da70113c56296a3"
         },
+        "Mag1c Other Keyboard": {
+            "size": 399944,
+            "uncompressed_size": 395132,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Mag1c%20Other%20Keyboard.zip",
+            "added_at": "2026-04-24T03:36:21.212592+00:00",
+            "checksum": "537bbbb88e0653bc16ff9bf6c3522eef"
+        },
         "Mag1cW's deathadder": {
             "size": 126014,
             "uncompressed_size": 124056,
@@ -6583,6 +6591,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 334,
+    "version": 335,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
