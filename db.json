@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-24T03:36:21.214061+00:00",
-    "updated_at_unix": 1777001781,
+    "updated_at_iso": "2026-04-25T20:56:51.942883+00:00",
+    "updated_at_unix": 1777150612,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6003,6 +6003,15 @@
             "checksum": "edd6c0808c3187f27647a14a95752575",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "uyla ctrl": {
+            "size": 494035,
+            "uncompressed_size": 485833,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/uyla%20ctrl.zip",
+            "added_at": "2026-04-25T20:56:51.941172+00:00",
+            "readme": "\"uyla ctrl\"\n\nanother wooting 80he clickpack as per usual \n\nthe specifications of my wooting\n- PBR ABS Plastic Case\n- Double Shot PBT Keycaps\n- Lekker V2 L60 Linear Switches\n\npros and cons of my clickpack\n\npros\n- performs well in spams in my opinion\n- one of my better sounding / higher quality clickpacks\n\ncons\n- i think it sounds quite similar other clickpacks ive made in the past\n- some of the hardclicks are way too loud / strong\n\nlmk about any other issues regarding the clickpack so i can (maybe) fix it",
+            "checksum": "b6e72f408f01acc9d0ba60ba00ab9bbe"
+        },
         "uyla red": {
             "size": 540863,
             "uncompressed_size": 532003,
@@ -6591,6 +6600,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 335,
+    "version": 336,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
