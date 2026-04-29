@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-25T20:56:51.942883+00:00",
-    "updated_at_unix": 1777150612,
+    "updated_at_iso": "2026-04-29T20:29:11.794614+00:00",
+    "updated_at_unix": 1777494552,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -828,6 +828,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoSpacebar.zip",
             "added_at": "2026-03-10T20:32:49.678832+00:00",
             "checksum": "ed40b3ca2002048e0eaa3b6bfc1d1a2a"
+        },
+        "AysoWindowsKey": {
+            "size": 364280,
+            "uncompressed_size": 357806,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoWindowsKey.zip",
+            "added_at": "2026-04-29T20:29:11.793228+00:00",
+            "checksum": "d08a002199c71e1e17a7d97585ef4ea2"
         },
         "AysoYellowdeskmat": {
             "size": 175916,
@@ -6600,6 +6608,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 336,
+    "version": 337,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
