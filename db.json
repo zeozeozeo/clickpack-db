@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-04-29T21:18:10.729577+00:00",
-    "updated_at_unix": 1777497491,
+    "updated_at_iso": "2026-05-02T20:44:41.813681+00:00",
+    "updated_at_unix": 1777754682,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2410,6 +2410,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/FOREN%20Wired%20Mouse.zip",
             "checksum": "2ceaa62b0cd08459c79cac8c8bd23417",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "foxysclicks": {
+            "size": 304518,
+            "uncompressed_size": 299140,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/foxysclicks.zip",
+            "added_at": "2026-05-02T20:44:41.812394+00:00",
+            "checksum": "8d58223690ed34abb5326a3a4212e63a"
         },
         "fwg502": {
             "size": 2081284,
@@ -6616,6 +6624,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 338,
+    "version": 339,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
