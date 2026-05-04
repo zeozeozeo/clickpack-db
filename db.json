@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-02T20:44:41.813681+00:00",
-    "updated_at_unix": 1777754682,
+    "updated_at_iso": "2026-05-04T16:54:46.475193+00:00",
+    "updated_at_unix": 1777913686,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1311,6 +1311,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/brokenG502.zip",
             "checksum": "259556ae9dc3ff298534a146cad74727",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "Brown switches": {
+            "size": 372476,
+            "uncompressed_size": 366002,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Brown%20switches.zip",
+            "added_at": "2026-05-04T16:54:46.473721+00:00",
+            "checksum": "03cfb252f62b5dfe955030c44e7e3f12"
         },
         "Brown Switches V2": {
             "size": 55630,
@@ -6624,6 +6632,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 339,
+    "version": 340,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
