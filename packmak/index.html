@@ -337,6 +337,13 @@
                                 <span id="summary-extra" class="summary-chip summary-chip-muted">0 extra</span>
                             </div>
                             <div class="flex flex-wrap items-center gap-2">
+                                <label
+                                    class="inline-flex h-[2.75rem] items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 text-sm text-gray-300 transition-colors hover:bg-white/10 cursor-pointer">
+                                    <input type="checkbox" id="reorder-markers" class="peer sr-only">
+                                    <span
+                                        class="relative h-5 w-9 rounded-full bg-white/10 transition-colors peer-checked:bg-brand-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:h-4 after:w-4 after:rounded-full after:bg-gray-300 after:transition-all peer-checked:after:translate-x-4"></span>
+                                    <span class="font-medium text-white/90">Reorder</span>
+                                </label>
                                 <button id="play-pause-btn" class="review-btn">Play Audio</button>
                                 <button id="add-marker-btn" class="review-btn">Add Marker At Cursor</button>
                                 <button id="delete-marker-btn" class="review-btn review-btn-danger">Remove Selected</button>

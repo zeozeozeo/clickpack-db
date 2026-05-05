@@ -53,6 +53,7 @@ const reviewState = {
   waveUiCleanup: null,
   waveScrollRaf: null,
   suppressWaveClick: false,
+  reorderMarkers: false,
   importDefaultsApplied: false,
   clickSoundsPackNameDirty: false,
   clickSoundsDescriptionDirty: false,
@@ -88,6 +89,7 @@ const els = {
   playPauseBtn: document.getElementById("play-pause-btn"),
   addMarkerBtn: document.getElementById("add-marker-btn"),
   deleteMarkerBtn: document.getElementById("delete-marker-btn"),
+  reorderMarkers: document.getElementById("reorder-markers"),
   waveformViewport: document.getElementById("waveform-viewport"),
   waveform: document.getElementById("waveform"),
   selectionStatus: document.getElementById("selection-status"),
@@ -207,6 +209,10 @@ els.playPauseBtn.addEventListener("click", toggleWaveformPlayback);
 els.addMarkerBtn.addEventListener("click", addMarkerAtCursor);
 els.deleteMarkerBtn.addEventListener("click", deleteSelectedMarker);
 els.importFile.addEventListener("change", handleImportFileChange);
+els.reorderMarkers?.addEventListener("change", () => {
+  reviewState.reorderMarkers = Boolean(els.reorderMarkers.checked);
+});
+reviewState.reorderMarkers = Boolean(els.reorderMarkers?.checked);
 els.recordNoise.addEventListener("change", syncSourceModeUI);
 document.getElementById("pack-name")?.addEventListener("input", syncClickSoundsPackNameFromMain);
 els.clickSoundsPackName?.addEventListener("input", () => {
@@ -1693,7 +1699,28 @@ function syncMarkerFromRegion(region) {
   marker.start = clamp(region.start, 0, reviewState.duration);
   marker.end = clamp(region.end, marker.start + 0.012, reviewState.duration);
   reviewState.markers = finalizeMarkers(reviewState.markers);
+  if (reviewState.reorderMarkers) {
+    applyMarkerReorder(region.id);
+  }
   selectMarker(region.id, false);
+}
+
+function applyMarkerReorder(anchorMarkerId) {
+  const markers = getSortedMarkers();
+  const anchorIndex = markers.findIndex((marker) => marker.id === anchorMarkerId);
+  if (anchorIndex < 0) return;
+
+  let action = getMarkerAction(anchorIndex, markers[anchorIndex]);
+  if (action !== "down" && action !== "up") {
+    action = anchorIndex % 2 === 0 ? "down" : "up";
+  }
+
+  for (let i = anchorIndex + 1; i < markers.length; i++) {
+    action = action === "down" ? "up" : "down";
+    markers[i].action = action;
+  }
+
+  reviewState.markers = markers;
 }
 
 function getSortedMarkers() {
@@ -1879,6 +1906,9 @@ function renderReviewList() {
       actionSelect.addEventListener("change", (event) => {
         event.stopPropagation();
         marker.action = actionSelect.value;
+        if (reviewState.reorderMarkers) {
+          applyMarkerReorder(marker.id);
+        }
         renderReviewList();
         syncWaveformRegions();
       });
@@ -1980,9 +2010,17 @@ function scrollSelectedReviewRowIntoView() {
 }
 
 function removeMarker(markerId) {
+  const removedIndex = getSortedMarkers().findIndex((marker) => marker.id === markerId);
   reviewState.markers = reviewState.markers.filter((marker) => marker.id !== markerId);
   if (reviewState.selectedMarkerId === markerId) {
     reviewState.selectedMarkerId = null;
+  }
+  reviewState.markers = finalizeMarkers(reviewState.markers);
+  if (reviewState.reorderMarkers && reviewState.markers.length) {
+    const anchorMarker = reviewState.markers[Math.max(0, removedIndex - 1)];
+    if (anchorMarker) {
+      applyMarkerReorder(anchorMarker.id);
+    }
   }
   renderReviewList();
   syncWaveformRegions();
@@ -1998,6 +2036,9 @@ function addMarkerAtCursor() {
   const marker = createManualMarkerNearTime(currentTime);
   reviewState.markers.push(marker);
   reviewState.markers = finalizeMarkers(reviewState.markers);
+  if (reviewState.reorderMarkers) {
+    applyMarkerReorder(marker.id);
+  }
   selectMarker(marker.id, true);
 }
 
