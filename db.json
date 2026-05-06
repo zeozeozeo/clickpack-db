@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-06T18:22:01.832947+00:00",
-    "updated_at_unix": 1778091722,
+    "updated_at_iso": "2026-05-06T18:22:18.954230+00:00",
+    "updated_at_unix": 1778091739,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6423,6 +6423,14 @@
             "added_at": "2026-05-06T18:22:01.831742+00:00",
             "checksum": "d8b8027e8c1cf3900edd28cb94014b7e"
         },
+        "Xunfox blue switches W key": {
+            "size": 249380,
+            "uncompressed_size": 245080,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Xunfox%20blue%20switches%20W%20key.zip",
+            "added_at": "2026-05-06T18:22:18.953084+00:00",
+            "checksum": "3833d798113555a76a0c5d282dfa853f"
+        },
         "XunfoxBlueSwitch": {
             "size": 37145,
             "uncompressed_size": 36503,
@@ -6648,6 +6656,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 342,
+    "version": 343,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
