@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-04T16:54:46.475193+00:00",
-    "updated_at_unix": 1777913686,
+    "updated_at_iso": "2026-05-06T18:21:49.472629+00:00",
+    "updated_at_unix": 1778091709,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3906,6 +3906,14 @@
             "checksum": "baf70d5637f074ca5a5db06f970c2c09",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "mobile oppo clicks": {
+            "size": 22498,
+            "uncompressed_size": 22072,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/mobile%20oppo%20clicks.zip",
+            "added_at": "2026-05-06T18:21:49.471986+00:00",
+            "checksum": "ec273fbd97f687f77ace6eb86d7c3bad"
+        },
         "Mobile_Taps": {
             "size": 404367,
             "uncompressed_size": 400979,
@@ -6632,6 +6640,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 340,
+    "version": 341,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
