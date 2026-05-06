@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-06T18:21:49.472629+00:00",
-    "updated_at_unix": 1778091709,
+    "updated_at_iso": "2026-05-06T18:22:01.832947+00:00",
+    "updated_at_unix": 1778091722,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6415,6 +6415,14 @@
             "checksum": "b1573419ef94f5f8d46eabd2541e337d",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Xunfox blue switches alt key": {
+            "size": 292154,
+            "uncompressed_size": 287078,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Xunfox%20blue%20switches%20alt%20key.zip",
+            "added_at": "2026-05-06T18:22:01.831742+00:00",
+            "checksum": "d8b8027e8c1cf3900edd28cb94014b7e"
+        },
         "XunfoxBlueSwitch": {
             "size": 37145,
             "uncompressed_size": 36503,
@@ -6640,6 +6648,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 341,
+    "version": 342,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
