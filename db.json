@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-07T17:33:55.124811+00:00",
-    "updated_at_unix": 1778175235,
+    "updated_at_iso": "2026-05-07T17:34:06.766383+00:00",
+    "updated_at_unix": 1778175247,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6068,6 +6068,14 @@
             "added_at": "2026-03-09T06:17:16.366770+00:00",
             "checksum": "1adc3ddd0c01d12fd37ee437c42615cf"
         },
+        "uyla slash": {
+            "size": 346223,
+            "uncompressed_size": 340669,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/uyla%20slash.zip",
+            "added_at": "2026-05-07T17:34:06.764938+00:00",
+            "checksum": "142ef1584b488fe4b3e1bd7429d113a4"
+        },
         "uyla spammy": {
             "size": 490259,
             "uncompressed_size": 482163,
@@ -6664,6 +6672,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 344,
+    "version": 345,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
