@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-06T18:22:18.954230+00:00",
-    "updated_at_unix": 1778091739,
+    "updated_at_iso": "2026-05-07T17:33:55.124811+00:00",
+    "updated_at_unix": 1778175235,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5361,6 +5361,14 @@
             "added_at": "2026-01-04T08:17:57.535404+00:00",
             "checksum": "7202de9ee35fc135400df84b166f995e"
         },
+        "shift key blue switches": {
+            "size": 137129,
+            "uncompressed_size": 134783,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/shift%20key%20blue%20switches.zip",
+            "added_at": "2026-05-07T17:33:55.123953+00:00",
+            "checksum": "e7135ff94d42d854e05ee2a246710dfd"
+        },
         "Shine 60HE CTRL Key": {
             "size": 1016351,
             "uncompressed_size": 1000145,
@@ -6656,6 +6664,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 343,
+    "version": 344,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
