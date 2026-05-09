@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-07T17:34:06.766383+00:00",
-    "updated_at_unix": 1778175247,
+    "updated_at_iso": "2026-05-09T10:39:21.905767+00:00",
+    "updated_at_unix": 1778323162,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -780,6 +780,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoEndKey.zip",
             "added_at": "2026-03-07T21:21:04.570603+00:00",
             "checksum": "f011dd3a9a21aebd509447d921ca44ec"
+        },
+        "AysoF3Key": {
+            "size": 171553,
+            "uncompressed_size": 168531,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoF3Key.zip",
+            "added_at": "2026-05-09T10:39:21.904776+00:00",
+            "checksum": "2e17c9d93edb82722bf07ed99affad32"
         },
         "AysoG102": {
             "size": 352280,
@@ -6672,6 +6680,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 345,
+    "version": 346,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
