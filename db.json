@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-10T21:12:54.851961+00:00",
-    "updated_at_unix": 1778447575,
+    "updated_at_iso": "2026-05-10T21:13:04.466617+00:00",
+    "updated_at_unix": 1778447584,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5746,6 +5746,14 @@
             "checksum": "f69a313060361c493e241f866ee29adc",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "steelseries up arrow": {
+            "size": 99221,
+            "uncompressed_size": 97567,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/steelseries%20up%20arrow.zip",
+            "added_at": "2026-05-10T21:13:04.465810+00:00",
+            "checksum": "e6e18e4bae8fa4be81515f1fa1ce0006"
+        },
         "stinger aula F75 v3": {
             "size": 224299,
             "uncompressed_size": 220155,
@@ -6712,6 +6720,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 350,
+    "version": 351,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
