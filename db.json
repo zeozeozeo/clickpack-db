@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-09T10:39:21.905767+00:00",
-    "updated_at_unix": 1778323162,
+    "updated_at_iso": "2026-05-10T21:12:28.898236+00:00",
+    "updated_at_unix": 1778447549,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -836,6 +836,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoSayoNoDeskmat.zip",
             "added_at": "2026-03-18T19:52:42.391093+00:00",
             "checksum": "593ef498087ece09771fbf7b6cd03e5f"
+        },
+        "AysoSexy": {
+            "size": 180270,
+            "uncompressed_size": 177028,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoSexy.zip",
+            "added_at": "2026-05-10T21:12:28.897258+00:00",
+            "checksum": "38d78a936f9c883354a848fe05c111ef"
         },
         "AysoSpacebar": {
             "size": 352300,
@@ -6680,6 +6688,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 346,
+    "version": 347,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
