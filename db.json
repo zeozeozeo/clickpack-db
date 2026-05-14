@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-10T21:13:04.466617+00:00",
-    "updated_at_unix": 1778447584,
+    "updated_at_iso": "2026-05-14T14:18:51.563433+00:00",
+    "updated_at_unix": 1778768332,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3093,6 +3093,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/jade%20pro%20up%20arrow.zip",
             "added_at": "2026-04-02T11:36:52.240292+00:00",
             "checksum": "cb47787af08bf1ea39737d03799c0edb"
+        },
+        "jajajajaja": {
+            "size": 369908,
+            "uncompressed_size": 363434,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/jajajajaja.zip",
+            "added_at": "2026-05-14T14:18:51.561998+00:00",
+            "checksum": "5ccd712432df3c2237a848d34f44ae93"
         },
         "Javid's arrow key": {
             "size": 338242,
@@ -6720,6 +6728,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 351,
+    "version": 352,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
