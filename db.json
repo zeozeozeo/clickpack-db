@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-14T14:18:51.563433+00:00",
-    "updated_at_unix": 1778768332,
+    "updated_at_iso": "2026-05-16T15:52:48.077113+00:00",
+    "updated_at_unix": 1778946768,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -177,6 +177,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AJ%20Up%20Arrow.zip",
             "checksum": "8d3b3b48f13fead6811e3325bdde8391",
             "added_at": "2025-05-09T14:21:32+00:00"
+        },
+        "AJAZZ AK680 MAX MY FRIEND CLICKS": {
+            "size": 359455,
+            "uncompressed_size": 352981,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AJAZZ%20AK680%20MAX%20MY%20FRIEND%20CLICKS.zip",
+            "added_at": "2026-05-16T15:52:48.075670+00:00",
+            "checksum": "36c0694e1ae7da14eb87636dd43c79c1"
         },
         "AK820 PRO LAST VERSION": {
             "size": 828963,
@@ -6728,6 +6736,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 352,
+    "version": 353,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
