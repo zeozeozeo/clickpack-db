@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-17T09:38:22.043584+00:00",
-    "updated_at_unix": 1779010702,
+    "updated_at_iso": "2026-05-17T09:38:31.457230+00:00",
+    "updated_at_unix": 1779010711,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -177,6 +177,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AJ%20Up%20Arrow.zip",
             "checksum": "8d3b3b48f13fead6811e3325bdde8391",
             "added_at": "2025-05-09T14:21:32+00:00"
+        },
+        "ajazz ak680 max ctrl key": {
+            "size": 364940,
+            "uncompressed_size": 358466,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/ajazz%20ak680%20max%20ctrl%20key.zip",
+            "added_at": "2026-05-17T09:38:31.455756+00:00",
+            "checksum": "8fdae375cbdb1199e492bcd595283939"
         },
         "AJAZZ AK680 MAX MY FRIEND CLICKS": {
             "size": 359455,
@@ -6744,6 +6752,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 354,
+    "version": 355,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
