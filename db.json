@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-19T19:24:24.825656+00:00",
-    "updated_at_unix": 1779218665,
+    "updated_at_iso": "2026-05-20T03:39:37.504963+00:00",
+    "updated_at_unix": 1779248378,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5858,6 +5858,14 @@
             "checksum": "3b6ad9faa96a8f595d3a7b6a0956031d",
             "added_at": "2024-11-30T19:48:12+00:00"
         },
+        "Tahma Wooting 80HE": {
+            "size": 639688,
+            "uncompressed_size": 633206,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Tahma%20Wooting%2080HE.zip",
+            "added_at": "2026-05-20T03:39:37.502932+00:00",
+            "checksum": "825696f2f84ce1db102119517411a821"
+        },
         "tap clicks": {
             "size": 390059,
             "uncompressed_size": 384493,
@@ -6768,6 +6776,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 357,
+    "version": 358,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
