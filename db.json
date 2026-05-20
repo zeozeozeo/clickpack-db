@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-20T03:39:37.504963+00:00",
-    "updated_at_unix": 1779248378,
+    "updated_at_iso": "2026-05-20T15:14:48.031177+00:00",
+    "updated_at_unix": 1779290088,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5866,6 +5866,14 @@
             "added_at": "2026-05-20T03:39:37.502932+00:00",
             "checksum": "825696f2f84ce1db102119517411a821"
         },
+        "Tahmas Wooting 80HE fixed softclicks-zip": {
+            "size": 638837,
+            "uncompressed_size": 632355,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Tahmas%20Wooting%2080HE%20fixed%20softclicks-zip.zip",
+            "added_at": "2026-05-20T15:14:48.029140+00:00",
+            "checksum": "cc7857eef5b332aa7a31eb0cfc2cef66"
+        },
         "tap clicks": {
             "size": 390059,
             "uncompressed_size": 384493,
@@ -6776,6 +6784,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 358,
+    "version": 359,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
