@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-20T15:14:48.031177+00:00",
-    "updated_at_unix": 1779290088,
+    "updated_at_iso": "2026-05-24T14:16:00.990978+00:00",
+    "updated_at_unix": 1779632161,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5770,6 +5770,14 @@
             "checksum": "77c54b20f7ea52ff4b9e6418a215f63e",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "SSLs Best clicks": {
+            "size": 102514,
+            "uncompressed_size": 100672,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/SSLs%20Best%20clicks.zip",
+            "added_at": "2026-05-24T14:16:00.990162+00:00",
+            "checksum": "5c851415d3c4b0b3e2dd280ed2984693"
+        },
         "st1ngers spammy mouse": {
             "size": 411214,
             "uncompressed_size": 404760,
@@ -6784,6 +6792,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 359,
+    "version": 360,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
