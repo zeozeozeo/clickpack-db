@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-24T14:16:00.990978+00:00",
-    "updated_at_unix": 1779632161,
+    "updated_at_iso": "2026-05-25T14:58:11.648213+00:00",
+    "updated_at_unix": 1779721092,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3085,6 +3085,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Imilla_Clicks.zip",
             "checksum": "a5dec6809da02ecfd02af4e90b895476",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "INS clicks": {
+            "size": 83894,
+            "uncompressed_size": 82368,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/INS%20clicks.zip",
+            "added_at": "2026-05-25T14:58:11.647472+00:00",
+            "checksum": "2a32532418c10b6dfb33b4b9691e0bf8"
         },
         "Iphone": {
             "size": 17138,
@@ -6792,6 +6800,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 360,
+    "version": 361,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
