@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-26T07:00:23.744706+00:00",
-    "updated_at_unix": 1779778824,
+    "updated_at_iso": "2026-05-27T07:30:53.061173+00:00",
+    "updated_at_unix": 1779867053,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5080,6 +5080,14 @@
             "checksum": "2687985384772cb4171dbc5ae03db718",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Reddarkvrs Windows Key": {
+            "size": 124334,
+            "uncompressed_size": 122166,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Reddarkvrs%20Windows%20Key.zip",
+            "added_at": "2026-05-27T07:30:53.060249+00:00",
+            "checksum": "c79f8bbee158b0c37e0ab5051d65b027"
+        },
         "redgragon spaceBar": {
             "size": 541624,
             "uncompressed_size": 539452,
@@ -6808,6 +6816,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 362,
+    "version": 363,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
