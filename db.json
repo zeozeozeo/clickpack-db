@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-27T07:30:53.061173+00:00",
-    "updated_at_unix": 1779867053,
+    "updated_at_iso": "2026-05-30T20:02:27.461510+00:00",
+    "updated_at_unix": 1780171347,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5898,6 +5898,14 @@
             "added_at": "2026-05-20T03:39:37.502932+00:00",
             "checksum": "825696f2f84ce1db102119517411a821"
         },
+        "Tahmas Pro X superlight 2": {
+            "size": 368074,
+            "uncompressed_size": 361600,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Tahmas%20Pro%20X%20superlight%202.zip",
+            "added_at": "2026-05-30T20:02:27.460051+00:00",
+            "checksum": "6b3b3d443448b1794fd93dacaeead7fb"
+        },
         "Tahmas Wooting 80HE fixed softclicks-zip": {
             "size": 638837,
             "uncompressed_size": 632355,
@@ -6816,6 +6824,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 363,
+    "version": 364,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
