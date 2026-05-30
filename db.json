@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-30T20:02:55.779129+00:00",
-    "updated_at_unix": 1780171376,
+    "updated_at_iso": "2026-05-30T20:03:12.150505+00:00",
+    "updated_at_unix": 1780171392,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5088,6 +5088,14 @@
             "added_at": "2026-05-30T20:02:44.536622+00:00",
             "checksum": "5138ab54c6d96f852849f7b82dae4d06"
         },
+        "Reddarkvrs Sayo o3c Right Key": {
+            "size": 181988,
+            "uncompressed_size": 178466,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Reddarkvrs%20Sayo%20o3c%20Right%20Key.zip",
+            "added_at": "2026-05-30T20:03:12.149473+00:00",
+            "checksum": "ab234ae6c2e37b6289be092b23d83f96"
+        },
         "Reddarkvrs Sayodevice o3c Left Key": {
             "size": 121804,
             "uncompressed_size": 119530,
@@ -6840,6 +6848,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 366,
+    "version": 367,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
