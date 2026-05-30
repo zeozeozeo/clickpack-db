@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-30T20:02:27.461510+00:00",
-    "updated_at_unix": 1780171347,
+    "updated_at_iso": "2026-05-30T20:02:44.537364+00:00",
+    "updated_at_unix": 1780171365,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5080,6 +5080,14 @@
             "checksum": "2687985384772cb4171dbc5ae03db718",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Reddarkvrs Dell Mouse": {
+            "size": 67890,
+            "uncompressed_size": 66644,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Reddarkvrs%20Dell%20Mouse.zip",
+            "added_at": "2026-05-30T20:02:44.536622+00:00",
+            "checksum": "5138ab54c6d96f852849f7b82dae4d06"
+        },
         "Reddarkvrs Windows Key": {
             "size": 124334,
             "uncompressed_size": 122166,
@@ -6824,6 +6832,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 364,
+    "version": 365,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
