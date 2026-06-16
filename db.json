@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-30T20:03:12.150505+00:00",
-    "updated_at_unix": 1780171392,
+    "updated_at_iso": "2026-06-16T09:06:20.005911+00:00",
+    "updated_at_unix": 1781600780,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2239,7 +2239,7 @@
             "size": 410986,
             "uncompressed_size": 404446,
             "has_noise": true,
-            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/exbiomia%2Bcarma%20clicks.zip",
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/exbiomia+carma%20clicks.zip",
             "checksum": "0e171098f241a4d120334c966ca34a12",
             "added_at": "2024-11-30T19:48:12+00:00"
         },
@@ -4435,7 +4435,7 @@
             "size": 905319,
             "uncompressed_size": 885709,
             "has_noise": false,
-            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/nicnicboss%20sayo%2Buparrow.zip",
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/nicnicboss%20sayo+uparrow.zip",
             "checksum": "f58548165868a1af1d30336047778b43",
             "added_at": "2025-05-27T16:32:10+00:00"
         },
@@ -6115,6 +6115,14 @@
             "checksum": "bad8c15208fa41905a5c543b1d81363e",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Unami P Key": {
+            "size": 737002,
+            "uncompressed_size": 723968,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20P%20Key.zip",
+            "added_at": "2026-06-16T09:06:20.005243+00:00",
+            "checksum": "ca900caf31c0c834e6531e5246bcc52a"
+        },
         "unami sayo": {
             "size": 1028400,
             "uncompressed_size": 1023184,
@@ -6848,6 +6856,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 367,
+    "version": 368,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
