@@ -713,6 +713,10 @@ func gitCommitClickpack(job approvalJob) error {
 	// commit changes
 	cmd = gitCmd("commit", "-m", commitMsg)
 	if err := runGitLogged(cmd); err != nil {
+		if gitHasUnpushedCommits() {
+			slog.Info("nothing new to commit, existing unpushed clickpack commit will be pushed", "name", job.Name)
+			return nil
+		}
 		return fmt.Errorf("failed to git commit: %w", err)
 	}
 
@@ -753,6 +757,21 @@ func gitPullMerge() error {
 		return fmt.Errorf("failed to git pull --no-rebase --no-edit: %w", err)
 	}
 	return nil
+}
+
+func gitHasUnpushedCommits() bool {
+	cmd := gitCmd("rev-list", "--count", "@{upstream}..HEAD")
+	output, err := cmd.Output()
+	if err != nil {
+		slog.Warn("failed to check for unpushed commits", "err", err)
+		return false
+	}
+	count, err := strconv.Atoi(strings.TrimSpace(string(output)))
+	if err != nil {
+		slog.Warn("failed to parse unpushed commit count", "output", strings.TrimSpace(string(output)), "err", err)
+		return false
+	}
+	return count > 0
 }
 
 func runGitLogged(cmd *exec.Cmd) error {
