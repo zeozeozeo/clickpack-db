@@ -625,14 +625,14 @@ func gitConfigureAuth() (func(), error) {
 
 	if gitUserName != "" {
 		cmd := gitCmd("config", "user.name", gitUserName)
-		if err := cmd.Run(); err != nil {
+		if err := runGitLogged(cmd); err != nil {
 			slog.Warn("failed to set git user.name", "err", err)
 		}
 	}
 
 	if gitUserEmail != "" {
 		cmd := gitCmd("config", "user.email", gitUserEmail)
-		if err := cmd.Run(); err != nil {
+		if err := runGitLogged(cmd); err != nil {
 			slog.Warn("failed to set git user.email", "err", err)
 		}
 	}
@@ -653,17 +653,17 @@ func gitConfigureAuth() (func(), error) {
 			if strings.HasPrefix(remoteURL, "https://github.com/") {
 				// extract the repo path (owner/repo.git)
 				repoPath := strings.TrimPrefix(remoteURL, "https://github.com/")
-				authenticatedURL := fmt.Sprintf("https://%s@github.com/%s", githubToken, repoPath)
+				authenticatedURL := fmt.Sprintf("https://x-access-token:%s@github.com/%s", githubToken, repoPath)
 
 				// temporarily set the remote URL with token
 				cmd = gitCmd("remote", "set-url", "origin", authenticatedURL)
-				if err := cmd.Run(); err != nil {
+				if err := runGitLogged(cmd); err != nil {
 					slog.Warn("failed to set authenticated remote URL", "err", err)
 				} else {
 					slog.Debug("configured git remote with token authentication")
 					restoreRemote = func() {
 						cmd := gitCmd("remote", "set-url", "origin", remoteURL)
-						if err := cmd.Run(); err != nil {
+						if err := runGitLogged(cmd); err != nil {
 							slog.Warn("failed to restore original remote URL", "err", err)
 						}
 					}
@@ -678,7 +678,7 @@ func gitConfigureAuth() (func(), error) {
 func gitCommitClickpack(job approvalJob) error {
 	// add all changes
 	cmd := gitCmd("add", ".")
-	if err := cmd.Run(); err != nil {
+	if err := runGitLogged(cmd); err != nil {
 		return fmt.Errorf("failed to git add: %w", err)
 	}
 
@@ -687,7 +687,7 @@ func gitCommitClickpack(job approvalJob) error {
 
 	// commit changes
 	cmd = gitCmd("commit", "-m", commitMsg)
-	if err := cmd.Run(); err != nil {
+	if err := runGitLogged(cmd); err != nil {
 		return fmt.Errorf("failed to git commit: %w", err)
 	}
 
@@ -698,13 +698,13 @@ func gitCommitClickpack(job approvalJob) error {
 func gitPushWithMergeRetry() error {
 	// push to remote
 	cmd := gitCmd("push")
-	if err := cmd.Run(); err != nil {
+	if err := runGitLogged(cmd); err != nil {
 		slog.Warn("git push failed, trying to merge remote changes before retrying", "err", err)
 		if pullErr := gitPullMerge(); pullErr != nil {
 			return fmt.Errorf("failed to git push: %w; merge retry failed: %w", err, pullErr)
 		}
 		cmd = gitCmd("push")
-		if retryErr := cmd.Run(); retryErr != nil {
+		if retryErr := runGitLogged(cmd); retryErr != nil {
 			return fmt.Errorf("failed to git push after merge retry: %w", retryErr)
 		}
 	}
@@ -724,10 +724,33 @@ func clickpackCommitMessage(job approvalJob) string {
 
 func gitPullMerge() error {
 	cmd := gitCmd("pull", "--no-rebase", "--no-edit")
-	if err := cmd.Run(); err != nil {
+	if err := runGitLogged(cmd); err != nil {
 		return fmt.Errorf("failed to git pull --no-rebase --no-edit: %w", err)
 	}
 	return nil
+}
+
+func runGitLogged(cmd *exec.Cmd) error {
+	output, err := cmd.CombinedOutput()
+	outputText := strings.TrimSpace(redactSecrets(string(output)))
+	argsText := redactSecrets(strings.Join(cmd.Args, " "))
+	if outputText != "" {
+		if err != nil {
+			slog.Error("git command failed", "cmd", argsText, "dir", cmd.Dir, "output", outputText, "err", err)
+		} else {
+			slog.Debug("git command output", "cmd", argsText, "dir", cmd.Dir, "output", outputText)
+		}
+	} else if err != nil {
+		slog.Error("git command failed", "cmd", argsText, "dir", cmd.Dir, "err", err)
+	}
+	return err
+}
+
+func redactSecrets(s string) string {
+	if token := os.Getenv("GITHUB_TOKEN"); token != "" {
+		s = strings.ReplaceAll(s, token, "<redacted>")
+	}
+	return s
 }
 
 func gitCmd(args ...string) *exec.Cmd {
