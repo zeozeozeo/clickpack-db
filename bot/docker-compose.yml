@@ -19,13 +19,8 @@ services:
       - .env
     working_dir: /workspace/bot
     command: ["bot"]
-    # configure git credentials if GitHub token is provided
     entrypoint: >
       sh -c "
-        if [ ! -z \"$$GITHUB_TOKEN\" ]; then
-          git config --global credential.helper store &&
-          echo \"https://$$GITHUB_TOKEN:x-oauth-basic@github.com\" > ~/.git-credentials
-        fi &&
         git config --global user.name \"$$GIT_USER_NAME\" &&
         git config --global user.email \"$$GIT_USER_EMAIL\" &&
         exec bot

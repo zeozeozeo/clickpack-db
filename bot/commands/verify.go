@@ -622,6 +622,7 @@ func gitConfigureAuth() (func(), error) {
 	gitUserName := os.Getenv("GIT_USER_NAME")
 	gitUserEmail := os.Getenv("GIT_USER_EMAIL")
 	githubToken := os.Getenv("GITHUB_TOKEN")
+	restoreCredentialHelper := func() {}
 
 	if gitUserName != "" {
 		cmd := gitCmd("config", "user.name", gitUserName)
@@ -641,8 +642,29 @@ func gitConfigureAuth() (func(), error) {
 
 	// configure git to use token for authentication if available
 	if githubToken != "" {
+		cmd := gitCmd("config", "--local", "--get-all", "credential.helper")
+		output, _ := cmd.Output()
+		credentialHelpers := splitGitConfigLines(string(output))
+		cmd = gitCmd("config", "--local", "--replace-all", "credential.helper", "")
+		if err := runGitLogged(cmd); err != nil {
+			slog.Warn("failed to override local git credential.helper", "err", err)
+		} else {
+			restoreCredentialHelper = func() {
+				unsetCmd := gitCmd("config", "--local", "--unset-all", "credential.helper")
+				if err := runGitLogged(unsetCmd); err != nil {
+					slog.Warn("failed to unset temporary git credential.helper", "err", err)
+				}
+				for _, helper := range credentialHelpers {
+					cmd := gitCmd("config", "--local", "--add", "credential.helper", helper)
+					if err := runGitLogged(cmd); err != nil {
+						slog.Warn("failed to restore local git credential.helper", "err", err)
+					}
+				}
+			}
+		}
+
 		// get current remote URL
-		cmd := gitCmd("remote", "get-url", "origin")
+		cmd = gitCmd("remote", "get-url", "origin")
 		output, err := cmd.Output()
 		if err != nil {
 			slog.Warn("failed to get remote URL", "err", err)
@@ -672,7 +694,10 @@ func gitConfigureAuth() (func(), error) {
 		}
 	}
 
-	return restoreRemote, nil
+	return func() {
+		restoreRemote()
+		restoreCredentialHelper()
+	}, nil
 }
 
 func gitCommitClickpack(job approvalJob) error {
@@ -751,6 +776,17 @@ func redactSecrets(s string) string {
 		s = strings.ReplaceAll(s, token, "<redacted>")
 	}
 	return s
+}
+
+func splitGitConfigLines(s string) []string {
+	var lines []string
+	for _, line := range strings.Split(strings.ReplaceAll(s, "\r\n", "\n"), "\n") {
+		line = strings.TrimSpace(line)
+		if line != "" {
+			lines = append(lines, line)
+		}
+	}
+	return lines
 }
 
 func gitCmd(args ...string) *exec.Cmd {
