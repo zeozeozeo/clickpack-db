@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-16T09:07:38.135339+00:00",
-    "updated_at_unix": 1781600858,
+    "updated_at_iso": "2026-06-16T15:19:44.336397+00:00",
+    "updated_at_unix": 1781623184,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3696,6 +3696,14 @@
             "added_at": "2026-01-30T21:46:14.064865+00:00",
             "checksum": "30f810ef4a343d9f781a2c0b278a9f3b"
         },
+        "Lus Clicks Nano 68 Pro": {
+            "size": 877041,
+            "uncompressed_size": 861575,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Lus%20Clicks%20Nano%2068%20Pro.zip",
+            "added_at": "2026-06-16T15:19:44.335753+00:00",
+            "checksum": "e3c914c2fcc53905f16109b0b1f43430"
+        },
         "M4rk g502 Official": {
             "size": 143614,
             "uncompressed_size": 141048,
@@ -6888,6 +6896,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 372,
+    "version": 373,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
