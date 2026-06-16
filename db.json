@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-16T09:06:20.005911+00:00",
-    "updated_at_unix": 1781600780,
+    "updated_at_iso": "2026-06-16T09:06:51.043486+00:00",
+    "updated_at_unix": 1781600811,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6115,6 +6115,14 @@
             "checksum": "bad8c15208fa41905a5c543b1d81363e",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Unami Kapbom Mouse": {
+            "size": 739198,
+            "uncompressed_size": 726164,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Kapbom%20Mouse.zip",
+            "added_at": "2026-06-16T09:06:51.042006+00:00",
+            "checksum": "631c07110de25c70594d66e3f312270b"
+        },
         "Unami P Key": {
             "size": 737002,
             "uncompressed_size": 723968,
@@ -6856,6 +6864,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 368,
+    "version": 369,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
