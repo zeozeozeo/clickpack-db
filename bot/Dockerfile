@@ -1,34 +1,38 @@
-# Use Go Alpine base image
-FROM golang:1.26-alpine AS builder
+# ==========================================
+# Stage 1: Download and compile unrar
+# ==========================================
+FROM alpine:latest AS unrar-builder
+RUN apk add --no-cache build-base
 
-# Install build-base (gcc, g++, make) to compile unrar + git for Go
-RUN apk add --no-cache git build-base
-
-# Set working directory for the Go app
-WORKDIR /app
-
-# Copy go mod files
-COPY go.mod go.sum ./
-
-# Download dependencies
-RUN go mod download
-
-# Copy source code and build the Go binary
-COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -o bot main.go
-
-# Download and compile unrar
 ADD https://www.rarlab.com/rar/unrarsrc-7.1.10.tar.gz /tmp/unrar.tar.gz
 RUN tar -xzf /tmp/unrar.tar.gz -C /tmp && \
     cd /tmp/unrar && \
     make -f makefile && \
     install -v -m755 unrar /usr/local/bin/unrar
 
-# Runtime stage
+# ==========================================
+# Stage 2: Build the Go Application
+# ==========================================
+FROM golang:1.26-alpine AS go-builder
+RUN apk add --no-cache git
+
+# Set working directory for the Go app
+WORKDIR /app
+
+# Copy and download Go dependencies (cached unless go.mod/go.sum changes)
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy source code and build the Go binary
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build -o bot main.go
+
+# ==========================================
+# Stage 3: Final Runtime Stage
+# ==========================================
 FROM alpine:latest
 
 # Install system dependencies 
-# (Added libstdc++ and libgcc because the compiled unrar binary requires them)
 RUN apk add --no-cache \
     gcc \
     musl-dev \
@@ -55,9 +59,9 @@ RUN adduser -D -s /bin/bash appuser
 # Set working directory
 WORKDIR /workspace
 
-# Copy built Go binary and the native unrar binary from builder stage
-COPY --from=builder /app/bot /usr/local/bin/bot
-COPY --from=builder /usr/local/bin/unrar /usr/local/bin/unrar
+# Copy binaries from their respective builder stages
+COPY --from=go-builder /app/bot /usr/local/bin/bot
+COPY --from=unrar-builder /usr/local/bin/unrar /usr/local/bin/unrar
 
 # Change ownership of workspace to appuser
 RUN chown -R appuser:appuser /workspace
