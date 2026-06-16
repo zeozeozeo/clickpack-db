@@ -15,6 +15,7 @@ func RegisterHandlers(r handler.Router) error {
 
 	mux.ButtonComponent("/reject/{id}", HandleReject)
 	mux.ButtonComponent("/approve/{id}", HandleApprove)
+	mux.ButtonComponent("/retry", HandleRetry)
 
 	slog.Info("command handlers registered")
 	return nil

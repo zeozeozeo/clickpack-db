@@ -34,12 +34,6 @@ FROM alpine:latest
 
 # Install system dependencies 
 RUN apk add --no-cache \
-    gcc \
-    musl-dev \
-    linux-headers \
-    python3-dev \
-    python3 \
-    py3-pip \
     git \
     ffmpeg \
     p7zip \
@@ -49,9 +43,6 @@ RUN apk add --no-cache \
     libstdc++ \
     libgcc \
     bash
-
-# Install Python dependencies
-RUN pip3 install rarfile py7zr repro-zipfile --break-system-packages
 
 # Create app user
 RUN adduser -D -s /bin/bash appuser
@@ -70,7 +61,6 @@ RUN chown -R appuser:appuser /workspace
 USER appuser
 
 # Set environment variables
-ENV PYTHONPATH=/workspace
 ENV PATH="/usr/local/bin:$PATH"
 
 # Default command

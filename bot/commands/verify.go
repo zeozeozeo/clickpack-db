@@ -8,6 +8,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 	"sync"
@@ -32,6 +33,8 @@ const (
 	modChannelID      snowflake.ID = 1383734997181005885
 	announceChannelID snowflake.ID = 1383790392008249384
 )
+
+var approvalMentionRe = regexp.MustCompile(`Approved by (<@!?\d+>)\.`)
 
 func SendVerify(client bot.Client, msg discord.Message, filename string, attachmentIdx int) {
 	name := strings.TrimSuffix(filename, filepath.Ext(filename))
@@ -213,6 +216,157 @@ func HandleApprove(data discord.ButtonInteractionData, event *handler.ComponentE
 	return nil
 }
 
+func HandleRetry(data discord.ButtonInteractionData, event *handler.ComponentEvent) error {
+	slog.Debug("HandleRetry", slog.String("customID", data.CustomID()))
+
+	job, err := retryJobFromMessage(event)
+	if err != nil {
+		return err
+	}
+
+	if err := event.DeferUpdateMessage(); err != nil {
+		slog.Error("failed to defer retry update", "err", err)
+	}
+
+	if !enqueueApproval(job) {
+		return nil
+	}
+
+	_, err = event.Client().Rest().UpdateMessage(
+		event.Channel().ID(),
+		event.Message.ID,
+		discord.NewMessageUpdateBuilder().
+			SetEmbeds(
+				discord.NewEmbedBuilder().
+					SetTitlef("New clickpack `%s` (queued)", job.Name).
+					SetDescriptionf(
+						"This clickpack has been queued for retry. Approved by %s. Jump to the original message: %s",
+						job.ApproverMention, job.TriggerMessage.JumpURL(),
+					).
+					SetColor(0xF1C40F).
+					Build(),
+			).
+			ClearContainerComponents().
+			Build(),
+	)
+	if err != nil {
+		slog.Error("failed to update retry message", "err", err)
+	}
+
+	return nil
+}
+
+func retryJobFromMessage(event *handler.ComponentEvent) (approvalJob, error) {
+	if len(event.Message.Embeds) == 0 {
+		return approvalJob{}, fmt.Errorf("retry message has no embed")
+	}
+	embed := event.Message.Embeds[0]
+	name, ok := clickpackNameFromEmbedTitle(embed.Title)
+	if !ok {
+		return approvalJob{}, fmt.Errorf("failed to parse clickpack name from retry message title")
+	}
+	refs := referencedClickpackMessages(event.Message)
+	if len(refs) == 0 {
+		return approvalJob{}, fmt.Errorf("failed to find original clickpack message")
+	}
+
+	var triggerMessage *discord.Message
+	var channelID snowflake.ID
+	var messageID snowflake.ID
+	for cid, mid := range refs {
+		msg, err := event.Client().Rest().GetMessage(cid, mid)
+		if err != nil {
+			return approvalJob{}, fmt.Errorf("failed to get original clickpack message: %w", err)
+		}
+		triggerMessage = msg
+		channelID = cid
+		messageID = mid
+		break
+	}
+
+	attachmentIdx := matchingAttachmentIndex(*triggerMessage, name)
+	if attachmentIdx < 0 {
+		return approvalJob{}, fmt.Errorf("failed to find original archive attachment for %q", name)
+	}
+	attachment := triggerMessage.Attachments[attachmentIdx]
+	customID := fmt.Sprintf("%d|%d:%d*%s", messageID, channelID, attachmentIdx, name)
+
+	approverMention := approverMentionFromDescription(embed.Description)
+	if approverMention == "" {
+		approverMention = event.User().Mention()
+	}
+	approverName := event.User().EffectiveName()
+	approverAvatarURL := event.User().EffectiveAvatarURL()
+	if approverID, err := parseMentionID(approverMention); err == nil {
+		if user, err := event.Client().Rest().GetUser(approverID); err == nil {
+			approverName = user.EffectiveName()
+			approverAvatarURL = user.EffectiveAvatarURL()
+		}
+	}
+
+	return approvalJob{
+		Client:            event.Client(),
+		ApprovalChannelID: event.Channel().ID(),
+		ApprovalMessageID: event.Message.ID,
+		ApproverMention:   approverMention,
+		ApproverName:      approverName,
+		ApproverAvatarURL: approverAvatarURL,
+		CustomID:          customID,
+		Attachment:        attachment,
+		Name:              name,
+		TriggerMessage:    *triggerMessage,
+	}, nil
+}
+
+func clickpackNameFromEmbedTitle(title string) (string, bool) {
+	start := strings.Index(title, "`")
+	end := strings.LastIndex(title, "`")
+	if start < 0 || end <= start {
+		return "", false
+	}
+	return title[start+1 : end], true
+}
+
+func matchingAttachmentIndex(msg discord.Message, name string) int {
+	for i, attachment := range msg.Attachments {
+		normalized := strings.ReplaceAll(attachment.Filename, "_", " ")
+		normalized = strings.TrimSuffix(normalized, filepath.Ext(normalized))
+		if normalized == name && hasArchiveExtension(attachment.Filename) {
+			return i
+		}
+	}
+	for i, attachment := range msg.Attachments {
+		if hasArchiveExtension(attachment.Filename) {
+			return i
+		}
+	}
+	return -1
+}
+
+func hasArchiveExtension(filename string) bool {
+	for _, ext := range archiveExtensions {
+		if strings.HasSuffix(filename, ext) {
+			return true
+		}
+	}
+	return false
+}
+
+func approverMentionFromDescription(description string) string {
+	match := approvalMentionRe.FindStringSubmatch(description)
+	if len(match) != 2 {
+		return ""
+	}
+	return match[1]
+}
+
+func parseMentionID(mention string) (snowflake.ID, error) {
+	mention = strings.TrimPrefix(mention, "<@")
+	mention = strings.TrimPrefix(mention, "!")
+	mention = strings.TrimSuffix(mention, ">")
+	return parseSnowflake(mention)
+}
+
 type approvalJob struct {
 	Client            bot.Client
 	ApprovalChannelID snowflake.ID
@@ -383,24 +537,8 @@ func runClickpackProcessingScripts() error {
 		return fmt.Errorf("failed to find repo root: %w", err)
 	}
 
-	// run audio2ogg.py
-	pythonCmd := os.Getenv("PYTHON_COMMAND")
-	slog.Info("running audio2ogg.py...")
-	cmd := exec.Command(pythonCmd, "audio2ogg.py")
-	cmd.Dir = root
-	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("failed to run audio2ogg.py: %w", err)
-	}
-
-	// run index.py
-	slog.Info("running index.py...")
-	cmd = exec.Command(pythonCmd, "index.py", "--delete-dirs")
-	cmd.Dir = root
-	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("failed to run index.py: %w", err)
-	}
-
-	return nil
+	slog.Info("processing clickpacks in Go")
+	return processClickpacks(root)
 }
 
 func updateApprovalError(job approvalJob, err error) {
@@ -418,7 +556,15 @@ func updateApprovalError(job approvalJob, err error) {
 					SetColor(0xFF0000).
 					Build(),
 			).
-			ClearContainerComponents().
+			SetContainerComponents(
+				discord.NewActionRow(
+					discord.ButtonComponent{
+						Style:    discord.ButtonStylePrimary,
+						Label:    "Retry",
+						CustomID: "/retry",
+					},
+				),
+			).
 			Build(),
 	)
 	if updateErr != nil {
