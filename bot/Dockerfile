@@ -1,9 +1,10 @@
 # Use Go Alpine base image
 FROM golang:1.26-alpine AS builder
 
-RUN apk add --no-cache git
+# Install build-base (gcc, g++, make) to compile unrar + git for Go
+RUN apk add --no-cache git build-base
 
-# Set working directory
+# Set working directory for the Go app
 WORKDIR /app
 
 # Copy go mod files
@@ -12,16 +13,22 @@ COPY go.mod go.sum ./
 # Download dependencies
 RUN go mod download
 
-# Copy source code
+# Copy source code and build the Go binary
 COPY . .
-
-# Build the application
 RUN CGO_ENABLED=0 GOOS=linux go build -o bot main.go
+
+# Download and compile unrar
+ADD https://www.rarlab.com/rar/unrarsrc-7.1.10.tar.gz /tmp/unrar.tar.gz
+RUN tar -xzf /tmp/unrar.tar.gz -C /tmp && \
+    cd /tmp/unrar && \
+    make -f makefile && \
+    install -v -m755 unrar /usr/local/bin/unrar
 
 # Runtime stage
 FROM alpine:latest
 
-# Install system dependencies
+# Install system dependencies 
+# (Added libstdc++ and libgcc because the compiled unrar binary requires them)
 RUN apk add --no-cache \
     gcc \
     musl-dev \
@@ -35,15 +42,9 @@ RUN apk add --no-cache \
     ca-certificates \
     curl \
     jq \
+    libstdc++ \
+    libgcc \
     bash
-
-# Install unrar
-RUN curl -LsSf https://api.github.com/repos/EDM115/unrar-alpine/releases/latest \
-    | jq -r '.assets[] | select(.name == "unrar") | .id' \
-    | xargs -I {} curl -LsSf https://api.github.com/repos/EDM115/unrar-alpine/releases/assets/{} \
-    | jq -r '.browser_download_url' \
-    | xargs -I {} curl -Lsf {} -o /tmp/unrar && \
-    install -v -m755 /tmp/unrar /usr/local/bin
 
 # Install Python dependencies
 RUN pip3 install rarfile py7zr repro-zipfile --break-system-packages
@@ -54,8 +55,9 @@ RUN adduser -D -s /bin/bash appuser
 # Set working directory
 WORKDIR /workspace
 
-# Copy built binary from builder stage
+# Copy built Go binary and the native unrar binary from builder stage
 COPY --from=builder /app/bot /usr/local/bin/bot
+COPY --from=builder /usr/local/bin/unrar /usr/local/bin/unrar
 
 # Change ownership of workspace to appuser
 RUN chown -R appuser:appuser /workspace
