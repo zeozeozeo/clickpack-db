@@ -41,6 +41,7 @@ func main() {
 			bot.WithAsyncEventsEnabled(),
 		),
 		bot.WithEventListenerFunc(commands.OnMessageCreate),
+		bot.WithEventListenerFunc(commands.OnReady),
 		bot.WithEventListeners(r),
 	)
 	if err != nil {

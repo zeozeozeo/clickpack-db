@@ -10,6 +10,8 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"sync"
+	"time"
 
 	"github.com/disgoorg/disgo/bot"
 	"github.com/disgoorg/disgo/discord"
@@ -172,44 +174,33 @@ func HandleApprove(data discord.ButtonInteractionData, event *handler.ComponentE
 		slog.Error("failed to defer update", "err", err)
 	}
 
-	// download and process the attachment
-	err = processApprovedClickpack(attachment, name, *triggerMessage)
-	if err != nil {
-		slog.Error("failed to process clickpack", "err", err, "name", name)
-		// show error
-		event.Client().Rest().UpdateMessage(
-			event.Channel().ID(),
-			event.Message.ID,
-			discord.NewMessageUpdateBuilder().
-				SetEmbeds(
-					discord.NewEmbedBuilder().
-						SetTitlef("New clickpack `%s` (error)", name).
-						SetDescriptionf(
-							"Failed to process clickpack: %s\nApproved by %s. Jump to the original message: %s",
-							err.Error(), event.User().Mention(), triggerMessage.JumpURL(),
-						).
-						SetColor(0xFF0000).
-						Build(),
-				).
-				ClearContainerComponents().
-				Build(),
-		)
-		return err
+	if !enqueueApproval(approvalJob{
+		Client:            event.Client(),
+		ApprovalChannelID: event.Channel().ID(),
+		ApprovalMessageID: event.Message.ID,
+		ApproverMention:   event.User().Mention(),
+		ApproverName:      event.User().EffectiveName(),
+		ApproverAvatarURL: event.User().EffectiveAvatarURL(),
+		CustomID:          customID,
+		Attachment:        attachment,
+		Name:              name,
+		TriggerMessage:    *triggerMessage,
+	}) {
+		return nil
 	}
 
-	// show success
 	_, err = event.Client().Rest().UpdateMessage(
 		event.Channel().ID(),
 		event.Message.ID,
 		discord.NewMessageUpdateBuilder().
 			SetEmbeds(
 				discord.NewEmbedBuilder().
-					SetTitlef("New clickpack `%s` (approved)", name).
+					SetTitlef("New clickpack `%s` (queued)", name).
 					SetDescriptionf(
-						"This clickpack has been approved by %s. Jump to the original message: %s",
+						"This clickpack has been queued for approval by %s. Jump to the original message: %s",
 						event.User().Mention(), triggerMessage.JumpURL(),
 					).
-					SetColor(0x00FF00).
+					SetColor(0xF1C40F).
 					Build(),
 			).
 			ClearContainerComponents().
@@ -219,32 +210,144 @@ func HandleApprove(data discord.ButtonInteractionData, event *handler.ComponentE
 		slog.Error("failed to update message", "err", err)
 	}
 
-	_, err = event.Client().Rest().CreateMessage(
-		announceChannelID,
-		discord.NewMessageCreateBuilder().
-			AddEmbeds(
-				discord.NewEmbedBuilder().
-					SetTitlef("New clickpack `%s`", name).
-					SetDescriptionf(
-						"This clickpack has been approved by %s. Jump to the original message: %s",
-						event.User().Mention(), triggerMessage.JumpURL(),
-					).
-					SetAuthor(event.User().EffectiveName(), "", event.User().EffectiveAvatarURL()).
-					SetColor(0x007BFF).
-					Build(),
-			).
-			Build(),
-	)
-	if err != nil {
-		slog.Error("failed to send announcement", "err", err)
-	}
-
 	return nil
 }
 
-func processApprovedClickpack(attachment discord.Attachment, name string, triggerMessage discord.Message) error {
+type approvalJob struct {
+	Client            bot.Client
+	ApprovalChannelID snowflake.ID
+	ApprovalMessageID snowflake.ID
+	ApproverMention   string
+	ApproverName      string
+	ApproverAvatarURL string
+	CustomID          string
+	Attachment        discord.Attachment
+	Name              string
+	TriggerMessage    discord.Message
+}
+
+var approvals = newApprovalQueue()
+
+type approvalQueue struct {
+	mu      sync.Mutex
+	pending map[string]struct{}
+	jobs    chan approvalJob
+}
+
+func newApprovalQueue() *approvalQueue {
+	q := &approvalQueue{
+		pending: map[string]struct{}{},
+		jobs:    make(chan approvalJob, 100),
+	}
+	go q.run()
+	return q
+}
+
+func enqueueApproval(job approvalJob) bool {
+	return approvals.enqueue(job)
+}
+
+func (q *approvalQueue) enqueue(job approvalJob) bool {
+	q.mu.Lock()
+	if _, ok := q.pending[job.CustomID]; ok {
+		q.mu.Unlock()
+		slog.Info("approval already queued", "name", job.Name, "customID", job.CustomID)
+		return false
+	}
+	q.pending[job.CustomID] = struct{}{}
+	q.mu.Unlock()
+
+	q.jobs <- job
+	return true
+}
+
+func (q *approvalQueue) complete(job approvalJob) {
+	q.mu.Lock()
+	delete(q.pending, job.CustomID)
+	q.mu.Unlock()
+}
+
+func (q *approvalQueue) run() {
+	for first := range q.jobs {
+		batch := []approvalJob{first}
+		timer := time.NewTimer(3 * time.Second)
+
+	collect:
+		for {
+			select {
+			case job := <-q.jobs:
+				batch = append(batch, job)
+			case <-timer.C:
+				break collect
+			}
+		}
+
+		q.processBatch(batch)
+		for _, job := range batch {
+			q.complete(job)
+		}
+	}
+}
+
+func (q *approvalQueue) processBatch(batch []approvalJob) {
+	restoreRemote, err := gitConfigureAuth()
+	if err != nil {
+		slog.Warn("failed to configure git auth", "err", err)
+	}
+	defer restoreRemote()
+
+	if err := gitPullMerge(); err != nil {
+		slog.Warn("failed to pull before processing approval batch", "err", err)
+	}
+
+	var processed []approvalJob
+	for _, job := range batch {
+		if err := downloadApprovedClickpack(job.Attachment, job.Name); err != nil {
+			slog.Error("failed to download clickpack", "err", err, "name", job.Name)
+			updateApprovalError(job, err)
+			continue
+		}
+
+		if err := runClickpackProcessingScripts(); err != nil {
+			slog.Error("failed to process clickpack", "err", err, "name", job.Name)
+			updateApprovalError(job, err)
+			continue
+		}
+
+		if err := gitCommitClickpack(job); err != nil {
+			slog.Error("failed to commit clickpack", "err", err, "name", job.Name)
+			updateApprovalError(job, err)
+			continue
+		}
+
+		processed = append(processed, job)
+	}
+
+	if len(processed) == 0 {
+		return
+	}
+
+	if err := gitPushWithMergeRetry(); err != nil {
+		slog.Error("failed to push clickpack commits", "err", err)
+		for _, job := range processed {
+			updateApprovalError(job, err)
+		}
+		return
+	}
+
+	for _, job := range processed {
+		updateApprovalSuccess(job)
+		sendApprovalAnnouncement(job)
+	}
+}
+
+func downloadApprovedClickpack(attachment discord.Attachment, name string) error {
 	// create db directory if it doesn't exist
-	dbDir := "../db"
+	root, err := repoRoot()
+	if err != nil {
+		return fmt.Errorf("failed to find repo root: %w", err)
+	}
+	dbDir := filepath.Join(root, "db")
 	if err := os.MkdirAll(dbDir, 0755); err != nil {
 		return fmt.Errorf("failed to create db directory: %w", err)
 	}
@@ -271,23 +374,20 @@ func processApprovedClickpack(attachment discord.Attachment, name string, trigge
 	}
 
 	slog.Info("downloaded clickpack", "filename", filename, "path", filePath)
+	return nil
+}
 
-	// change to parent directory to run scripts
-	originalDir, err := os.Getwd()
+func runClickpackProcessingScripts() error {
+	root, err := repoRoot()
 	if err != nil {
-		return fmt.Errorf("failed to get working directory: %w", err)
+		return fmt.Errorf("failed to find repo root: %w", err)
 	}
-
-	parentDir := filepath.Join(originalDir, "..")
-	if err := os.Chdir(parentDir); err != nil {
-		return fmt.Errorf("failed to change to parent directory: %w", err)
-	}
-	defer os.Chdir(originalDir)
 
 	// run audio2ogg.py
 	pythonCmd := os.Getenv("PYTHON_COMMAND")
 	slog.Info("running audio2ogg.py...")
 	cmd := exec.Command(pythonCmd, "audio2ogg.py")
+	cmd.Dir = root
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("failed to run audio2ogg.py: %w", err)
 	}
@@ -295,42 +395,108 @@ func processApprovedClickpack(attachment discord.Attachment, name string, trigge
 	// run index.py
 	slog.Info("running index.py...")
 	cmd = exec.Command(pythonCmd, "index.py", "--delete-dirs")
+	cmd.Dir = root
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("failed to run index.py: %w", err)
-	}
-
-	// git operations
-	if err := gitCommitAndPush(name, triggerMessage); err != nil {
-		return fmt.Errorf("failed to commit and push: %w", err)
 	}
 
 	return nil
 }
 
-func gitCommitAndPush(clickpackName string, triggerMessage discord.Message) error {
+func updateApprovalError(job approvalJob, err error) {
+	_, updateErr := job.Client.Rest().UpdateMessage(
+		job.ApprovalChannelID,
+		job.ApprovalMessageID,
+		discord.NewMessageUpdateBuilder().
+			SetEmbeds(
+				discord.NewEmbedBuilder().
+					SetTitlef("New clickpack `%s` (error)", job.Name).
+					SetDescriptionf(
+						"Failed to process clickpack: %s\nApproved by %s. Jump to the original message: %s",
+						err.Error(), job.ApproverMention, job.TriggerMessage.JumpURL(),
+					).
+					SetColor(0xFF0000).
+					Build(),
+			).
+			ClearContainerComponents().
+			Build(),
+	)
+	if updateErr != nil {
+		slog.Error("failed to update approval error message", "err", updateErr)
+	}
+}
+
+func updateApprovalSuccess(job approvalJob) {
+	_, err := job.Client.Rest().UpdateMessage(
+		job.ApprovalChannelID,
+		job.ApprovalMessageID,
+		discord.NewMessageUpdateBuilder().
+			SetEmbeds(
+				discord.NewEmbedBuilder().
+					SetTitlef("New clickpack `%s` (approved)", job.Name).
+					SetDescriptionf(
+						"This clickpack has been approved by %s. Jump to the original message: %s",
+						job.ApproverMention, job.TriggerMessage.JumpURL(),
+					).
+					SetColor(0x00FF00).
+					Build(),
+			).
+			ClearContainerComponents().
+			Build(),
+	)
+	if err != nil {
+		slog.Error("failed to update approval success message", "err", err)
+	}
+}
+
+func sendApprovalAnnouncement(job approvalJob) {
+	_, err := job.Client.Rest().CreateMessage(
+		announceChannelID,
+		discord.NewMessageCreateBuilder().
+			AddEmbeds(
+				discord.NewEmbedBuilder().
+					SetTitlef("New clickpack `%s`", job.Name).
+					SetDescriptionf(
+						"This clickpack has been approved by %s. Jump to the original message: %s",
+						job.ApproverMention, job.TriggerMessage.JumpURL(),
+					).
+					SetAuthor(job.ApproverName, "", job.ApproverAvatarURL).
+					SetColor(0x007BFF).
+					Build(),
+			).
+			Build(),
+	)
+	if err != nil {
+		slog.Error("failed to send announcement", "err", err)
+	}
+}
+
+func gitConfigureAuth() (func(), error) {
 	// configure git user (use environment variables)
 	gitUserName := os.Getenv("GIT_USER_NAME")
 	gitUserEmail := os.Getenv("GIT_USER_EMAIL")
 	githubToken := os.Getenv("GITHUB_TOKEN")
 
 	if gitUserName != "" {
-		cmd := exec.Command("git", "config", "user.name", gitUserName)
+		cmd := gitCmd("config", "user.name", gitUserName)
 		if err := cmd.Run(); err != nil {
 			slog.Warn("failed to set git user.name", "err", err)
 		}
 	}
 
 	if gitUserEmail != "" {
-		cmd := exec.Command("git", "config", "user.email", gitUserEmail)
+		cmd := gitCmd("config", "user.email", gitUserEmail)
 		if err := cmd.Run(); err != nil {
 			slog.Warn("failed to set git user.email", "err", err)
 		}
 	}
 
+	restoreRemote := func() {}
+
 	// configure git to use token for authentication if available
 	if githubToken != "" {
 		// get current remote URL
-		cmd := exec.Command("git", "remote", "get-url", "origin")
+		cmd := gitCmd("remote", "get-url", "origin")
 		output, err := cmd.Output()
 		if err != nil {
 			slog.Warn("failed to get remote URL", "err", err)
@@ -344,49 +510,99 @@ func gitCommitAndPush(clickpackName string, triggerMessage discord.Message) erro
 				authenticatedURL := fmt.Sprintf("https://%s@github.com/%s", githubToken, repoPath)
 
 				// temporarily set the remote URL with token
-				cmd = exec.Command("git", "remote", "set-url", "origin", authenticatedURL)
+				cmd = gitCmd("remote", "set-url", "origin", authenticatedURL)
 				if err := cmd.Run(); err != nil {
 					slog.Warn("failed to set authenticated remote URL", "err", err)
 				} else {
 					slog.Debug("configured git remote with token authentication")
-					// restore original URL after push (defer)
-					defer func() {
-						cmd := exec.Command("git", "remote", "set-url", "origin", remoteURL)
+					restoreRemote = func() {
+						cmd := gitCmd("remote", "set-url", "origin", remoteURL)
 						if err := cmd.Run(); err != nil {
 							slog.Warn("failed to restore original remote URL", "err", err)
 						}
-					}()
+					}
 				}
 			}
 		}
 	}
 
+	return restoreRemote, nil
+}
+
+func gitCommitClickpack(job approvalJob) error {
 	// add all changes
-	cmd := exec.Command("git", "add", ".")
+	cmd := gitCmd("add", ".")
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("failed to git add: %w", err)
 	}
 
 	// create commit message with author info
-	commitMsg := fmt.Sprintf("Add clickpack: %s\n\nSubmitted by: %s (%s)\nMessage: %s",
-		clickpackName,
-		triggerMessage.Author.EffectiveName(),
-		triggerMessage.Author.ID,
-		triggerMessage.JumpURL(),
-	)
+	commitMsg := clickpackCommitMessage(job)
 
 	// commit changes
-	cmd = exec.Command("git", "commit", "-m", commitMsg)
+	cmd = gitCmd("commit", "-m", commitMsg)
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("failed to git commit: %w", err)
 	}
 
+	slog.Info("successfully committed clickpack", "name", job.Name)
+	return nil
+}
+
+func gitPushWithMergeRetry() error {
 	// push to remote
-	cmd = exec.Command("git", "push")
+	cmd := gitCmd("push")
 	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("failed to git push: %w", err)
+		slog.Warn("git push failed, trying to merge remote changes before retrying", "err", err)
+		if pullErr := gitPullMerge(); pullErr != nil {
+			return fmt.Errorf("failed to git push: %w; merge retry failed: %w", err, pullErr)
+		}
+		cmd = gitCmd("push")
+		if retryErr := cmd.Run(); retryErr != nil {
+			return fmt.Errorf("failed to git push after merge retry: %w", retryErr)
+		}
 	}
 
-	slog.Info("successfully committed and pushed clickpack", "name", clickpackName)
+	slog.Info("successfully pushed clickpack commits")
 	return nil
+}
+
+func clickpackCommitMessage(job approvalJob) string {
+	return fmt.Sprintf("Add clickpack: %s\n\nSubmitted by: %s (%s)\nMessage: %s",
+		job.Name,
+		job.TriggerMessage.Author.EffectiveName(),
+		job.TriggerMessage.Author.ID,
+		job.TriggerMessage.JumpURL(),
+	)
+}
+
+func gitPullMerge() error {
+	cmd := gitCmd("pull", "--no-rebase", "--no-edit")
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("failed to git pull --no-rebase --no-edit: %w", err)
+	}
+	return nil
+}
+
+func gitCmd(args ...string) *exec.Cmd {
+	cmd := exec.Command("git", args...)
+	if root, err := repoRoot(); err == nil {
+		cmd.Dir = root
+	}
+	return cmd
+}
+
+func repoRoot() (string, error) {
+	wd, err := os.Getwd()
+	if err != nil {
+		return "", err
+	}
+
+	cmd := exec.Command("git", "rev-parse", "--show-toplevel")
+	cmd.Dir = wd
+	if output, err := cmd.Output(); err == nil {
+		return strings.TrimSpace(string(output)), nil
+	}
+
+	return filepath.Clean(filepath.Join(wd, "..")), nil
 }
