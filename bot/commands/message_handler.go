@@ -3,7 +3,6 @@ package commands
 import (
 	"log/slog"
 	"regexp"
-	"slices"
 	"sort"
 	"strconv"
 	"strings"
@@ -22,7 +21,7 @@ var clickpackChannelIDs = []snowflake.ID{952187055092416582, 1383785285074292848
 var discordMessageURLRe = regexp.MustCompile(`discord(?:app)?\.com/channels/\d+/(\d+)/(\d+)`)
 
 func OnMessageCreate(event *events.MessageCreate) {
-	if !slices.Contains(clickpackChannelIDs, event.ChannelID) {
+	if event.ChannelID != primaryClickpackChannelID() {
 		return
 	}
 
@@ -48,44 +47,40 @@ func handleClickpackMessage(client bot.Client, msg discord.Message) {
 
 func scanMissedClickpacks(client bot.Client) {
 	lastSeen := findLastVerifiedClickpackMessages(client)
+	channelID := primaryClickpackChannelID()
+	after := lastSeen[channelID]
 
-	for _, channelID := range clickpackChannelIDs {
-		after := lastSeen[channelID]
+	for {
+		messages, err := client.Rest().GetMessages(channelID, 0, 0, after, 100)
+		if err != nil {
+			slog.Error("failed to scan clickpack channel", "err", err, "channelID", channelID)
+			break
+		}
+		if len(messages) == 0 {
+			break
+		}
 
-		for {
-			messages, err := client.Rest().GetMessages(channelID, 0, 0, after, 100)
-			if err != nil {
-				slog.Error("failed to scan clickpack channel", "err", err, "channelID", channelID)
-				break
+		sort.Slice(messages, func(i, j int) bool {
+			return messages[i].ID < messages[j].ID
+		})
+
+		for _, msg := range messages {
+			if msg.ID <= after {
+				continue
 			}
-			if len(messages) == 0 {
-				break
-			}
+			handleClickpackMessage(client, msg)
+			after = msg.ID
+		}
 
-			sort.Slice(messages, func(i, j int) bool {
-				return messages[i].ID < messages[j].ID
-			})
-
-			for _, msg := range messages {
-				if msg.ID <= after {
-					continue
-				}
-				handleClickpackMessage(client, msg)
-				after = msg.ID
-			}
-
-			if len(messages) < 100 {
-				break
-			}
+		if len(messages) < 100 {
+			break
 		}
 	}
 }
 
 func findLastVerifiedClickpackMessages(client bot.Client) map[snowflake.ID]snowflake.ID {
-	lastSeen := make(map[snowflake.ID]snowflake.ID, len(clickpackChannelIDs))
-	for _, channelID := range clickpackChannelIDs {
-		lastSeen[channelID] = 0
-	}
+	primaryChannelID := primaryClickpackChannelID()
+	lastSeen := map[snowflake.ID]snowflake.ID{primaryChannelID: 0}
 
 	before := snowflake.ID(0)
 	for {
@@ -100,20 +95,13 @@ func findLastVerifiedClickpackMessages(client bot.Client) map[snowflake.ID]snowf
 
 		for _, msg := range messages {
 			for channelID, messageID := range referencedClickpackMessages(msg) {
-				if _, ok := lastSeen[channelID]; ok && messageID > lastSeen[channelID] {
+				if channelID == primaryChannelID && messageID > lastSeen[channelID] {
 					lastSeen[channelID] = messageID
 				}
 			}
 		}
 
-		done := true
-		for _, channelID := range clickpackChannelIDs {
-			if lastSeen[channelID] == 0 {
-				done = false
-				break
-			}
-		}
-		if done || len(messages) < 100 {
+		if lastSeen[primaryChannelID] != 0 || len(messages) < 100 {
 			return lastSeen
 		}
 
@@ -159,4 +147,8 @@ func referencedClickpackMessages(msg discord.Message) map[snowflake.ID]snowflake
 func parseSnowflake(s string) (snowflake.ID, error) {
 	id, err := strconv.ParseUint(s, 10, 64)
 	return snowflake.ID(id), err
+}
+
+func primaryClickpackChannelID() snowflake.ID {
+	return clickpackChannelIDs[0]
 }
