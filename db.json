@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-16T19:39:24.900239+00:00",
-    "updated_at_unix": 1781638764,
+    "updated_at_iso": "2026-06-18T01:05:08.082506+00:00",
+    "updated_at_unix": 1781744708,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6316,6 +6316,14 @@
             "added_at": "2026-05-19T19:24:24.823820+00:00",
             "checksum": "62b60ec16d7e1a06667e582250c29238"
         },
+        "uyla VXE R1 Pro Max": {
+            "size": 380575,
+            "uncompressed_size": 373553,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/uyla%20VXE%20R1%20Pro%20Max.zip",
+            "added_at": "2026-06-18T01:05:08.081901+00:00",
+            "checksum": "14210cf19fdabcf7791a69fa64485bc1"
+        },
         "uyla w": {
             "size": 592137,
             "uncompressed_size": 585155,
@@ -6904,6 +6912,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 374,
+    "version": 375,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
