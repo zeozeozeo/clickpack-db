@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-18T01:05:08.082506+00:00",
-    "updated_at_unix": 1781744708,
+    "updated_at_iso": "2026-06-20T19:12:43.768215+00:00",
+    "updated_at_unix": 1781982763,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2578,6 +2578,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/G4b1clicks.zip",
             "added_at": "2025-10-31T22:10:41.890072+00:00",
             "checksum": "5db4c19017ca8df51a80808752ca3290"
+        },
+        "G4b1v2": {
+            "size": 763079,
+            "uncompressed_size": 749847,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/G4b1v2.zip",
+            "added_at": "2026-06-20T19:12:43.767387+00:00",
+            "checksum": "66f594591adc3c3f699ce4016d27bf04"
         },
         "G4bi new sayo": {
             "size": 405141,
@@ -6912,6 +6920,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 375,
+    "version": 376,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
