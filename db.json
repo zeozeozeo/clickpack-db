@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-21T00:37:03.916692+00:00",
-    "updated_at_unix": 1782002223,
+    "updated_at_iso": "2026-06-21T00:37:22.442122+00:00",
+    "updated_at_unix": 1782002242,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6163,6 +6163,14 @@
             "added_at": "2026-06-16T09:07:06.445098+00:00",
             "checksum": "35a92e9269466e44220f2942065cf929"
         },
+        "Unami G502 v2": {
+            "size": 751168,
+            "uncompressed_size": 737896,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20G502%20v2.zip",
+            "added_at": "2026-06-21T00:37:22.441377+00:00",
+            "checksum": "990605e8ddef6cb47352d50faed65196"
+        },
         "Unami Kapbom Mouse": {
             "size": 739198,
             "uncompressed_size": 726164,
@@ -6928,6 +6936,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 377,
+    "version": 378,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
