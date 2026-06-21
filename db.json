@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-21T00:37:43.754535+00:00",
-    "updated_at_unix": 1782002263,
+    "updated_at_iso": "2026-06-21T00:38:12.896366+00:00",
+    "updated_at_unix": 1782002292,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6155,6 +6155,14 @@
             "added_at": "2026-06-16T09:07:25.495150+00:00",
             "checksum": "e971ee482533743dd611e154607a5956"
         },
+        "Unami Enter v2": {
+            "size": 725791,
+            "uncompressed_size": 712977,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Enter%20v2.zip",
+            "added_at": "2026-06-21T00:38:12.895640+00:00",
+            "checksum": "4b5021504ee5b69563ebbd72363637ed"
+        },
         "Unami G502": {
             "size": 615636,
             "uncompressed_size": 604952,
@@ -6944,6 +6952,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 379,
+    "version": 380,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
