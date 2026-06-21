@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-21T00:38:12.896366+00:00",
-    "updated_at_unix": 1782002292,
+    "updated_at_iso": "2026-06-21T00:38:26.051242+00:00",
+    "updated_at_unix": 1782002306,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6147,6 +6147,14 @@
             "checksum": "bad8c15208fa41905a5c543b1d81363e",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Unami ByTech Mouse": {
+            "size": 500176,
+            "uncompressed_size": 491414,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20ByTech%20Mouse.zip",
+            "added_at": "2026-06-21T00:38:26.050017+00:00",
+            "checksum": "ef6def210885a7c32c47fb16989bbe5b"
+        },
         "Unami Enter Key": {
             "size": 733246,
             "uncompressed_size": 720318,
@@ -6952,6 +6960,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 380,
+    "version": 381,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
