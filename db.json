@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-20T19:12:43.768215+00:00",
-    "updated_at_unix": 1781982763,
+    "updated_at_iso": "2026-06-21T00:37:03.916692+00:00",
+    "updated_at_unix": 1782002223,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6179,6 +6179,14 @@
             "added_at": "2026-06-16T09:06:20.005243+00:00",
             "checksum": "ca900caf31c0c834e6531e5246bcc52a"
         },
+        "Unami Philips Mouse": {
+            "size": 836318,
+            "uncompressed_size": 821474,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Philips%20Mouse.zip",
+            "added_at": "2026-06-21T00:37:03.915808+00:00",
+            "checksum": "fb6daf45eb1ab36b4bf4f6e5860186e4"
+        },
         "unami sayo": {
             "size": 1028400,
             "uncompressed_size": 1023184,
@@ -6920,6 +6928,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 376,
+    "version": 377,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
