@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-21T00:38:26.051242+00:00",
-    "updated_at_unix": 1782002306,
+    "updated_at_iso": "2026-06-21T00:38:47.451626+00:00",
+    "updated_at_unix": 1782002327,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6219,6 +6219,14 @@
             "added_at": "2026-06-21T00:37:03.915808+00:00",
             "checksum": "fb6daf45eb1ab36b4bf4f6e5860186e4"
         },
+        "Unami Random Key": {
+            "size": 856875,
+            "uncompressed_size": 841681,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Random%20Key.zip",
+            "added_at": "2026-06-21T00:38:47.450936+00:00",
+            "checksum": "5682f1f8a990aedb37b39a0f55594e1b"
+        },
         "unami sayo": {
             "size": 1028400,
             "uncompressed_size": 1023184,
@@ -6960,6 +6968,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 381,
+    "version": 382,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
