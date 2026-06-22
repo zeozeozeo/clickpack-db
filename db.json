@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-21T00:38:47.451626+00:00",
-    "updated_at_unix": 1782002327,
+    "updated_at_iso": "2026-06-22T17:35:58.952264+00:00",
+    "updated_at_unix": 1782149758,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4575,6 +4575,14 @@
             "checksum": "df503020f232a197db9043d0fe9dab06",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "NTRightShift": {
+            "size": 400696,
+            "uncompressed_size": 394336,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/NTRightShift.zip",
+            "added_at": "2026-06-22T17:35:58.951512+00:00",
+            "checksum": "cf49f1e46363f58f6d4fe3789bfda8a4"
+        },
         "NTUpArrowNew": {
             "size": 340666,
             "uncompressed_size": 334412,
@@ -6968,6 +6976,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 382,
+    "version": 383,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
