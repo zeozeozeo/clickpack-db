@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-23T12:57:27.008058+00:00",
-    "updated_at_unix": 1782219447,
+    "updated_at_iso": "2026-06-23T12:57:37.907767+00:00",
+    "updated_at_unix": 1782219457,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3800,6 +3800,14 @@
             "added_at": "2025-08-21T16:45:12.086592+00:00",
             "checksum": "b27b4375e88d0d45368b2f0e87186f30"
         },
+        "Mag1cWs Womier SK75": {
+            "size": 424329,
+            "uncompressed_size": 418063,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Mag1cWs%20Womier%20SK75.zip",
+            "added_at": "2026-06-23T12:57:37.906818+00:00",
+            "checksum": "ed1e9f9ffd972f11c228643ea2aa50bf"
+        },
         "Mamew's spacebar clicks": {
             "size": 179428,
             "uncompressed_size": 177270,
@@ -6993,6 +7001,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 385,
+    "version": 386,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
