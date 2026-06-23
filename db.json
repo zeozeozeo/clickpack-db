@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-22T17:35:58.952264+00:00",
-    "updated_at_unix": 1782149758,
+    "updated_at_iso": "2026-06-23T12:53:56.519659+00:00",
+    "updated_at_unix": 1782219236,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5802,6 +5802,14 @@
             "added_at": "2025-06-22T04:31:50.527383+00:00",
             "checksum": "86630a5fdcfea906c085acf1991eee0f"
         },
+        "Spammy uparrow": {
+            "size": 99769,
+            "uncompressed_size": 99449,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Spammy%20uparrow.zip",
+            "added_at": "2026-06-23T12:53:56.518932+00:00",
+            "checksum": "2aefaa8a6da25a795e6f7ab2ee359dff"
+        },
         "spekkzyyy's clicks": {
             "size": 11095,
             "uncompressed_size": 10869,
@@ -6976,6 +6984,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 383,
+    "version": 384,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
