@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-23T13:25:43.719315+00:00",
-    "updated_at_unix": 1782221143,
+    "updated_at_iso": "2026-06-23T13:26:08.755579+00:00",
+    "updated_at_unix": 1782221168,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -489,6 +489,15 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Andarians_Aula_F75_Up_Arrow.zip",
             "added_at": "2025-06-16T15:22:51.266561+00:00",
             "checksum": "47a5fb13472384bdb8aded8d86e9b0f5"
+        },
+        "andarianwx aula f75 2026 clickpack": {
+            "size": 1071466,
+            "uncompressed_size": 1057046,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/andarianwx%20aula%20f75%202026%20clickpack.zip",
+            "added_at": "2026-06-23T13:26:08.754617+00:00",
+            "readme": "keyboard: aula f75 (south facing pcb)\r\nswitches:\r\n- up arrow: leobog reaper linear (stock)\r\n- p2 (` key): mmd princess tactile (lubed)\r\nmods:\r\n- tape mod\r\n- lubed switches\r\n- lubed and modded stabs",
+            "checksum": "5418e8b5adf56d2b5d89a8f781595e83"
         },
         "andarianwx f75 backslash key": {
             "size": 861185,
@@ -7019,6 +7028,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 388,
+    "version": 389,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
