@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-05-30T20:03:12.150505+00:00",
-    "updated_at_unix": 1780171392,
+    "updated_at_iso": "2026-06-23T17:00:32.724456+00:00",
+    "updated_at_unix": 1782234032,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -490,6 +490,15 @@
             "added_at": "2025-06-16T15:22:51.266561+00:00",
             "checksum": "47a5fb13472384bdb8aded8d86e9b0f5"
         },
+        "andarianwx aula f75 2026 clickpack": {
+            "size": 1071466,
+            "uncompressed_size": 1057046,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/andarianwx%20aula%20f75%202026%20clickpack.zip",
+            "added_at": "2026-06-23T13:26:08.754617+00:00",
+            "readme": "keyboard: aula f75 (south facing pcb)\r\nswitches:\r\n- up arrow: leobog reaper linear (stock)\r\n- p2 (` key): mmd princess tactile (lubed)\r\nmods:\r\n- tape mod\r\n- lubed switches\r\n- lubed and modded stabs",
+            "checksum": "5418e8b5adf56d2b5d89a8f781595e83"
+        },
         "andarianwx f75 backslash key": {
             "size": 861185,
             "uncompressed_size": 850875,
@@ -498,6 +507,15 @@
             "added_at": "2026-04-05T03:07:03.173004+00:00",
             "readme": "ANDARIAN'S F75 BACKSLASH KEY\n\npros:\n- realistic\n- good at spam\n- \"realistic\" releasing sounds\n- expanded from private version to ~100 sounds\n- has noise (RECOMMENDED)\ncons:\n- a bunch of static noise\n- can be noticeably \"unstable\" with lower game volume\nworthy for best: no, the cuts are terrible\n\nUSING NOISE IS RECOMMENDED! AND ALWAYS ENABLE MUSIC VOLUME\n\nKEYBOARD: Aula F75 (south facing PCB):\n-Layout: 75% layout with 80 or 81 keys.\n-Mounting: Gasket-mounted for a cushioned feel.\n-Hot-Swappable: Supports 3-pin and 5-pin switches.\n-Connectivity: Tri-mode (Wireless 2.4G, Bluetooth, Wired Type-C).\n-Battery: 4000mAh Lithium battery.\n-Keycaps: PBT material, often with side-printed legends.\n-Lighting: South-facing RGB (16.8 million colors).\n-Structure: 5-layer internal foam for sound dampening.\n-Weight: Approximately 1023g.\n-Dimensions: Approximately \n\nSWITCHES: Pre-lubed Leobog Reaper (linear) or Graywood V3.\n-Switch Type: Linear\n-Actuation Force: 45\u00b13gf\n-Bottom-out Force: 55\u00b13gf\n-Actuation Travel: 1.8\u00b10.3mm\n-Total Travel: 3.6\u00b10.3mm\n-Factory Lubed: Yes\n-Material: POM Stem, PC Top & Nylon Bottom Housing\n-Pin: 5-pin\n-Lifespan: 60 million strokes\n-Compatibility: MX structure",
             "checksum": "6f9241533d588d7b17cc5ecae99a7323"
+        },
+        "andarianwx p2 clickpack": {
+            "size": 792219,
+            "uncompressed_size": 783903,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/andarianwx%20p2%20clickpack.zip",
+            "added_at": "2026-06-23T13:25:43.717645+00:00",
+            "readme": "keyboard: aula f75 (south facing pcb)\r\nswitches:\r\n- up arrow: leobog reaper linear (stock)\r\n- p2 (` key): mmd princess tactile (lubed)\r\nmods:\r\n- tape mod\r\n- lubed switches\r\n- lubed and modded stabs",
+            "checksum": "36eb79baeb63546e3c53f0ea1a222222"
         },
         "andarianwx sayo deskmat ALPHA": {
             "size": 406331,
@@ -515,6 +533,15 @@
             "added_at": "2026-04-04T06:34:56.818437+00:00",
             "readme": "ANDARIAN'S SAYO DESKMAT V2026.4.4.1\n\npros:\n-realistic\n-good at spam\n-has noise\ncons:\n-its another sayo clickpack\n-im forced to use denoiser so it sounds a bit weird\n-worthy for best: its a sayo lmao i can post it if u want\nCHANGELOG:\n-v2026.4.4.1: added readme, including specs and changelog\n\nUSING NOISE IS RECOMMENDED!\n\nKEYBOARD: SayoDevice O3C\nSWITCHES: GATERON MAGNETIC JADE PRO\n-Switch Type: Linear Hall Effect (Magnetic)\n-Initial Force: 36\u00b15gf (some sources list 36\u00b17gf)\n-Bottom-out Force: 50\u00b110gf\n-Total Travel: 3.5\u00b10.1mm\n-Actuation Range: Customizable (0.1mm - 3.3mm)\n-Lifespan: Over 100 million keystrokes\n-Lubrication: Factory Pre-lubed\n-Lighting: Upgraded 3.0 LED diffuser (brighter/softer diffusion)\n-Material: POM Stem, PA66 Bottom, PC Top ",
             "checksum": "2ce675310a6d05d2adc62260ffb529ad"
+        },
+        "andarianwx sayo deskmat v3": {
+            "size": 1060854,
+            "uncompressed_size": 1040514,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/andarianwx%20sayo%20deskmat%20v3.zip",
+            "added_at": "2026-06-23T13:25:24.517479+00:00",
+            "readme": "USING NOISE IS RECOMMENDED!\r\n\r\nKEYBOARD: SayoDevice O3C\r\nSWITCHES: GATERON MAGNETIC JADE PRO\r\n-Switch Type: Linear Hall Effect (Magnetic)\r\n-Initial Force: 36\u00b15gf (some sources list 36\u00b17gf)\r\n-Bottom-out Force: 50\u00b110gf\r\n-Total Travel: 3.5\u00b10.1mm\r\n-Actuation Range: Customizable (0.1mm - 3.3mm)\r\n-Lifespan: Over 100 million keystrokes\r\n-Lubrication: Factory Pre-lubed\r\n-Lighting: Upgraded 3.0 LED diffuser (brighter/softer diffusion)\r\n-Material: POM Stem, PA66 Bottom, PC Top",
+            "checksum": "72b2380878aadc75503ac7af1f160975"
         },
         "andarianwx updated sayo clicks v6": {
             "size": 562967,
@@ -2239,7 +2266,7 @@
             "size": 410986,
             "uncompressed_size": 404446,
             "has_noise": true,
-            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/exbiomia%2Bcarma%20clicks.zip",
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/exbiomia+carma%20clicks.zip",
             "checksum": "0e171098f241a4d120334c966ca34a12",
             "added_at": "2024-11-30T19:48:12+00:00"
         },
@@ -2578,6 +2605,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/G4b1clicks.zip",
             "added_at": "2025-10-31T22:10:41.890072+00:00",
             "checksum": "5db4c19017ca8df51a80808752ca3290"
+        },
+        "G4b1v2": {
+            "size": 763079,
+            "uncompressed_size": 749847,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/G4b1v2.zip",
+            "added_at": "2026-06-20T19:12:43.767387+00:00",
+            "checksum": "66f594591adc3c3f699ce4016d27bf04"
         },
         "G4bi new sayo": {
             "size": 405141,
@@ -3696,6 +3731,14 @@
             "added_at": "2026-01-30T21:46:14.064865+00:00",
             "checksum": "30f810ef4a343d9f781a2c0b278a9f3b"
         },
+        "Lus Clicks Nano 68 Pro": {
+            "size": 877041,
+            "uncompressed_size": 861575,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Lus%20Clicks%20Nano%2068%20Pro.zip",
+            "added_at": "2026-06-16T15:19:44.335753+00:00",
+            "checksum": "e3c914c2fcc53905f16109b0b1f43430"
+        },
         "M4rk g502 Official": {
             "size": 143614,
             "uncompressed_size": 141048,
@@ -3783,6 +3826,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Mag1cWs%20deathadder%20but%20good.zip",
             "added_at": "2025-08-21T16:45:12.086592+00:00",
             "checksum": "b27b4375e88d0d45368b2f0e87186f30"
+        },
+        "Mag1cWs Womier SK75": {
+            "size": 424329,
+            "uncompressed_size": 418063,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Mag1cWs%20Womier%20SK75.zip",
+            "added_at": "2026-06-23T12:57:37.906818+00:00",
+            "checksum": "ed1e9f9ffd972f11c228643ea2aa50bf"
         },
         "Mamew's spacebar clicks": {
             "size": 179428,
@@ -4254,6 +4305,15 @@
             "checksum": "7249fb287e23bfe159364f9e4ad6232f",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "myzuh sgear clickpack v2": {
+            "size": 920292,
+            "uncompressed_size": 899618,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/myzuh%20sgear%20clickpack%20v2.zip",
+            "added_at": "2026-06-23T12:57:27.007359+00:00",
+            "readme": "zcb clickpack\nsgear mouse\nby myzuh\nv2\n",
+            "checksum": "5b7b744919e81f2086fda74567fbfc34"
+        },
         "N1ckxd Clicks": {
             "size": 66791,
             "uncompressed_size": 65331,
@@ -4435,7 +4495,7 @@
             "size": 905319,
             "uncompressed_size": 885709,
             "has_noise": false,
-            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/nicnicboss%20sayo%2Buparrow.zip",
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/nicnicboss%20sayo+uparrow.zip",
             "checksum": "f58548165868a1af1d30336047778b43",
             "added_at": "2025-05-27T16:32:10+00:00"
         },
@@ -4558,6 +4618,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/nswish.zip",
             "checksum": "df503020f232a197db9043d0fe9dab06",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "NTRightShift": {
+            "size": 400696,
+            "uncompressed_size": 394336,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/NTRightShift.zip",
+            "added_at": "2026-06-22T17:35:58.951512+00:00",
+            "checksum": "cf49f1e46363f58f6d4fe3789bfda8a4"
         },
         "NTUpArrowNew": {
             "size": 340666,
@@ -4702,6 +4770,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/otemu%20LEOBOG%20reaper%20switch%28space%29.zip",
             "checksum": "59d8a15ef582543166a33eaf6974f5a2",
             "added_at": "2025-01-05T15:06:33+00:00"
+        },
+        "PageDown v3": {
+            "size": 832191,
+            "uncompressed_size": 817417,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/PageDown%20v3.zip",
+            "added_at": "2026-06-23T15:13:50.291255+00:00",
+            "checksum": "0a14402fb4118031d10a5692c03abb78"
         },
         "Paqoe": {
             "size": 364490,
@@ -5778,6 +5854,14 @@
             "added_at": "2025-06-22T04:31:50.527383+00:00",
             "checksum": "86630a5fdcfea906c085acf1991eee0f"
         },
+        "Spammy uparrow": {
+            "size": 99769,
+            "uncompressed_size": 99449,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Spammy%20uparrow.zip",
+            "added_at": "2026-06-23T12:53:56.518932+00:00",
+            "checksum": "2aefaa8a6da25a795e6f7ab2ee359dff"
+        },
         "spekkzyyy's clicks": {
             "size": 11095,
             "uncompressed_size": 10869,
@@ -5810,6 +5894,14 @@
             "checksum": "77c54b20f7ea52ff4b9e6418a215f63e",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "ssl E key": {
+            "size": 169352,
+            "uncompressed_size": 166434,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/ssl%20E%20key.zip",
+            "added_at": "2026-06-16T19:39:24.899650+00:00",
+            "checksum": "982c5f7d3befbc72f0654d2f0ceb9303"
+        },
         "SSLs Best clicks": {
             "size": 102514,
             "uncompressed_size": 100672,
@@ -5825,6 +5917,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/SSLs%20end%20key.zip",
             "added_at": "2026-05-26T07:00:23.743753+00:00",
             "checksum": "b971162929bd72081e151462dd774398"
+        },
+        "ssls enter key": {
+            "size": 77468,
+            "uncompressed_size": 76114,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/ssls%20enter%20key.zip",
+            "added_at": "2026-06-16T09:07:38.134752+00:00",
+            "checksum": "8ac9d0b27f3a7562c6b115c3917d38fe"
         },
         "st1ngers spammy mouse": {
             "size": 411214,
@@ -6115,6 +6215,86 @@
             "checksum": "bad8c15208fa41905a5c543b1d81363e",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Unami ByTech Mouse": {
+            "size": 500176,
+            "uncompressed_size": 491414,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20ByTech%20Mouse.zip",
+            "added_at": "2026-06-21T00:38:26.050017+00:00",
+            "checksum": "ef6def210885a7c32c47fb16989bbe5b"
+        },
+        "Unami Enter Key": {
+            "size": 733246,
+            "uncompressed_size": 720318,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Enter%20Key.zip",
+            "added_at": "2026-06-16T09:07:25.495150+00:00",
+            "checksum": "e971ee482533743dd611e154607a5956"
+        },
+        "Unami Enter v2": {
+            "size": 725791,
+            "uncompressed_size": 712977,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Enter%20v2.zip",
+            "added_at": "2026-06-21T00:38:12.895640+00:00",
+            "checksum": "4b5021504ee5b69563ebbd72363637ed"
+        },
+        "Unami G502": {
+            "size": 615636,
+            "uncompressed_size": 604952,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20G502.zip",
+            "added_at": "2026-06-16T09:07:06.445098+00:00",
+            "checksum": "35a92e9269466e44220f2942065cf929"
+        },
+        "Unami G502 v2": {
+            "size": 751168,
+            "uncompressed_size": 737896,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20G502%20v2.zip",
+            "added_at": "2026-06-21T00:37:22.441377+00:00",
+            "checksum": "990605e8ddef6cb47352d50faed65196"
+        },
+        "Unami G502 v3": {
+            "size": 890195,
+            "uncompressed_size": 875001,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20G502%20v3.zip",
+            "added_at": "2026-06-21T00:37:43.753706+00:00",
+            "checksum": "6af85b35116da4fa8e882cfb66b9f91b"
+        },
+        "Unami Kapbom Mouse": {
+            "size": 739198,
+            "uncompressed_size": 726164,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Kapbom%20Mouse.zip",
+            "added_at": "2026-06-16T09:06:51.042006+00:00",
+            "checksum": "631c07110de25c70594d66e3f312270b"
+        },
+        "Unami P Key": {
+            "size": 737002,
+            "uncompressed_size": 723968,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20P%20Key.zip",
+            "added_at": "2026-06-16T09:06:20.005243+00:00",
+            "checksum": "ca900caf31c0c834e6531e5246bcc52a"
+        },
+        "Unami Philips Mouse": {
+            "size": 836318,
+            "uncompressed_size": 821474,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Philips%20Mouse.zip",
+            "added_at": "2026-06-21T00:37:03.915808+00:00",
+            "checksum": "fb6daf45eb1ab36b4bf4f6e5860186e4"
+        },
+        "Unami Random Key": {
+            "size": 856875,
+            "uncompressed_size": 841681,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Random%20Key.zip",
+            "added_at": "2026-06-21T00:38:47.450936+00:00",
+            "checksum": "5682f1f8a990aedb37b39a0f55594e1b"
+        },
         "unami sayo": {
             "size": 1028400,
             "uncompressed_size": 1023184,
@@ -6195,6 +6375,14 @@
             "checksum": "91889f67f4555b2c97bf5756364f935b",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "UpArrow v3": {
+            "size": 843774,
+            "uncompressed_size": 828784,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/UpArrow%20v3.zip",
+            "added_at": "2026-06-23T15:13:26.874090+00:00",
+            "checksum": "0b2bc141b3848dd6e076c1f123e249b3"
+        },
         "upArrowLaptop": {
             "size": 194266,
             "uncompressed_size": 191398,
@@ -6259,6 +6447,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/uyla%20up%20arrow.zip",
             "added_at": "2026-05-19T19:24:24.823820+00:00",
             "checksum": "62b60ec16d7e1a06667e582250c29238"
+        },
+        "uyla VXE R1 Pro Max": {
+            "size": 380575,
+            "uncompressed_size": 373553,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/uyla%20VXE%20R1%20Pro%20Max.zip",
+            "added_at": "2026-06-18T01:05:08.081901+00:00",
+            "checksum": "14210cf19fdabcf7791a69fa64485bc1"
         },
         "uyla w": {
             "size": 592137,
@@ -6815,6 +7011,15 @@
             "checksum": "0019837022e0f8f8cf26d50ed5b1d860",
             "added_at": "2025-05-18T10:00:41+00:00"
         },
+        "Zornwee star key": {
+            "size": 369807,
+            "uncompressed_size": 363067,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zornwee%20star%20key.zip",
+            "added_at": "2026-06-23T17:00:32.723676+00:00",
+            "readme": "zornwee\n",
+            "checksum": "862a89d6c1aeabd8963102242bc35dc7"
+        },
         "ztatsuciy clicks": {
             "size": 1330376,
             "uncompressed_size": 1318174,
@@ -6848,6 +7053,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 367,
+    "version": 392,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
