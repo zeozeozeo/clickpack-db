@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-23T12:57:37.907767+00:00",
-    "updated_at_unix": 1782219457,
+    "updated_at_iso": "2026-06-23T13:25:24.518328+00:00",
+    "updated_at_unix": 1782221124,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -515,6 +515,15 @@
             "added_at": "2026-04-04T06:34:56.818437+00:00",
             "readme": "ANDARIAN'S SAYO DESKMAT V2026.4.4.1\n\npros:\n-realistic\n-good at spam\n-has noise\ncons:\n-its another sayo clickpack\n-im forced to use denoiser so it sounds a bit weird\n-worthy for best: its a sayo lmao i can post it if u want\nCHANGELOG:\n-v2026.4.4.1: added readme, including specs and changelog\n\nUSING NOISE IS RECOMMENDED!\n\nKEYBOARD: SayoDevice O3C\nSWITCHES: GATERON MAGNETIC JADE PRO\n-Switch Type: Linear Hall Effect (Magnetic)\n-Initial Force: 36\u00b15gf (some sources list 36\u00b17gf)\n-Bottom-out Force: 50\u00b110gf\n-Total Travel: 3.5\u00b10.1mm\n-Actuation Range: Customizable (0.1mm - 3.3mm)\n-Lifespan: Over 100 million keystrokes\n-Lubrication: Factory Pre-lubed\n-Lighting: Upgraded 3.0 LED diffuser (brighter/softer diffusion)\n-Material: POM Stem, PA66 Bottom, PC Top ",
             "checksum": "2ce675310a6d05d2adc62260ffb529ad"
+        },
+        "andarianwx sayo deskmat v3": {
+            "size": 1060854,
+            "uncompressed_size": 1040514,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/andarianwx%20sayo%20deskmat%20v3.zip",
+            "added_at": "2026-06-23T13:25:24.517479+00:00",
+            "readme": "USING NOISE IS RECOMMENDED!\r\n\r\nKEYBOARD: SayoDevice O3C\r\nSWITCHES: GATERON MAGNETIC JADE PRO\r\n-Switch Type: Linear Hall Effect (Magnetic)\r\n-Initial Force: 36\u00b15gf (some sources list 36\u00b17gf)\r\n-Bottom-out Force: 50\u00b110gf\r\n-Total Travel: 3.5\u00b10.1mm\r\n-Actuation Range: Customizable (0.1mm - 3.3mm)\r\n-Lifespan: Over 100 million keystrokes\r\n-Lubrication: Factory Pre-lubed\r\n-Lighting: Upgraded 3.0 LED diffuser (brighter/softer diffusion)\r\n-Material: POM Stem, PA66 Bottom, PC Top",
+            "checksum": "72b2380878aadc75503ac7af1f160975"
         },
         "andarianwx updated sayo clicks v6": {
             "size": 562967,
@@ -7001,6 +7010,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 386,
+    "version": 387,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
