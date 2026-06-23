@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-23T15:13:50.292191+00:00",
-    "updated_at_unix": 1782227630,
+    "updated_at_iso": "2026-06-23T17:00:32.724456+00:00",
+    "updated_at_unix": 1782234032,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7011,6 +7011,15 @@
             "checksum": "0019837022e0f8f8cf26d50ed5b1d860",
             "added_at": "2025-05-18T10:00:41+00:00"
         },
+        "Zornwee star key": {
+            "size": 369807,
+            "uncompressed_size": 363067,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zornwee%20star%20key.zip",
+            "added_at": "2026-06-23T17:00:32.723676+00:00",
+            "readme": "zornwee\n",
+            "checksum": "862a89d6c1aeabd8963102242bc35dc7"
+        },
         "ztatsuciy clicks": {
             "size": 1330376,
             "uncompressed_size": 1318174,
@@ -7044,6 +7053,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 391,
+    "version": 392,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
