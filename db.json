@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-23T15:13:26.874881+00:00",
-    "updated_at_unix": 1782227606,
+    "updated_at_iso": "2026-06-23T15:13:50.292191+00:00",
+    "updated_at_unix": 1782227630,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4771,6 +4771,14 @@
             "checksum": "59d8a15ef582543166a33eaf6974f5a2",
             "added_at": "2025-01-05T15:06:33+00:00"
         },
+        "PageDown v3": {
+            "size": 832191,
+            "uncompressed_size": 817417,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/PageDown%20v3.zip",
+            "added_at": "2026-06-23T15:13:50.291255+00:00",
+            "checksum": "0a14402fb4118031d10a5692c03abb78"
+        },
         "Paqoe": {
             "size": 364490,
             "uncompressed_size": 359810,
@@ -7036,6 +7044,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 390,
+    "version": 391,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
