@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-23T13:26:08.755579+00:00",
-    "updated_at_unix": 1782221168,
+    "updated_at_iso": "2026-06-23T15:13:26.874881+00:00",
+    "updated_at_unix": 1782227606,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6367,6 +6367,14 @@
             "checksum": "91889f67f4555b2c97bf5756364f935b",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "UpArrow v3": {
+            "size": 843774,
+            "uncompressed_size": 828784,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/UpArrow%20v3.zip",
+            "added_at": "2026-06-23T15:13:26.874090+00:00",
+            "checksum": "0b2bc141b3848dd6e076c1f123e249b3"
+        },
         "upArrowLaptop": {
             "size": 194266,
             "uncompressed_size": 191398,
@@ -7028,6 +7036,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 389,
+    "version": 390,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
