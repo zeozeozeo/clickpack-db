@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-23T17:00:32.724456+00:00",
-    "updated_at_unix": 1782234032,
+    "updated_at_iso": "2026-06-24T02:56:14.782889+00:00",
+    "updated_at_unix": 1782269774,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6319,6 +6319,14 @@
             "added_at": "2026-01-25T23:46:56.337037+00:00",
             "checksum": "17a339adf46957646c23d25d1b9f7b7e"
         },
+        "Unami TDagger uparrow v2": {
+            "size": 813342,
+            "uncompressed_size": 798900,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20TDagger%20uparrow%20v2.zip",
+            "added_at": "2026-06-24T02:56:14.782068+00:00",
+            "checksum": "ab5d275ce5419b745a9421612daffaf1"
+        },
         "UnbonesG502": {
             "size": 872711,
             "uncompressed_size": 866155,
@@ -7053,6 +7061,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 392,
+    "version": 393,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
