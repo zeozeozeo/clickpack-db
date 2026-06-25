@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-24T03:01:43.463201+00:00",
-    "updated_at_unix": 1782270103,
+    "updated_at_iso": "2026-06-25T14:57:24.223182+00:00",
+    "updated_at_unix": 1782399444,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4305,6 +4305,15 @@
             "checksum": "7249fb287e23bfe159364f9e4ad6232f",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "myzuh s-gear mouse": {
+            "size": 448209,
+            "uncompressed_size": 440439,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/myzuh%20s-gear%20mouse.zip",
+            "added_at": "2026-06-25T14:57:24.222192+00:00",
+            "readme": "zcb clickpack\nby: myzuh\nv3\n",
+            "checksum": "3f674a5f2f4a34086334bc6fee82a5af"
+        },
         "myzuh sgear clickpack v2": {
             "size": 920292,
             "uncompressed_size": 899618,
@@ -7069,6 +7078,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 394,
+    "version": 395,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
