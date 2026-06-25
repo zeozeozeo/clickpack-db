@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-25T14:57:24.223182+00:00",
-    "updated_at_unix": 1782399444,
+    "updated_at_iso": "2026-06-25T17:11:07.854225+00:00",
+    "updated_at_unix": 1782407467,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -599,6 +599,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Arrow%20up%20clicks%20%28bad%29.zip",
             "checksum": "5f643ea736b70dcefc2d7a9c8bfe103c",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "Arshadows Caps Key": {
+            "size": 81634,
+            "uncompressed_size": 80184,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Arshadows%20Caps%20Key.zip",
+            "added_at": "2026-06-25T17:11:07.852878+00:00",
+            "checksum": "3cd9c8467e911581d62331c667364596"
         },
         "asayo": {
             "size": 315901,
@@ -7078,6 +7086,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 395,
+    "version": 396,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
