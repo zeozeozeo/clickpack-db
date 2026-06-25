@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-25T17:11:07.854225+00:00",
-    "updated_at_unix": 1782407467,
+    "updated_at_iso": "2026-06-25T17:13:06.635721+00:00",
+    "updated_at_unix": 1782407586,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4134,6 +4134,14 @@
             "checksum": "6ded9c9107eb431e5e95567245473bdd",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Mouse Oklick": {
+            "size": 278381,
+            "uncompressed_size": 274031,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Mouse%20Oklick.zip",
+            "added_at": "2026-06-25T17:13:06.634793+00:00",
+            "checksum": "0acd3b47bc0615089822f41f38988c49"
+        },
         "Mouse right click": {
             "size": 37809,
             "uncompressed_size": 37161,
@@ -7086,6 +7094,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 396,
+    "version": 397,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
