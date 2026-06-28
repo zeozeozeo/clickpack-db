@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-28T10:11:01.502731+00:00",
-    "updated_at_unix": 1782641461,
+    "updated_at_iso": "2026-06-28T14:07:21.082522+00:00",
+    "updated_at_unix": 1782655641,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -615,6 +615,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Arshadows%20Ctrl%20Key.zip",
             "added_at": "2026-06-27T14:22:04.698289+00:00",
             "checksum": "0523459946e0bbeb87a23aab080286e1"
+        },
+        "Arshadows Enter Key": {
+            "size": 139489,
+            "uncompressed_size": 137007,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Arshadows%20Enter%20Key.zip",
+            "added_at": "2026-06-28T14:07:21.081562+00:00",
+            "checksum": "982a8c945bb9f8e0257e1379ebbff307"
         },
         "asayo": {
             "size": 315901,
@@ -7126,6 +7134,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 401,
+    "version": 402,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
