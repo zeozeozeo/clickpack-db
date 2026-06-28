@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-28T14:07:21.082522+00:00",
-    "updated_at_unix": 1782655641,
+    "updated_at_iso": "2026-06-28T15:34:33.790293+00:00",
+    "updated_at_unix": 1782660873,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -623,6 +623,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Arshadows%20Enter%20Key.zip",
             "added_at": "2026-06-28T14:07:21.081562+00:00",
             "checksum": "982a8c945bb9f8e0257e1379ebbff307"
+        },
+        "Arshadows Sayo Jade": {
+            "size": 105146,
+            "uncompressed_size": 103288,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Arshadows%20Sayo%20Jade.zip",
+            "added_at": "2026-06-28T15:34:33.788713+00:00",
+            "checksum": "9eaec56da06324384c70e78d27fe9ea7"
         },
         "asayo": {
             "size": 315901,
@@ -7134,6 +7142,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 402,
+    "version": 403,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
