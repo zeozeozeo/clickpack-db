@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-27T14:22:04.699241+00:00",
-    "updated_at_unix": 1782570124,
+    "updated_at_iso": "2026-06-28T08:55:56.169176+00:00",
+    "updated_at_unix": 1782636956,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6691,6 +6691,14 @@
             "checksum": "42b82088ad32b3f0f1606230b978929c",
             "added_at": "2025-05-17T16:23:22+00:00"
         },
+        "Wangsters Wooting Up Arrow": {
+            "size": 93821,
+            "uncompressed_size": 92167,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Wangsters%20Wooting%20Up%20Arrow.zip",
+            "added_at": "2026-06-28T08:55:56.168484+00:00",
+            "checksum": "7db6c86fce02a17d772c622d44bffa76"
+        },
         "watchpiggy clicks": {
             "size": 128396,
             "uncompressed_size": 126126,
@@ -7110,6 +7118,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 399,
+    "version": 400,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
