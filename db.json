@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-28T08:55:56.169176+00:00",
-    "updated_at_unix": 1782636956,
+    "updated_at_iso": "2026-06-28T10:11:01.502731+00:00",
+    "updated_at_unix": 1782641461,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3208,6 +3208,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/k70.zip",
             "added_at": "2025-10-23T08:35:09.124477+00:00",
             "checksum": "3fa6e77e592d13fdf1fc26fec783759a"
+        },
+        "K70 Minimalist": {
+            "size": 132867,
+            "uncompressed_size": 131573,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/K70%20Minimalist.zip",
+            "added_at": "2026-06-28T10:11:01.500866+00:00",
+            "checksum": "81c1612b79ad1e34ba6ef67992516a34"
         },
         "K70 RGB MK.2 LP": {
             "size": 192463,
@@ -7118,6 +7126,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 400,
+    "version": 401,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
