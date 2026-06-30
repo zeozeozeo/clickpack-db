@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-29T03:36:42.497253+00:00",
-    "updated_at_unix": 1782704202,
+    "updated_at_iso": "2026-06-30T02:11:01.666295+00:00",
+    "updated_at_unix": 1782785461,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6392,6 +6392,14 @@
             "added_at": "2026-01-25T23:46:56.337037+00:00",
             "checksum": "17a339adf46957646c23d25d1b9f7b7e"
         },
+        "Unami Spacebar v2": {
+            "size": 857417,
+            "uncompressed_size": 842333,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Spacebar%20v2.zip",
+            "added_at": "2026-06-30T02:11:01.665459+00:00",
+            "checksum": "8b04bef7aa464b64c283da6e1d18c585"
+        },
         "Unami TDagger Random Key": {
             "size": 837694,
             "uncompressed_size": 822820,
@@ -7158,6 +7166,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 405,
+    "version": 406,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
