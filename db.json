@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-30T02:11:01.666295+00:00",
-    "updated_at_unix": 1782785461,
+    "updated_at_iso": "2026-06-30T09:51:03.192438+00:00",
+    "updated_at_unix": 1782813063,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2108,6 +2108,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Dell%20Mouse.zip",
             "added_at": "2026-01-30T21:27:14.888766+00:00",
             "checksum": "4f7366e25fbb32795ea435e0784a667f"
+        },
+        "DemidUpArrow": {
+            "size": 105787,
+            "uncompressed_size": 103675,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidUpArrow.zip",
+            "added_at": "2026-06-30T09:51:03.191458+00:00",
+            "checksum": "80b7968a8769329c9ff8d7dc1f549ae3"
         },
         "Devin Basilisk v3": {
             "size": 15064,
@@ -7166,6 +7174,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 406,
+    "version": 407,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
