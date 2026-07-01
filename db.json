@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-01T08:31:25.812299+00:00",
-    "updated_at_unix": 1782894685,
+    "updated_at_iso": "2026-07-01T08:32:43.977110+00:00",
+    "updated_at_unix": 1782894763,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3360,6 +3360,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20up%20arro.zip",
             "added_at": "2026-07-01T03:50:15.128390+00:00",
             "checksum": "cd626e0cdc2029ddc78314f4ebcead7f"
+        },
+        "kingstons uparrow fi": {
+            "size": 351337,
+            "uncompressed_size": 344973,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20uparrow%20fi.zip",
+            "added_at": "2026-07-01T08:32:43.976075+00:00",
+            "checksum": "d30ade4aca869de0c3ae8664548951fe"
         },
         "kirkamobile": {
             "size": 10977,
@@ -7222,6 +7230,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 413,
+    "version": 414,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
