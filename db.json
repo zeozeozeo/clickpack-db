@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-01T12:50:37.351518+00:00",
-    "updated_at_unix": 1782910237,
+    "updated_at_iso": "2026-07-01T15:02:08.810362+00:00",
+    "updated_at_unix": 1782918128,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2116,6 +2116,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidArrowDown.zip",
             "added_at": "2026-07-01T08:53:24.675266+00:00",
             "checksum": "59905f4bdb4d51379f2f4ae975719da6"
+        },
+        "DemidBloodyW65": {
+            "size": 110401,
+            "uncompressed_size": 108175,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidBloodyW65.zip",
+            "added_at": "2026-07-01T15:02:08.809229+00:00",
+            "checksum": "4f84d9301e2e466795b099bad36686eb"
         },
         "DemidOldKeyboard": {
             "size": 117774,
@@ -7262,6 +7270,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 418,
+    "version": 419,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
