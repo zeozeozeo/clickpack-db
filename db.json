@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-01T08:53:24.676434+00:00",
-    "updated_at_unix": 1782896004,
+    "updated_at_iso": "2026-07-01T08:57:17.793501+00:00",
+    "updated_at_unix": 1782896237,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3344,6 +3344,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Keychron%20K4%20Up%20Arrow.zip",
             "added_at": "2025-06-27T15:06:48.602856+00:00",
             "checksum": "30d15170533ab15d45609c6b74d80292"
+        },
+        "kingstons . button 2": {
+            "size": 118851,
+            "uncompressed_size": 116697,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20.%20button%202.zip",
+            "added_at": "2026-07-01T08:57:17.792662+00:00",
+            "checksum": "7e090bb0b477b5223eab7a6222ded14a"
         },
         "kingstons num enter ke": {
             "size": 12019,
@@ -7238,6 +7246,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 415,
+    "version": 416,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
