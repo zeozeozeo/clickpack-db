@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-02T16:18:06.819612+00:00",
-    "updated_at_unix": 1783009086,
+    "updated_at_iso": "2026-07-02T16:20:13.000807+00:00",
+    "updated_at_unix": 1783009213,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6713,6 +6713,14 @@
             "added_at": "2026-06-27T01:48:47.233420+00:00",
             "checksum": "19ceaf761bce9022e996c42db57fa3bb"
         },
+        "uyla minecraft": {
+            "size": 1142327,
+            "uncompressed_size": 1115903,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/uyla%20minecraft.zip",
+            "added_at": "2026-07-02T16:20:13.000173+00:00",
+            "checksum": "a215aa8a7bfe30005e22a4d0babea63e"
+        },
         "uyla red": {
             "size": 540863,
             "uncompressed_size": 532003,
@@ -7358,6 +7366,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 430,
+    "version": 431,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
