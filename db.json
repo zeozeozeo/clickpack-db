@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-02T05:03:38.306505+00:00",
-    "updated_at_unix": 1782968618,
+    "updated_at_iso": "2026-07-02T05:03:52.141331+00:00",
+    "updated_at_unix": 1782968632,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -25,6 +25,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/0Pacitys_Mobile_Taps.zip",
             "checksum": "5a930c379f27d750e5e105811f05ae39",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "a1dans clicks": {
+            "size": 96468,
+            "uncompressed_size": 95222,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/a1dans%20clicks.zip",
+            "added_at": "2026-07-02T05:03:52.140469+00:00",
+            "checksum": "3ecba264aa3cbeac5b2a79c5bb812d84"
         },
         "a75": {
             "size": 213472,
@@ -7294,6 +7302,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 422,
+    "version": 423,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
