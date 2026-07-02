@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-02T13:52:34.049142+00:00",
-    "updated_at_unix": 1783000354,
+    "updated_at_iso": "2026-07-02T15:32:33.648604+00:00",
+    "updated_at_unix": 1783006353,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2116,6 +2116,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Dell%20Mouse.zip",
             "added_at": "2026-01-30T21:27:14.888766+00:00",
             "checksum": "4f7366e25fbb32795ea435e0784a667f"
+        },
+        "Demid Minecraft Full": {
+            "size": 1092490,
+            "uncompressed_size": 1064478,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Demid%20Minecraft%20Full.zip",
+            "added_at": "2026-07-02T15:32:33.647011+00:00",
+            "checksum": "37bd098a0d11491d5f4d7292678b727b"
         },
         "DemidAjazzApex": {
             "size": 112174,
@@ -7342,6 +7350,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 428,
+    "version": 429,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
