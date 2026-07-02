@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-02T11:41:34.393600+00:00",
-    "updated_at_unix": 1782992494,
+    "updated_at_iso": "2026-07-02T13:52:34.049142+00:00",
+    "updated_at_unix": 1783000354,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2124,6 +2124,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidAjazzApex.zip",
             "added_at": "2026-07-02T09:03:33.050239+00:00",
             "checksum": "db321ac7fb549482d2391cb47e9f1b98"
+        },
+        "DemidAltKey": {
+            "size": 114299,
+            "uncompressed_size": 112073,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidAltKey.zip",
+            "added_at": "2026-07-02T13:52:34.047974+00:00",
+            "checksum": "24d6aeb78676e1f35b136bb9c980e014"
         },
         "DemidArrowDown": {
             "size": 105476,
@@ -7334,6 +7342,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 427,
+    "version": 428,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
