@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-02T09:06:40.036638+00:00",
-    "updated_at_unix": 1782983200,
+    "updated_at_iso": "2026-07-02T09:52:57.576515+00:00",
+    "updated_at_unix": 1782985977,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2172,6 +2172,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidOldKeyboardQ.zip",
             "added_at": "2026-07-01T09:59:50.454344+00:00",
             "checksum": "ace835aa36c8818ee24945cb7f740bf4"
+        },
+        "DemidOldKeyboardShift": {
+            "size": 115130,
+            "uncompressed_size": 112904,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidOldKeyboardShift.zip",
+            "added_at": "2026-07-02T09:52:57.575402+00:00",
+            "checksum": "3f947ecb80bf47b7793bea2a78ed9ab7"
         },
         "DemidRandomKey": {
             "size": 107089,
@@ -7318,6 +7326,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 425,
+    "version": 426,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
