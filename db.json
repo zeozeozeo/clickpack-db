@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-02T15:32:33.648604+00:00",
-    "updated_at_unix": 1783006353,
+    "updated_at_iso": "2026-07-02T16:18:06.819612+00:00",
+    "updated_at_unix": 1783009086,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2341,6 +2341,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/dumass%20pack.zip",
             "checksum": "4d9c30531ed7872af549de4c61b27809",
             "added_at": "2024-03-17T11:40:03+00:00"
+        },
+        "echouparrow": {
+            "size": 104078,
+            "uncompressed_size": 102076,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/echouparrow.zip",
+            "added_at": "2026-07-02T16:18:06.818797+00:00",
+            "checksum": "ce75cd448b0399a73c46b8f5fa1ba795"
         },
         "ekaterinamisulina": {
             "size": 21893,
@@ -7350,6 +7358,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 429,
+    "version": 430,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
