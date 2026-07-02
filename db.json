@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-02T19:23:33.487210+00:00",
-    "updated_at_unix": 1783020213,
+    "updated_at_iso": "2026-07-02T23:40:25.060069+00:00",
+    "updated_at_unix": 1783035625,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3480,6 +3480,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20reworked%20shift%201.zip",
             "added_at": "2026-07-01T12:50:37.350572+00:00",
             "checksum": "c25a11cf9f6ffba30ac85bb007a9d44b"
+        },
+        "kingstons sayodevice": {
+            "size": 328150,
+            "uncompressed_size": 322440,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20sayodevice.zip",
+            "added_at": "2026-07-02T23:40:25.059253+00:00",
+            "checksum": "d7ecc13c0d3137e36cf0c5c80218a020"
         },
         "kingstons shif": {
             "size": 12067,
@@ -7382,6 +7390,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 433,
+    "version": 434,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
