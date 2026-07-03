@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-03T08:58:32.951928+00:00",
-    "updated_at_unix": 1783069112,
+    "updated_at_iso": "2026-07-03T18:21:49.912230+00:00",
+    "updated_at_unix": 1783102909,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3617,6 +3617,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Kryvex.zip",
             "added_at": "2026-06-29T01:52:19.151334+00:00",
             "checksum": "76f0701f162f375ef8d16b470f2a98bc"
+        },
+        "KRYVEX 101": {
+            "size": 1429655,
+            "uncompressed_size": 1404527,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/KRYVEX%20101.zip",
+            "added_at": "2026-07-03T18:21:49.911341+00:00",
+            "checksum": "9011badebac8d633568c33f870cef715"
         },
         "Kryvex Random Key": {
             "size": 297967,
@@ -7438,6 +7446,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 440,
+    "version": 441,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
