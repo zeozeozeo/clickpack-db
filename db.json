@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-03T03:25:24.602202+00:00",
-    "updated_at_unix": 1783049124,
+    "updated_at_iso": "2026-07-03T08:58:32.951928+00:00",
+    "updated_at_unix": 1783069112,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2220,6 +2220,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidUpArrow.zip",
             "added_at": "2026-06-30T09:51:03.191458+00:00",
             "checksum": "80b7968a8769329c9ff8d7dc1f549ae3"
+        },
+        "DemidUpArrowV2": {
+            "size": 104966,
+            "uncompressed_size": 102854,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidUpArrowV2.zip",
+            "added_at": "2026-07-03T08:58:32.951187+00:00",
+            "checksum": "112fca5a97b24d5b928ced9c960b8182"
         },
         "DemidWootingCtrl": {
             "size": 102061,
@@ -7430,6 +7438,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 439,
+    "version": 440,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
