@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-03T18:21:49.912230+00:00",
-    "updated_at_unix": 1783102909,
+    "updated_at_iso": "2026-07-03T20:25:19.481898+00:00",
+    "updated_at_unix": 1783110319,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7268,6 +7268,15 @@
             "checksum": "b7f206027499016b071d5b5cd5854011",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Zeptos O3C With Deskmat": {
+            "size": 359806,
+            "uncompressed_size": 353236,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20O3C%20With%20Deskmat.zip",
+            "added_at": "2026-07-03T20:25:19.480705+00:00",
+            "readme": "made for the goat zcb\nfun\nrealistic i think\n2nd clickpack ever\n",
+            "checksum": "761c1ae4c20bba3ba8e8dc327c073ed4"
+        },
         "zero clicks mouse": {
             "size": 120783,
             "uncompressed_size": 118641,
@@ -7446,6 +7455,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 441,
+    "version": 442,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
