@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-03T20:25:28.520896+00:00",
-    "updated_at_unix": 1783110328,
+    "updated_at_iso": "2026-07-03T20:25:33.285633+00:00",
+    "updated_at_unix": 1783110333,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5573,6 +5573,14 @@
             "checksum": "84aebc636964ef00e522be4914c5ccb9",
             "added_at": "2024-03-17T12:19:23+00:00"
         },
+        "Ricos Royal Kludge R65": {
+            "size": 128830,
+            "uncompressed_size": 126556,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Ricos%20Royal%20Kludge%20R65.zip",
+            "added_at": "2026-07-03T20:25:33.284649+00:00",
+            "checksum": "4a04f7a746c707a7702e1608f3530a54"
+        },
         "Rival 650 Wireless": {
             "size": 698342,
             "uncompressed_size": 694410,
@@ -7463,6 +7471,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 443,
+    "version": 444,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
