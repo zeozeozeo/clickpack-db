@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-03T20:25:33.285633+00:00",
-    "updated_at_unix": 1783110333,
+    "updated_at_iso": "2026-07-04T07:26:59.795798+00:00",
+    "updated_at_unix": 1783150019,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7276,6 +7276,14 @@
             "checksum": "b7f206027499016b071d5b5cd5854011",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "Zeptos Huntsman V3 ver 2": {
+            "size": 705548,
+            "uncompressed_size": 690702,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20Huntsman%20V3%20ver%202.zip",
+            "added_at": "2026-07-04T07:26:59.795055+00:00",
+            "checksum": "f4419410fc49056c1b0f8c8d2afaf62b"
+        },
         "Zeptos O3C With Deskmat": {
             "size": 359806,
             "uncompressed_size": 353236,
@@ -7471,6 +7479,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 444,
+    "version": 445,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
