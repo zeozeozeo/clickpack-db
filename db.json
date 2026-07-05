@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-05T16:59:45.554963+00:00",
-    "updated_at_unix": 1783270785,
+    "updated_at_iso": "2026-07-05T18:45:31.131499+00:00",
+    "updated_at_unix": 1783277131,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7343,6 +7343,15 @@
             "added_at": "2026-07-05T16:59:45.554203+00:00",
             "checksum": "47f950492e7aea40cd22178b0f6829d7"
         },
+        "Zeptos Page down v2": {
+            "size": 687045,
+            "uncompressed_size": 673373,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20Page%20down%20v2.zip",
+            "added_at": "2026-07-05T18:45:31.130706+00:00",
+            "readme": "peam\nreleased as a standalone and as a p2 for the pg down one\n",
+            "checksum": "7e9cd7a921dd257ff11c765e5590bf69"
+        },
         "zero clicks mouse": {
             "size": 120783,
             "uncompressed_size": 118641,
@@ -7521,6 +7530,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 450,
+    "version": 451,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
