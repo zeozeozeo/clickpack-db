@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-04T19:22:49.931047+00:00",
-    "updated_at_unix": 1783192969,
+    "updated_at_iso": "2026-07-05T08:52:37.833393+00:00",
+    "updated_at_unix": 1783241557,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2204,6 +2204,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidRandomKey.zip",
             "added_at": "2026-06-30T15:01:40.347907+00:00",
             "checksum": "6dc0d01ecb5fd102056999c992b0c097"
+        },
+        "demids sayo": {
+            "size": 101972,
+            "uncompressed_size": 99856,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/demids%20sayo.zip",
+            "added_at": "2026-07-05T08:52:37.832664+00:00",
+            "checksum": "309fc392c4bfcf10ed473ac5b56de22e"
         },
         "DemidShift": {
             "size": 100837,
@@ -7497,6 +7505,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 447,
+    "version": 448,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
