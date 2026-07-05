@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-05T13:50:03.245708+00:00",
-    "updated_at_unix": 1783259403,
+    "updated_at_iso": "2026-07-05T16:59:45.554963+00:00",
+    "updated_at_unix": 1783270785,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7335,6 +7335,14 @@
             "readme": "made by zepto for zcb\ndont steal\ntuff\n",
             "checksum": "96c25b6c1b24d2a6412e29dba0e177ab"
         },
+        "Zeptos Page Down": {
+            "size": 337162,
+            "uncompressed_size": 331590,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20Page%20Down.zip",
+            "added_at": "2026-07-05T16:59:45.554203+00:00",
+            "checksum": "47f950492e7aea40cd22178b0f6829d7"
+        },
         "zero clicks mouse": {
             "size": 120783,
             "uncompressed_size": 118641,
@@ -7513,6 +7521,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 449,
+    "version": 450,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
