@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-06T00:12:01.933358+00:00",
-    "updated_at_unix": 1783296721,
+    "updated_at_iso": "2026-07-09T02:59:17.834293+00:00",
+    "updated_at_unix": 1783565957,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5052,6 +5052,14 @@
             "checksum": "c2bc97c148005a7f08d81a90256dc3b2",
             "added_at": "2025-03-24T18:34:00+00:00"
         },
+        "Omnis O3C": {
+            "size": 609997,
+            "uncompressed_size": 597205,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Omnis%20O3C.zip",
+            "added_at": "2026-07-09T02:59:17.833404+00:00",
+            "checksum": "b86d5e049c3c293e0f5d221165f9e0e2"
+        },
         "omors click v2": {
             "size": 281474,
             "uncompressed_size": 280338,
@@ -7538,6 +7546,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 452,
+    "version": 453,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
