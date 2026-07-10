@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-10T03:43:09.706782+00:00",
-    "updated_at_unix": 1783654989,
+    "updated_at_iso": "2026-07-10T03:43:35.667942+00:00",
+    "updated_at_unix": 1783655015,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5078,6 +5078,15 @@
             "readme": "made by omni\ndont steal\ncool beans\ninspired by zepto <3\n",
             "checksum": "7d2f3a18f6eb8a2f76cf9b75282525f5"
         },
+        "Omnis Wooting 80HE": {
+            "size": 1200970,
+            "uncompressed_size": 1186748,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Omnis%20Wooting%2080HE.zip",
+            "added_at": "2026-07-10T03:43:35.667023+00:00",
+            "readme": "made by omni\r\ndont steal for cookie\r\ninspired by Z E P T O <3\r\n",
+            "checksum": "bec34825d6f86fc947040e1013c19d88"
+        },
         "omors click v2": {
             "size": 281474,
             "uncompressed_size": 280338,
@@ -7564,6 +7573,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 455,
+    "version": 456,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
