@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-09T14:05:23.723088+00:00",
-    "updated_at_unix": 1783605923,
+    "updated_at_iso": "2026-07-10T03:43:09.706782+00:00",
+    "updated_at_unix": 1783654989,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5052,6 +5052,15 @@
             "checksum": "c2bc97c148005a7f08d81a90256dc3b2",
             "added_at": "2025-03-24T18:34:00+00:00"
         },
+        "Omnis 80HE Right Shift": {
+            "size": 743091,
+            "uncompressed_size": 729867,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Omnis%2080HE%20Right%20Shift.zip",
+            "added_at": "2026-07-10T03:43:09.705868+00:00",
+            "readme": "made by omni\nno steal for cookie\ninspired by Z E P T O <3\n",
+            "checksum": "ddc1a6e1c7ff63ba74b83a435566f31c"
+        },
         "Omnis O3C": {
             "size": 609997,
             "uncompressed_size": 597205,
@@ -7555,6 +7564,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 454,
+    "version": 455,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
