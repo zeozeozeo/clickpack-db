@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-11T09:32:55.591243+00:00",
-    "updated_at_unix": 1783762375,
+    "updated_at_iso": "2026-07-11T09:34:31.576426+00:00",
+    "updated_at_unix": 1783762471,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6459,6 +6459,14 @@
             "checksum": "25c390e0660db68293ec8c1e71965c63",
             "added_at": "2024-03-17T11:40:03+00:00"
         },
+        "TDagger idk": {
+            "size": 806990,
+            "uncompressed_size": 792546,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/TDagger%20idk.zip",
+            "added_at": "2026-07-11T09:34:31.575748+00:00",
+            "checksum": "785cc62b467d2aaf783e831c3de5d3cd"
+        },
         "Tea_Bagz_Click_Pack_v1.2": {
             "size": 199428,
             "uncompressed_size": 197188,
@@ -7598,6 +7606,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 459,
+    "version": 460,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
