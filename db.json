@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-10T20:34:33.273951+00:00",
-    "updated_at_unix": 1783715673,
+    "updated_at_iso": "2026-07-11T09:32:55.591243+00:00",
+    "updated_at_unix": 1783762375,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5094,6 +5094,15 @@
             "readme": "made by omni\ndont steal\ncool beans\ninspired by zepto <3\n",
             "checksum": "7d2f3a18f6eb8a2f76cf9b75282525f5"
         },
+        "Omnis Razer Mouse": {
+            "size": 3672565,
+            "uncompressed_size": 3659713,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Omnis%20Razer%20Mouse.zip",
+            "added_at": "2026-07-11T09:32:55.590064+00:00",
+            "readme": "made by omni\r\nmanually cut\r\ninspired by Z E P T O\r\ndont steal and earn a cookie",
+            "checksum": "a7bc65dd274fec9c765415d4297dfbb8"
+        },
         "Omnis Wooting 80HE": {
             "size": 1200970,
             "uncompressed_size": 1186748,
@@ -7589,6 +7598,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 458,
+    "version": 459,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
