@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-11T09:34:31.576426+00:00",
-    "updated_at_unix": 1783762471,
+    "updated_at_iso": "2026-07-11T09:34:57.393819+00:00",
+    "updated_at_unix": 1783762497,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -735,6 +735,14 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Aula%20Hero%2068HE%20UpArrow%20Loud.zip",
             "added_at": "2026-01-27T23:43:18.717487+00:00",
             "checksum": "5e7e0ccb6245358bdc51fcf44544b1ff"
+        },
+        "Aula Hero idk": {
+            "size": 739712,
+            "uncompressed_size": 726484,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Aula%20Hero%20idk.zip",
+            "added_at": "2026-07-11T09:34:57.392816+00:00",
+            "checksum": "2b110b0998fcbc60f2bc91e0ffa61d3c"
         },
         "Axi Epic Clickpack": {
             "size": 619270,
@@ -7606,6 +7614,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 460,
+    "version": 461,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
