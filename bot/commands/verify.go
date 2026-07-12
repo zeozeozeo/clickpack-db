@@ -474,6 +474,8 @@ func (q *approvalQueue) processBatch(batch []approvalJob) {
 			continue
 		}
 
+		cleanupCommittedClickpack(job.Name)
+
 		processed = append(processed, job)
 	}
 

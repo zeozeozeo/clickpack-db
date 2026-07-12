@@ -260,6 +260,21 @@ function renderTable(clickpacksToRender) {
       clickpackDiv.appendChild(tag);
     }
 
+    if (clickpack.sound_count !== undefined && clickpack.sound_count !== null) {
+      const soundTag = document.createElement("span");
+      soundTag.className = "unselectable tag";
+      soundTag.textContent = `🔉 ${clickpack.sound_count} sound${
+        clickpack.sound_count === 1 ? "" : "s"
+      }`;
+      soundTag.setAttribute(
+        "data-tippy-content",
+        `${clickpack.sound_count} sound file${
+          clickpack.sound_count === 1 ? "" : "s"
+        } in this clickpack`,
+      );
+      clickpackDiv.appendChild(soundTag);
+    }
+
     const size = document.createElement("span");
     size.className = "unselectable tag";
     size.innerText = `💾 ${clickpack.size.humanSize(true)}`;
@@ -359,6 +374,14 @@ function applyFiltersAndRender() {
       if (!b.addedAt) return -1;
       return b.addedAt.getTime() - a.addedAt.getTime();
     });
+  } else if (sortBy === "sounds-desc") {
+    filteredClickpacks.sort(
+      (a, b) => (b.sound_count || 0) - (a.sound_count || 0),
+    );
+  } else if (sortBy === "sounds-asc") {
+    filteredClickpacks.sort(
+      (a, b) => (a.sound_count || 0) - (b.sound_count || 0),
+    );
   } else if (sortBy === "date-asc") {
     filteredClickpacks.sort((a, b) => {
       if (!a.addedAt && !b.addedAt) return a.name.localeCompare(b.name);

@@ -36,6 +36,13 @@ var (
 		".mp3": {}, ".wav": {}, ".aiff": {}, ".flac": {}, ".aac": {},
 		".wma": {}, ".m4a": {}, ".amr": {}, ".3gp": {},
 	}
+	// soundExtensions are the file extensions that count as a "sound" in a
+	// clickpack. This includes .ogg because the indexer converts all audio to
+	// .ogg before packaging.
+	soundExtensions = map[string]struct{}{
+		".ogg": {}, ".mp3": {}, ".wav": {}, ".aiff": {}, ".flac": {},
+		".aac": {}, ".wma": {}, ".m4a": {}, ".amr": {}, ".3gp": {},
+	}
 	processorArchiveExtensions = []string{".zip", ".rar", ".7z"}
 	noiseFiles                 = []string{"noise", "whitenoise", "pcnoise", "background", "silence"}
 	reproZipTime               = time.Date(1980, 1, 1, 0, 0, 0, 0, time.UTC)
@@ -354,7 +361,7 @@ func indexClickpacks(root string) error {
 		}
 
 		dirPath := filepath.Join(srcDir, dirName)
-		initialSize, hasNoise, readme, err := getClickpackInfo(dirPath)
+		initialSize, hasNoise, readme, soundCount, err := getClickpackInfo(dirPath)
 		if err != nil {
 			return err
 		}
@@ -381,6 +388,7 @@ func indexClickpacks(root string) error {
 			members: []orderedMember{
 				{key: "size", value: numberValue(strconv.FormatInt(finalInfo.Size(), 10))},
 				{key: "uncompressed_size", value: numberValue(strconv.FormatInt(initialSize, 10))},
+				{key: "sound_count", value: numberValue(strconv.FormatInt(int64(soundCount), 10))},
 				{key: "has_noise", value: boolValue(hasNoise)},
 				{key: "url", value: stringValue(baseURL + url.PathEscape(dirName) + ".zip")},
 				{key: "added_at", value: stringValue(pythonISOFormat(now))},
@@ -406,10 +414,36 @@ func indexClickpacks(root string) error {
 	return db.write(dbPath)
 }
 
-func getClickpackInfo(path string) (int64, bool, string, error) {
+// cleanupCommittedClickpack removes the source archive file and its extracted
+// directory from the db input directory after a clickpack has been committed,
+// so they are not reprocessed on the next run.
+func cleanupCommittedClickpack(name string) {
+	root, err := repoRoot()
+	if err != nil {
+		slog.Warn("failed to resolve repo root for cleanup", "err", err)
+		return
+	}
+	dbDir := filepath.Join(root, indexDBInput)
+
+	// remove the extracted directory produced by extractArchives
+	if err := os.RemoveAll(filepath.Join(dbDir, name)); err != nil {
+		slog.Warn("failed to remove extracted clickpack directory", "name", name, "err", err)
+	}
+
+	// remove the original archive file for any known archive extension
+	for _, ext := range archiveExtensions {
+		archivePath := filepath.Join(dbDir, name+ext)
+		if err := os.Remove(archivePath); err != nil && !errors.Is(err, os.ErrNotExist) {
+			slog.Warn("failed to remove clickpack archive", "path", archivePath, "err", err)
+		}
+	}
+}
+
+func getClickpackInfo(path string) (int64, bool, string, int, error) {
 	var total int64
 	hasNoise := false
 	readme := ""
+	soundCount := 0
 	err := filepath.WalkDir(path, func(fp string, d os.DirEntry, walkErr error) error {
 		if walkErr != nil {
 			return walkErr
@@ -426,6 +460,9 @@ func getClickpackInfo(path string) (int64, bool, string, error) {
 		}
 		name := d.Name()
 		lower := strings.ToLower(name)
+		if _, ok := soundExtensions[strings.ToLower(filepath.Ext(name))]; ok {
+			soundCount++
+		}
 		for _, noise := range noiseFiles {
 			if strings.Contains(lower, noise) {
 				hasNoise = true
@@ -442,7 +479,7 @@ func getClickpackInfo(path string) (int64, bool, string, error) {
 		total += info.Size()
 		return nil
 	})
-	return total, hasNoise, readme, err
+	return total, hasNoise, readme, soundCount, err
 }
 
 func writeReproZip(dirPath, zipPath string) error {
