@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-11T19:12:24.681542+00:00",
-    "updated_at_unix": 1783797144,
+    "updated_at_iso": "2026-07-12T13:53:35.142580+00:00",
+    "updated_at_unix": 1783864415,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6018,6 +6018,14 @@
             "added_at": "2026-01-30T21:39:20.601882+00:00",
             "checksum": "7cc11de419240a63da6cb63862101c91"
         },
+        "Shine idk": {
+            "size": 569901,
+            "uncompressed_size": 559829,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Shine%20idk.zip",
+            "added_at": "2026-07-12T13:53:35.141826+00:00",
+            "checksum": "fc9076385a2e7773ec56905bff15f78d"
+        },
         "shitty membrane yenkee by tobyn": {
             "size": 393060,
             "uncompressed_size": 391248,
@@ -7622,6 +7630,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 462,
+    "version": 463,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
