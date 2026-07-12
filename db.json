@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-06-23T17:00:32.724456+00:00",
-    "updated_at_unix": 1782234032,
+    "updated_at_iso": "2026-07-12T13:54:16.913674+00:00",
+    "updated_at_unix": 1783864456,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -28,6 +28,14 @@
             "checksum": "5a930c379f27d750e5e105811f05ae39",
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 20
+        },
+        "a1dans clicks": {
+            "size": 96468,
+            "uncompressed_size": 95222,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/a1dans%20clicks.zip",
+            "added_at": "2026-07-02T05:03:52.140469+00:00",
+            "checksum": "3ecba264aa3cbeac5b2a79c5bb812d84"
         },
         "a75": {
             "size": 213472,
@@ -674,6 +682,38 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 30
         },
+        "Arshadows Caps Key": {
+            "size": 81634,
+            "uncompressed_size": 80184,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Arshadows%20Caps%20Key.zip",
+            "added_at": "2026-06-25T17:11:07.852878+00:00",
+            "checksum": "3cd9c8467e911581d62331c667364596"
+        },
+        "Arshadows Ctrl Key": {
+            "size": 58101,
+            "uncompressed_size": 57059,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Arshadows%20Ctrl%20Key.zip",
+            "added_at": "2026-06-27T14:22:04.698289+00:00",
+            "checksum": "0523459946e0bbeb87a23aab080286e1"
+        },
+        "Arshadows Enter Key": {
+            "size": 139489,
+            "uncompressed_size": 137007,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Arshadows%20Enter%20Key.zip",
+            "added_at": "2026-06-28T14:07:21.081562+00:00",
+            "checksum": "982a8c945bb9f8e0257e1379ebbff307"
+        },
+        "Arshadows Sayo Jade": {
+            "size": 105146,
+            "uncompressed_size": 103288,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Arshadows%20Sayo%20Jade.zip",
+            "added_at": "2026-06-28T15:34:33.788713+00:00",
+            "checksum": "9eaec56da06324384c70e78d27fe9ea7"
+        },
         "asayo": {
             "size": 315901,
             "uncompressed_size": 310083,
@@ -781,6 +821,14 @@
             "added_at": "2026-01-27T23:43:18.717487+00:00",
             "checksum": "5e7e0ccb6245358bdc51fcf44544b1ff",
             "sound_count": 141
+        },
+        "Aula Hero idk": {
+            "size": 739712,
+            "uncompressed_size": 726484,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Aula%20Hero%20idk.zip",
+            "added_at": "2026-07-11T09:34:57.392816+00:00",
+            "checksum": "2b110b0998fcbc60f2bc91e0ffa61d3c"
         },
         "Axi Epic Clickpack": {
             "size": 619270,
@@ -2335,6 +2383,134 @@
             "checksum": "4f7366e25fbb32795ea435e0784a667f",
             "sound_count": 148
         },
+        "Demid Minecraft Full": {
+            "size": 1092490,
+            "uncompressed_size": 1064478,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Demid%20Minecraft%20Full.zip",
+            "added_at": "2026-07-02T15:32:33.647011+00:00",
+            "checksum": "37bd098a0d11491d5f4d7292678b727b"
+        },
+        "DemidAjazzApex": {
+            "size": 112174,
+            "uncompressed_size": 109948,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidAjazzApex.zip",
+            "added_at": "2026-07-02T09:03:33.050239+00:00",
+            "checksum": "db321ac7fb549482d2391cb47e9f1b98"
+        },
+        "DemidAltKey": {
+            "size": 114299,
+            "uncompressed_size": 112073,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidAltKey.zip",
+            "added_at": "2026-07-02T13:52:34.047974+00:00",
+            "checksum": "24d6aeb78676e1f35b136bb9c980e014"
+        },
+        "DemidArrowDown": {
+            "size": 105476,
+            "uncompressed_size": 103360,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidArrowDown.zip",
+            "added_at": "2026-07-01T08:53:24.675266+00:00",
+            "checksum": "59905f4bdb4d51379f2f4ae975719da6"
+        },
+        "DemidBloodyV7": {
+            "size": 111308,
+            "uncompressed_size": 109082,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidBloodyV7.zip",
+            "added_at": "2026-07-02T09:06:40.035494+00:00",
+            "checksum": "0f995ae959c619d93c206a82de56a0fb"
+        },
+        "DemidBloodyW65": {
+            "size": 110401,
+            "uncompressed_size": 108175,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidBloodyW65.zip",
+            "added_at": "2026-07-01T15:02:08.809229+00:00",
+            "checksum": "4f84d9301e2e466795b099bad36686eb"
+        },
+        "DemidOldKeyboard": {
+            "size": 117774,
+            "uncompressed_size": 115548,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidOldKeyboard.zip",
+            "added_at": "2026-07-01T08:31:25.811213+00:00",
+            "checksum": "19bac04f325a6e388bcd71a23bbc78c3"
+        },
+        "DemidOldKeyboardDot": {
+            "size": 116233,
+            "uncompressed_size": 114007,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidOldKeyboardDot.zip",
+            "added_at": "2026-07-01T15:02:15.189814+00:00",
+            "checksum": "e94f1bcdcb1198ca674bec3d1e8c519d"
+        },
+        "DemidOldKeyboardQ": {
+            "size": 115872,
+            "uncompressed_size": 113646,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidOldKeyboardQ.zip",
+            "added_at": "2026-07-01T09:59:50.454344+00:00",
+            "checksum": "ace835aa36c8818ee24945cb7f740bf4"
+        },
+        "DemidOldKeyboardShift": {
+            "size": 115130,
+            "uncompressed_size": 112904,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidOldKeyboardShift.zip",
+            "added_at": "2026-07-02T09:52:57.575402+00:00",
+            "checksum": "3f947ecb80bf47b7793bea2a78ed9ab7"
+        },
+        "DemidRandomKey": {
+            "size": 107089,
+            "uncompressed_size": 104973,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidRandomKey.zip",
+            "added_at": "2026-06-30T15:01:40.347907+00:00",
+            "checksum": "6dc0d01ecb5fd102056999c992b0c097"
+        },
+        "demids sayo": {
+            "size": 101972,
+            "uncompressed_size": 99856,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/demids%20sayo.zip",
+            "added_at": "2026-07-05T08:52:37.832664+00:00",
+            "checksum": "309fc392c4bfcf10ed473ac5b56de22e"
+        },
+        "DemidShift": {
+            "size": 100837,
+            "uncompressed_size": 98835,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidShift.zip",
+            "added_at": "2026-06-30T11:12:26.136807+00:00",
+            "checksum": "48fe086bb705b1bcd486c999c6c68036"
+        },
+        "DemidUpArrow": {
+            "size": 105787,
+            "uncompressed_size": 103675,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidUpArrow.zip",
+            "added_at": "2026-06-30T09:51:03.191458+00:00",
+            "checksum": "80b7968a8769329c9ff8d7dc1f549ae3"
+        },
+        "DemidUpArrowV2": {
+            "size": 104966,
+            "uncompressed_size": 102854,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidUpArrowV2.zip",
+            "added_at": "2026-07-03T08:58:32.951187+00:00",
+            "checksum": "112fca5a97b24d5b928ced9c960b8182"
+        },
+        "DemidWootingCtrl": {
+            "size": 102061,
+            "uncompressed_size": 100057,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/DemidWootingCtrl.zip",
+            "added_at": "2026-07-02T11:41:34.392490+00:00",
+            "checksum": "79215e97e014d887d2eb4eb0ef7e451b"
+        },
         "Devin Basilisk v3": {
             "size": 15064,
             "uncompressed_size": 14782,
@@ -2461,6 +2637,22 @@
             "checksum": "4d9c30531ed7872af549de4c61b27809",
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 28
+        },
+        "echoshomemadesayo": {
+            "size": 95292,
+            "uncompressed_size": 93510,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/echoshomemadesayo.zip",
+            "added_at": "2026-07-02T16:39:30.852228+00:00",
+            "checksum": "44b7057807d6f2c3da3b9aea3687fc9e"
+        },
+        "echouparrow": {
+            "size": 104078,
+            "uncompressed_size": 102076,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/echouparrow.zip",
+            "added_at": "2026-07-02T16:18:06.818797+00:00",
+            "checksum": "ce75cd448b0399a73c46b8f5fa1ba795"
         },
         "ekaterinamisulina": {
             "size": 21893,
@@ -3590,6 +3782,14 @@
             "checksum": "3fa6e77e592d13fdf1fc26fec783759a",
             "sound_count": 32
         },
+        "K70 Minimalist": {
+            "size": 132867,
+            "uncompressed_size": 131573,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/K70%20Minimalist.zip",
+            "added_at": "2026-06-28T10:11:01.500866+00:00",
+            "checksum": "81c1612b79ad1e34ba6ef67992516a34"
+        },
         "K70 RGB MK.2 LP": {
             "size": 192463,
             "uncompressed_size": 189677,
@@ -3670,6 +3870,94 @@
             "added_at": "2025-06-27T15:06:48.602856+00:00",
             "checksum": "30d15170533ab15d45609c6b74d80292",
             "sound_count": 41
+        },
+        "kingston right key": {
+            "size": 147740,
+            "uncompressed_size": 145142,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingston%20right%20key.zip",
+            "added_at": "2026-07-05T13:50:03.244730+00:00",
+            "checksum": "afbedd84637a5393a4428d7959896196"
+        },
+        "kingstons . button 2": {
+            "size": 118851,
+            "uncompressed_size": 116697,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20.%20button%202.zip",
+            "added_at": "2026-07-01T08:57:17.792662+00:00",
+            "checksum": "7e090bb0b477b5223eab7a6222ded14a"
+        },
+        "kingstons alt key 1": {
+            "size": 331672,
+            "uncompressed_size": 325868,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20alt%20key%201.zip",
+            "added_at": "2026-07-02T19:23:33.486257+00:00",
+            "checksum": "7c3096c9dafd1526fe8be591a14650c9"
+        },
+        "kingstons ctrl keyy": {
+            "size": 119556,
+            "uncompressed_size": 118268,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20ctrl%20keyy.zip",
+            "added_at": "2026-07-02T05:03:38.304642+00:00",
+            "checksum": "beae259900c92e2d5ac24b126d172801"
+        },
+        "kingstons num enter ke": {
+            "size": 12019,
+            "uncompressed_size": 11793,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20num%20enter%20ke.zip",
+            "added_at": "2026-06-29T03:36:42.496526+00:00",
+            "checksum": "93a6b1e84cfc4b6cc2614f553159d274"
+        },
+        "kingstons reworked shift 1": {
+            "size": 615497,
+            "uncompressed_size": 603231,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20reworked%20shift%201.zip",
+            "added_at": "2026-07-01T12:50:37.350572+00:00",
+            "checksum": "c25a11cf9f6ffba30ac85bb007a9d44b"
+        },
+        "kingstons s key": {
+            "size": 21303,
+            "uncompressed_size": 20873,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20s%20key.zip",
+            "added_at": "2026-07-02T23:41:16.983387+00:00",
+            "checksum": "81d888ab8ad793a56b6c120513d2b600"
+        },
+        "kingstons sayodevice": {
+            "size": 328150,
+            "uncompressed_size": 322440,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20sayodevice.zip",
+            "added_at": "2026-07-02T23:40:25.059253+00:00",
+            "checksum": "d7ecc13c0d3137e36cf0c5c80218a020"
+        },
+        "kingstons shif": {
+            "size": 12067,
+            "uncompressed_size": 11841,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20shif.zip",
+            "added_at": "2026-07-01T03:50:26.918919+00:00",
+            "checksum": "27a35e29ecd0deeca7f8ac65a12d62ae"
+        },
+        "kingstons up arro": {
+            "size": 27669,
+            "uncompressed_size": 27099,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20up%20arro.zip",
+            "added_at": "2026-07-01T03:50:15.128390+00:00",
+            "checksum": "cd626e0cdc2029ddc78314f4ebcead7f"
+        },
+        "kingstons uparrow fi": {
+            "size": 351337,
+            "uncompressed_size": 344973,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20uparrow%20fi.zip",
+            "added_at": "2026-07-01T08:32:43.976075+00:00",
+            "checksum": "d30ade4aca869de0c3ae8664548951fe"
         },
         "kirkamobile": {
             "size": 10977,
@@ -3761,6 +4049,70 @@
             "checksum": "6379cfc77a6fe9b2d2e7d27b447167df",
             "added_at": "2024-11-30T19:48:12+00:00",
             "sound_count": 16
+        },
+        "Kryvex": {
+            "size": 359387,
+            "uncompressed_size": 357439,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Kryvex.zip",
+            "added_at": "2026-06-29T01:52:19.151334+00:00",
+            "checksum": "76f0701f162f375ef8d16b470f2a98bc"
+        },
+        "KRYVEX 101": {
+            "size": 1429655,
+            "uncompressed_size": 1404527,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/KRYVEX%20101.zip",
+            "added_at": "2026-07-03T18:21:49.911341+00:00",
+            "checksum": "9011badebac8d633568c33f870cef715"
+        },
+        "Kryvex FInal": {
+            "size": 536763,
+            "uncompressed_size": 530247,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Kryvex%20FInal.zip",
+            "added_at": "2026-07-11T19:12:24.680772+00:00",
+            "checksum": "773b4f3a994a6225e38b716e2e036d2d"
+        },
+        "Kryvex Random Key": {
+            "size": 297967,
+            "uncompressed_size": 294685,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Kryvex%20Random%20Key.zip",
+            "added_at": "2026-07-01T03:50:23.494019+00:00",
+            "checksum": "487e06a521b664ba034f32c7cc68ffe4"
+        },
+        "kryvex random key v2": {
+            "size": 811235,
+            "uncompressed_size": 796041,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kryvex%20random%20key%20v2.zip",
+            "added_at": "2026-07-10T20:34:33.273167+00:00",
+            "checksum": "ebb4377dc2608d2c8a0ff9b5408f86a1"
+        },
+        "kryvex right arrow v2": {
+            "size": 895868,
+            "uncompressed_size": 880580,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kryvex%20right%20arrow%20v2.zip",
+            "added_at": "2026-07-10T19:04:36.770227+00:00",
+            "checksum": "7112c7fe1b339d44da40e135fb442ed7"
+        },
+        "kryvex spacebar": {
+            "size": 1476794,
+            "uncompressed_size": 1449600,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kryvex%20spacebar.zip",
+            "added_at": "2026-07-02T05:03:32.443369+00:00",
+            "checksum": "ab318a9a16fb36a489e096ef2263b6a5"
+        },
+        "kryvex spacebar v2": {
+            "size": 1594191,
+            "uncompressed_size": 1565783,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kryvex%20spacebar%20v2.zip",
+            "added_at": "2026-07-02T23:41:11.795454+00:00",
+            "checksum": "95fa1773da2311c619d6b6a3c9be2403"
         },
         "kub old clicks": {
             "size": 70352,
@@ -4639,6 +4991,14 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 12
         },
+        "Mouse Oklick": {
+            "size": 278381,
+            "uncompressed_size": 274031,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Mouse%20Oklick.zip",
+            "added_at": "2026-06-25T17:13:06.634793+00:00",
+            "checksum": "0acd3b47bc0615089822f41f38988c49"
+        },
         "Mouse right click": {
             "size": 37809,
             "uncompressed_size": 37161,
@@ -4839,6 +5199,15 @@
             "checksum": "7249fb287e23bfe159364f9e4ad6232f",
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 18
+        },
+        "myzuh s-gear mouse": {
+            "size": 448209,
+            "uncompressed_size": 440439,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/myzuh%20s-gear%20mouse.zip",
+            "added_at": "2026-06-25T14:57:24.222192+00:00",
+            "readme": "zcb clickpack\nby: myzuh\nv3\n",
+            "checksum": "3f674a5f2f4a34086334bc6fee82a5af"
         },
         "myzuh sgear clickpack v2": {
             "size": 920292,
@@ -5301,6 +5670,50 @@
             "added_at": "2025-03-24T18:34:00+00:00",
             "sound_count": 31
         },
+        "Omnis 80HE Right Shift": {
+            "size": 743091,
+            "uncompressed_size": 729867,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Omnis%2080HE%20Right%20Shift.zip",
+            "added_at": "2026-07-10T03:43:09.705868+00:00",
+            "readme": "made by omni\nno steal for cookie\ninspired by Z E P T O <3\n",
+            "checksum": "ddc1a6e1c7ff63ba74b83a435566f31c"
+        },
+        "Omnis O3C": {
+            "size": 609997,
+            "uncompressed_size": 597205,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Omnis%20O3C.zip",
+            "added_at": "2026-07-09T02:59:17.833404+00:00",
+            "checksum": "b86d5e049c3c293e0f5d221165f9e0e2"
+        },
+        "Omnis O3C V2": {
+            "size": 1209458,
+            "uncompressed_size": 1181150,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Omnis%20O3C%20V2.zip",
+            "added_at": "2026-07-09T14:05:23.722163+00:00",
+            "readme": "made by omni\ndont steal\ncool beans\ninspired by zepto <3\n",
+            "checksum": "7d2f3a18f6eb8a2f76cf9b75282525f5"
+        },
+        "Omnis Razer Mouse": {
+            "size": 3672565,
+            "uncompressed_size": 3659713,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Omnis%20Razer%20Mouse.zip",
+            "added_at": "2026-07-11T09:32:55.590064+00:00",
+            "readme": "made by omni\r\nmanually cut\r\ninspired by Z E P T O\r\ndont steal and earn a cookie",
+            "checksum": "a7bc65dd274fec9c765415d4297dfbb8"
+        },
+        "Omnis Wooting 80HE": {
+            "size": 1200970,
+            "uncompressed_size": 1186748,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Omnis%20Wooting%2080HE.zip",
+            "added_at": "2026-07-10T03:43:35.667023+00:00",
+            "readme": "made by omni\r\ndont steal for cookie\r\ninspired by Z E P T O <3\r\n",
+            "checksum": "bec34825d6f86fc947040e1013c19d88"
+        },
         "omors click v2": {
             "size": 281474,
             "uncompressed_size": 280338,
@@ -5588,6 +6001,14 @@
             "checksum": "a724c77ac6f1b3a177334ef36b12462c",
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 11
+        },
+        "qjo clicks": {
+            "size": 456226,
+            "uncompressed_size": 447876,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/qjo%20clicks.zip",
+            "added_at": "2026-07-03T03:25:02.066602+00:00",
+            "checksum": "dbc07736e2ba9f0a5b5f27e7c40ec39b"
         },
         "Queney_clicks": {
             "size": 76015,
@@ -5895,6 +6316,14 @@
             "checksum": "84aebc636964ef00e522be4914c5ccb9",
             "added_at": "2024-03-17T12:19:23+00:00",
             "sound_count": 45
+        },
+        "Ricos Royal Kludge R65": {
+            "size": 128830,
+            "uncompressed_size": 126556,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Ricos%20Royal%20Kludge%20R65.zip",
+            "added_at": "2026-07-03T20:25:33.284649+00:00",
+            "checksum": "4a04f7a746c707a7702e1608f3530a54"
         },
         "Rival 650 Wireless": {
             "size": 698342,
@@ -6283,6 +6712,30 @@
             "added_at": "2026-01-30T21:39:20.601882+00:00",
             "checksum": "7cc11de419240a63da6cb63862101c91",
             "sound_count": 150
+        },
+        "Shine idk": {
+            "size": 569901,
+            "uncompressed_size": 559829,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Shine%20idk.zip",
+            "added_at": "2026-07-12T13:53:35.141826+00:00",
+            "checksum": "fc9076385a2e7773ec56905bff15f78d"
+        },
+        "Shine v2": {
+            "size": 818338,
+            "uncompressed_size": 803806,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Shine%20v2.zip",
+            "added_at": "2026-07-12T13:54:16.912309+00:00",
+            "checksum": "15a8c84d4dd54e166e8b7329bd8c93ce"
+        },
+        "Shine v2.1": {
+            "size": 772559,
+            "uncompressed_size": 758801,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Shine%20v2.1.zip",
+            "added_at": "2026-07-12T13:53:55.869030+00:00",
+            "checksum": "6aeb5a499d727128d5491ca9136427ee"
         },
         "shitty membrane yenkee by tobyn": {
             "size": 393060,
@@ -6798,6 +7251,14 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 52
         },
+        "TDagger idk": {
+            "size": 806990,
+            "uncompressed_size": 792546,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/TDagger%20idk.zip",
+            "added_at": "2026-07-11T09:34:31.575748+00:00",
+            "checksum": "785cc62b467d2aaf783e831c3de5d3cd"
+        },
         "Tea_Bagz_Click_Pack_v1.2": {
             "size": 199428,
             "uncompressed_size": 197188,
@@ -7015,6 +7476,14 @@
             "checksum": "4b5021504ee5b69563ebbd72363637ed",
             "sound_count": 118
         },
+        "unami g203": {
+            "size": 890440,
+            "uncompressed_size": 876348,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/unami%20g203.zip",
+            "added_at": "2026-07-03T03:24:49.670147+00:00",
+            "checksum": "67e9f20ca2fe130fbf6f86425c2340ed"
+        },
         "Unami G502": {
             "size": 615636,
             "uncompressed_size": 604952,
@@ -7050,6 +7519,14 @@
             "added_at": "2026-06-16T09:06:51.042006+00:00",
             "checksum": "631c07110de25c70594d66e3f312270b",
             "sound_count": 120
+        },
+        "Unami Minecraft": {
+            "size": 2681489,
+            "uncompressed_size": 2623281,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Minecraft.zip",
+            "added_at": "2026-07-06T00:12:01.932487+00:00",
+            "checksum": "da5639cc366507f0753cc250f5a3e9a4"
         },
         "Unami P Key": {
             "size": 737002,
@@ -7104,6 +7581,38 @@
             "added_at": "2026-01-25T23:46:56.337037+00:00",
             "checksum": "17a339adf46957646c23d25d1b9f7b7e",
             "sound_count": 137
+        },
+        "Unami Spacebar v2": {
+            "size": 857417,
+            "uncompressed_size": 842333,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Spacebar%20v2.zip",
+            "added_at": "2026-06-30T02:11:01.665459+00:00",
+            "checksum": "8b04bef7aa464b64c283da6e1d18c585"
+        },
+        "Unami TDagger Random Key": {
+            "size": 837694,
+            "uncompressed_size": 822820,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20TDagger%20Random%20Key.zip",
+            "added_at": "2026-06-24T03:01:43.462440+00:00",
+            "checksum": "c4a66a57e5219b5cd8dc55624a689fd7"
+        },
+        "Unami TDagger uparrow v2": {
+            "size": 813342,
+            "uncompressed_size": 798900,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20TDagger%20uparrow%20v2.zip",
+            "added_at": "2026-06-24T02:56:14.782068+00:00",
+            "checksum": "ab5d275ce5419b745a9421612daffaf1"
+        },
+        "unamimiddlesayo": {
+            "size": 908274,
+            "uncompressed_size": 892174,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/unamimiddlesayo.zip",
+            "added_at": "2026-07-03T03:25:24.601571+00:00",
+            "checksum": "ffbe3fec9bf77dc0b3cdf051a64d05b6"
         },
         "UnbonesG502": {
             "size": 872711,
@@ -7213,6 +7722,22 @@
             "readme": "\"uyla ctrl\"\n\nanother wooting 80he clickpack as per usual \n\nthe specifications of my wooting\n- PBR ABS Plastic Case\n- Double Shot PBT Keycaps\n- Lekker V2 L60 Linear Switches\n\npros and cons of my clickpack\n\npros\n- performs well in spams in my opinion\n- one of my better sounding / higher quality clickpacks\n\ncons\n- i think it sounds quite similar other clickpacks ive made in the past\n- some of the hardclicks are way too loud / strong\n\nlmk about any other issues regarding the clickpack so i can (maybe) fix it",
             "checksum": "b6e72f408f01acc9d0ba60ba00ab9bbe",
             "sound_count": 75
+        },
+        "uyla jade": {
+            "size": 528657,
+            "uncompressed_size": 522627,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/uyla%20jade.zip",
+            "added_at": "2026-06-27T01:48:47.233420+00:00",
+            "checksum": "19ceaf761bce9022e996c42db57fa3bb"
+        },
+        "uyla minecraft": {
+            "size": 1142327,
+            "uncompressed_size": 1115903,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/uyla%20minecraft.zip",
+            "added_at": "2026-07-02T16:20:13.000173+00:00",
+            "checksum": "a215aa8a7bfe30005e22a4d0babea63e"
         },
         "uyla red": {
             "size": 540863,
@@ -7458,6 +7983,14 @@
             "checksum": "42b82088ad32b3f0f1606230b978929c",
             "added_at": "2025-05-17T16:23:22+00:00",
             "sound_count": 97
+        },
+        "Wangsters Wooting Up Arrow": {
+            "size": 93821,
+            "uncompressed_size": 92167,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Wangsters%20Wooting%20Up%20Arrow.zip",
+            "added_at": "2026-06-28T08:55:56.168484+00:00",
+            "checksum": "7db6c86fce02a17d772c622d44bffa76"
         },
         "watchpiggy clicks": {
             "size": 128396,
@@ -7730,6 +8263,66 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 41
         },
+        "Zeptos Huntsman V3 ver 2": {
+            "size": 705548,
+            "uncompressed_size": 690702,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20Huntsman%20V3%20ver%202.zip",
+            "added_at": "2026-07-04T07:26:59.795055+00:00",
+            "checksum": "f4419410fc49056c1b0f8c8d2afaf62b"
+        },
+        "Zeptos O3C With Deskmat": {
+            "size": 359806,
+            "uncompressed_size": 353236,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20O3C%20With%20Deskmat.zip",
+            "added_at": "2026-07-03T20:25:19.480705+00:00",
+            "readme": "made for the goat zcb\nfun\nrealistic i think\n2nd clickpack ever\n",
+            "checksum": "761c1ae4c20bba3ba8e8dc327c073ed4"
+        },
+        "Zeptos O3C without deskmat": {
+            "size": 363654,
+            "uncompressed_size": 357960,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20O3C%20without%20deskmat.zip",
+            "added_at": "2026-07-03T20:25:28.519953+00:00",
+            "checksum": "dbaa6ad8e75c2f1d97abd7c20f2e778d"
+        },
+        "Zeptos O3C Without Deskmat V2": {
+            "size": 407063,
+            "uncompressed_size": 400399,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20O3C%20Without%20Deskmat%20V2.zip",
+            "added_at": "2026-07-04T17:20:51.903105+00:00",
+            "readme": "made by zepto for zcb\ndont steal\ntuff\n",
+            "checksum": "daf0f11fe9a65d3f405d0efb9caa52fe"
+        },
+        "Zeptos O3C Without Deskmat V3": {
+            "size": 739035,
+            "uncompressed_size": 724611,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20O3C%20Without%20Deskmat%20V3.zip",
+            "added_at": "2026-07-04T19:22:49.930189+00:00",
+            "readme": "made by zepto for zcb\ndont steal\ntuff\n",
+            "checksum": "96c25b6c1b24d2a6412e29dba0e177ab"
+        },
+        "Zeptos Page Down": {
+            "size": 337162,
+            "uncompressed_size": 331590,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20Page%20Down.zip",
+            "added_at": "2026-07-05T16:59:45.554203+00:00",
+            "checksum": "47f950492e7aea40cd22178b0f6829d7"
+        },
+        "Zeptos Page down v2": {
+            "size": 687045,
+            "uncompressed_size": 673373,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20Page%20down%20v2.zip",
+            "added_at": "2026-07-05T18:45:31.130706+00:00",
+            "readme": "peam\nreleased as a standalone and as a p2 for the pg down one\n",
+            "checksum": "7e9cd7a921dd257ff11c765e5590bf69"
+        },
         "zero clicks mouse": {
             "size": 120783,
             "uncompressed_size": 118641,
@@ -7930,6 +8523,6 @@
             "sound_count": 41
         }
     },
-    "version": 392,
+    "version": 465,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
