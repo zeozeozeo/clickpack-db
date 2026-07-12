@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-12T13:53:55.870319+00:00",
-    "updated_at_unix": 1783864435,
+    "updated_at_iso": "2026-07-12T13:54:16.913674+00:00",
+    "updated_at_unix": 1783864456,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6026,6 +6026,14 @@
             "added_at": "2026-07-12T13:53:35.141826+00:00",
             "checksum": "fc9076385a2e7773ec56905bff15f78d"
         },
+        "Shine v2": {
+            "size": 818338,
+            "uncompressed_size": 803806,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Shine%20v2.zip",
+            "added_at": "2026-07-12T13:54:16.912309+00:00",
+            "checksum": "15a8c84d4dd54e166e8b7329bd8c93ce"
+        },
         "Shine v2.1": {
             "size": 772559,
             "uncompressed_size": 758801,
@@ -7638,6 +7646,6 @@
             "checksum": "115d1f7698514507483952c28a7983ff"
         }
     },
-    "version": 464,
+    "version": 465,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
