@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-14T09:07:15.648061+00:00",
-    "updated_at_unix": 1784020035,
+    "updated_at_iso": "2026-07-14T09:07:26.745425+00:00",
+    "updated_at_unix": 1784020046,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -970,6 +970,15 @@
             "added_at": "2026-02-27T20:58:46.622645+00:00",
             "checksum": "4362977fe401cbafc9fa2a178b9eac45",
             "sound_count": 141
+        },
+        "ayso new attack shark x82 pro he": {
+            "size": 359856,
+            "uncompressed_size": 353382,
+            "sound_count": 60,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/ayso%20new%20attack%20shark%20x82%20pro%20he.zip",
+            "added_at": "2026-07-14T09:07:26.744663+00:00",
+            "checksum": "78d01e53a5d780582838ebebbfda38fc"
         },
         "Ayso2PlayerClickPack": {
             "size": 296740,
@@ -8614,6 +8623,6 @@
             "sound_count": 41
         }
     },
-    "version": 467,
+    "version": 468,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
