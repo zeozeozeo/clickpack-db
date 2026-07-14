@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-14T09:07:26.745425+00:00",
-    "updated_at_unix": 1784020046,
+    "updated_at_iso": "2026-07-14T20:24:03.578740+00:00",
+    "updated_at_unix": 1784060643,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2451,6 +2451,15 @@
             "added_at": "2026-07-01T15:02:08.809229+00:00",
             "checksum": "4f84d9301e2e466795b099bad36686eb",
             "sound_count": 20
+        },
+        "demidleftarrow": {
+            "size": 188715,
+            "uncompressed_size": 184873,
+            "sound_count": 36,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/demidleftarrow.zip",
+            "added_at": "2026-07-14T20:24:03.577844+00:00",
+            "checksum": "8fa454d163a05e3fa4d42159cd334fb6"
         },
         "DemidOldKeyboard": {
             "size": 117774,
@@ -8623,6 +8632,6 @@
             "sound_count": 41
         }
     },
-    "version": 468,
+    "version": 469,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
