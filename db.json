@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-13T23:44:26.393189+00:00",
-    "updated_at_unix": 1783986266,
+    "updated_at_iso": "2026-07-14T09:07:15.648061+00:00",
+    "updated_at_unix": 1784020035,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2550,6 +2550,15 @@
             "checksum": "f631b2f3cc3889c2cd10777f5c9b1b2e",
             "added_at": "2024-07-11T07:13:22+00:00",
             "sound_count": 4
+        },
+        "Dewbbs clicks remastered": {
+            "size": 274247,
+            "uncompressed_size": 269061,
+            "sound_count": 50,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Dewbbs%20clicks%20remastered.zip",
+            "added_at": "2026-07-14T09:07:15.646949+00:00",
+            "checksum": "5bebfb0a8684585d79947d894643e90a"
         },
         "dewbss clicks alpha test": {
             "size": 315213,
@@ -8605,6 +8614,6 @@
             "sound_count": 41
         }
     },
-    "version": 466,
+    "version": 467,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
