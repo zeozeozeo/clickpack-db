@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-14T20:24:03.578740+00:00",
-    "updated_at_unix": 1784060643,
+    "updated_at_iso": "2026-07-15T13:33:16.829755+00:00",
+    "updated_at_unix": 1784122396,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2911,6 +2911,15 @@
             "checksum": "40b07ea1d3ddb12c304974633a5aa111",
             "added_at": "2024-07-11T07:13:22+00:00",
             "sound_count": 29
+        },
+        "fliqzs wooting80HE": {
+            "size": 370450,
+            "uncompressed_size": 363976,
+            "sound_count": 60,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/fliqzs%20wooting80HE.zip",
+            "added_at": "2026-07-15T13:33:16.828767+00:00",
+            "checksum": "93fe3f4124e140ef83d7026802ad3ff4"
         },
         "FloofPack": {
             "size": 218141,
@@ -8632,6 +8641,6 @@
             "sound_count": 41
         }
     },
-    "version": 469,
+    "version": 470,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
