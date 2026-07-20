@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-15T13:33:16.829755+00:00",
-    "updated_at_unix": 1784122396,
+    "updated_at_iso": "2026-07-20T19:54:22.738067+00:00",
+    "updated_at_unix": 1784577262,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -8441,6 +8441,16 @@
             "checksum": "7e9cd7a921dd257ff11c765e5590bf69",
             "sound_count": 110
         },
+        "Zeptos Right Arrow V4": {
+            "size": 396644,
+            "uncompressed_size": 390080,
+            "sound_count": 60,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20Right%20Arrow%20V4.zip",
+            "added_at": "2026-07-20T19:54:22.737297+00:00",
+            "readme": "Keyboard full name: Razer Huntsman V3 Pro TKL\r\nCase: premium 5052 brushed aluminum alloy top plate with a hardened plastic bottom chassis\r\nuses a mousepad\r\nGen-2 Razer Analog Optical Switches\r\ni dont know if you need to know this but\r\nDesk: Bestier 52 in. L-Shaped Black Fiber Carbon LED Gaming Desk with Storage Shelf and Power Outlets\r\nthats about it\r\nenjoy",
+            "checksum": "59346f77e221e31280bc142299ca3706"
+        },
         "zero clicks mouse": {
             "size": 120783,
             "uncompressed_size": 118641,
@@ -8641,6 +8651,6 @@
             "sound_count": 41
         }
     },
-    "version": 470,
+    "version": 471,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
