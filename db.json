@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-21T01:04:48.447995+00:00",
-    "updated_at_unix": 1784595888,
+    "updated_at_iso": "2026-07-21T01:07:18.890631+00:00",
+    "updated_at_unix": 1784596038,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -790,6 +790,15 @@
             "added_at": "2026-02-03T13:43:12.760121+00:00",
             "checksum": "3a586c144d8aaff8eb9ee406e2c67f70",
             "sound_count": 61
+        },
+        "Aula Hero 0 Key": {
+            "size": 872888,
+            "uncompressed_size": 858990,
+            "sound_count": 128,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Aula%20Hero%200%20Key.zip",
+            "added_at": "2026-07-21T01:07:18.889677+00:00",
+            "checksum": "f7e50bd89f49c25f7a28594a44b59aaf"
         },
         "Aula Hero 68HE PageDown": {
             "size": 1025951,
@@ -8678,6 +8687,6 @@
             "sound_count": 41
         }
     },
-    "version": 474,
+    "version": 475,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
