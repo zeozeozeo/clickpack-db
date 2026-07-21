@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-21T01:03:38.633172+00:00",
-    "updated_at_unix": 1784595818,
+    "updated_at_iso": "2026-07-21T01:04:48.447995+00:00",
+    "updated_at_unix": 1784595888,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -835,6 +835,15 @@
             "added_at": "2026-07-11T09:34:57.392816+00:00",
             "checksum": "2b110b0998fcbc60f2bc91e0ffa61d3c",
             "sound_count": 122
+        },
+        "Aula Hero Shift": {
+            "size": 937578,
+            "uncompressed_size": 922692,
+            "sound_count": 137,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Aula%20Hero%20Shift.zip",
+            "added_at": "2026-07-21T01:04:48.446600+00:00",
+            "checksum": "7729dc66f6bc833d45981bb80d4e9569"
         },
         "Axi Epic Clickpack": {
             "size": 619270,
@@ -8669,6 +8678,6 @@
             "sound_count": 41
         }
     },
-    "version": 473,
+    "version": 474,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
