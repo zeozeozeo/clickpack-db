@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-25T19:55:20.702955+00:00",
-    "updated_at_unix": 1785009320,
+    "updated_at_iso": "2026-07-25T19:55:33.843430+00:00",
+    "updated_at_unix": 1785009333,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4971,6 +4971,15 @@
             "added_at": "2024-11-30T19:48:12+00:00",
             "sound_count": 31
         },
+        "MinnteerGD Dell Mouse": {
+            "size": 140242,
+            "uncompressed_size": 137760,
+            "sound_count": 24,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/MinnteerGD%20Dell%20Mouse.zip",
+            "added_at": "2026-07-25T19:55:33.842564+00:00",
+            "checksum": "833e8c0bc140fde3c9e4a622a2509843"
+        },
         "minus key by andarianwx": {
             "size": 183373,
             "uncompressed_size": 180067,
@@ -8705,6 +8714,6 @@
             "sound_count": 41
         }
     },
-    "version": 477,
+    "version": 478,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
