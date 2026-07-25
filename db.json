@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-21T01:07:18.890631+00:00",
-    "updated_at_unix": 1784596038,
+    "updated_at_iso": "2026-07-25T19:55:14.946278+00:00",
+    "updated_at_unix": 1785009314,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7280,6 +7280,15 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 2
         },
+        "Strokgiees sayodevice no switches": {
+            "size": 93145,
+            "uncompressed_size": 91491,
+            "sound_count": 16,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Strokgiees%20sayodevice%20no%20switches.zip",
+            "added_at": "2026-07-25T19:55:14.945418+00:00",
+            "checksum": "5c3db270afc17aa460382c750a796ac3"
+        },
         "supmouse": {
             "size": 388948,
             "uncompressed_size": 382596,
@@ -8687,6 +8696,6 @@
             "sound_count": 41
         }
     },
-    "version": 475,
+    "version": 476,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
