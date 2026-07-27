@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-27T21:36:09.682441+00:00",
-    "updated_at_unix": 1785188169,
+    "updated_at_iso": "2026-07-27T21:36:37.032306+00:00",
+    "updated_at_unix": 1785188197,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7668,6 +7668,15 @@
             "added_at": "2026-07-27T21:36:09.680627+00:00",
             "checksum": "32c15731919041b100f503f51b8c0a8e"
         },
+        "Unami g502 soft": {
+            "size": 835170,
+            "uncompressed_size": 821114,
+            "sound_count": 129,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20g502%20soft.zip",
+            "added_at": "2026-07-27T21:36:37.031031+00:00",
+            "checksum": "c371ba52d6e787e92b6558709ea99788"
+        },
         "Unami G502 v2": {
             "size": 751168,
             "uncompressed_size": 737896,
@@ -8742,6 +8751,6 @@
             "sound_count": 41
         }
     },
-    "version": 481,
+    "version": 482,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
