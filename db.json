@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-27T21:37:33.700972+00:00",
-    "updated_at_unix": 1785188253,
+    "updated_at_iso": "2026-07-27T21:37:57.315962+00:00",
+    "updated_at_unix": 1785188277,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7614,6 +7614,15 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 24
         },
+        "Unami Aula 0 key v2 ig": {
+            "size": 732912,
+            "uncompressed_size": 719918,
+            "sound_count": 120,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Aula%200%20key%20v2%20ig.zip",
+            "added_at": "2026-07-27T21:37:57.314450+00:00",
+            "checksum": "cc056f354fd758e9573d7721f98193b4"
+        },
         "Unami ByTech Mouse": {
             "size": 500176,
             "uncompressed_size": 491414,
@@ -8769,6 +8778,6 @@
             "sound_count": 41
         }
     },
-    "version": 484,
+    "version": 485,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
