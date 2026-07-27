@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-25T19:55:33.843430+00:00",
-    "updated_at_unix": 1785009333,
+    "updated_at_iso": "2026-07-27T21:35:04.899080+00:00",
+    "updated_at_unix": 1785188104,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -8437,6 +8437,16 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 41
         },
+        "Zeptos Comma key": {
+            "size": 1554219,
+            "uncompressed_size": 1521745,
+            "sound_count": 297,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Zeptos%20Comma%20key.zip",
+            "added_at": "2026-07-27T21:35:04.898187+00:00",
+            "readme": "My biggest clickpack EVER\nuh\nGen-2 Razer analog optical switches\nyes deskmat\ncarbon fiber desk\nmade in packmak because i'm too lazy to manually cut\nbest clickpacks i beg\n",
+            "checksum": "fa0c294ecef4e4b553a08d9aed74cb8e"
+        },
         "Zeptos Huntsman V3 ver 2": {
             "size": 705548,
             "uncompressed_size": 690702,
@@ -8714,6 +8724,6 @@
             "sound_count": 41
         }
     },
-    "version": 478,
+    "version": 479,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
