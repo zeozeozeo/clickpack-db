@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-27T21:36:37.032306+00:00",
-    "updated_at_unix": 1785188197,
+    "updated_at_iso": "2026-07-27T21:37:05.898945+00:00",
+    "updated_at_unix": 1785188225,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7623,6 +7623,15 @@
             "checksum": "ef6def210885a7c32c47fb16989bbe5b",
             "sound_count": 81
         },
+        "Unami Cheap Mouse v1": {
+            "size": 859941,
+            "uncompressed_size": 844747,
+            "sound_count": 140,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Cheap%20Mouse%20v1.zip",
+            "added_at": "2026-07-27T21:37:05.897789+00:00",
+            "checksum": "1952fe5570720c80c1eea1a554f214f4"
+        },
         "Unami Enter Key": {
             "size": 733246,
             "uncompressed_size": 720318,
@@ -8751,6 +8760,6 @@
             "sound_count": 41
         }
     },
-    "version": 482,
+    "version": 483,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
