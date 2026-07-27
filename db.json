@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-27T21:35:04.899080+00:00",
-    "updated_at_unix": 1785188104,
+    "updated_at_iso": "2026-07-27T21:35:32.567860+00:00",
+    "updated_at_unix": 1785188132,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7713,6 +7713,15 @@
             "checksum": "fb6daf45eb1ab36b4bf4f6e5860186e4",
             "sound_count": 136
         },
+        "Unami Random Aulivis": {
+            "size": 881574,
+            "uncompressed_size": 866728,
+            "sound_count": 137,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Random%20Aulivis.zip",
+            "added_at": "2026-07-27T21:35:32.566777+00:00",
+            "checksum": "6efac83de1b54cafdd89aef700bd6f80"
+        },
         "Unami Random Key": {
             "size": 856875,
             "uncompressed_size": 841681,
@@ -8724,6 +8733,6 @@
             "sound_count": 41
         }
     },
-    "version": 479,
+    "version": 480,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
