@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-07-28T21:02:50.658612+00:00",
-    "updated_at_unix": 1785272570,
+    "updated_at_iso": "2026-07-30T22:54:31.610522+00:00",
+    "updated_at_unix": 1785452071,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7379,6 +7379,15 @@
             "checksum": "825696f2f84ce1db102119517411a821",
             "sound_count": 60
         },
+        "Tahma wooting 80he gateron switch": {
+            "size": 368638,
+            "uncompressed_size": 362164,
+            "sound_count": 60,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Tahma%20wooting%2080he%20gateron%20switch.zip",
+            "added_at": "2026-07-30T22:54:31.609628+00:00",
+            "checksum": "8ad04938adc0c48c6fbaf6c7eacf82f8"
+        },
         "Tahmas Pro X superlight 2": {
             "size": 368074,
             "uncompressed_size": 361600,
@@ -8787,6 +8796,6 @@
             "sound_count": 41
         }
     },
-    "version": 486,
+    "version": 487,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
