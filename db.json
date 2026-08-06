@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-08-04T12:09:06.772143+00:00",
-    "updated_at_unix": 1785845346,
+    "updated_at_iso": "2026-08-06T02:58:26.755176+00:00",
+    "updated_at_unix": 1785985106,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -618,6 +618,15 @@
             "readme": "USING NOISE IS RECOMMENDED!\r\n\r\nKEYBOARD: SayoDevice O3C\r\nSWITCHES: GATERON MAGNETIC JADE PRO\r\n-Switch Type: Linear Hall Effect (Magnetic)\r\n-Initial Force: 36\u00b15gf (some sources list 36\u00b17gf)\r\n-Bottom-out Force: 50\u00b110gf\r\n-Total Travel: 3.5\u00b10.1mm\r\n-Actuation Range: Customizable (0.1mm - 3.3mm)\r\n-Lifespan: Over 100 million keystrokes\r\n-Lubrication: Factory Pre-lubed\r\n-Lighting: Upgraded 3.0 LED diffuser (brighter/softer diffusion)\r\n-Material: POM Stem, PA66 Bottom, PC Top",
             "checksum": "72b2380878aadc75503ac7af1f160975",
             "sound_count": 165
+        },
+        "andarianwx sayo no deskmat new surface": {
+            "size": 1037272,
+            "uncompressed_size": 1022948,
+            "sound_count": 117,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/andarianwx%20sayo%20no%20deskmat%20new%20surface.zip",
+            "added_at": "2026-08-06T02:58:26.754364+00:00",
+            "checksum": "ef97e8c766ff720578b644ac4cf9da63"
         },
         "andarianwx updated sayo clicks v6": {
             "size": 562967,
@@ -8805,6 +8814,6 @@
             "sound_count": 41
         }
     },
-    "version": 488,
+    "version": 489,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
