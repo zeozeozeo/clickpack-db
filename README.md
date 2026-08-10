@@ -1,3 +1,5 @@
+
+
 # ClickpackDB
 
 A database of clickpacks for Geometry Dash clickbots with an easy-to-use API.
@@ -29,9 +31,9 @@ A database of clickpacks for Geometry Dash clickbots with an easy-to-use API.
      - `clickpacks` (object): A collection of clickpacks, where each key is the name of a clickpack and the value is an object with the following properties:
        - `size` (integer): The size of the compressed clickpack file.
        - `uncompressed_size` (integer): The size of the uncompressed clickpack directory.
-        - `has_noise` (boolean): A flag indicating whether the clickpack contains a noise file.
-        - `sound_count` (integer): The number of sound (audio) files in the clickpack.
-        - `url` (string): The URL to download the compressed clickpack file.
+       - `has_noise` (boolean): A flag indicating whether the clickpack contains a noise file.
+       - `sound_count` (integer): The number of sound (audio) files in the clickpack.
+       - `url` (string): The URL to download the compressed clickpack file.
        - `checksum` (string): MD5 checksum of the compressed clickpack file.
        - `readme` (string, optional): Contents of any .txt file in the clickpack, if any
      - `version` (integer): unique version of the `db.json` file
