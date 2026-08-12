@@ -3,9 +3,6 @@ FROM golang:alpine AS builder
 
 WORKDIR /app
 
-# Needed to build sqlite
-RUN apk add --update gcc musl-dev
-
 # Copy go mod and sum files
 COPY go.mod go.sum ./
 RUN go mod download && go mod verify
@@ -14,7 +11,7 @@ RUN go mod download && go mod verify
 COPY . .
 
 # Build
-RUN CGO_ENABLED=1 GOOS=linux go build -o hiatus .
+RUN CGO_ENABLED=0 GOOS=linux go build -o hiatus .
 
 # Runtime stage
 FROM alpine:latest

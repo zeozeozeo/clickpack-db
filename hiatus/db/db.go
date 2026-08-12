@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"log/slog"
 
-	_ "github.com/mattn/go-sqlite3" // SQLite driver
+	_ "modernc.org/sqlite" // SQLite driver
 )
 
 var globalDB *sql.DB
 
 func InitDB(dataSourceName string) error {
 	var err error
-	globalDB, err = sql.Open("sqlite3", dataSourceName)
+	globalDB, err = sql.Open("sqlite", dataSourceName)
 	if err != nil {
 		return fmt.Errorf("failed to open database: %w", err)
 	}
