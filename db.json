@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-08-11T23:35:20.816840+00:00",
-    "updated_at_unix": 1786491320,
+    "updated_at_iso": "2026-08-13T22:09:11.614162+00:00",
+    "updated_at_unix": 1786658951,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7460,6 +7460,15 @@
             "added_at": "2026-07-21T01:03:10.992060+00:00",
             "checksum": "deef081aa43196f69ecebac0d4532e4b"
         },
+        "TDagger M Key vSaboooor": {
+            "size": 894186,
+            "uncompressed_size": 880076,
+            "sound_count": 130,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/TDagger%20M%20Key%20vSaboooor.zip",
+            "added_at": "2026-08-13T22:09:11.613190+00:00",
+            "checksum": "32f2301969ac5e5b5717413723c1f59f"
+        },
         "TDagger Page Down": {
             "size": 929967,
             "uncompressed_size": 915215,
@@ -8832,6 +8841,6 @@
             "sound_count": 41
         }
     },
-    "version": 491,
+    "version": 492,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
