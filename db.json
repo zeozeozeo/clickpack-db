@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-08-13T22:09:11.614162+00:00",
-    "updated_at_unix": 1786658951,
+    "updated_at_iso": "2026-08-16T08:00:42.817417+00:00",
+    "updated_at_unix": 1786867242,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5107,6 +5107,15 @@
             "added_at": "2025-06-05T07:46:53+00:00",
             "sound_count": 17
         },
+        "Monka Keyboard violent linear switches": {
+            "size": 229689,
+            "uncompressed_size": 225701,
+            "sound_count": 37,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Monka%20Keyboard%20violent%20linear%20switches.zip",
+            "added_at": "2026-08-16T08:00:42.816313+00:00",
+            "checksum": "8d7665bddf1148141fefd88930cec719"
+        },
         "Montsaz": {
             "size": 167696,
             "uncompressed_size": 165070,
@@ -8841,6 +8850,6 @@
             "sound_count": 41
         }
     },
-    "version": 492,
+    "version": 493,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
