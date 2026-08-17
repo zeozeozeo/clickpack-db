@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-08-16T08:00:42.817417+00:00",
-    "updated_at_unix": 1786867242,
+    "updated_at_iso": "2026-08-17T11:48:59.893261+00:00",
+    "updated_at_unix": 1786967339,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5116,6 +5116,15 @@
             "added_at": "2026-08-16T08:00:42.816313+00:00",
             "checksum": "8d7665bddf1148141fefd88930cec719"
         },
+        "Monka Keyboard violet linear switches V2": {
+            "size": 384352,
+            "uncompressed_size": 377878,
+            "sound_count": 60,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Monka%20Keyboard%20violet%20linear%20switches%20V2.zip",
+            "added_at": "2026-08-17T11:48:59.891918+00:00",
+            "checksum": "d1afe86b3fbd28c33ddb5f6f0f916e4e"
+        },
         "Montsaz": {
             "size": 167696,
             "uncompressed_size": 165070,
@@ -8850,6 +8859,6 @@
             "sound_count": 41
         }
     },
-    "version": 493,
+    "version": 494,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
