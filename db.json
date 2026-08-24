@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-08-17T11:48:59.893261+00:00",
-    "updated_at_unix": 1786967339,
+    "updated_at_iso": "2026-08-24T09:17:51.592732+00:00",
+    "updated_at_unix": 1787563071,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -352,6 +352,15 @@
             "added_at": "2025-12-23T22:11:07.017677+00:00",
             "checksum": "38c2e22dbb1a4593a44269376a0184ad",
             "sound_count": 41
+        },
+        "ammonias sayodevice o3c": {
+            "size": 708219,
+            "uncompressed_size": 698689,
+            "sound_count": 88,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/ammonias%20sayodevice%20o3c.zip",
+            "added_at": "2026-08-24T09:17:51.591843+00:00",
+            "checksum": "fdbd29870c65b43c0002742362a1901f"
         },
         "amogus clicks": {
             "size": 160538,
@@ -8859,6 +8868,6 @@
             "sound_count": 41
         }
     },
-    "version": 494,
+    "version": 495,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
