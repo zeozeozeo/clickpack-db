@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-08-24T09:17:51.592732+00:00",
-    "updated_at_unix": 1787563071,
+    "updated_at_iso": "2026-09-05T00:34:47.684782+00:00",
+    "updated_at_unix": 1788568487,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -8029,6 +8029,15 @@
             "checksum": "b6e72f408f01acc9d0ba60ba00ab9bbe",
             "sound_count": 75
         },
+        "uyla ins": {
+            "size": 278444,
+            "uncompressed_size": 273242,
+            "sound_count": 48,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/uyla%20ins.zip",
+            "added_at": "2026-09-05T00:34:47.684075+00:00",
+            "checksum": "6f8325cdf65d97d80e865fbd9f3ca69f"
+        },
         "uyla jade": {
             "size": 528657,
             "uncompressed_size": 522627,
@@ -8868,6 +8877,6 @@
             "sound_count": 41
         }
     },
-    "version": 495,
+    "version": 496,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
