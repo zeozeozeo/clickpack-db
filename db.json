@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-08T15:58:48.783806+00:00",
-    "updated_at_unix": 1788883128,
+    "updated_at_iso": "2026-09-08T16:00:39.395254+00:00",
+    "updated_at_unix": 1788883239,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7839,6 +7839,15 @@
             "checksum": "da5639cc366507f0753cc250f5a3e9a4",
             "sound_count": 438
         },
+        "unami mobile": {
+            "size": 314458,
+            "uncompressed_size": 308962,
+            "sound_count": 51,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/unami%20mobile.zip",
+            "added_at": "2026-09-08T16:00:39.393869+00:00",
+            "checksum": "abbe71b51090edfd1aa18a11d3aabcee"
+        },
         "Unami P Key": {
             "size": 737002,
             "uncompressed_size": 723968,
@@ -8895,6 +8904,6 @@
             "sound_count": 41
         }
     },
-    "version": 498,
+    "version": 499,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
