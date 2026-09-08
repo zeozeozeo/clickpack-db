@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-08T16:00:39.395254+00:00",
-    "updated_at_unix": 1788883239,
+    "updated_at_iso": "2026-09-08T16:01:07.555173+00:00",
+    "updated_at_unix": 1788883267,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7749,6 +7749,15 @@
             "added_at": "2026-07-27T21:37:33.699781+00:00",
             "checksum": "2bad3a64638e79dc816f583922c4b31c"
         },
+        "Unami Controller": {
+            "size": 964904,
+            "uncompressed_size": 949710,
+            "sound_count": 140,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Unami%20Controller.zip",
+            "added_at": "2026-09-08T16:01:07.553621+00:00",
+            "checksum": "230ab366a617da5bcf0a2c81f57ea10e"
+        },
         "Unami Enter Key": {
             "size": 733246,
             "uncompressed_size": 720318,
@@ -8904,6 +8913,6 @@
             "sound_count": 41
         }
     },
-    "version": 499,
+    "version": 500,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
