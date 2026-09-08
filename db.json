@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-08T15:57:18.541156+00:00",
-    "updated_at_unix": 1788883038,
+    "updated_at_iso": "2026-09-08T15:58:48.783806+00:00",
+    "updated_at_unix": 1788883128,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3289,6 +3289,15 @@
             "checksum": "76d161d279306c842c4f74196e070666",
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 19
+        },
+        "g502 i dont really know": {
+            "size": 864304,
+            "uncompressed_size": 849214,
+            "sound_count": 139,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/g502%20i%20dont%20really%20know.zip",
+            "added_at": "2026-09-08T15:58:48.782345+00:00",
+            "checksum": "5bd32b501cb567f5e1830dd110d6848f"
         },
         "g502ls": {
             "size": 142788,
@@ -8886,6 +8895,6 @@
             "sound_count": 41
         }
     },
-    "version": 497,
+    "version": 498,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
