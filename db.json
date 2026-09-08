@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-05T00:34:47.684782+00:00",
-    "updated_at_unix": 1788568487,
+    "updated_at_iso": "2026-09-08T15:57:18.541156+00:00",
+    "updated_at_unix": 1788883038,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7496,6 +7496,15 @@
             "added_at": "2026-08-13T22:09:11.613190+00:00",
             "checksum": "32f2301969ac5e5b5717413723c1f59f"
         },
+        "TDagger over and over again": {
+            "size": 913267,
+            "uncompressed_size": 898801,
+            "sound_count": 133,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/TDagger%20over%20and%20over%20again.zip",
+            "added_at": "2026-09-08T15:57:18.539511+00:00",
+            "checksum": "d578521e41e89444ab9272732b1f3e15"
+        },
         "TDagger Page Down": {
             "size": 929967,
             "uncompressed_size": 915215,
@@ -8877,6 +8886,6 @@
             "sound_count": 41
         }
     },
-    "version": 496,
+    "version": 497,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
