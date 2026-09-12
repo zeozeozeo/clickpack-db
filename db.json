@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-08T16:01:07.555173+00:00",
-    "updated_at_unix": 1788883267,
+    "updated_at_iso": "2026-09-12T10:05:34.980207+00:00",
+    "updated_at_unix": 1789207534,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6197,6 +6197,15 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 11
         },
+        "QEMUs SPC GEAR LOL": {
+            "size": 215976,
+            "uncompressed_size": 212246,
+            "sound_count": 36,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/QEMUs%20SPC%20GEAR%20LOL.zip",
+            "added_at": "2026-09-12T10:05:34.976797+00:00",
+            "checksum": "b2039d60ff36686c36cd2388aa6afbef"
+        },
         "qjo clicks": {
             "size": 456226,
             "uncompressed_size": 447876,
@@ -8913,6 +8922,6 @@
             "sound_count": 41
         }
     },
-    "version": 500,
+    "version": 501,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
