@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-12T10:05:34.980207+00:00",
-    "updated_at_unix": 1789207534,
+    "updated_at_iso": "2026-09-14T09:57:57.538084+00:00",
+    "updated_at_unix": 1789379877,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6865,6 +6865,15 @@
             "added_at": "2024-11-30T19:48:12+00:00",
             "sound_count": 13
         },
+        "sentel thingo lol": {
+            "size": 800636,
+            "uncompressed_size": 791418,
+            "sound_count": 77,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/sentel%20thingo%20lol.zip",
+            "added_at": "2026-09-14T09:57:57.536605+00:00",
+            "checksum": "5ae45f358e605f40f068142b1520e486"
+        },
         "sharkoon brown switches": {
             "size": 29482,
             "uncompressed_size": 28988,
@@ -8922,6 +8931,6 @@
             "sound_count": 41
         }
     },
-    "version": 501,
+    "version": 502,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
