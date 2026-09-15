@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-15T18:50:32.485435+00:00",
-    "updated_at_unix": 1789498232,
+    "updated_at_iso": "2026-09-15T18:55:21.123428+00:00",
+    "updated_at_unix": 1789498521,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -208,6 +208,15 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AIDENTRO%201.zip",
             "added_at": "2026-09-15T18:50:32.483458+00:00",
             "checksum": "b2769d572be78b1adf4959dc7f79c5ae"
+        },
+        "AIDENTRO 3": {
+            "size": 353738,
+            "uncompressed_size": 347480,
+            "sound_count": 58,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AIDENTRO%203.zip",
+            "added_at": "2026-09-15T18:55:21.121541+00:00",
+            "checksum": "6fd3c41e492be9615cf02001b92c244e"
         },
         "AJ Up Arrow": {
             "size": 38203,
@@ -8940,6 +8949,6 @@
             "sound_count": 41
         }
     },
-    "version": 503,
+    "version": 504,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
