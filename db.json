@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-16T19:30:15.608351+00:00",
-    "updated_at_unix": 1789587015,
+    "updated_at_iso": "2026-09-16T19:30:30.361834+00:00",
+    "updated_at_unix": 1789587030,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1792,6 +1792,15 @@
             "added_at": "2026-01-04T08:18:23.915566+00:00",
             "checksum": "ed8671765c0eb17b890830295bf46054",
             "sound_count": 11
+        },
+        "bub-leftshift-wood": {
+            "size": 535876,
+            "uncompressed_size": 527568,
+            "sound_count": 76,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bub-leftshift-wood.zip",
+            "added_at": "2026-09-16T19:30:30.358904+00:00",
+            "checksum": "5713b0cc452f6df17dae8a89db754608"
         },
         "bub.left-shift-revamp": {
             "size": 535370,
@@ -9021,6 +9030,6 @@
             "sound_count": 41
         }
     },
-    "version": 512,
+    "version": 513,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
