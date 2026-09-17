@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-17T20:24:47.585993+00:00",
-    "updated_at_unix": 1789676687,
+    "updated_at_iso": "2026-09-17T20:25:22.312662+00:00",
+    "updated_at_unix": 1789676722,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1801,6 +1801,15 @@
             "added_at": "2026-01-04T08:18:23.915566+00:00",
             "checksum": "ed8671765c0eb17b890830295bf46054",
             "sound_count": 11
+        },
+        "bub fn right side": {
+            "size": 544974,
+            "uncompressed_size": 536554,
+            "sound_count": 78,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bub%20fn%20right%20side.zip",
+            "added_at": "2026-09-17T20:25:22.311045+00:00",
+            "checksum": "809b8d35b5acf0a9649f9a6e27f15567"
         },
         "bub right fn softest": {
             "size": 532924,
@@ -9066,6 +9075,6 @@
             "sound_count": 41
         }
     },
-    "version": 517,
+    "version": 518,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
