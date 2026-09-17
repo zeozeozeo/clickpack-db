@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-17T20:24:19.986199+00:00",
-    "updated_at_unix": 1789676659,
+    "updated_at_iso": "2026-09-17T20:24:33.226495+00:00",
+    "updated_at_unix": 1789676673,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1801,6 +1801,15 @@
             "added_at": "2026-01-04T08:18:23.915566+00:00",
             "checksum": "ed8671765c0eb17b890830295bf46054",
             "sound_count": 11
+        },
+        "bub wooting 2 idk": {
+            "size": 507096,
+            "uncompressed_size": 499330,
+            "sound_count": 72,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bub%20wooting%202%20idk.zip",
+            "added_at": "2026-09-17T20:24:33.224912+00:00",
+            "checksum": "2112b0753f9eaa5b89bf5195a283f73d"
         },
         "bub-leftshift-wood": {
             "size": 535876,
@@ -9048,6 +9057,6 @@
             "sound_count": 41
         }
     },
-    "version": 515,
+    "version": 516,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
