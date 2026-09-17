@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-16T19:30:30.361834+00:00",
-    "updated_at_unix": 1789587030,
+    "updated_at_iso": "2026-09-17T20:24:04.841189+00:00",
+    "updated_at_unix": 1789676644,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -316,6 +316,15 @@
             "added_at": "2026-05-17T09:38:22.042102+00:00",
             "checksum": "cf1ac4520a88fa9ff9fd3e57d5dbfc78",
             "sound_count": 60
+        },
+        "ajazz ak820 max": {
+            "size": 404703,
+            "uncompressed_size": 399039,
+            "sound_count": 41,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/ajazz%20ak820%20max.zip",
+            "added_at": "2026-09-17T20:24:04.839467+00:00",
+            "checksum": "6c51fc212a65e280d663821a9dd9fee6"
         },
         "AK820 PRO LAST VERSION": {
             "size": 828963,
@@ -9030,6 +9039,6 @@
             "sound_count": 41
         }
     },
-    "version": 513,
+    "version": 514,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
