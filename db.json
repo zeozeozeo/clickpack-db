@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-17T20:25:22.312662+00:00",
-    "updated_at_unix": 1789676722,
+    "updated_at_iso": "2026-09-17T20:25:36.190573+00:00",
+    "updated_at_unix": 1789676736,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -433,6 +433,15 @@
             "checksum": "2d556bd6d9a7e20f2631dc0554553ad6",
             "added_at": "2025-03-24T18:34:00+00:00",
             "sound_count": 37
+        },
+        "ALT F4": {
+            "size": 506283,
+            "uncompressed_size": 498607,
+            "sound_count": 71,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/ALT%20F4.zip",
+            "added_at": "2026-09-17T20:25:36.188603+00:00",
+            "checksum": "90cdff4cfada6b0af80811cb56722fdb"
         },
         "alt key": {
             "size": 242216,
@@ -9075,6 +9084,6 @@
             "sound_count": 41
         }
     },
-    "version": 518,
+    "version": 519,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
