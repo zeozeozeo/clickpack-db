@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-18T20:33:46.668504+00:00",
-    "updated_at_unix": 1789763626,
+    "updated_at_iso": "2026-09-18T20:34:02.969668+00:00",
+    "updated_at_unix": 1789763642,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1909,6 +1909,15 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bubs%20wooting.zip",
             "added_at": "2026-09-17T20:25:48.983250+00:00",
             "checksum": "941f125b918559ef353e66632a0aed02"
+        },
+        "bubs xl wooting v2": {
+            "size": 648822,
+            "uncompressed_size": 638608,
+            "sound_count": 95,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bubs%20xl%20wooting%20v2.zip",
+            "added_at": "2026-09-18T20:34:02.968124+00:00",
+            "checksum": "73d215fe4c26b31a8387e5771b54502b"
         },
         "Bubz up arrow noise spam-ish": {
             "size": 490138,
@@ -9129,6 +9138,6 @@
             "sound_count": 41
         }
     },
-    "version": 524,
+    "version": 525,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
