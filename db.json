@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-20T19:29:28.001144+00:00",
-    "updated_at_unix": 1789932568,
+    "updated_at_iso": "2026-09-21T22:49:14.422311+00:00",
+    "updated_at_unix": 1790030954,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -8742,6 +8742,15 @@
             "checksum": "bcf60609971cd250ddddab11141ee2fd",
             "sound_count": 41
         },
+        "worlds softest clickpack": {
+            "size": 287325,
+            "uncompressed_size": 283689,
+            "sound_count": 34,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/worlds%20softest%20clickpack.zip",
+            "added_at": "2026-09-21T22:49:14.421617+00:00",
+            "checksum": "2d5b44b1340813443d30d3bd9dc85659"
+        },
         "wPopoff's keyboard": {
             "size": 81065,
             "uncompressed_size": 79723,
@@ -9156,6 +9165,6 @@
             "sound_count": 41
         }
     },
-    "version": 527,
+    "version": 528,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
