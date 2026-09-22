@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-22T19:16:08.263019+00:00",
-    "updated_at_unix": 1790104568,
+    "updated_at_iso": "2026-09-22T21:42:46.916931+00:00",
+    "updated_at_unix": 1790113366,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6332,6 +6332,15 @@
             "added_at": "2024-11-30T19:48:12+00:00",
             "sound_count": 20
         },
+        "popoff": {
+            "size": 165298,
+            "uncompressed_size": 163854,
+            "sound_count": 14,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/popoff.zip",
+            "added_at": "2026-09-22T21:42:46.915209+00:00",
+            "checksum": "9dd19b083b03a5294d1e38131ca2fe8a"
+        },
         "Popping clicks": {
             "size": 30498,
             "uncompressed_size": 29864,
@@ -9174,6 +9183,6 @@
             "sound_count": 41
         }
     },
-    "version": 529,
+    "version": 530,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
