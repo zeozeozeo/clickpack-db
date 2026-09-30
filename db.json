@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-30T15:14:43.903546+00:00",
-    "updated_at_unix": 1790781283,
+    "updated_at_iso": "2026-09-30T15:14:44.347040+00:00",
+    "updated_at_unix": 1790781284,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1168,6 +1168,15 @@
             "added_at": "2026-03-07T21:21:04.570603+00:00",
             "checksum": "f011dd3a9a21aebd509447d921ca44ec",
             "sound_count": 59
+        },
+        "AysoEndKey FIXED": {
+            "size": 268835,
+            "uncompressed_size": 263889,
+            "sound_count": 46,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AysoEndKey%20FIXED.zip",
+            "added_at": "2026-09-30T15:14:44.346216+00:00",
+            "checksum": "9e4246554f5a4c7399e18b708d922e85"
         },
         "AysoF3Key": {
             "size": 171553,
@@ -9201,6 +9210,6 @@
             "sound_count": 41
         }
     },
-    "version": 532,
+    "version": 533,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
