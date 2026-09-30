@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-27T20:54:20.736663+00:00",
-    "updated_at_unix": 1790542460,
+    "updated_at_iso": "2026-09-30T15:14:43.903546+00:00",
+    "updated_at_unix": 1790781283,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5286,6 +5286,15 @@
             "checksum": "7b71bc8540da3dafa6c8fd9dceeeb499",
             "sound_count": 31
         },
+        "misha.wooting-60he-plastic": {
+            "size": 362681,
+            "uncompressed_size": 356113,
+            "sound_count": 60,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/misha.wooting-60he-plastic.zip",
+            "added_at": "2026-09-30T15:14:43.902840+00:00",
+            "checksum": "0ce7957d681f24d84b1508b152dd1391"
+        },
         "Mix": {
             "size": 180503,
             "uncompressed_size": 177269,
@@ -9192,6 +9201,6 @@
             "sound_count": 41
         }
     },
-    "version": 531,
+    "version": 532,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
