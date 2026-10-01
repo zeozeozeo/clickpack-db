@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-09-30T15:14:44.347040+00:00",
-    "updated_at_unix": 1790781284,
+    "updated_at_iso": "2026-10-01T13:58:31.106442+00:00",
+    "updated_at_unix": 1790863111,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6621,6 +6621,15 @@
             "added_at": "2025-04-07T12:16:52+00:00",
             "sound_count": 26
         },
+        "razer huntsman v3 ctrl key": {
+            "size": 669037,
+            "uncompressed_size": 661381,
+            "sound_count": 71,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/razer%20huntsman%20v3%20ctrl%20key.zip",
+            "added_at": "2026-10-01T13:58:31.105743+00:00",
+            "checksum": "ff46378f4c98499025b8f0542155c2d1"
+        },
         "razer ornata": {
             "size": 396507,
             "uncompressed_size": 391137,
@@ -9210,6 +9219,6 @@
             "sound_count": 41
         }
     },
-    "version": 533,
+    "version": 534,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
