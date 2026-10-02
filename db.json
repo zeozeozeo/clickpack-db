@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-01T13:58:31.106442+00:00",
-    "updated_at_unix": 1790863111,
+    "updated_at_iso": "2026-10-02T15:23:20.120095+00:00",
+    "updated_at_unix": 1790954600,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4210,6 +4210,15 @@
             "checksum": "8974e2474a206eb9458803b32ce80807",
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 14
+        },
+        "Keyboard up click": {
+            "size": 174203,
+            "uncompressed_size": 173443,
+            "sound_count": 7,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Keyboard%20up%20click.zip",
+            "added_at": "2026-10-02T15:23:20.119007+00:00",
+            "checksum": "179b5837396c8e5a943fc26e6be8cd90"
         },
         "keyboard W": {
             "size": 342015,
@@ -9219,6 +9228,6 @@
             "sound_count": 41
         }
     },
-    "version": 534,
+    "version": 535,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
