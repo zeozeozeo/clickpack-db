@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-04T09:25:49.352574+00:00",
-    "updated_at_unix": 1791105949,
+    "updated_at_iso": "2026-10-04T09:26:12.482386+00:00",
+    "updated_at_unix": 1791105972,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1936,6 +1936,15 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bubbity.zip",
             "added_at": "2026-09-17T20:24:19.983202+00:00",
             "checksum": "150e41176938326ae04295d4b3cfd83a"
+        },
+        "bubs left arrow": {
+            "size": 916192,
+            "uncompressed_size": 899996,
+            "sound_count": 150,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bubs%20left%20arrow.zip",
+            "added_at": "2026-10-04T09:26:12.481528+00:00",
+            "checksum": "2f442ee557f0092983bb783778c42347"
         },
         "bubs mouse": {
             "size": 592229,
@@ -9246,6 +9255,6 @@
             "sound_count": 41
         }
     },
-    "version": 537,
+    "version": 538,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
