@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-06T21:42:41.485783+00:00",
-    "updated_at_unix": 1791322961,
+    "updated_at_iso": "2026-10-06T21:42:56.905687+00:00",
+    "updated_at_unix": 1791322976,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7865,6 +7865,15 @@
             "added_at": "2026-08-13T22:09:11.613190+00:00",
             "checksum": "32f2301969ac5e5b5717413723c1f59f"
         },
+        "tdagger maos nos ovos": {
+            "size": 612331,
+            "uncompressed_size": 601581,
+            "sound_count": 100,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/tdagger%20maos%20nos%20ovos.zip",
+            "added_at": "2026-10-06T21:42:56.904980+00:00",
+            "checksum": "6c8474133551fc6d60b45a209b1bb7a0"
+        },
         "TDagger over and over again": {
             "size": 913267,
             "uncompressed_size": 898801,
@@ -9291,6 +9300,6 @@
             "sound_count": 41
         }
     },
-    "version": 542,
+    "version": 543,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
