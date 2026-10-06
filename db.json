@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-06T17:55:11.385352+00:00",
-    "updated_at_unix": 1791309311,
+    "updated_at_iso": "2026-10-06T18:58:13.408069+00:00",
+    "updated_at_unix": 1791313093,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -8805,6 +8805,15 @@
             "added_at": "2025-03-24T18:34:00+00:00",
             "sound_count": 35
         },
+        "Wooting 60HE Plastic v2": {
+            "size": 230413,
+            "uncompressed_size": 225453,
+            "sound_count": 46,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Wooting%2060HE%20Plastic%20v2.zip",
+            "added_at": "2026-10-06T18:58:13.407252+00:00",
+            "checksum": "2009db088d60a18aa6ed9ac2cda1ad16"
+        },
         "Wooting 80HE": {
             "size": 716374,
             "uncompressed_size": 706590,
@@ -9273,6 +9282,6 @@
             "sound_count": 41
         }
     },
-    "version": 540,
+    "version": 541,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
