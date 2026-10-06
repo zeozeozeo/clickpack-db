@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-06T18:58:13.408069+00:00",
-    "updated_at_unix": 1791313093,
+    "updated_at_iso": "2026-10-06T21:42:41.485783+00:00",
+    "updated_at_unix": 1791322961,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3559,6 +3559,15 @@
             "checksum": "1f9d4d7f9191d80796ea363504a5e029",
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 60
+        },
+        "G502 Bivatic": {
+            "size": 1643998,
+            "uncompressed_size": 1613738,
+            "sound_count": 244,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/G502%20Bivatic.zip",
+            "added_at": "2026-10-06T21:42:41.484229+00:00",
+            "checksum": "5f2fc09c9ea9b6e765faff3a19f1bc4b"
         },
         "G502 Clicks": {
             "size": 284823,
@@ -9282,6 +9291,6 @@
             "sound_count": 41
         }
     },
-    "version": 541,
+    "version": 542,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
