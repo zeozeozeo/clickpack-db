@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-04T09:26:13.613166+00:00",
-    "updated_at_unix": 1791105973,
+    "updated_at_iso": "2026-10-06T17:55:11.385352+00:00",
+    "updated_at_unix": 1791309311,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7126,6 +7126,15 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 16
         },
+        "Sayodevice WARNING LOUD": {
+            "size": 35708,
+            "uncompressed_size": 35042,
+            "sound_count": 6,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Sayodevice%20WARNING%20LOUD.zip",
+            "added_at": "2026-10-06T17:55:11.384551+00:00",
+            "checksum": "a0b4a19aea5689d7ab32c8547a6e7107"
+        },
         "Sayodevice4": {
             "size": 248736,
             "uncompressed_size": 247002,
@@ -9264,6 +9273,6 @@
             "sound_count": 41
         }
     },
-    "version": 539,
+    "version": 540,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
