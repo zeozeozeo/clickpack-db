@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-08T16:37:31.667268+00:00",
-    "updated_at_unix": 1791477451,
+    "updated_at_iso": "2026-10-15T01:08:02.692952+00:00",
+    "updated_at_unix": 1792026482,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -898,6 +898,15 @@
             "added_at": "2026-03-15T08:16:48.499216+00:00",
             "checksum": "136a15c2d7b2cfa0aa31dc41feb62d20",
             "sound_count": 29
+        },
+        "Attack Sharx X68HE": {
+            "size": 117600,
+            "uncompressed_size": 115534,
+            "sound_count": 20,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Attack%20Sharx%20X68HE.zip",
+            "added_at": "2026-10-15T01:08:02.691998+00:00",
+            "checksum": "d9f05f87fb5820226b0d63cea250dfe6"
         },
         "attackshark-x3": {
             "size": 144663,
@@ -9318,6 +9327,6 @@
             "sound_count": 41
         }
     },
-    "version": 545,
+    "version": 546,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
