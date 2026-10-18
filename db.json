@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-17T22:08:08.699843+00:00",
-    "updated_at_unix": 1792274888,
+    "updated_at_iso": "2026-10-18T11:50:39.249589+00:00",
+    "updated_at_unix": 1792324239,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7974,6 +7974,15 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 8
         },
+        "Tizs Sayodevice no Deskmat": {
+            "size": 393974,
+            "uncompressed_size": 388182,
+            "sound_count": 54,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Tizs%20Sayodevice%20no%20Deskmat.zip",
+            "added_at": "2026-10-18T11:50:39.248703+00:00",
+            "checksum": "67b20eadea20edc927bc8a83ceffef7e"
+        },
         "ToastBud32": {
             "size": 21970,
             "uncompressed_size": 21540,
@@ -9336,6 +9345,6 @@
             "sound_count": 41
         }
     },
-    "version": 547,
+    "version": 548,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
