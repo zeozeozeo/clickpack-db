@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-18T11:50:39.249589+00:00",
-    "updated_at_unix": 1792324239,
+    "updated_at_iso": "2026-10-19T01:18:11.953781+00:00",
+    "updated_at_unix": 1792372691,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7974,6 +7974,15 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 8
         },
+        "tiz mouse": {
+            "size": 285933,
+            "uncompressed_size": 282109,
+            "sound_count": 36,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/tiz%20mouse.zip",
+            "added_at": "2026-10-19T01:18:11.953025+00:00",
+            "checksum": "c24f0ec5b3eb82d716481757605ecf79"
+        },
         "Tizs Sayodevice no Deskmat": {
             "size": 393974,
             "uncompressed_size": 388182,
@@ -9345,6 +9354,6 @@
             "sound_count": 41
         }
     },
-    "version": 548,
+    "version": 549,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
