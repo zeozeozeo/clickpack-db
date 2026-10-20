@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-20T18:31:05.083208+00:00",
-    "updated_at_unix": 1792521065,
+    "updated_at_iso": "2026-10-20T18:31:43.344059+00:00",
+    "updated_at_unix": 1792521103,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -8931,6 +8931,15 @@
             "checksum": "bcf60609971cd250ddddab11141ee2fd",
             "sound_count": 41
         },
+        "WootingRizz": {
+            "size": 395261,
+            "uncompressed_size": 388339,
+            "sound_count": 64,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/WootingRizz.zip",
+            "added_at": "2026-10-20T18:31:43.341987+00:00",
+            "checksum": "73ae45bacf0b6aba89e7cf4d1caef43a"
+        },
         "WootingRizz v2": {
             "size": 675958,
             "uncompressed_size": 662464,
@@ -9363,6 +9372,6 @@
             "sound_count": 41
         }
     },
-    "version": 550,
+    "version": 551,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
