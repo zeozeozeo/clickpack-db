@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-20T18:31:43.344059+00:00",
-    "updated_at_unix": 1792521103,
+    "updated_at_iso": "2026-10-21T13:53:34.191058+00:00",
+    "updated_at_unix": 1792590814,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6909,6 +6909,15 @@
             "added_at": "2024-03-17T12:19:23+00:00",
             "sound_count": 37
         },
+        "RizzShiftWooting": {
+            "size": 370382,
+            "uncompressed_size": 363908,
+            "sound_count": 60,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/RizzShiftWooting.zip",
+            "added_at": "2026-10-21T13:53:34.182683+00:00",
+            "checksum": "c6c1169647fdb8de824294c8299308a9"
+        },
         "RK61": {
             "size": 24030,
             "uncompressed_size": 23536,
@@ -9372,6 +9381,6 @@
             "sound_count": 41
         }
     },
-    "version": 551,
+    "version": 552,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
