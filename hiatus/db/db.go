@@ -26,7 +26,6 @@ func InitDB(dataSourceName string) error {
 		`CREATE TABLE IF NOT EXISTS downloads (
 			id INTEGER PRIMARY KEY AUTOINCREMENT,
 			name TEXT NOT NULL,
-			ip_address TEXT NOT NULL,
 			downloaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 		)`,
 	}

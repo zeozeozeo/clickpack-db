@@ -124,8 +124,7 @@ func incrementDownloadHandler(c echo.Context) error {
 		return c.JSON(http.StatusBadRequest, map[string]string{"error": "clickpack name is required"})
 	}
 
-	ip := c.RealIP()
-	err = db.IncrementDownload(name, ip)
+	err = db.IncrementDownload(name)
 	if err != nil {
 		if errors.Is(err, db.ErrClickpackNotInIndex) {
 			return c.JSON(http.StatusNotFound, map[string]string{"error": err.Error()})

@@ -8,8 +8,8 @@ import (
 // ErrClickpackNotInIndex is returned when a clickpack is not found in the index.
 var ErrClickpackNotInIndex = fmt.Errorf("clickpack not found in index")
 
-// IncrementDownload records a download for the given clickpack name and IP address
-func IncrementDownload(clickpackName, ipAddress string) error {
+// IncrementDownload records a download for the given clickpack name.
+func IncrementDownload(clickpackName string) error {
 	index, err := fetchDB()
 	if err != nil {
 		slog.Error("failed to fetch clickpack index during IncrementDownload", "name", clickpackName, "error", err)
@@ -24,7 +24,7 @@ func IncrementDownload(clickpackName, ipAddress string) error {
 		return ErrClickpackNotInIndex
 	}
 
-	_, err = globalDB.Exec(`INSERT INTO downloads (name, ip_address) VALUES (?, ?)`, clickpackName, ipAddress)
+	_, err = globalDB.Exec(`INSERT INTO downloads (name) VALUES (?)`, clickpackName)
 	if err != nil {
 		slog.Error("failed to insert download record", "name", clickpackName, "error", err)
 		return fmt.Errorf("failed to insert download record: %w", err)
