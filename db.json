@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-24T19:44:39.161432+00:00",
-    "updated_at_unix": 1792871079,
+    "updated_at_iso": "2026-10-24T19:44:40.831106+00:00",
+    "updated_at_unix": 1792871080,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -6557,6 +6557,15 @@
             "checksum": "6f4182741485f8b5aedbbb9b320d46c3",
             "sound_count": 25
         },
+        "purple sayo": {
+            "size": 34712,
+            "uncompressed_size": 34058,
+            "sound_count": 6,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/purple%20sayo.zip",
+            "added_at": "2026-10-24T19:44:40.830267+00:00",
+            "checksum": "81ffa41da4e94c89628acbb8af725730"
+        },
         "q clikcer": {
             "size": 536800,
             "uncompressed_size": 535664,
@@ -9390,6 +9399,6 @@
             "sound_count": 41
         }
     },
-    "version": 553,
+    "version": 554,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
