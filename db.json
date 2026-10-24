@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-24T19:44:40.831106+00:00",
-    "updated_at_unix": 1792871080,
+    "updated_at_iso": "2026-10-24T19:44:48.342135+00:00",
+    "updated_at_unix": 1792871088,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -943,6 +943,15 @@
             "added_at": "2026-04-03T16:25:28.212404+00:00",
             "checksum": "42990fda161a86c3e3503ddf5460509d",
             "sound_count": 35
+        },
+        "AULA F75 PRO 1": {
+            "size": 273156,
+            "uncompressed_size": 267638,
+            "sound_count": 46,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/AULA%20F75%20PRO%201.zip",
+            "added_at": "2026-10-24T19:44:48.339820+00:00",
+            "checksum": "9ea8a89c7d0e7fc13ece9c47fcd5b289"
         },
         "aula f75 v2": {
             "size": 423037,
@@ -9399,6 +9408,6 @@
             "sound_count": 41
         }
     },
-    "version": 554,
+    "version": 555,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
