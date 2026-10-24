@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-24T19:44:48.342135+00:00",
-    "updated_at_unix": 1792871088,
+    "updated_at_iso": "2026-10-24T19:45:04.485560+00:00",
+    "updated_at_unix": 1792871104,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -8904,6 +8904,15 @@
             "checksum": "2a7db9f4bd24f08c161d85d175793a3f",
             "sound_count": 54
         },
+        "WomierArrow": {
+            "size": 267826,
+            "uncompressed_size": 262428,
+            "sound_count": 45,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/WomierArrow.zip",
+            "added_at": "2026-10-24T19:45:04.483402+00:00",
+            "checksum": "c3ccd0987fd71108e04f9ec89d93bc58"
+        },
         "Wooting 60HE": {
             "size": 219578,
             "uncompressed_size": 215870,
@@ -9408,6 +9417,6 @@
             "sound_count": 41
         }
     },
-    "version": 555,
+    "version": 556,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
