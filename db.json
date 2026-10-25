@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-25T02:34:13.184565+00:00",
-    "updated_at_unix": 1792895653,
+    "updated_at_iso": "2026-10-25T02:34:26.580996+00:00",
+    "updated_at_unix": 1792895666,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1827,6 +1827,15 @@
             "checksum": "671f96aadab612af45379a3a1caef7d5",
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 26
+        },
+        "BonnaBlueSwitch": {
+            "size": 260573,
+            "uncompressed_size": 256727,
+            "sound_count": 37,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/BonnaBlueSwitch.zip",
+            "added_at": "2026-10-25T02:34:26.578721+00:00",
+            "checksum": "fbc04eaf9c31ab890a1b00bb1b18836d"
         },
         "bozo's keyboard": {
             "size": 143146,
@@ -9435,6 +9444,6 @@
             "sound_count": 41
         }
     },
-    "version": 558,
+    "version": 559,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
