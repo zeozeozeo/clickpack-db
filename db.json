@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-24T19:45:04.485560+00:00",
-    "updated_at_unix": 1792871104,
+    "updated_at_iso": "2026-10-25T00:17:08.615161+00:00",
+    "updated_at_unix": 1792887428,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -8614,6 +8614,15 @@
             "checksum": "856b062f94c8d880303a48a696e0ee72",
             "sound_count": 65
         },
+        "uyla WS Flux Deep Clacky": {
+            "size": 302835,
+            "uncompressed_size": 297241,
+            "sound_count": 52,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/uyla%20WS%20Flux%20Deep%20Clacky.zip",
+            "added_at": "2026-10-25T00:17:08.614459+00:00",
+            "checksum": "96ad53f6ba6f1aaa24e34b3f3d745f10"
+        },
         "uylas wooting 80he": {
             "size": 665198,
             "uncompressed_size": 653864,
@@ -9417,6 +9426,6 @@
             "sound_count": 41
         }
     },
-    "version": 556,
+    "version": 557,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
