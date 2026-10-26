@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-26T04:07:14.726247+00:00",
-    "updated_at_unix": 1792987634,
+    "updated_at_iso": "2026-10-26T12:04:38.066309+00:00",
+    "updated_at_unix": 1793016278,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3931,6 +3931,15 @@
             "added_at": "2026-01-15T20:52:05.319545+00:00",
             "checksum": "2db97772ba2af2ef41ca673a67b8147a",
             "sound_count": 35
+        },
+        "Gravastar Z Key": {
+            "size": 262742,
+            "uncompressed_size": 257860,
+            "sound_count": 45,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Gravastar%20Z%20Key.zip",
+            "added_at": "2026-10-26T12:04:38.055772+00:00",
+            "checksum": "4fd43095b133f8ed0dfb66b78a1c7002"
         },
         "Gravastar-Creamy-Up-Arrow-ZCB": {
             "size": 1222502,
@@ -9508,6 +9517,6 @@
             "sound_count": 41
         }
     },
-    "version": 566,
+    "version": 567,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
