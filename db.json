@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-26T04:06:27.394171+00:00",
-    "updated_at_unix": 1792987587,
+    "updated_at_iso": "2026-10-26T04:06:37.582538+00:00",
+    "updated_at_unix": 1792987597,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -952,6 +952,15 @@
             "checksum": "a82d6209e28ddde6fcae589d5dddcfdb",
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 30
+        },
+        "aula baixitos": {
+            "size": 391221,
+            "uncompressed_size": 384249,
+            "sound_count": 65,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/aula%20baixitos.zip",
+            "added_at": "2026-10-26T04:06:37.581553+00:00",
+            "checksum": "5331af08c98feb580152eaa2178fe59d"
         },
         "aula f75 clickpack": {
             "size": 212391,
@@ -9481,6 +9490,6 @@
             "sound_count": 41
         }
     },
-    "version": 563,
+    "version": 564,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
