@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-26T04:06:49.083960+00:00",
-    "updated_at_unix": 1792987609,
+    "updated_at_iso": "2026-10-26T04:07:14.726247+00:00",
+    "updated_at_unix": 1792987634,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1808,6 +1808,15 @@
             "checksum": "f86be9ff634dbfe28f8d65a4572b4d33",
             "added_at": "2024-11-30T19:48:12+00:00",
             "sound_count": 319
+        },
+        "bluh baixitos": {
+            "size": 384229,
+            "uncompressed_size": 377403,
+            "sound_count": 64,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bluh%20baixitos.zip",
+            "added_at": "2026-10-26T04:07:14.725299+00:00",
+            "checksum": "a243574aa2a8899e59cddcebfc8c6bbf"
         },
         "bmp bump1234s Sayo Clickpack": {
             "size": 44266,
@@ -9499,6 +9508,6 @@
             "sound_count": 41
         }
     },
-    "version": 565,
+    "version": 566,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
