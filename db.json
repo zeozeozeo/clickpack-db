@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-25T21:28:51.386230+00:00",
-    "updated_at_unix": 1792963731,
+    "updated_at_iso": "2026-10-26T04:06:09.204776+00:00",
+    "updated_at_unix": 1792987569,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -415,6 +415,15 @@
             "checksum": "01eedf874f0ba54b28393e5d06e6614b",
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 6
+        },
+        "akyse": {
+            "size": 478241,
+            "uncompressed_size": 469697,
+            "sound_count": 78,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/akyse.zip",
+            "added_at": "2026-10-26T04:06:09.203886+00:00",
+            "checksum": "ab64e5e1fdbb3e2a2228d851e5c95ee6"
         },
         "alexg502": {
             "size": 1184660,
@@ -9463,6 +9472,6 @@
             "sound_count": 41
         }
     },
-    "version": 561,
+    "version": 562,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
