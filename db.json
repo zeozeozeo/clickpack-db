@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-26T04:06:09.204776+00:00",
-    "updated_at_unix": 1792987569,
+    "updated_at_iso": "2026-10-26T04:06:27.394171+00:00",
+    "updated_at_unix": 1792987587,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2468,6 +2468,15 @@
             "added_at": "2026-01-25T23:44:46.956501+00:00",
             "checksum": "42972d73107117ad964579277f965566",
             "sound_count": 1
+        },
+        "Clara style": {
+            "size": 626766,
+            "uncompressed_size": 617062,
+            "sound_count": 90,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Clara%20style.zip",
+            "added_at": "2026-10-26T04:06:27.391808+00:00",
+            "checksum": "ba4458eed0cb37d3e9c28b982cbb521b"
         },
         "click sound effect": {
             "size": 11599,
@@ -9472,6 +9481,6 @@
             "sound_count": 41
         }
     },
-    "version": 562,
+    "version": 563,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
