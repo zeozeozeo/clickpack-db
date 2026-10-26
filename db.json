@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-26T04:06:37.582538+00:00",
-    "updated_at_unix": 1792987597,
+    "updated_at_iso": "2026-10-26T04:06:49.083960+00:00",
+    "updated_at_unix": 1792987609,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1420,6 +1420,15 @@
             "checksum": "d755931b9ab9e8ab222381f2ab66bb81",
             "added_at": "2024-07-11T07:13:22+00:00",
             "sound_count": 22
+        },
+        "b b key b": {
+            "size": 456002,
+            "uncompressed_size": 447920,
+            "sound_count": 76,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/b%20b%20key%20b.zip",
+            "added_at": "2026-10-26T04:06:49.083042+00:00",
+            "checksum": "e2d0aaf7e6da3a3054b0db9c2095aae1"
         },
         "B0rys_clicks": {
             "size": 206439,
@@ -9490,6 +9499,6 @@
             "sound_count": 41
         }
     },
-    "version": 564,
+    "version": 565,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
