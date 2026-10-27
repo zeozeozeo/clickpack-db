@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-27T11:59:48.983176+00:00",
-    "updated_at_unix": 1793102388,
+    "updated_at_iso": "2026-10-27T12:00:23.358178+00:00",
+    "updated_at_unix": 1793102423,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3949,6 +3949,16 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Gravastar%20Z%20Key.zip",
             "added_at": "2026-10-26T12:04:38.055772+00:00",
             "checksum": "4fd43095b133f8ed0dfb66b78a1c7002"
+        },
+        "Gravastar-Creamy-Up-Arrow-V2-ZCB": {
+            "size": 1297829,
+            "uncompressed_size": 1268673,
+            "sound_count": 241,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Gravastar-Creamy-Up-Arrow-V2-ZCB.zip",
+            "added_at": "2026-10-27T12:00:23.355816+00:00",
+            "readme": "Gravastar Creamy Up Arrow V2\n\nOn deskmat on marble desk.\n\nBuilt with CutItQuik for ZCB Live.\n\nInstall\n  1. Unzip this archive.\n  2. Move the resulting folder into the .zcb/clickpacks folder next to your\n     Geometry Dash executable.\n  3. In ZCB Live, open Clickpack > Select clickpack and pick it from the list.\n\nLayout: Full platformer (player1, player2, left1, right1, left2, right2)\nFormat: 48 kHz, mono, 16-bit PCM WAV. No manifest is needed; ZCB reads the\nfolder name as the pack name.\n",
+            "checksum": "d2b88d6a5320a111dc870a944a2a2953"
         },
         "Gravastar-Creamy-Up-Arrow-ZCB": {
             "size": 1222502,
@@ -9526,6 +9536,6 @@
             "sound_count": 41
         }
     },
-    "version": 568,
+    "version": 569,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
