@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-27T12:00:28.175240+00:00",
-    "updated_at_unix": 1793102428,
+    "updated_at_iso": "2026-10-28T20:00:50.598649+00:00",
+    "updated_at_unix": 1793217650,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -9041,6 +9041,15 @@
             "added_at": "2026-10-24T19:45:04.483402+00:00",
             "checksum": "c3ccd0987fd71108e04f9ec89d93bc58"
         },
+        "woot alternate bigger": {
+            "size": 764234,
+            "uncompressed_size": 750870,
+            "sound_count": 124,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/woot%20alternate%20bigger.zip",
+            "added_at": "2026-10-28T20:00:50.597929+00:00",
+            "checksum": "a250b9a8ce0462e7ece617b43b54ebc4"
+        },
         "Wooting 60HE": {
             "size": 219578,
             "uncompressed_size": 215870,
@@ -9545,6 +9554,6 @@
             "sound_count": 41
         }
     },
-    "version": 570,
+    "version": 571,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
