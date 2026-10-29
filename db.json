@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-28T20:00:59.109306+00:00",
-    "updated_at_unix": 1793217659,
+    "updated_at_iso": "2026-10-29T03:49:47.456092+00:00",
+    "updated_at_unix": 1793245787,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -2017,6 +2017,15 @@
             "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bub%20right%20fn%20softest.zip",
             "added_at": "2026-09-17T20:24:47.584322+00:00",
             "checksum": "f5ce2833a67f2a65cf7bd29a56160fd1"
+        },
+        "bub slash": {
+            "size": 482143,
+            "uncompressed_size": 474003,
+            "sound_count": 76,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bub%20slash.zip",
+            "added_at": "2026-10-29T03:49:47.455099+00:00",
+            "checksum": "ffe188569a663fb6097a43b7c8b111dc"
         },
         "bub wooting 2 idk": {
             "size": 507096,
@@ -9563,6 +9572,6 @@
             "sound_count": 41
         }
     },
-    "version": 572,
+    "version": 573,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
