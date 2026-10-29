@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-29T03:51:03.208068+00:00",
-    "updated_at_unix": 1793245863,
+    "updated_at_iso": "2026-10-29T17:10:13.782152+00:00",
+    "updated_at_unix": 1793293813,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7678,6 +7678,15 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 24
         },
+        "slash big": {
+            "size": 1146571,
+            "uncompressed_size": 1126239,
+            "sound_count": 189,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/slash%20big.zip",
+            "added_at": "2026-10-29T17:10:13.780809+00:00",
+            "checksum": "81cc6823cdd065fda24c06ead5692c00"
+        },
         "sm14": {
             "size": 90571,
             "uncompressed_size": 88607,
@@ -9617,6 +9626,6 @@
             "sound_count": 41
         }
     },
-    "version": 578,
+    "version": 579,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
