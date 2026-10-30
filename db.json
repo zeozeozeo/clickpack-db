@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-30T09:31:59.127278+00:00",
-    "updated_at_unix": 1793352719,
+    "updated_at_iso": "2026-10-30T09:32:11.200838+00:00",
+    "updated_at_unix": 1793352731,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3262,6 +3262,15 @@
             "checksum": "751947e44d25de0a02edf74a18c311e2",
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 40
+        },
+        "enter ceramic": {
+            "size": 473005,
+            "uncompressed_size": 465061,
+            "sound_count": 74,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/enter%20ceramic.zip",
+            "added_at": "2026-10-30T09:32:11.199891+00:00",
+            "checksum": "ea7f3e2bc53a88e976ded0a62fa87f2c"
         },
         "Enter Key": {
             "size": 258658,
@@ -9644,6 +9653,6 @@
             "sound_count": 41
         }
     },
-    "version": 581,
+    "version": 582,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
