@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-30T09:32:30.164664+00:00",
-    "updated_at_unix": 1793352750,
+    "updated_at_iso": "2026-10-30T09:32:38.312681+00:00",
+    "updated_at_unix": 1793352758,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3135,6 +3135,15 @@
             "checksum": "d03db3b300712257de58e097547c2881",
             "added_at": "2025-01-05T15:06:33+00:00",
             "sound_count": 101
+        },
+        "different sound test": {
+            "size": 338531,
+            "uncompressed_size": 333073,
+            "sound_count": 51,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/different%20sound%20test.zip",
+            "added_at": "2026-10-30T09:32:38.311720+00:00",
+            "checksum": "a0e1ec4cde2abcefb53a65367fb104ae"
         },
         "DijTaps": {
             "size": 285597,
@@ -9662,6 +9671,6 @@
             "sound_count": 41
         }
     },
-    "version": 583,
+    "version": 584,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
