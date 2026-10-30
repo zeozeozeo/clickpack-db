@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-30T09:32:11.200838+00:00",
-    "updated_at_unix": 1793352731,
+    "updated_at_iso": "2026-10-30T09:32:30.164664+00:00",
+    "updated_at_unix": 1793352750,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4158,6 +4158,15 @@
             "checksum": "5ef5199fef1c6dfd41d1c068690a1506",
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 6
+        },
+        "holding keyboard": {
+            "size": 353857,
+            "uncompressed_size": 348057,
+            "sound_count": 54,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/holding%20keyboard.zip",
+            "added_at": "2026-10-30T09:32:30.163754+00:00",
+            "checksum": "07e56ff8f26cce7491fad1345fc9bb96"
         },
         "Holy Shit": {
             "size": 727112,
@@ -9653,6 +9662,6 @@
             "sound_count": 41
         }
     },
-    "version": 582,
+    "version": 583,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
