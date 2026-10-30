@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-30T09:31:44.642106+00:00",
-    "updated_at_unix": 1793352704,
+    "updated_at_iso": "2026-10-30T09:31:59.127278+00:00",
+    "updated_at_unix": 1793352719,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -9032,6 +9032,15 @@
             "added_at": "2024-03-17T11:40:03+00:00",
             "sound_count": 22
         },
+        "what the logitech": {
+            "size": 573752,
+            "uncompressed_size": 563828,
+            "sound_count": 92,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/what%20the%20logitech.zip",
+            "added_at": "2026-10-30T09:31:59.126409+00:00",
+            "checksum": "32e56a81dbfc72201271b459391dc047"
+        },
         "whatever_v2": {
             "size": 728600,
             "uncompressed_size": 722044,
@@ -9635,6 +9644,6 @@
             "sound_count": 41
         }
     },
-    "version": 580,
+    "version": 581,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
