@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-10-30T09:32:38.312681+00:00",
-    "updated_at_unix": 1793352758,
+    "updated_at_iso": "2026-11-02T03:35:36.223096+00:00",
+    "updated_at_unix": 1793590536,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -5766,6 +5766,15 @@
             "checksum": "8ebf7b097bc63546148613f1830795b4",
             "sound_count": 6
         },
+        "mr42purples fixed clacks": {
+            "size": 38384,
+            "uncompressed_size": 37554,
+            "sound_count": 8,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/mr42purples%20fixed%20clacks.zip",
+            "added_at": "2026-11-02T03:35:36.222366+00:00",
+            "checksum": "5d3a67b54121f0bd274e747ec5e4ad81"
+        },
         "mravinity logitech": {
             "size": 73526,
             "uncompressed_size": 72796,
@@ -9671,6 +9680,6 @@
             "sound_count": 41
         }
     },
-    "version": 584,
+    "version": 585,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
