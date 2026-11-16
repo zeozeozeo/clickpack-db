@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-11-02T03:35:36.223096+00:00",
-    "updated_at_unix": 1793590536,
+    "updated_at_iso": "2026-11-16T11:33:14.720057+00:00",
+    "updated_at_unix": 1794828794,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -7371,6 +7371,15 @@
             "checksum": "eb13b17ddf2dd0ee6b59d7ea67b695ce",
             "sound_count": 34
         },
+        "Sayo With Different Keycaps": {
+            "size": 1128043,
+            "uncompressed_size": 1105583,
+            "sound_count": 181,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Sayo%20With%20Different%20Keycaps.zip",
+            "added_at": "2026-11-16T11:33:14.719214+00:00",
+            "checksum": "73f68a8511ec144a4f9d4b806b9d85c0"
+        },
         "Sayo-V4": {
             "size": 122124,
             "uncompressed_size": 119226,
@@ -9680,6 +9689,6 @@
             "sound_count": 41
         }
     },
-    "version": 585,
+    "version": 586,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
