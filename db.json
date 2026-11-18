@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-11-16T11:33:14.720057+00:00",
-    "updated_at_unix": 1794828794,
+    "updated_at_iso": "2026-11-18T01:42:34.326072+00:00",
+    "updated_at_unix": 1794966154,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -8859,6 +8859,16 @@
             "added_at": "2026-10-25T00:17:08.614459+00:00",
             "checksum": "96ad53f6ba6f1aaa24e34b3f3d745f10"
         },
+        "uylas clicks": {
+            "size": 342782,
+            "uncompressed_size": 336322,
+            "sound_count": 59,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/uylas%20clicks.zip",
+            "added_at": "2026-11-18T01:42:34.325324+00:00",
+            "readme": "\"uylas clicks\"\r\n\r\nthis clickpack was made using my up arrow key on my wooting 80he\r\n\r\nbasically what my exact clicks sound like when i play\r\n\r\nmy wooting 80he:\r\nABS plastic case\r\ndouble shot pbt keycaps\r\nws flux pink lotus switch\r\n\r\npros:\r\nrealistic sounding\r\nlow background noise\r\nclacky\r\n\r\n\r\ncons:\r\nmetallic sounding (personally dont like this but maybe someone does)\r\n\r\n\r\nidk what other things to list so this is kind of some ahh pros and cons",
+            "checksum": "23987512be1ebbcf8c55bd476a15aca5"
+        },
         "uylas wooting 80he": {
             "size": 665198,
             "uncompressed_size": 653864,
@@ -9689,6 +9699,6 @@
             "sound_count": 41
         }
     },
-    "version": 586,
+    "version": 587,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
