@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-11-18T01:42:34.326072+00:00",
-    "updated_at_unix": 1794966154,
+    "updated_at_iso": "2026-11-18T12:22:33.443231+00:00",
+    "updated_at_unix": 1795004553,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -3081,6 +3081,16 @@
             "added_at": "2026-07-02T11:41:34.392490+00:00",
             "checksum": "79215e97e014d887d2eb4eb0ef7e451b",
             "sound_count": 18
+        },
+        "Denkyuzus Sayo K07HE  Snow Shine": {
+            "size": 1250837,
+            "uncompressed_size": 1230013,
+            "sound_count": 191,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/Denkyuzus%20Sayo%20K07HE%20%20Snow%20Shine.zip",
+            "added_at": "2026-11-18T12:22:33.442123+00:00",
+            "readme": "Basically an clickpack with my equipment recorded. Nothing too special.\n\nKeypad: SayoDevice K07HE\nSwitches: Unionwell Snow Shine\nMicrophone: Maono DM40 Pro\n\nAll of the wave files were processed through Browser Noise Suppresion or post-denoiser.\n\nALSO COMING TO LOCAL ECHO DATABASE NEAR YOUR HOUSE!\n\n\nyoutube.com/@d3nkyu2uGD\nyoutube.com/@\u0434\u044b\u0445\u0425\u0445\ntwitter.com/denkyuzuGD\nt.me/dbix_gd",
+            "checksum": "e4510215512186ba361b85e8de94c634"
         },
         "Devin Basilisk v3": {
             "size": 15064,
@@ -9699,6 +9709,6 @@
             "sound_count": 41
         }
     },
-    "version": 587,
+    "version": 588,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
