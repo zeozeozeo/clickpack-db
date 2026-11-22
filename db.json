@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-11-18T12:22:33.443231+00:00",
-    "updated_at_unix": 1795004553,
+    "updated_at_iso": "2026-11-22T03:26:14.063064+00:00",
+    "updated_at_unix": 1795317974,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -4591,6 +4591,15 @@
             "added_at": "2026-07-02T05:03:38.304642+00:00",
             "checksum": "beae259900c92e2d5ac24b126d172801",
             "sound_count": 12
+        },
+        "kingstons mouse 2": {
+            "size": 388743,
+            "uncompressed_size": 382615,
+            "sound_count": 57,
+            "has_noise": true,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/kingstons%20mouse%202.zip",
+            "added_at": "2026-11-22T03:26:14.062210+00:00",
+            "checksum": "7485894ed3515efbf69b7b1a2b8665ee"
         },
         "kingstons num enter ke": {
             "size": 12019,
@@ -9709,6 +9718,6 @@
             "sound_count": 41
         }
     },
-    "version": 588,
+    "version": 589,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
