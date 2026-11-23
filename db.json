@@ -1,6 +1,6 @@
 {
-    "updated_at_iso": "2026-11-22T03:26:14.063064+00:00",
-    "updated_at_unix": 1795317974,
+    "updated_at_iso": "2026-11-23T17:07:38.575077+00:00",
+    "updated_at_unix": 1795453658,
     "clickpacks": {
         "0Pacitys_Clicks_V2": {
             "size": 101489,
@@ -1817,6 +1817,15 @@
             "added_at": "2026-03-01T19:01:05.043242+00:00",
             "checksum": "fa705c8d69095ff372d6a8642a138b25",
             "sound_count": 18
+        },
+        "bluekenya": {
+            "size": 612672,
+            "uncompressed_size": 601922,
+            "sound_count": 100,
+            "has_noise": false,
+            "url": "https://github.com/zeozeozeo/clickpack-db/raw/main/out/bluekenya.zip",
+            "added_at": "2026-11-23T17:07:38.574129+00:00",
+            "checksum": "49de0c5f20f8e11fddeaae93293837e4"
         },
         "blueswitch": {
             "size": 2275087,
@@ -9718,6 +9727,6 @@
             "sound_count": 41
         }
     },
-    "version": 589,
+    "version": 590,
     "hiatus": "https://hiatus.ruikasa.lol"
 }
